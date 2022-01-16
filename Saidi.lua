@@ -577,7 +577,7 @@ MsgText = 'ملك التفاعل 😎'
 elseif tonumber(Message) < 9500 then 
 MsgText = 'زعيم التفاعل 😻' 
 elseif tonumber(Message) < 10000000000 then 
-MsgText = 'سيدي عظمة التفاعل' 👍'  
+MsgText = 'سيدي عظمة التفاعل 👍'  
 end 
 return MsgText 
 end
