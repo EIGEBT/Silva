@@ -9198,23 +9198,22 @@ end
 end
 end
 if text == "جمالي" or text == 'نسبه جمالي' then
-if Redis:get(Saidi.."Status:gamle"..msg.chat_id) then
-local photo = LuaTele.getUserProfilePhotos(msg.sender.user_id)
-if msg.Developers then
-if photo.total_count > 0 then
-return LuaTele.sendPhoto(msg.chat_id, msg.id, photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id,"*نسبه جمالك هي 900% عشان مطور ولازم اطبله😹♥*", "md")
-else
-return LuaTele.sendText(msg_chat_id,msg_id,'*● لا توجد صوره ف حسابك*',"md",true) 
+if not Redis:get(Saidi.."Status:gamle"..msg_chat_id) then
+return false
 end
-else
-if photo.total_count > 0 then
+local ban = LuaTele.getUser(msg.sender.user_id)
+local photo = LuaTele.getUserProfilePhotos(msg.sender.user_id)
 local nspp = {"10","20","30","35","75","34","66","82","23","19","55","80","63","32","27","89","99","98","79","100","8","3","6","0",}
 local rdbhoto = nspp[math.random(#nspp)]
-return LuaTele.sendPhoto(msg.chat_id, msg.id, photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id,"*نسبه جمالك هي "..rdbhoto.."% 🙄♥*", "md")
-else
-return LuaTele.sendText(msg_chat_id,msg_id,'*● لا توجد صوره ف حسابك*',"md",true) 
-end
-end
+if photo.total_count > 0 then
+data = {} 
+data.inline_keyboard = {
+{
+{text ='نسبه جمالك يا قمر '..rdbhoto..' 🌝💙',url = "https://t.me/"..ban.username..""}, 
+},
+}
+local msgg = msg_id/2097152/0.5
+https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id=" .. msg_chat_id .. "&photo="..photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id.."&photo=".. URL.escape(rdbhoto).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(data))
 end
 end
 if text and text:match("^قول (.*)$")then
