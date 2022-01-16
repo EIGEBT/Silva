@@ -7163,6 +7163,35 @@ Redis:del(Saidi.."Saidi:Lock:Inlen"..msg_chat_id)
 LuaTele.sendText(msg_chat_id,msg_id,Reply_Status(msg.sender.user_id," ⦁ تم فتح الانلاين").unLock,"md",true)  
 return false
 end 
+if Redis:get(Saidi.."youtube"..msg.sender.user_id..msg_chat_id) == "mp3" then
+local rep = msg.id/2097152/0.5
+local m = rep +1
+https.request("https://api.telegram.org/bot"..Token.."/sendAnimation?chat_id="..msg_chat_id.."&animation=https://t.me/youtube7odabot/7951&reply_to_message_id="..rep)
+https.request("https://api.medooo.ml/leomedo/yt?text="..URL.escape(text).."&token="..Token.."&msg_id="..rep.."&chat_id="..msg_chat_id.."&type=mp3")
+https.request("https://api.telegram.org/bot"..Token.."/deleteMessage?chat_id="..msg_chat_id.."&message_id="..m)
+Redis:del(Saidi.."youtube"..msg.sender.user_id..msg_chat_id)
+end
+if Redis:get(Saidi.."youtube"..msg.sender.user_id..msg_chat_id) == "mp4" then
+local rep = msg.id/2097152/0.5
+local m = rep +1
+https.request("https://api.telegram.org/bot"..Token.."/sendAnimation?chat_id="..msg_chat_id.."&animation=https://t.me/youtube7odabot/7951&reply_to_message_id="..rep)
+https.request("https://api.medooo.ml/leomedo/yt?text="..URL.escape(text).."&token="..Token.."&msg_id="..rep.."&chat_id="..msg_chat_id.."&type=mp4")
+https.request("https://api.telegram.org/bot"..Token.."/deleteMessage?chat_id="..msg_chat_id.."&message_id="..m)
+Redis:del(Saidi.."youtube"..msg.sender.user_id..msg_chat_id)
+end
+if text == "يوتيوب" then
+local reply_markup = LuaTele.replyMarkup{
+type = 'inline',
+data = {
+{
+{text = 'تحميل صوت', data = msg.sender.user_id..'/mp3'..msg_id}, {text = 'تحميل فيديو', data = msg.sender.user_id..'/mp4'..msg_id}, 
+},
+}
+}
+return LuaTele.sendText(msg_chat_id,msg_id, [[*
+※ اختر كيف تريد التحميل
+*]],"md",false, false, false, false, reply_markup)
+end
 if text == "ضع رابط" or text == "وضع رابط" then
 if not msg.Addictive then
 return LuaTele.sendText(msg_chat_id,msg_id,'\n* ⦁ هاذا الامر يخص 『 '..Controller_Num(7)..' 』* ',"md",true)  
@@ -8402,10 +8431,6 @@ end
 Redis:del(Saidi.."Saidi:Set:Id:Group"..msg.chat_id)
 return LuaTele.sendText(msg_chat_id,msg_id, ' ⦁ تم ازالة كليشة الايدي ',"md",true)  
 end
-if text and text:match('^بحث (.*)$') then
-local search = text:match('^بحث (.*)$')
-https.request("https://core1.tk/apies/youtube/script.php?token="..Token.."&chat="..msg_chat_id.."&text="..URL.escape(search))
-end
 if text and text:match("^مسح (.*)$") and msg.reply_to_message_id == 0 then
 local TextMsg = text:match("^مسح (.*)$")
 if TextMsg == 'المطورين الثانوين' or TextMsg == 'المطورين الثانويين' then
@@ -9184,7 +9209,7 @@ local T = '*🤍 ▸ 𝑫𝑬𝑽 𝑩𝑶𝑻 -› *['..ban.first_name..'](tg:/
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = ban.first_name, url = 't.me/Saidi_source'}, 
+{text = ban.first_name, url = "https://t.me/"..ban.id..""}, 
 },
 {
 {text = '𓄼⦁ sᴏᴜʀᴄᴇ sᴀɪᴅɪ ⦁𓄹', url = "https://t.me/S_a_i_d_i"},
@@ -11947,36 +11972,41 @@ local TextMahibesAgane = [[*
 *]]
 return LuaTele.editMessageText(ChatId,Msg_id,TextMahibesAgane, 'md', true, false, reply_markup)
 end
-if Text and Text:match("yt@(.*)") then
-local url = Text:match("yt@(.*)")
-local textt = 'كيف تريد التحميل ؟'
-reply_markup = LuaTele.replyMarkup{
+if Text and Text:match('(%d+)/mp3(.*)') then
+local UserId = {Text:match('(%d+)/mp3(.*)')}
+if tonumber(IdUser) == tonumber(UserId[1]) then
+local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = 'تحميل صوت', data="mp3/"..url},
-},
-{
-{text = 'تحميل بصمه', data="ogg/"..url},
-},
-{
-{text = 'تحميل فيديو', data="mp4/"..url},
+{text = '𓄼⦁ sᴏᴜʀᴄᴇ sᴀɪᴅɪ ⦁𓄹', url = 't.me/S_a_i_d_i'}, 
 },
 }
 }
-LuaTele.editMessageText(ChatId,Msg_id,textt, 'md', true, false, reply_markup)
-elseif Text and Text:match("mp3/(.*)") then
-local mp3 = Text:match("mp3/(.*)")
-LuaTele.deleteMessages(ChatId,{[1]= Msg_id})
-https.request("https://core1.tk/apies/youtube/download.php?token="..Token.."&chat="..ChatId.."&url="..mp3.."&type=mp3")
-elseif Text and Text:match("ogg/(.*)") then
-local ogg = Text:match("ogg/(.*)")
-LuaTele.deleteMessages(ChatId,{[1]= Msg_id})
-https.request("https://core1.tk/apies/youtube/download.php?token="..Token.."&chat="..ChatId.."&url="..ogg.."&type=ogg")
-elseif Text and Text:match("mp4/(.*)") then
-local mp4 = Text:match("mp4/(.*)")
-LuaTele.deleteMessages(ChatId,{[1]= Msg_id})
-https.request("https://core1.tk/apies/youtube/download.php?token="..Token.."&chat="..ChatId.."&url="..mp4.."&type=mp4")
+local TextHelp = [[*
+※ ارسل ما تريد تحميله
+*]]
+Redis:set(Fast.."youtube"..IdUser..ChatId,'mp3')
+LuaTele.editMessageText(ChatId,Msg_id,TextHelp, 'md', true, false, reply_markup)
+end
+end
+if Text and Text:match('(%d+)/mp4(.*)') then
+local UserId = {Text:match('(%d+)/mp4(.*)')}
+if tonumber(IdUser) == tonumber(UserId[1]) then
+local reply_markup = LuaTele.replyMarkup{
+type = 'inline',
+data = {
+{
+{text = '𓄼⦁ sᴏᴜʀᴄᴇ sᴀɪᴅɪ ⦁𓄹', url = 't.me/S_a_i_d_i'}, 
+},
+}
+}
+local TextHelp = [[*
+※ ارسل ما تريد تحميله
+*]]
+Redis:set(Fast.."youtube"..IdUser..ChatId,'mp4')
+LuaTele.editMessageText(ChatId,Msg_id,TextHelp, 'md', true, false, reply_markup)
+end
 end
 if Text and Text:match('(%d+)/help1') then
 local UserId = Text:match('(%d+)/help1')
