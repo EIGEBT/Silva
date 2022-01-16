@@ -553,31 +553,31 @@ end
 function Total_message(Message)  
 local MsgText = ''  
 if tonumber(Message) < 100 then 
-MsgText = 'نسبه تفاعلك -› 100 😡' 
+MsgText = 'غير متفاعل 😡' 
 elseif tonumber(Message) < 200 then 
-MsgText = 'نسبه تفاعلك -› 200 😒'
+MsgText = 'بده يتحسن 😒'
 elseif tonumber(Message) < 400 then 
-MsgText = 'نسبه تفاعلك -› 400 😊' 
+MsgText = 'شبه متفاعل 😊' 
 elseif tonumber(Message) < 700 then 
-MsgText = 'نسبه تفاعلك -› 700 😍' 
+MsgText = 'متفاعل 😍' 
 elseif tonumber(Message) < 1200 then 
-MsgText = 'نسبه تفاعلك -› 1200 🥰' 
+MsgText = 'متفاعل قوي 🥰' 
 elseif tonumber(Message) < 2000 then 
-MsgText = 'نسبه تفاعلك -› 2000 ❤️' 
+MsgText = 'متفاعل جدا ❤️' 
 elseif tonumber(Message) < 3500 then 
-MsgText = 'نسبه تفاعلك -› 3500 💋'  
+MsgText = 'اقوى تفاعل 💋'  
 elseif tonumber(Message) < 4000 then 
-MsgText = 'نسبه تفاعلك -› 4000 🥳' 
+MsgText = 'متفاعل نار 🥳' 
 elseif tonumber(Message) < 4500 then 
-MsgText = 'نسبه تفاعلك -› 4500 ❤️‍🔥' 
+MsgText = 'قمة التفاعل ❤️‍🔥' 
 elseif tonumber(Message) < 5500 then 
-MsgText = 'نسبه تفاعلك -› 5500 🤩' 
+MsgText = 'اقوى متفاعل 🤩' 
 elseif tonumber(Message) < 7000 then 
-MsgText = 'نسبه تفاعلك -› 7000 😎' 
+MsgText = 'ملك التفاعل 😎' 
 elseif tonumber(Message) < 9500 then 
-MsgText = 'نسبه تفاعلك -› 9500 😻' 
+MsgText = 'زعيم التفاعل 😻' 
 elseif tonumber(Message) < 10000000000 then 
-MsgText = 'نسبه تفاعلك -› 10000000000 👍'  
+MsgText = 'سيدي عظمة التفاعل' 👍'  
 end 
 return MsgText 
 end
@@ -7163,35 +7163,6 @@ Redis:del(Saidi.."Saidi:Lock:Inlen"..msg_chat_id)
 LuaTele.sendText(msg_chat_id,msg_id,Reply_Status(msg.sender.user_id," ⦁ تم فتح الانلاين").unLock,"md",true)  
 return false
 end 
-if Redis:get(Saidi.."youtube"..msg.sender.user_id..msg_chat_id) == "mp3" then
-local rep = msg.id/2097152/0.5
-local m = rep +1
-https.request("https://api.telegram.org/bot"..Token.."/sendAnimation?chat_id="..msg_chat_id.."&animation=https://t.me/youtube7odabot/7951&reply_to_message_id="..rep)
-https.request("https://api.medooo.ml/leomedo/yt?text="..URL.escape(text).."&token="..Token.."&msg_id="..rep.."&chat_id="..msg_chat_id.."&type=mp3")
-https.request("https://api.telegram.org/bot"..Token.."/deleteMessage?chat_id="..msg_chat_id.."&message_id="..m)
-Redis:del(Saidi.."youtube"..msg.sender.user_id..msg_chat_id)
-end
-if Redis:get(Saidi.."youtube"..msg.sender.user_id..msg_chat_id) == "mp4" then
-local rep = msg.id/2097152/0.5
-local m = rep +1
-https.request("https://api.telegram.org/bot"..Token.."/sendAnimation?chat_id="..msg_chat_id.."&animation=https://t.me/youtube7odabot/7951&reply_to_message_id="..rep)
-https.request("https://api.medooo.ml/leomedo/yt?text="..URL.escape(text).."&token="..Token.."&msg_id="..rep.."&chat_id="..msg_chat_id.."&type=mp4")
-https.request("https://api.telegram.org/bot"..Token.."/deleteMessage?chat_id="..msg_chat_id.."&message_id="..m)
-Redis:del(Saidi.."youtube"..msg.sender.user_id..msg_chat_id)
-end
-if text == "يوتيوب" then
-local reply_markup = LuaTele.replyMarkup{
-type = 'inline',
-data = {
-{
-{text = 'تحميل صوت', data = msg.sender.user_id..'/mp3'..msg_id}, {text = 'تحميل فيديو', data = msg.sender.user_id..'/mp4'..msg_id}, 
-},
-}
-}
-return LuaTele.sendText(msg_chat_id,msg_id, [[*
-※ اختر كيف تريد التحميل
-*]],"md",false, false, false, false, reply_markup)
-end
 if text == "ضع رابط" or text == "وضع رابط" then
 if not msg.Addictive then
 return LuaTele.sendText(msg_chat_id,msg_id,'\n* ⦁ هاذا الامر يخص 『 '..Controller_Num(7)..' 』* ',"md",true)  
@@ -9317,7 +9288,7 @@ data = {
 {text = '𓄼⦁❸⦁𓄹', data = msg.sender.user_id..'/help3'}, {text = '𓄼⦁❹⦁𓄹', data = msg.sender.user_id..'/help4'}, 
 },
 {
-{text = '𓄼⦁❺⦁𓄹', data = msg.sender.user_id..'/NoNextSeting'}, {text = '𓄼⦁❻⦁𓄹', data = msg.sender.user_id..'/listallAddorrem'}, 
+{text = '𓄼⦁❺⦁𓄹', data = msg.sender.user_id..'/listallAddorrem'}, {text = '𓄼⦁❻⦁𓄹', data = msg.sender.user_id..'/NoNextSeting'}, 
 },
 {
 {text = '𓄼⦁ sᴏᴜʀᴄᴇ sᴀɪᴅɪ ⦁𓄹', url = 't.me/S_a_i_d_i'}, 
@@ -11971,42 +11942,6 @@ local TextMahibesAgane = [[*
 ╝⦁احدى العضمات في الازرار ⦁
 *]]
 return LuaTele.editMessageText(ChatId,Msg_id,TextMahibesAgane, 'md', true, false, reply_markup)
-end
-if Text and Text:match('(%d+)/mp3(.*)') then
-local UserId = {Text:match('(%d+)/mp3(.*)')}
-if tonumber(IdUser) == tonumber(UserId[1]) then
-local reply_markup = LuaTele.replyMarkup{
-type = 'inline',
-data = {
-{
-{text = '𓄼⦁ sᴏᴜʀᴄᴇ sᴀɪᴅɪ ⦁𓄹', url = 't.me/S_a_i_d_i'}, 
-},
-}
-}
-local TextHelp = [[*
-※ ارسل ما تريد تحميله
-*]]
-Redis:set(Fast.."youtube"..IdUser..ChatId,'mp3')
-LuaTele.editMessageText(ChatId,Msg_id,TextHelp, 'md', true, false, reply_markup)
-end
-end
-if Text and Text:match('(%d+)/mp4(.*)') then
-local UserId = {Text:match('(%d+)/mp4(.*)')}
-if tonumber(IdUser) == tonumber(UserId[1]) then
-local reply_markup = LuaTele.replyMarkup{
-type = 'inline',
-data = {
-{
-{text = '𓄼⦁ sᴏᴜʀᴄᴇ sᴀɪᴅɪ ⦁𓄹', url = 't.me/S_a_i_d_i'}, 
-},
-}
-}
-local TextHelp = [[*
-※ ارسل ما تريد تحميله
-*]]
-Redis:set(Fast.."youtube"..IdUser..ChatId,'mp4')
-LuaTele.editMessageText(ChatId,Msg_id,TextHelp, 'md', true, false, reply_markup)
-end
 end
 if Text and Text:match('(%d+)/help1') then
 local UserId = Text:match('(%d+)/help1')
