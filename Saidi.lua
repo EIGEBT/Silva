@@ -2369,7 +2369,7 @@ for Name_User in string.gmatch(ban.first_name, "[^%s]+" ) do
 ban.first_name = Name_User
 break
 end 
-NamesBot = (Redis:get(Saidi.."Saidi:Name:Bot") or "ميزو")
+NamesBot = (Redis:get(Saidi.."Saidi:Name:Bot") or "صعيدي")
 Groups = (Redis:scard(Saidi..'Saidi:ChekBotAdd') or 0)
 Users = (Redis:scard(Saidi..'Saidi:Num:User:Pv') or 0)
 if photo.total_count > 0 then
@@ -2811,7 +2811,7 @@ end
 if GetMemberStatus.can_promote_members then
 promote = '【 ✅ 】' else promote = '【 ❌ 】'
 end
-PermissionsUser = '*\n ⦁ صلاحيات المستخدم :\n●○━━━━‌‌‏𝑴𝑬𝒁𝑶━━━━○●'..'\n ⦁ تغيير المعلومات : '..change_info..'\n ⦁ تثبيت الرسائل : '..pin_messages..'\n ⦁ اضافه مستخدمين : '..invite_users..'\n ⦁ مسح الرسائل : '..delete_messages..'\n ⦁ حظر المستخدمين : '..restrict_members..'\n ⦁ اضافه المشرفين : '..promote..'\n\n*'
+PermissionsUser = '*\n ⦁ صلاحيات المستخدم :\n⩹┉┉┉┉⊶❲𖥳 𝐒𝐀𝐈𝐃𝐈 𖥳❳⊷┉┉┉┉⩺'..'\n ⦁ تغيير المعلومات : '..change_info..'\n ⦁ تثبيت الرسائل : '..pin_messages..'\n ⦁ اضافه مستخدمين : '..invite_users..'\n ⦁ مسح الرسائل : '..delete_messages..'\n ⦁ حظر المستخدمين : '..restrict_members..'\n ⦁ اضافه المشرفين : '..promote..'\n\n*'
 end
 return LuaTele.sendText(msg_chat_id,msg_id,
 '\n*⦁ ɪᴅ -› '..UserId..
@@ -2854,7 +2854,7 @@ end
 if GetMemberStatus.can_promote_members then
 promote = '【 ✅ 】' else promote = '【 ❌ 】'
 end
-PermissionsUser = '*\n ⦁ صلاحيات البوت في المجموعه :\n●○━━━━‌‌‏𝑴𝑬𝒁𝑶━━━━○●'..'\n ⦁ تغيير المعلومات : '..change_info..'\n ⦁ تثبيت الرسائل : '..pin_messages..'\n ⦁ اضافه مستخدمين : '..invite_users..'\n ⦁ مسح الرسائل : '..delete_messages..'\n ⦁ حظر المستخدمين : '..restrict_members..'\n ⦁ اضافه المشرفين : '..promote..'\n\n*'
+PermissionsUser = '*\n ⦁ صلاحيات البوت في المجموعه :\n⩹┉┉┉┉⊶❲𖥳 𝐒𝐀𝐈𝐃𝐈 𖥳❳⊷┉┉┉┉⩺'..'\n ⦁ تغيير المعلومات : '..change_info..'\n ⦁ تثبيت الرسائل : '..pin_messages..'\n ⦁ اضافه مستخدمين : '..invite_users..'\n ⦁ مسح الرسائل : '..delete_messages..'\n ⦁ حظر المستخدمين : '..restrict_members..'\n ⦁ اضافه المشرفين : '..promote..'\n\n*'
 return LuaTele.sendText(msg_chat_id,msg_id,PermissionsUser,"md",true) 
 end
 
@@ -3796,7 +3796,7 @@ local Info_Members = Redis:smembers(Saidi.."Saidi:DevelopersQ:Groups")
 if #Info_Members == 0 then
 return LuaTele.sendText(msg_chat_id,msg_id,"*⦁ لا يوجد مطورين ثانوين في البوت*","md",true)  
 end
-ListMembers = '\n* قائمه المطورين الثانوين ⇧⇩* \n●○━━━━‌‌‏𝑴𝑬𝒁𝑶━━━━○●\n'
+ListMembers = '\n* قائمه المطورين الثانوين ⇧⇩* \n⩹┉┉┉┉⊶❲𖥳 𝐒𝐀𝐈𝐃𝐈 𖥳❳⊷┉┉┉┉⩺\n'
 for k, v in pairs(Info_Members) do
 local ban = LuaTele.getUser(v)
 if ban and ban.username and ban.username ~= "" then
@@ -3822,7 +3822,7 @@ local Info_Members = Redis:smembers(Saidi.."Saidi:Developers:Groups")
 if #Info_Members == 0 then
 return LuaTele.sendText(msg_chat_id,msg_id,"*⦁ لا يوجد مطورين في البوت*","md",true)  
 end
-ListMembers = '\n* ⦁ قائمه مطورين البوت ⇧⇩*\n●○━━━━‌‌‏𝑴𝑬𝒁𝑶━━━━○●\n'
+ListMembers = '\n* ⦁ قائمه مطورين البوت ⇧⇩*\n⩹┉┉┉┉⊶❲𖥳 𝐒𝐀𝐈𝐃𝐈 𖥳❳⊷┉┉┉┉⩺\n'
 for k, v in pairs(Info_Members) do
 local ban = LuaTele.getUser(v)
 if ban and ban.username and ban.username ~= "" then
@@ -3848,7 +3848,7 @@ local Info_Members = Redis:smembers(Saidi.."Saidi:TheBasicsQ:Group"..msg_chat_id
 if #Info_Members == 0 then
 return LuaTele.sendText(msg_chat_id,msg_id,"* ⦁ لا يوجد مالكين في البوت *","md",true)  
 end
-ListMembers = '\n* ⦁ قائمه المالكين في البوت ⇧⇩*\n●○━━━━‌‌‏𝑴𝑬𝒁𝑶━━━━○●\n'
+ListMembers = '\n* ⦁ قائمه المالكين في البوت ⇧⇩*\n⩹┉┉┉┉⊶❲𖥳 𝐒𝐀𝐈𝐃𝐈 𖥳❳⊷┉┉┉┉⩺\n'
 for k, v in pairs(Info_Members) do
 local ban = LuaTele.getUser(v)
 if ban and ban.username and ban.username ~= "" then
@@ -3874,7 +3874,7 @@ local Info_Members = Redis:smembers(Saidi.."Saidi:TheBasics:Group"..msg_chat_id)
 if #Info_Members == 0 then
 return LuaTele.sendText(msg_chat_id,msg_id,"* ⦁ لا يوجد منشئين اساسيين في البوت *","md",true)  
 end
-ListMembers = '\n* ⦁ قائمه المنشئين الاساسيين ⇧⇩*\n●○━━━━‌‌‏𝑴𝑬𝒁𝑶━━━━○●\n'
+ListMembers = '\n* ⦁ قائمه المنشئين الاساسيين ⇧⇩*\n⩹┉┉┉┉⊶❲𖥳 𝐒𝐀𝐈𝐃𝐈 𖥳❳⊷┉┉┉┉⩺\n'
 for k, v in pairs(Info_Members) do
 local ban = LuaTele.getUser(v)
 if ban and ban.username and ban.username ~= "" then
@@ -3900,7 +3900,7 @@ local Info_Members = Redis:smembers(Saidi.."Saidi:Originators:Group"..msg_chat_i
 if #Info_Members == 0 then
 return LuaTele.sendText(msg_chat_id,msg_id,"* ⦁ لا يوجد منشئين في البوت *","md",true)  
 end
-ListMembers = '\n* ⦁ قائمه المنشئين في البوت ⇧⇩*\n●○━━━━‌‌‏𝑴𝑬𝒁𝑶━━━━○●\n'
+ListMembers = '\n* ⦁ قائمه المنشئين في البوت ⇧⇩*\n⩹┉┉┉┉⊶❲𖥳 𝐒𝐀𝐈??𝐈 𖥳❳⊷┉┉┉┉⩺\n'
 for k, v in pairs(Info_Members) do
 local ban = LuaTele.getUser(v)
 if ban and ban.username and ban.username ~= "" then
@@ -3926,7 +3926,7 @@ local Info_Members = Redis:smembers(Saidi.."Saidi:Managers:Group"..msg_chat_id)
 if #Info_Members == 0 then
 return LuaTele.sendText(msg_chat_id,msg_id,"* ⦁ لا يوجد مدراء في البوت *","md",true)  
 end
-ListMembers = '\n* ⦁ قائمه المدراء في البوت ⇧⇩*\n●○━━━━‌‌‏𝑴𝑬𝒁𝑶━━━━○●\n'
+ListMembers = '\n* ⦁ قائمه المدراء في البوت ⇧⇩*\n⩹┉┉┉┉⊶❲𖥳 𝐒𝐀𝐈𝐃𝐈 𖥳❳⊷┉┉┉┉⩺\n'
 for k, v in pairs(Info_Members) do
 local ban = LuaTele.getUser(v)
 if ban and ban.username and ban.username ~= "" then
@@ -3952,7 +3952,7 @@ local Info_Members = Redis:smembers(Saidi.."Saidi:Addictive:Group"..msg_chat_id)
 if #Info_Members == 0 then
 return LuaTele.sendText(msg_chat_id,msg_id,"* ⦁ لا يوجد ادمنيه في البوت *","md",true)  
 end
-ListMembers = '\n* ⦁ قائمه الادمنيه في البوت ⇧⇩*\n●○━━━━‌‌‏𝑴𝑬𝒁𝑶━━━━○●\n'
+ListMembers = '\n* ⦁ قائمه الادمنيه في البوت ⇧⇩*\n⩹┉┉┉┉⊶❲𖥳 𝐒𝐀𝐈𝐃𝐈 𖥳❳⊷┉┉┉┉⩺\n'
 for k, v in pairs(Info_Members) do
 local ban = LuaTele.getUser(v)
 if ban and ban.username and ban.username ~= "" then
@@ -3978,7 +3978,7 @@ local Info_Members = Redis:smembers(Saidi.."Saidi:Distinguished:Group"..msg_chat
 if #Info_Members == 0 then
 return LuaTele.sendText(msg_chat_id,msg_id,"* ⦁ لا يوجد مميزين في البوت *","md",true)  
 end
-ListMembers = '\n* ⦁ قائمه المميزين في البوت ⇧⇩*\n●○━━━━‌‌‏𝑴𝑬𝒁𝑶━━━━○●\n'
+ListMembers = '\n* ⦁ قائمه المميزين في البوت ⇧⇩*\n⩹┉┉┉┉⊶❲𖥳 𝐒𝐀𝐈𝐃𝐈 𖥳❳⊷┉┉┉┉⩺\n'
 for k, v in pairs(Info_Members) do
 local ban = LuaTele.getUser(v)
 if ban and ban.username and ban.username ~= "" then
@@ -4004,7 +4004,7 @@ local Info_Members = Redis:smembers(Saidi.."Saidi:BanAll:Groups")
 if #Info_Members == 0 then
 return LuaTele.sendText(msg_chat_id,msg_id,"* ⦁ لا يوجد محظورين عام في البوت *","md",true)  
 end
-ListMembers = '\n* ⦁ قائمه المحظورين عام ⇧⇩*\n●○━━━━‌‌‏𝑴𝑬𝒁𝑶━━━━○●\n'
+ListMembers = '\n* ⦁ قائمه المحظورين عام ⇧⇩*\n⩹┉┉┉┉⊶❲𖥳 𝐒𝐀𝐈𝐃𝐈 𖥳❳⊷┉┉┉┉⩺\n'
 for k, v in pairs(Info_Members) do
 local ban = LuaTele.getUser(v)
 if ban and ban.username and ban.username ~= "" then
@@ -4030,7 +4030,7 @@ local Info_Members = Redis:smembers(Saidi.."Saidi:ktmAll:Groups")
 if #Info_Members == 0 then
 return LuaTele.sendText(msg_chat_id,msg_id," ⦁ لا يوجد مكتومين عام في البوت ","md",true)  
 end
-ListMembers = '\n* ⦁ قائمه المكتومين عام ⇧⇩*\n●○━━━━‌‌‏𝑴𝑬𝒁𝑶━━━━○●\n'
+ListMembers = '\n* ⦁ قائمه المكتومين عام ⇧⇩*\n⩹┉┉┉┉⊶❲𖥳 𝐒𝐀𝐈𝐃𝐈 𖥳❳⊷┉┉┉┉⩺\n'
 for k, v in pairs(Info_Members) do
 local ban = LuaTele.getUser(v)
 if ban and ban.username and ban.username ~= "" then
@@ -4056,7 +4056,7 @@ local Info_Members = Redis:smembers(Saidi.."Saidi:BanGroup:Group"..msg_chat_id)
 if #Info_Members == 0 then
 return LuaTele.sendText(msg_chat_id,msg_id,"* ⦁ لا يوجد محظورين في البوت *","md",true)  
 end
-ListMembers = '\n* ⦁ قائمه المحظورين في البوت ⇧⇩*\n●○━━━━‌‌‏𝑴𝑬𝒁𝑶━━━━○●\n'
+ListMembers = '\n* ⦁ قائمه المحظورين في البوت ⇧⇩*\n⩹┉┉┉┉⊶❲𖥳 𝐒𝐀𝐈𝐃𝐈 𖥳❳⊷┉┉┉┉⩺\n'
 for k, v in pairs(Info_Members) do
 local ban = LuaTele.getUser(v)
 if ban and ban.username and ban.username ~= "" then
@@ -4082,7 +4082,7 @@ local Info_Members = Redis:smembers(Saidi.."Saidi:SilentGroup:Group"..msg_chat_i
 if #Info_Members == 0 then
 return LuaTele.sendText(msg_chat_id,msg_id,"* ⦁ لا يوجد مكتومين في البوت *","md",true)  
 end
-ListMembers = '\n* ⦁ قائمه المكتومين في البوت ⇧⇩*\n●○━━━━‌‌‏𝑴𝑬𝒁𝑶━━━━○●\n'
+ListMembers = '\n* ⦁ قائمه المكتومين في البوت ⇧⇩*\n⩹┉┉┉┉⊶❲𖥳 𝐒𝐀𝐈𝐃𝐈 𖥳❳⊷┉┉┉┉⩺\n'
 for k, v in pairs(Info_Members) do
 local ban = LuaTele.getUser(v)
 if ban and ban.username and ban.username ~= "" then
@@ -5565,7 +5565,7 @@ if msg.can_be_deleted_for_all_users == false then
 return LuaTele.sendText(msg_chat_id,msg_id,"\n* ⦁ عذرا البوت ليس ادمن في المجموعه يرجى ترقيته وتفعيل الصلاحيات له *","md",true)  
 end
 local Info_Members = LuaTele.getSupergroupMembers(msg_chat_id, "Administrators", "*", 0, 200)
-listAdmin = '\n* ⦁ قائمه الادمنيه \n●○━━━━‌‌‏𝑴𝑬𝒁𝑶━━━━○●*\n'
+listAdmin = '\n* ⦁ قائمه الادمنيه \n⩹┉┉┉┉⊶❲𖥳 𝐒𝐀𝐈𝐃𝐈 𖥳❳⊷┉┉┉┉⩺*\n'
 local List_Members = Info_Members.members
 for k, v in pairs(List_Members) do
 if Info_Members.members[k].status.luatele == "chatMemberStatusCreator" then
@@ -5648,7 +5648,7 @@ return LuaTele.sendText(msg_chat_id,msg_id,"\n* ⦁ عذرا البوت ليس �
 end
 local Info_Members = LuaTele.getSupergroupMembers(msg_chat_id, "Bots", "*", 0, 200)
 local List_Members = Info_Members.members
-listBots = '\n* ⦁ قائمه البوتات \n●○━━━━‌‌‏𝑴𝑬𝒁𝑶━━━━○●*\n'
+listBots = '\n* ⦁ قائمه البوتات \n⩹┉┉┉┉⊶❲𖥳 𝐒𝐀𝐈𝐃𝐈 𖥳❳⊷┉┉┉┉⩺*\n'
 x = 0
 for k, v in pairs(List_Members) do
 local ban = LuaTele.getUser(v.member_id.user_id)
@@ -5660,7 +5660,7 @@ Admin = ""
 end
 listBots = listBots.."*"..k.." - @"..ban.username.."* "..Admin.."\n"
 end
-LuaTele.sendText(msg_chat_id,msg_id,listBots.."*\n●○━━━━‌‌‏𝑴𝑬𝒁𝑶━━━━○●\n ⦁ عدد البوتات التي هي ادمن ( "..x.." )*","md",true)  
+LuaTele.sendText(msg_chat_id,msg_id,listBots.."*\n⩹┉┉┉┉⊶❲𖥳 𝐒𝐀𝐈𝐃𝐈 𖥳❳⊷┉┉┉┉⩺\n ⦁ عدد البوتات التي هي ادمن ( "..x.." )*","md",true)  
 end
 
 
@@ -5680,7 +5680,7 @@ local Info_Members = LuaTele.getSupergroupMembers(msg_chat_id, "Recent", "*", 0,
 local List_Members = Info_Members.members
 x = 0
 y = nil
-restricted = '\n* ⦁ قائمه المقيديين \n●○━━━━‌‌‏𝑴𝑬𝒁𝑶━━━━○●*\n'
+restricted = '\n* ⦁ قائمه المقيديين \n⩹┉┉┉┉⊶❲𖥳 𝐒𝐀𝐈𝐃𝐈 𖥳❳⊷┉┉┉┉⩺*\n'
 for k, v in pairs(List_Members) do
 if Info_Members.members[k].status.is_member == true and Info_Members.members[k].status.luatele == "chatMemberStatusRestricted" then
 y = true
@@ -5708,7 +5708,7 @@ return LuaTele.sendText(msg.chat_id,msg.id,'*\n ⦁ عليك الاشتراك ف
 end
 local Info_Members = LuaTele.searchChatMembers(msg_chat_id, "*", 200)
 local List_Members = Info_Members.members
-listall = '\n* ⦁ قائمه الاعضاء \n●○━━━━‌‌‏𝑴𝑬𝒁𝑶━━━━○●*\n'
+listall = '\n* ⦁ قائمه الاعضاء \n⩹┉┉┉┉⊶❲𖥳 𝐒𝐀𝐈𝐃𝐈 𖥳❳⊷┉┉┉┉⩺*\n'
 for k, v in pairs(List_Members) do
 local ban = LuaTele.getUser(v.member_id.user_id)
 if ban.username ~= "" then
@@ -7395,7 +7395,7 @@ local list = Redis:smembers(Saidi.."Saidi:List:Filter"..msg_chat_id)
 if #list == 0 then  
 return LuaTele.sendText(msg_chat_id,msg_id,"* ⦁ لا يوجد كلمات ممنوعه هنا *","md",true)   
 end  
-Filter = '\n* ⦁ قائمه المنع \n●○━━━━‌‌‏𝑴𝑬𝒁𝑶━━━━○●*\n'
+Filter = '\n* ⦁ قائمه المنع \n⩹┉┉┉┉⊶❲𖥳 𝐒𝐀𝐈𝐃𝐈 𖥳❳⊷┉┉┉┉⩺*\n'
 for k,v in pairs(list) do  
 print(v)
 if v:match('photo:(.*)') then
@@ -7485,7 +7485,7 @@ local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = 'اض�
 return LuaTele.sendText(msg.chat_id,msg.id,'*\n ⦁ عليك الاشتراك في قناة البوت لاستخذام الاوامر*',"md",false, false, false, false, reply_markup)
 end
 local list = Redis:smembers(Saidi.."Saidi:All:Command:List:Group")
-Command = " ⦁ قائمه الاوامر المضافه العامه  \n●○━━━━‌‌‏𝑴𝑬𝒁𝑶━━━━○●\n"
+Command = " ⦁ قائمه الاوامر المضافه العامه  \n⩹┉┉┉┉⊶❲𖥳 𝐒𝐀𝐈𝐃𝐈 𖥳❳⊷┉┉┉┉⩺\n"
 for k,v in pairs(list) do
 Commands = Redis:get(Saidi.."Saidi:All:Get:Reides:Commands:Group"..v)
 if Commands then 
@@ -7547,7 +7547,7 @@ local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = 'اض�
 return LuaTele.sendText(msg.chat_id,msg.id,'*\n ⦁ عليك الاشتراك في قناة البوت لاستخذام الاوامر*',"md",false, false, false, false, reply_markup)
 end
 local list = Redis:smembers(Saidi.."Saidi:Command:List:Group"..msg_chat_id.."")
-Command = " ⦁ قائمه الاوامر المضافه  \n●○━━━━‌‌‏𝑴𝑬𝒁𝑶━━━━○●\n"
+Command = " ⦁ قائمه الاوامر المضافه  \n⩹┉┉┉┉⊶❲𖥳 𝐒𝐀𝐈𝐃𝐈 𖥳❳⊷┉┉┉┉⩺\n"
 for k,v in pairs(list) do
 Commands = Redis:get(Saidi.."Saidi:Get:Reides:Commands:Group"..msg_chat_id..":"..v)
 if Commands then 
@@ -7709,7 +7709,7 @@ end
 if Redis:get(Saidi.."Saidi:Status:AddMe"..msg.chat_id) then
 StatusAddme = '【 ✅ 】' else StatusAddme = '【 ❌ 】'
 end
-local protectionGroup = '\n* ⦁ اعدادات حمايه المجموعه\n●○━━━━‌‌‏𝑴𝑬𝒁𝑶━━━━○●\n'
+local protectionGroup = '\n* ⦁ اعدادات حمايه المجموعه\n⩹┉┉┉┉⊶❲𖥳 𝐒𝐀𝐈𝐃𝐈 𖥳❳⊷┉┉┉┉⩺\n'
 ..'\n ⦁ جلب الرابط⇦ '..Statuslink
 ..'\n ⦁ جلب الترحيب⇦ '..StatusWelcome
 ..'\n ⦁ الايدي⇦ '..StatusId
@@ -7827,8 +7827,8 @@ end
 if Get_Chat.permissions.can_send_polls then
 polls = '【 ✅ 】' else polls = '【 ❌ 】'
 end
-local permissions = '*\n ⦁ صلاحيات المجموعه :\n●○━━━━‌‌‏𝑴𝑬𝒁𝑶━━━━○●'..'\n ⦁ ارسال الويب : '..web..'\n ⦁ تغيير معلومات المجموعه : '..info..'\n ⦁ اضافه مستخدمين : '..invite..'\n ⦁ تثبيت الرسائل : '..pin..'\n ⦁ ارسال الميديا : '..media..'\n ⦁ ارسال الرسائل : '..messges..'\n ⦁ اضافه البوتات : '..other..'\n ⦁ ارسال استفتاء : '..polls..'*\n\n'
-local TextChat = '*\n ⦁ معلومات المجموعه :\n●○━━━━‌‌‏𝑴𝑬𝒁𝑶━━━━○●'..' \n ⦁ عدد الادمنيه : ❬ '..Info_Chats.administrator_count..' ❭\n ⦁ عدد المحظورين : ❬ '..Info_Chats.banned_count..' ❭\n ⦁ عدد الاعضاء : ❬ '..Info_Chats.member_count..' ❭\n ⦁ عدد المقيديين : ❬ '..Info_Chats.restricted_count..' ❭\n ⦁ اسم المجموعه : ❬* ['..Get_Chat.title..']('..Info_Chats.invite_link.invite_link..')* ❭*'
+local permissions = '*\n ⦁ صلاحيات المجموعه :\n⩹┉┉┉┉⊶❲𖥳 𝐒𝐀𝐈𝐃𝐈 𖥳❳⊷┉┉┉┉⩺'..'\n ⦁ ارسال الويب : '..web..'\n ⦁ تغيير معلومات المجموعه : '..info..'\n ⦁ اضافه مستخدمين : '..invite..'\n ⦁ تثبيت الرسائل : '..pin..'\n ⦁ ارسال الميديا : '..media..'\n ⦁ ارسال الرسائل : '..messges..'\n ⦁ اضافه البوتات : '..other..'\n ⦁ ارسال استفتاء : '..polls..'*\n\n'
+local TextChat = '*\n ⦁ معلومات المجموعه :\n⩹┉┉┉┉⊶❲𖥳 𝐒𝐀𝐈𝐃𝐈 𖥳❳⊷┉┉┉┉⩺'..' \n ⦁ عدد الادمنيه : ❬ '..Info_Chats.administrator_count..' ❭\n ⦁ عدد المحظورين : ❬ '..Info_Chats.banned_count..' ❭\n ⦁ عدد الاعضاء : ❬ '..Info_Chats.member_count..' ❭\n ⦁ عدد المقيديين : ❬ '..Info_Chats.restricted_count..' ❭\n ⦁ اسم المجموعه : ❬* ['..Get_Chat.title..']('..Info_Chats.invite_link.invite_link..')* ❭*'
 return LuaTele.sendText(msg_chat_id,msg_id, TextChat..permissions,"md",true)
 end
 if text == 'صلاحيات المجموعه' then
@@ -8741,7 +8741,7 @@ local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = 'اض�
 return LuaTele.sendText(msg.chat_id,msg.id,'*\n ⦁ عليك الاشتراك في قناة البوت لاستخذام الاوامر*',"md",false, false, false, false, reply_markup)
 end
 local list = Redis:smembers(Saidi.."Saidi:List:Manager"..msg_chat_id.."")
-text = " ⦁ قائمه الردود ⇧⇩\n●○━━━━‌‌‏𝑴𝑬𝒁𝑶━━━━○●\n"
+text = " ⦁ قائمه الردود ⇧⇩\n⩹┉┉┉┉⊶❲𖥳 𝐒𝐀𝐈𝐃𝐈 𖥳❳⊷┉┉┉┉⩺\n"
 for k,v in pairs(list) do
 if Redis:get(Saidi.."Saidi:Add:Rd:Manager:Gif"..v..msg_chat_id) then
 db = "متحركه 🎭"
@@ -8823,7 +8823,7 @@ local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = 'اض�
 return LuaTele.sendText(msg.chat_id,msg.id,'*\n ⦁ عليك الاشتراك في قناة البوت لاستخذام الاوامر*',"md",false, false, false, false, reply_markup)
 end
 local list = Redis:smembers(Saidi.."Saidi:List:Rd:Sudo")
-text = "\n⦁ قائمة الردود العامه ⇧⇩\n●○━━━━‌‌‏𝑴𝑬𝒁𝑶━━━━○●\n"
+text = "\n⦁ قائمة الردود العامه ⇧⇩\n⩹┉┉┉┉⊶❲𖥳 𝐒𝐀𝐈𝐃𝐈 𖥳❳⊷┉┉┉┉⩺\n"
 for k,v in pairs(list) do
 if Redis:get(Saidi.."Saidi:Add:Rd:Sudo:Gif"..v) then
 db = "متحركه 🎭"
@@ -9007,7 +9007,7 @@ SilentGroup = 'مكتوم'
 else
 SilentGroup = 'غير مكتوم'
 end
-LuaTele.sendText(msg_chat_id,msg_id,"\n* ⦁ معلومات الكشف \n●○━━━━‌‌‏𝑴𝑬𝒁𝑶━━━━○●"..'\n ⦁ الحظر العام : '..BanAll..'\n ⦁ الحظر : '..BanGroup..'\n ⦁ الكتم : '..SilentGroup..'\n ⦁ التقييد : '..Restricted..'*',"md",true)  
+LuaTele.sendText(msg_chat_id,msg_id,"\n* ⦁ معلومات الكشف \n⩹┉┉┉┉⊶❲𖥳 𝐒𝐀𝐈𝐃𝐈 𖥳❳⊷┉┉┉┉⩺"..'\n ⦁ الحظر العام : '..BanAll..'\n ⦁ الحظر : '..BanGroup..'\n ⦁ الكتم : '..SilentGroup..'\n ⦁ التقييد : '..Restricted..'*',"md",true)  
 end
 if text and text:match('^كشف القيود @(%S+)$') then
 local UserName = text:match('^كشف القيود @(%S+)$')
@@ -9052,7 +9052,7 @@ SilentGroup = 'مكتوم'
 else
 SilentGroup = 'غير مكتوم'
 end
-LuaTele.sendText(msg_chat_id,msg_id,"\n* ⦁ معلومات الكشف \n●○━━━━‌‌‏𝑴𝑬𝒁𝑶━━━━○●"..'\n ⦁ الحظر العام : '..BanAll..'\n ⦁ الحظر : '..BanGroup..'\n ⦁ الكتم : '..SilentGroup..'\n ⦁ التقييد : '..Restricted..'*',"md",true)  
+LuaTele.sendText(msg_chat_id,msg_id,"\n* ⦁ معلومات الكشف \n⩹┉┉┉┉⊶❲𖥳 𝐒𝐀𝐈𝐃𝐈 𖥳❳⊷┉┉┉┉⩺"..'\n ⦁ الحظر العام : '..BanAll..'\n ⦁ الحظر : '..BanGroup..'\n ⦁ الكتم : '..SilentGroup..'\n ⦁ التقييد : '..Restricted..'*',"md",true)  
 end
 if text == 'رفع القيود' and msg.reply_to_message_id ~= 0 then
 local Message_Reply = LuaTele.getMessage(msg.chat_id, msg.reply_to_message_id)
@@ -9329,7 +9329,7 @@ data = {
 },
 }
 }
-return LuaTele.sendText(msg_chat_id,msg_id,'⦁ اليك قسم الالعاب من سورس ميزو ⦁',"md",false, false, false, false, reply_markup)
+return LuaTele.sendText(msg_chat_id,msg_id,'⦁ اليك قسم الالعاب من سورس صعيدي ⦁',"md",false, false, false, false, reply_markup)
 end
 if text == 'هاي' or text == 'هيي' then
 if not Redis:get(Saidi.."Saidi:Sasa:Jeka"..msg_chat_id) then
@@ -10031,7 +10031,7 @@ for Name_User in string.gmatch(ban.first_name, "[^%s]+" ) do
 ban.first_name = Name_User
 break
 end 
-local NamesBot = (Redis:get(Saidi.."Saidi:Name:Bot") or "ميزو")
+local NamesBot = (Redis:get(Saidi.."Saidi:Name:Bot") or "صعيدي")
 local BotName = {
 'اسمي '..NamesBot..' يا قلبي 😍💜',
 'اسمي '..NamesBot..' يا روحي 🙈❤️',
@@ -10060,14 +10060,14 @@ msgg = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id=" .. msg_chat_id .. "&photo="..photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id.."&photo=".. URL.escape(NamesBots).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 end
-if text == (Redis:get(Saidi.."Saidi:Name:Bot") or "ميزو") then
+if text == (Redis:get(Saidi.."Saidi:Name:Bot") or "صعيدي") then
 local photo = LuaTele.getUserProfilePhotos(Saidi)
 local ban = LuaTele.getUser(Saidi)
 for Name_User in string.gmatch(ban.first_name, "[^%s]+" ) do
 ban.first_name = Name_User
 break
 end 
-local NamesBot = (Redis:get(Saidi.."Saidi:Name:Bot") or "ميزو")
+local NamesBot = (Redis:get(Saidi.."Saidi:Name:Bot") or "صعيدي")
 local BotName = {
 'نعم يروحي 🌝💙',
 'نعم يا قلب '..NamesBot..'',
@@ -10201,7 +10201,7 @@ local texting = {"اخر افلام شاهدتها",
 "اخر اغنية سمعتها ?", 
 "تكلم عن نفسك", 
 "ليه انت مش سالك", 
-"ما هيا عيوب سورس ميزو؟ ", 
+"ما هيا عيوب سورس صعيدي؟ ", 
 "اخر كتاب قرآته", 
 "روايتك المفضله ?", 
 "اخر اكله اكلتها", 
@@ -10217,13 +10217,13 @@ local texting = {"اخر افلام شاهدتها",
 " ما السيء في هذه الحياة ؟ ", 
 "أجمل شيء حصل معك خلال هذا الاسبوع ؟ ", 
 "سؤال ينرفزك ؟ ", 
-" هل يعجبك سورس ميزو؟؟ ", 
+" هل يعجبك سورس صعيدي؟؟ ", 
 " اكثر ممثل تحبه ؟ ", 
 "قد تخيلت شي في بالك وصار ؟ ", 
 "شيء عندك اهم من الناس ؟ ", 
 "تفضّل النقاش الطويل او تحب الاختصار ؟ ", 
 "وش أخر شي ضيعته؟ ", 
-"اي رايك في سورس ميزو؟ ", 
+"اي رايك في سورس صعيدي؟ ", 
 "كم مره حبيت؟ ", 
 " اكثر المتابعين عندك باي برنامج؟", 
 " آخر مره ضربت عشره كانت متى ؟", 
@@ -11119,7 +11119,7 @@ if text == '/start' then
 Redis:sadd(Saidi..'Saidi:Num:User:Pv',msg.sender.user_id)  
 if not msg.ControllerBot then
 if not Redis:get(Saidi.."Saidi:Start:Bot") then
-local CmdStart = '*\n ⦁ أهلآ بك في بوت '..(Redis:get(Saidi.."Saidi:Name:Bot") or "ميزو")..
+local CmdStart = '*\n ⦁ أهلآ بك في بوت '..(Redis:get(Saidi.."Saidi:Name:Bot") or "صعيدي")..
 '\n ⦁ اختصاص البوت حماية المجموعات'..
 '\n ⦁ لتفعيل البوت عليك اتباع مايلي ...'..
 '\n ⦁ اضف البوت الى مجموعتك'..
@@ -11470,7 +11470,7 @@ local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = 'اض�
 return LuaTele.sendText(msg.chat_id,msg.id,'*\n ☽ عليك الاشتراك في قناة البوت لاستخذام الاوامر*',"md",false, false, false, false, reply_markup)
 end
 local list = Redis:smembers(Saidi.."Saidi:List:Rd:Sudo")
-text = "\nقائمة الردود العامه ⇧⇩ \n●○━━━━‌‌‏𝑴𝑬𝒁𝑶━━━━○●\n"
+text = "\nقائمة الردود العامه ⇧⇩ \n⩹┉┉┉┉⊶❲𖥳 𝐒𝐀𝐈𝐃𝐈 𖥳❳⊷┉┉┉┉⩺\n"
 for k,v in pairs(list) do
 if Redis:get(Saidi.."Saidi:Add:Rd:Sudo:Gif"..v) then
 db = "متحركه"
@@ -11622,7 +11622,7 @@ local Info_Members = Redis:smembers(Saidi.."Saidi:BanAll:Groups")
 if #Info_Members == 0 then
 return LuaTele.sendText(msg_chat_id,msg_id," ⦁ لا يوجد محظورين عام في البوت ","md",true)  
 end
-ListMembers = '\n* ⦁ قائمه المحظورين عام  \n●○━━━━‌‌‏𝑴𝑬𝒁𝑶━━━━○●*\n'
+ListMembers = '\n* ⦁ قائمه المحظورين عام  \n⩹┉┉┉┉⊶❲𖥳 𝐒𝐀𝐈𝐃𝐈 𖥳❳⊷┉┉┉┉⩺*\n'
 for k, v in pairs(Info_Members) do
 local ban = LuaTele.getUser(v)
 var(v)
@@ -11649,7 +11649,7 @@ local Info_Members = Redis:smembers(Saidi.."Saidi:Developers:Groups")
 if #Info_Members == 0 then
 return LuaTele.sendText(msg_chat_id,msg_id," ⦁ لا يوجد مطورين في البوت ","md",true)  
 end
-ListMembers = '\n* ⦁ قائمه مطورين البوت \n●○━━━━‌‌‏𝑴𝑬𝒁𝑶━━━━○●*\n'
+ListMembers = '\n* ⦁ قائمه مطورين البوت \n⩹┉┉┉┉⊶❲𖥳 𝐒𝐀𝐈𝐃𝐈 𖥳❳⊷┉┉┉┉⩺*\n'
 for k, v in pairs(Info_Members) do
 local ban = LuaTele.getUser(v)
 if ban and ban.username and ban.username ~= "" then
@@ -11675,7 +11675,7 @@ local Info_Members = Redis:smembers(Saidi.."Saidi:DevelopersQ:Groups")
 if #Info_Members == 0 then
 return LuaTele.sendText(msg_chat_id,msg_id," ⦁ لا يوجد مطورين في البوت ","md",true)  
 end
-ListMembers = '\n* ⦁ قائمه مطورين البوت \n●○━━━━‌‌‏𝑴𝑬𝒁𝑶━━━━○●*\n'
+ListMembers = '\n* ⦁ قائمه مطورين البوت \n⩹┉┉┉┉⊶❲𖥳 𝐒𝐀𝐈𝐃𝐈 𖥳❳⊷┉┉┉┉⩺*\n'
 for k, v in pairs(Info_Members) do
 local ban = LuaTele.getUser(v)
 if ban and ban.username and ban.username ~= "" then
@@ -12025,7 +12025,7 @@ data = {
 }
 local TextHelp = [[*
 『 اوامر مطور البوت 』
-●○━━━━‌‌‏𝑴𝑬𝒁𝑶━━━━○●
+⩹┉┉┉┉⊶❲𖥳 𝐒𝐀𝐈𝐃𝐈 𖥳❳⊷┉┉┉┉⩺
 ⦁ حظر ⦁
 ⦁ كتم ⦁
 ⦁ المحظورين ⦁
@@ -12038,7 +12038,7 @@ local TextHelp = [[*
 ⦁ مسح الردود المضافه ⦁
 ⦁ الردود المضافه ⦁
 ⦁ بوت غادر ⦁
-●○━━━━‌‌‏𝑴𝑬𝒁𝑶━━━━○●
+⩹┉┉┉┉⊶❲𖥳 𝐒𝐀𝐈𝐃𝐈 𖥳❳⊷┉┉┉┉⩺
 ⦁ الحمايه ⦁
 ⦁ اعدادات الحمايه ⦁
 ⦁ الاعدادات ⦁
@@ -12050,7 +12050,7 @@ local TextHelp = [[*
 ⦁ المدراء ⦁
 ⦁ الادمنيه ⦁
 ⦁ المميزين ⦁
-●○━━━━‌‌‏𝑴𝑬𝒁𝑶━━━━○●
+⩹┉┉┉┉⊶❲𖥳 𝐒𝐀𝐈𝐃𝐈 𖥳❳⊷┉┉┉┉⩺
 ⦁ رفع + تنزيل ⦁
 ⦁ مالك ⦁
 ⦁ منشئ اساسي ⦁
@@ -12059,7 +12059,7 @@ local TextHelp = [[*
 ⦁ مشرف ⦁
 ⦁ ادمن ⦁
 ⦁ مميز ⦁
-●○━━━━‌‌‏𝑴𝑬𝒁𝑶━━━━○●
+⩹┉┉┉┉⊶❲𖥳 𝐒𝐀𝐈𝐃𝐈 𖥳❳⊷┉┉┉┉⩺
 ⦁ اضف رد عام ⦁
 ⦁ مسح رد عام ⦁
 ⦁ الردود العامه ⦁
@@ -12068,7 +12068,7 @@ local TextHelp = [[*
 ⦁ اذاعه خاص ⦁
 ⦁ اذاعه بالتوجيه ⦁
 ⦁ اذاعه بالتوجيه خاص ⦁
-●○━━━━‌‌‏𝑴𝑬𝒁𝑶━━━━○●
+⩹┉┉┉┉⊶❲𖥳 𝐒𝐀𝐈𝐃𝐈 𖥳❳⊷┉┉┉┉⩺
 *]]
 LuaTele.editMessageText(ChatId,Msg_id,TextHelp, 'md', true, false, reply_markup)
 end
@@ -12094,7 +12094,7 @@ data = {
 }
 local TextHelp = [[*
 『 اوامر مطور ثانوي البوت 』
-●○━━━━‌‌‏𝑴𝑬𝒁𝑶━━━━○●
+⩹┉┉┉┉⊶❲𖥳 𝐒𝐀𝐈𝐃𝐈 𖥳❳⊷┉┉┉┉⩺
 ⦁ رفع مطور ⦁
 ⦁ تنزيل مطور ⦁
 ⦁ المطورين ⦁
@@ -12107,7 +12107,7 @@ local TextHelp = [[*
 ⦁ مسح المكتومين ⦁
 ⦁ غادر ⦁
 ⦁ الاحصائيات ⦁
-●○━━━━‌‌‏𝑴𝑬𝒁𝑶━━━━○●
+⩹┉┉┉┉⊶❲𖥳 𝐒𝐀𝐈𝐃𝐈 𖥳❳⊷┉┉┉┉⩺
 ⦁ تفعيل الردود العامه ⦁
 ⦁ تعطيل الردود العامه ⦁
 ⦁ اضف رد متعدد ⦁
@@ -12115,7 +12115,7 @@ local TextHelp = [[*
 ⦁ الردود المتعدد ⦁
 ⦁ اضف رد ⦁
 ⦁ مسح رد ⦁
-●○━━━━‌‌‏𝑴𝑬𝒁𝑶━━━━○●
+⩹┉┉┉┉⊶❲𖥳 𝐒𝐀𝐈𝐃𝐈 𖥳❳⊷┉┉┉┉⩺
 ⦁ اضف رد عام ⦁
 ⦁ مسح رد عام ⦁
 ⦁ الردود العامه ⦁
@@ -12124,7 +12124,7 @@ local TextHelp = [[*
 ⦁ اذاعه خاص ⦁
 ⦁ اذاعه بالتوجيه ⦁
 ⦁ اذاعه بالتوجيه خاص ⦁
-●○━━━━‌‌‏𝑴𝑬𝒁𝑶━━━━○●
+⩹┉┉┉┉⊶❲𖥳 𝐒𝐀𝐈𝐃𝐈 𖥳❳⊷┉┉┉┉⩺
 *]]
 LuaTele.editMessageText(ChatId,Msg_id,TextHelp, 'md', true, false, reply_markup)
 end
@@ -12150,7 +12150,7 @@ data = {
 }
 local TextHelp = [[*
 『 اوامر مطور البوت الاساسي 』
-●○━━━━‌‌‏𝑴𝑬𝒁𝑶━━━━○●
+⩹┉┉┉┉⊶❲𖥳 𝐒𝐀𝐈𝐃𝐈 𖥳❳⊷┉┉┉┉⩺
 ⦁ حظر عام ⦁
 ⦁ كتم عام ⦁
 ⦁ قائمه العام ⦁
@@ -12160,7 +12160,7 @@ local TextHelp = [[*
 ⦁ الثانوين ⦁
 ⦁ مسح الثانوين ⦁
 ⦁ تحديث الملفات ⦁
-●○━━━━‌‌‏𝑴𝑬𝒁𝑶━━━━○●
+⩹┉┉┉┉⊶❲𖥳 𝐒𝐀𝐈𝐃𝐈 𖥳❳⊷┉┉┉┉⩺
 ⦁ تحديث السورس ⦁
 ⦁ تفعيل البوت الخدمي ⦁
 ⦁ تعيطل البوت الخدمي ⦁
@@ -12171,7 +12171,7 @@ local TextHelp = [[*
 ⦁ تنزيل مطور ⦁
 ⦁ رفع مطور ثانوي ⦁
 ⦁ تنزيل مطور ثانوي ⦁
-●○━━━━‌‌‏𝑴𝑬𝒁𝑶━━━━○●
+⩹┉┉┉┉⊶❲𖥳 𝐒𝐀𝐈𝐃𝐈 𖥳❳⊷┉┉┉┉⩺
 ⦁ تفعيل الردود العامه ⦁
 ⦁ تعطيل الردود العامه ⦁
 ⦁ اضف رد متعدد ⦁
@@ -12182,7 +12182,7 @@ local TextHelp = [[*
 ⦁ اضف رد عام ⦁
 ⦁ مسح رد عام ⦁
 ⦁ الردود العامه ⦁
-●○━━━━‌‌‏𝑴𝑬𝒁𝑶━━━━○●
+⩹┉┉┉┉⊶❲𖥳 𝐒𝐀𝐈𝐃𝐈 𖥳❳⊷┉┉┉┉⩺
  ⦁ الملفات ⦁
 ⦁ مسح جميع الملفات ⦁
 ⦁ المتجر ⦁
@@ -12194,7 +12194,7 @@ local TextHelp = [[*
 ⦁ اذاعه خاص ⦁
 ⦁ اذاعه بالتوجيه ⦁
 ⦁ اذاعه بالتوجيه خاص ⦁
-●○━━━━‌‌‏𝑴𝑬𝒁𝑶━━━━○●
+⩹┉┉┉┉⊶❲𖥳 𝐒𝐀𝐈𝐃𝐈 𖥳❳⊷┉┉┉┉⩺
 *]]
 LuaTele.editMessageText(ChatId,Msg_id,TextHelp, 'md', true, false, reply_markup)
 end
@@ -12221,49 +12221,49 @@ data = {
 local TextHelp = [[*
 『 اوامر التسليه 』
 𓄼 رفع ⇔ تنزيل + الامر 𓄹
-●○━━━━‌‌‏𝑴𝑬𝒁𝑶━━━━○●
+⩹┉┉┉┉⊶❲𖥳 𝐒𝐀𝐈𝐃𝐈 𖥳❳⊷┉┉┉┉⩺
 𓄼 رفع + تنزيل ⇦ متوحد 𓄹
 𓄼 تاك للمتوحدين 𓄹
-●○━━━━‌‌‏𝑴𝑬𝒁𝑶━━━━○●
+⩹┉┉┉┉⊶❲𖥳 𝐒𝐀𝐈𝐃𝐈 𖥳❳⊷┉┉┉┉⩺
 𓄼 رفع + تنزيل ⇦ كلب 𓄹
 𓄼 تاك للكلاب 𓄹
-●○━━━━‌‌‏𝑴𝑬𝒁𝑶━━━━○●
+⩹┉┉┉┉⊶❲𖥳 𝐒𝐀𝐈𝐃𝐈 𖥳❳⊷┉┉┉┉⩺
 𓄼 رفع + تنزيل ⇦ قرد 𓄹
 𓄼 تاك للقرود 𓄹
-●○━━━━‌‌‏𝑴𝑬𝒁𝑶━━━━○●
+⩹┉┉┉┉⊶❲𖥳 𝐒𝐀𝐈𝐃𝐈 𖥳❳⊷┉┉┉┉⩺
 𓄼 رفع + تنزيل ⇦ زوجتي 𓄹
 𓄼 تاك للزوجات 𓄹
-●○━━━━‌‌‏𝑴𝑬𝒁𝑶━━━━○●
+⩹┉┉┉┉⊶❲𖥳 𝐒𝐀𝐈𝐃𝐈 𖥳❳⊷┉┉┉┉⩺
 𓄼 رفع + تنزيل ⇦ قلبي 𓄹
 𓄼 تاك لقلبي 𓄹
-●○━━━━‌‌‏𝑴𝑬𝒁𝑶━━━━○●
+⩹┉┉┉┉⊶❲𖥳 𝐒𝐀𝐈𝐃𝐈 𖥳❳⊷┉┉┉┉⩺
 𓄼 رفع + تنزيل ⇦ بقره 𓄹
 𓄼 تاك للبقرات 𓄹
-●○━━━━‌‌‏𝑴𝑬𝒁𝑶━━━━○●
+⩹┉┉┉┉⊶❲𖥳 𝐒𝐀𝐈𝐃𝐈 𖥳❳⊷┉┉┉┉⩺
 𓄼 رفع + تنزيل ⇦ ارمله 𓄹
 𓄼 تاك للارامل 𓄹
-●○━━━━‌‌‏𝑴𝑬𝒁𝑶━━━━○●
+⩹┉┉┉┉⊶❲𖥳 𝐒𝐀𝐈𝐃𝐈 𖥳❳⊷┉┉┉┉⩺
 𓄼 رفع + تنزيل ⇦ خول 𓄹
 𓄼 تاك للخولات 𓄹
-●○━━━━‌‌‏𝑴𝑬𝒁𝑶━━━━○●
+⩹┉┉┉┉⊶❲𖥳 𝐒𝐀𝐈𝐃𝐈 𖥳❳⊷┉┉┉┉⩺
 𓄼 رفع + تنزيل ⇦ حمار 𓄹
 𓄼 تاك للحمير 𓄹
-●○━━━━‌‌‏𝑴𝑬𝒁𝑶━━━━○●
+⩹┉┉┉┉⊶❲𖥳 𝐒𝐀𝐈𝐃𝐈 𖥳❳⊷┉┉┉┉⩺
 𓄼 رفع + تنزيل ⇦ مزه 𓄹
 𓄼 تاك للمزز 𓄹
-●○━━━━‌‌‏𝑴𝑬𝒁𝑶━━━━○●
+⩹┉┉┉┉⊶❲𖥳 𝐒𝐀𝐈𝐃𝐈 𖥳❳⊷┉┉┉┉⩺
 𓄼 رفع + تنزيل ⇦ وتكه 𓄹
 𓄼 تاك للوتكات 𓄹
-●○━━━━‌‌‏𝑴𝑬𝒁𝑶━━━━○●
+⩹┉┉┉┉⊶❲𖥳 𝐒𝐀𝐈𝐃𝐈 𖥳❳⊷┉┉┉┉⩺
 𓄼 رفع + تنزيل ⇦ ابني 𓄹
 𓄼 تاك لولادي 𓄹
-●○━━━━‌‌‏𝑴𝑬𝒁𝑶━━━━○●
+⩹┉┉┉┉⊶❲𖥳 𝐒𝐀𝐈𝐃𝐈 𖥳❳⊷┉┉┉┉⩺
 𓄼 رفع + تنزيل ⇦ بنتي 𓄹
 𓄼 تاك لبناتي 𓄹
-●○━━━━‌‌‏𝑴𝑬𝒁𝑶━━━━○●
+⩹┉┉┉┉⊶❲𖥳 𝐒𝐀𝐈𝐃𝐈 𖥳❳⊷┉┉┉┉⩺
 𓄼 رفع + تنزيل ⇦ خاين 𓄹
 𓄼 تاك للخاينين 𓄹
-●○━━━━‌‌‏𝑴𝑬𝒁𝑶━━━━○●
+⩹┉┉┉┉⊶❲𖥳 𝐒𝐀𝐈𝐃𝐈 𖥳❳⊷┉┉┉┉⩺
 *]]
 LuaTele.editMessageText(ChatId,Msg_id,TextHelp, 'md', true, false, reply_markup)
 end
@@ -12289,7 +12289,7 @@ data = {
 }
 local TextHelp = [[*
 『 اوامر الاعضاء 』
-●○━━━━‌‌‏𝑴𝑬𝒁𝑶━━━━○●
+⩹┉┉┉┉⊶❲𖥳 𝐒𝐀𝐈𝐃𝐈 𖥳❳⊷┉┉┉┉⩺
 ⦁ اسمي ⦁
 ⦁ صورتي ⦁
 ⦁ رتبتي ⦁
@@ -12302,7 +12302,7 @@ local TextHelp = [[*
 ⦁ هل تعلم ⦁
 ⦁ صراحه ⦁
 ⦁ نسبه جمالي ⦁
-●○━━━━‌‌‏𝑴𝑬𝒁𝑶━━━━○●
+⩹┉┉┉┉⊶❲𖥳 𝐒𝐀𝐈𝐃𝐈 𖥳❳⊷┉┉┉┉⩺
 ⦁ نسبه الحب ⦁
 ⦁ نسبه الكره ⦁
 ⦁ نسبه الرجوله ⦁
@@ -12314,7 +12314,7 @@ local TextHelp = [[*
 ⦁ المطور ⦁
 ⦁ كشف ⦁
 ⦁ الرابط ⦁
-●○━━━━‌‌‏𝑴𝑬𝒁𝑶━━━━○●
+⩹┉┉┉┉⊶❲𖥳 𝐒𝐀𝐈𝐃𝐈 𖥳❳⊷┉┉┉┉⩺
 ⦁ بوت حذف ⦁
 ⦁ روابط حذف ⦁
 ⦁ رسائلي ⦁
@@ -12327,7 +12327,7 @@ local TextHelp = [[*
 ⦁ كتبات ⦁
 ⦁ غنيلي ⦁
 ⦁ مستقبلي ⦁
-●○━━━━‌‌‏𝑴𝑬𝒁𝑶━━━━○●
+⩹┉┉┉┉⊶❲𖥳 𝐒𝐀𝐈𝐃𝐈 𖥳❳⊷┉┉┉┉⩺
 *]]
 LuaTele.editMessageText(ChatId,Msg_id,TextHelp, 'md', true, false, reply_markup)
 end
