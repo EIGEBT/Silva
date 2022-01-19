@@ -9228,8 +9228,7 @@ local m = "https://t.me/mmsst13/"..Rrr..""
 local rep = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token.."/sendaudio?chat_id="..msg_chat_id.."&caption="..URL.escape(t).."&audio="..m.."&reply_to_message_id="..rep.."&parse_mode=Markdown")
 end
-if text == 'السورس' or text == 'سورس' or text == 'يا سورس' or text == 'source' then
-video = "https://t.me/t_imoo/4"
+if text == 'السورس' or text == 'سورس' or text == 'يا سورس' or text == '' then
 local T =[[
   ⚜ ⦙ ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ
       ▱▰▱▰▱▰▱▰▱▰▱▰▱
@@ -9240,18 +9239,10 @@ local T =[[
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
- 
-{
-{text = '- ᴛ ɪ ᴍ ᴏ -', url = "https://t.me/tt_tt_4"},{text = '- ᴛᴀᴡᴀѕᴏʟ -', url = "https://t.me/Timo8BOT"}
-},
-{
-{text = '- ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ -', url = "https://t.me/SU_SELVA"}
-},
-{
-{text = '𓆩🤍اضف البوت لمجموعتك 𓆪', url = 't.me/'..UserBot..'?startgroup=new'},
-},
+{{text = 'جابوا', url = "http://t.me/J_A_B_W_A"}},
 }
 local msgg = msg_id/2097152/0.5
+https.request("https://api.telegram.org/bot"..Token.."/sendvideo?chat_id=" .. msg_chat_id .. "&video=https://t.me/t_imoo/4=".. URL.escape(T).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 elseif text == 'جابوا' or text == 'جابو' or text == 'المبرمح جابوا' then
 photo = "https://t.me/J_A_B_W_A"
 local Name = '𝑾𝑬𝑳𝑪𝑶𝑴𝑬 𝑻𝑶 𝒀𝑶𝒁𝑨𝑹𝑻 𝑱𝑨𝑩𝑾𝑨 '
