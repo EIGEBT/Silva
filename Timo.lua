@@ -9229,7 +9229,7 @@ local rep = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token.."/sendaudio?chat_id="..msg_chat_id.."&caption="..URL.escape(t).."&audio="..m.."&reply_to_message_id="..rep.."&parse_mode=Markdown")
 end
 if text == 'السورس' or text == 'سورس' or text == 'يا سورس' or text == 'source' then
-photo = "http://t.me/SU_SELVA"
+video = "http://t.me/t_imoo/4"
 local T =[[
 ⚜ ⦙ 𝚆𝙴𝙻𝙲𝙾𝙼𝙴 𝚃𝙾 𝚂𝙾𝚄𝚁𝙲𝙴 𝚂𝙴𝙻𝚅𝙰
       ▱▰▱▰▱▰▱▰▱▰▱▰▱
@@ -9252,7 +9252,7 @@ keyboard.inline_keyboard = {
 },
 }
 local msgg = msg_id/2097152/0.5
-https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id=" .. msg_chat_id .. "&photo="..photo.."&caption=".. URL.escape(T).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+https.request("https://api.telegram.org/bot"..Token.."/sendvideo?chat_id=" .. msg_chat_id .. "&video="..video.."&caption=".. URL.escape(T).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 elseif text == 'تيمو' or text == 'المبرمج تيمو' or text == 'مبرمح السورس' then
 photo = "https://t.me/tt_tt_4"
 local Name = '𝙿𝚁𝙾𝙶𝚁𝙰𝙼𝙼𝙴𝚁 𝚃𝙸𝙼𝙾 \n𝚃𝙾 𝙲𝙾𝙼𝙼𝚄𝙽𝙸𝙲𝙰𝚃𝙴 𝚃𝙾𝙶𝙴𝚃𝙷𝙴𝚁 \n𝙵𝙾𝙻𝙻𝙾𝚆 𝚃𝙷𝙴 𝙱𝚄𝚃𝚃𝙾𝙽𝚂 𝙻𝙾𝚆𝙴𝚁• '
