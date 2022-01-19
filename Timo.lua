@@ -9250,7 +9250,7 @@ keyboard.inline_keyboard = {
 {text = '- 𝚂𝙾𝚄𝚁𝙲𝙴 𝚂𝙴𝙻𝚅𝙰 -', url = "https://t.me/SU_SELVA"}
 },
 {
-{text = '𓆩🤍اضف البوت لمجموعتك 𓆪', url = 't.me/'..UserBot..'?startgroup=new'},
+{text = '𓆩🤍اضف البوت لمجموعتك 𓆪', url = 't.me/'..UserBot..'?startgroup=new'}
 },
 }
 local msgg = msg_id/2097152/0.5
