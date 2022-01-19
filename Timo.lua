@@ -2377,9 +2377,9 @@ NamesBot = (Redis:get(Timo.."Timo:Name:Bot") or "صعيدي")
 Groups = (Redis:scard(Timo..'Timo:ChekBotAdd') or 0)
 Users = (Redis:scard(Timo..'Timo:Num:User:Pv') or 0)
 if photo.total_count > 0 then
-local Jabwa = 'اسم بوت ⇒ ❴ '..NamesBot..' ❵'
-local Grosupsw = 'الجروبات ⇒ ❴ '..Groups..' ❵'
-local Usperos = 'المشتركين ⇒ ❴ '..Users..' ❵'
+local Jabwa = 'اسم بوت = ❴ '..NamesBot..' ❵'
+local Grosupsw = 'الجروبات = ❴ '..Groups..' ❵'
+local Usperos = 'المشتركين = ❴ '..Users..' ❵'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
