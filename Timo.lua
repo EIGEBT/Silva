@@ -2373,7 +2373,7 @@ for Name_User in string.gmatch(UserInfo.first_name, "[^%s]+" ) do
 UserInfo.first_name = Name_User
 break
 end 
-NamesBot = (Redis:get(Timo.."Timo:Name:Bot") or "صعيدي")
+NamesBot = (Redis:get(Timo.."Timo:Name:Bot") or "سيلفا")
 Groups = (Redis:scard(Timo..'Timo:ChekBotAdd') or 0)
 Users = (Redis:scard(Timo..'Timo:Num:User:Pv') or 0)
 if photo.total_count > 0 then
@@ -8165,7 +8165,7 @@ local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '⎈ ⦙  تعديل الصلاحيات⎈ ⦙ ', data = msg.sender.user_id..'/groupNumseteng//'..Message_Reply.sender.user_id}, 
+{text = 'تعديل الصلاحيات', data = msg.sender.user_id..'/groupNumseteng//'..Message_Reply.sender.user_id}, 
 },
 }
 }
@@ -8205,7 +8205,7 @@ local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '⎈ ⦙  تعديل الصلاحيات⎈ ⦙ ', data = msg.sender.user_id..'/groupNumseteng//'..UserId_Info.id}, 
+{text = ' تعديل الصلاحيات', data = msg.sender.user_id..'/groupNumseteng//'..UserId_Info.id}, 
 },
 }
 }
@@ -12189,7 +12189,7 @@ local TextHelp = [[*
 • تنزيل مطور •
 • رفع مطور ثانوي •
 • تنزيل مطور ثانوي •
-⩹┉┉┉┉⊶❲𖥳 𝐒𝐀𝐈𝐃?? 𖥳❳⊷┉┉┉┉⩺
+༺┉┉┉⊶﴾𓆩𝚂𝙾𝚄𝚁𝙲𝙴 𝚂𝙴𝙻𝚅𝙰𓆪﴿⊷┉┉┉༻
 • تفعيل الردود العامه •
 • تعطيل الردود العامه •
 • اضف رد متعدد •
