@@ -2367,19 +2367,19 @@ end
 Redis:set(Timo..'Timo:Num:Add:Bot',text:match("تعين عدد الاعضاء (%d+)$") ) 
 LuaTele.sendText(msg_chat_id,msg_id,'*⎈ ⦙  تم تعيين عدد اعضاء تفعيل البوت اكثر من : '..text:match("تعين عدد الاعضاء (%d+)$")..' عضو *',"md",true)  
 elseif text == 'الاحصائيات' or text == '『 الاحصائيات 』' and msg.DevelopersQ then
-local photo = LuaTele.getUserProfilePhotos(Timo)
-local UserInfo = LuaTele.getUser(Timo)
+local photo = LuaTele.getUserProfilePhotos(Saidi)
+local UserInfo = LuaTele.getUser(Saidi)
 for Name_User in string.gmatch(UserInfo.first_name, "[^%s]+" ) do
 UserInfo.first_name = Name_User
 break
 end 
-NamesBot = (Redis:get(Timo.."Timo:Name:Bot") or "سيلفا")
-Groups = (Redis:scard(Timo..'Timo:ChekBotAdd') or 0)
-Users = (Redis:scard(Timo..'Timo:Num:User:Pv') or 0)
+NamesBot = (Redis:get(Saidi.."Saidi:Name:Bot") or "صعيدي")
+Groups = (Redis:scard(Saidi..'Saidi:ChekBotAdd') or 0)
+Users = (Redis:scard(Saidi..'Saidi:Num:User:Pv') or 0)
 if photo.total_count > 0 then
-local Jabwa = 'اسم بوت 『 '..NamesBot..' 』'
-local Grosupsw = 'الجروبات 『 '..Groups..' 』'
-local Usperos = 'المشتركين 『 '..Users..' 』'
+local Jabwa = 'اسم بوت ⇒ '..NamesBot..''
+local Grosupsw = 'الجروبات ⇒ '..Groups..''
+local Usperos = 'المشتركين ⇒ '..Users..''
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
@@ -12277,7 +12277,7 @@ local TextHelp = [[*
 𓄼 تاك لولادي 𓄹
 ▱▰▱▰▱▰▱▰▱▰▱▰▱▰
 𓄼 رفع + تنزيل ⇐ بنتي 𓄹
-𓄼 تاك لبناتي 𓄹
+𓄼 تاك لبناتي ??
 ▱▰▱▰▱▰▱▰▱▰▱▰▱▰
 𓄼 رفع + تنزيل ⇐ خاين 𓄹
 𓄼 تاك للخاينين 𓄹
