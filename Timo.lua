@@ -9229,24 +9229,29 @@ local rep = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token.."/sendaudio?chat_id="..msg_chat_id.."&caption="..URL.escape(t).."&audio="..m.."&reply_to_message_id="..rep.."&parse_mode=Markdown")
 end
 if text == 'السورس' or text == 'سورس' or text == 'يا سورس' or text == 'source' then
-photo = "http://t.me/SU_SELVA"
+video = "https://t.me/t_imoo/4"
 local T =[[
-╔━━━━━━━━•🤍•━━━━━━━╗ 
-┇⦑ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ sᴏᴜʀᴄᴇ sᴀɪᴅɪ⦒ 
-╚━━━━━━━━•🤍•━━━━━━━╝ 
+  ⚜ ⦙ ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ
+      ▱▰▱▰▱▰▱▰▱▰▱▰▱
+ ⚙ ⦙ ᴛʜᴀ ʙᴇѕᴛ ѕᴏ𝗎ʀᴄᴇ ᴛᴇʟᴇɢʀᴀᴍ
+      ▱▰▱▰▱▰▱▰▱▰▱▰▱
+ 🌎 ⦙ ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ
+      ▱▰▱▰▱▰▱▰▱▰▱▰▱
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
-
+ 
 {
-{text = '• 𝗧ٰٖ𝗜ٰٖ𝗠ٰٖ𝗢ٰٖ •', url = "https://t.me/ttimo_8lby"},{text = '• 𝗝ٰٖ𝗔ٰٖ𝗕ٰٖ𝗪ٰٖ𝗔ٰٖ •', url = "https://t.me/J_A_B_W_A"}
+{text = '- ᴛ ɪ ᴍ ᴏ -', url = "https://t.me/tt_tt_4"},{text = '- ᴛᴀᴡᴀѕᴏʟ -', url = "https://t.me/Timo8BOT"}
 },
 {
-{text = '• 𝗦ِٰٰٰٰٰٰٰٰ𝗢ِٰ𝗨ِٰ𝗥ِٰ𝗖ِٰ𝗘ٰٰٰٰٰٰٰٰٰٰٰٰٰ ٰ𝗦ِٰ𝗔ِٰ𝗜ِٰ𝗗ِٰ𝗜ٰ •', url = "https://t.me/SU_SELVA"}
+{text = '- ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ -', url = "https://t.me/SU_SELVA"}
+},
+{
+{text = '𓆩🤍اضف البوت لمجموعتك 𓆪', url = 't.me/'..UserBot..'?startgroup=new'},
 },
 }
 local msgg = msg_id/2097152/0.5
-https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id=" .. msg_chat_id .. "&photo="..photo.."&caption=".. URL.escape(T).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 elseif text == 'جابوا' or text == 'جابو' or text == 'المبرمح جابوا' then
 photo = "https://t.me/J_A_B_W_A"
 local Name = '𝑾𝑬𝑳𝑪𝑶𝑴𝑬 𝑻𝑶 𝒀𝑶𝒁𝑨𝑹𝑻 𝑱𝑨𝑩𝑾𝑨 '
@@ -9259,7 +9264,7 @@ keyboard.inline_keyboard = {
 local msgg = msg_id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id=" .. msg_chat_id .. "&photo="..photo.."&caption=".. URL.escape(Name).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 elseif text == 'تيمو' or text == 'المبرمج تيمو' or text == 'مبرمح السورس' then
-photo = "https://t.me/ttimo_8lby"
+photo = "https://t.me/tt_tt_4"
 local Name = 'ᴘʀᴏɢʀᴀᴍᴍᴇʀ ᴛɪᴍᴏ \nᴛᴏ ᴄᴏᴍᴍ𝗎ɴɪᴄᴀᴛᴇ ᴛᴏɢᴇᴛʜᴇʀ \nғᴏʟʟᴏᴡ ᴛʜᴇ ʙ𝗎ᴛᴛᴏɴѕ ʟᴏᴡᴇʀ • '
 keyboard = {} 
 keyboard.inline_keyboard = {
