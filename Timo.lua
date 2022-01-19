@@ -9241,13 +9241,14 @@ local T =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 
-{text = '- 𝚃 𝙸 𝙼 𝙾 -', url = "https://t.me/ttimo_8lby"},{text = '- 𝙹𝙰𝙱𝚆𝙰 -', url = "https://t.me/Timo8BOT"}
+{
+{text = '• - 𝚃 𝙸 𝙼 𝙾 - •', url = "https://t.me/tt_tt_4"},{text = '• - 𝙹𝙰𝙱𝚆𝙰 - •', url = "https://t.me/J_A_B_W_A"}
 },
 {
-{text = '- 𝚃𝙰𝚆𝙰𝚂𝙾𝙻 -', url = "https://t.me/Timo8BOT"}
+{text = '• - 𝚃𝙰𝚆𝙰𝚂𝙾𝙻 - •', url = "https://t.me/Timo8BOT"}
 },
 {
-{text = '- 𝚂𝙾𝚄𝚁𝙲𝙴 𝚂𝙴𝙻𝚅𝙰 -', url = "https://t.me/SU_SELVA"}
+{text = '• - 𝚂𝙾𝚄𝚁𝙲𝙴 𝚂𝙴𝙻𝚅𝙰 - •', url = "https://t.me/SU_SELVA"}
 },
 }
 local msgg = msg_id/2097152/0.5
