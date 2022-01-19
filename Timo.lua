@@ -9231,12 +9231,13 @@ end
 if text == 'السورس' or text == 'سورس' or text == 'يا سورس' or text == 'source' then
 video = "http://t.me/t_imoo/4"
 local T =[[
-⚜ ⦙ 𝚆𝙴𝙻𝙲𝙾𝙼𝙴 𝚃𝙾 𝚂𝙾𝚄𝚁𝙲𝙴 𝚂𝙴𝙻𝚅𝙰
-      ▱▰▱▰▱▰▱▰▱▰▱▰▱
- ⚙ ⦙ 𝚃𝙷𝙰 𝙱𝙴𝚂𝚃 𝚂𝙾𝚄𝚁𝙲𝙴 𝚃𝙴𝙻𝙴𝙶𝚁𝙰𝙼
-      ▱▰▱▰▱▰▱▰▱▰▱▰▱
- 🌎 ⦙ 𝚆𝙴𝙻𝙲𝙾𝙼𝙴 𝚃𝙾 𝚂𝙾𝚄𝚁𝙲𝙴 𝚂𝙴𝙻𝚅𝙰
-      ▱▰▱▰▱▰▱▰▱▰▱▰▱
+╔━━━━━━━━𓆩♡𓆪━━━━━━━╗ 
+┇𝚆𝙴𝙻𝙲𝙾𝙼𝙴 𝚃𝙾 𝚂𝙾𝚄𝚁𝙲𝙴 𝚂𝙴𝙻𝚅𝙰
+┇▱▰▱▰▱▰▱▰▱▰▱▰▱
+┇𝚃𝙷𝙰 𝙱𝙴𝚂𝚃 𝚂𝙾𝚄𝚁𝙲𝙴 𝚃𝙴𝙻𝙴𝙶𝚁𝙰𝙼
+┇▱▰▱▰▱▰▱▰▱▰▱▰▱
+┇𝚆𝙴𝙻𝙲𝙾𝙼𝙴 𝚃𝙾 𝚂𝙾𝚄𝚁𝙲𝙴 𝚂𝙴𝙻𝚅𝙰
+╚━━━━━━━━𓆩♡𓆪━━━━━━━╝ 
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -9253,7 +9254,7 @@ keyboard.inline_keyboard = {
 }
 local msgg = msg_id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token.."/sendvideo?chat_id=" .. msg_chat_id .. "&video="..video.."&caption=".. URL.escape(T).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-elseif text == 'تيمو' or text == 'المبرمج تيمو' or text == 'مبرمح السورس' then
+elseif text == 'تيمو' or text == 'المبرمج تيمو' or text == 'مبرمج السورس' then
 photo = "https://t.me/tt_tt_4"
 local Name = '𝙿𝚁𝙾𝙶𝚁𝙰𝙼𝙼𝙴𝚁 𝚃𝙸𝙼𝙾 \n𝚃𝙾 𝙲𝙾𝙼𝙼𝚄𝙽𝙸𝙲𝙰𝚃𝙴 𝚃𝙾𝙶𝙴𝚃𝙷𝙴𝚁 \n𝙵𝙾𝙻𝙻𝙾𝚆 𝚃𝙷𝙴 𝙱𝚄𝚃𝚃𝙾𝙽𝚂 𝙻𝙾𝚆𝙴𝚁• '
 keyboard = {} 
@@ -9274,6 +9275,17 @@ keyboard = {}
 keyboard.inline_keyboard = {
 {
 {text = '- 𝙹𝙰𝙱𝚆𝙰 -', url = "https://t.me/J_A_B_W_A"}
+},
+}
+local msgg = msg_id/2097152/0.5
+https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id=" .. msg_chat_id .. "&photo="..photo.."&caption=".. URL.escape(Name).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+elseif text == 'بوت حذف' or text == 'بوت الحذف' or text == 'بووت حذف' then
+photo = "https://t.me/LC6BOT"
+local Name = '𝙱𝙾𝚃 𝙳𝙻𝙴𝚃𝙴 𝚃𝙴𝙻𝙴𝙶𝚁𝙰𝙼'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '- 𝙱𝙾𝚃 -', url = "https://t.me/LC6BOT"}
 },
 }
 local msgg = msg_id/2097152/0.5
@@ -9475,7 +9487,7 @@ data = {
 }
 return LuaTele.sendText(msg_chat_id,msg_id,'*ضحكتك عثل زيكك ينوحيي 🌝❤️*',"md",false, false, false, false, reply_markup)
 end
-if text == '🤔' or text == '🤔🤔' then
+if text == '??' or text == '🤔🤔' then
 if not Redis:get(Timo.."Timo:Sasa:Jeka"..msg_chat_id) then
 return LuaTele.sendText(msg_chat_id,msg_id,"* *","md",true)  
 end
@@ -10057,7 +10069,7 @@ keyboard.inline_keyboard = {
 {text = NamesBots, url = 't.me/SU_SELVA'}, 
 },
 {
-{text = '𓆩🤍اضف البوت لمجموعتك 𓆪', url = 't.me/'..UserBot..'?startgroup=new'},
+{text = '𓆩اضف البوت لمجموعتك𓆪', url = 't.me/'..UserBot..'?startgroup=new'},
 },
 }
 msgg = msg.id/2097152/0.5
@@ -10092,7 +10104,7 @@ keyboard.inline_keyboard = {
 {text = NamesBots, url = 't.me/SU_SELVA'}, 
 },
 {
-{text = '𓆩🤍اضف البوت لمجموعتك 𓆪', url = 't.me/'..UserBot..'?startgroup=new'},
+{text = '𓆩اضف البوت لمجموعتك𓆪', url = 't.me/'..UserBot..'?startgroup=new'},
 },
 }
 msgg = msg.id/2097152/0.5
@@ -11130,7 +11142,7 @@ local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '𓆩🤍اضف البوت لمجموعتك 𓆪', url = 't.me/'..UserBot..'?startgroup=new'}, 
+{text = '𓆩اضف البوت لمجموعتك𓆪', url = 't.me/'..UserBot..'?startgroup=new'}, 
 },
 {
 {text = '- 𝚂𝙾𝚄𝚁𝙲𝙴 𝚂𝙴𝙻𝚅𝙰 -', url = 't.me/SU_SELVA'}, 
@@ -11143,7 +11155,7 @@ local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '𓆩🤍اضف البوت لمجموعتك 𓆪', url = 't.me/'..UserBot..'?startgroup=new'}, 
+{text = '𓆩اضف البوت لمجموعتك𓆪', url = 't.me/'..UserBot..'?startgroup=new'}, 
 },
 {
 {text = '- 𝚂𝙾𝚄𝚁𝙲𝙴 𝚂𝙴𝙻𝚅𝙰 -', url = 't.me/SU_SELVA'}, 
