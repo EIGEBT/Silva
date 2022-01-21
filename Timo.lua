@@ -9368,14 +9368,14 @@ if text and text:match("^زخرفه (.*)$") then
 local TextZhrfa = text:match("^زخرفه (.*)$")
 zh = https.request('https://apiabs.ml/zrf.php?abs='..URL.escape(TextZhrfa)..'')
 zx = JSON.decode(zh)
-t = "\n ⦁ قائمه الزخرفه \n༺┉┉┉⊶﴾𓆩𝚂𝙾𝚄𝚁𝙲𝙴 𝚂𝙴𝙻𝚅𝙰𓆪﴿⊷┉┉┉༻\n"
+t = "\n ⦁ قائمه الزخرفه \n༻┉┉┉⊶﴾𓆩𝚂𝙾𝚄𝚁𝙲𝙴 𝚂𝙴𝙻𝚅𝙰𓆪﴿⊷┉┉┉༺\n"
 i = 0
 for k,v in pairs(zx.ok) do
 i = i + 1
-t = t..i.."-  "..v.." \n"
+t = t..i.."-  `"..v.."` \n"
 end
 LuaTele.sendText(msg_chat_id,msg_id,t,"md",true) 
-end
+end 
 if text == 'هاي' or text == 'هيي' then
 if not Redis:get(Timo.."Timo:Sasa:Jeka"..msg_chat_id) then
 return LuaTele.sendText(msg_chat_id,msg_id,"*⎈ ⦙  ردود السورس معطلة*","md",true)  
