@@ -9366,13 +9366,13 @@ return LuaTele.sendText(msg_chat_id,msg_id,'⎈ ⦙  اليك قسم الالع�
 end
 if text and text:match("^زخرفه (.*)$") then
 local TextZhrfa = text:match("^زخرفه (.*)$")
-zh = https.request('https://boyka-api.ml/frills.php?en='..URL.escape(TextZhrfa)..'')
+zh = https.request('https://apiabs.ml/zrf.php?abs='..URL.escape(TextZhrfa)..'')
 zx = JSON.decode(zh)
-t = "\n ◐ قائمه الزخرفه \n༺┉┉┉⊶﴾𓆩𝚂𝙾𝚄𝚁𝙲𝙴 𝚂𝙴𝙻𝚅𝙰𓆪﴿⊷┉┉┉༻\n"
+t = "\n ⦁ قائمه الزخرفه \n༺┉┉┉⊶﴾𓆩𝚂𝙾𝚄𝚁𝙲𝙴 𝚂𝙴𝙻𝚅𝙰𓆪﴿⊷┉┉┉༻\n"
 i = 0
 for k,v in pairs(zx.ok) do
 i = i + 1
-t = t..i.."- "..v.." \n"
+t = t..i.."-  "..v.." \n"
 end
 LuaTele.sendText(msg_chat_id,msg_id,t,"md",true) 
 end
