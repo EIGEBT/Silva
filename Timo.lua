@@ -1117,6 +1117,29 @@ end
 print('This is message Pin')
 end 
 
+if text and text:match("^زخرفه (.*)$") then
+local TextZhrfa = text:match("^زخرفه (.*)$")
+zh = https.request('https://boyka-api.ml/frills.php?en='..URL.escape(TextZhrfa)..'')
+zx = JSON.decode(zh)
+t = "\n ◐ قائمه الزخرفه \n༺┉┉┉⊶﴾𓆩𝚂𝙾𝚄𝚁𝙲𝙴 𝚂𝙴𝙻𝚅𝙰𓆪﴿⊷┉┉┉༻\n"
+i = 0
+for k,v in pairs(zx.ok) do
+i = i + 1
+t = t..i.."- "..v.." \n"
+end
+LuaTele.sendText(msg_chat_id,msg_id,t,"md",true) 
+end 
+if Redis:get(Timo.."brgi"..msg.sender.user_id) == "sendbr" then
+gk = https.request('https://apiabs.ml/brg.php?brg='..URL.escape(text)..'')
+br = JSON.decode(gk)
+i = 0
+for k,v in pairs(br.ok) do
+i = i + 1
+t = v.."\n"
+end
+LuaTele.sendText(msg_chat_id,msg_id,t,"md",true) 
+Redis:del(Timo.."brgi"..msg.sender.user_id) 
+end
 
 if msg.content.luatele == "messageChatAddMembers" then -- اضافه اشخاص
 print('This is Add Membeers ')
@@ -2366,14 +2389,17 @@ return LuaTele.sendText(msg.chat_id,msg.id,'*\n⎈ ⦙  عليك الاشترا�
 end
 Redis:set(Timo..'Timo:Num:Add:Bot',text:match("تعين عدد الاعضاء (%d+)$") ) 
 LuaTele.sendText(msg_chat_id,msg_id,'*⎈ ⦙  تم تعيين عدد اعضاء تفعيل البوت اكثر من : '..text:match("تعين عدد الاعضاء (%d+)$")..' عضو *',"md",true)  
-elseif text == 'الاحصائيات' or text == '『 الاحصائيات 』' and msg.DevelopersQ then
+elseif text == 'الاحصائيات' or text == '『 الاحصائيات 』' then
+if not msg.ControllerBot then 
+return LuaTele.sendText(msg_chat_id,msg_id,'\n* ⦁ هاذا الامر يخص 『 '..Controller_Num(2)..' 』* ',"md",true)  
+end
 local photo = LuaTele.getUserProfilePhotos(Timo)
 local UserInfo = LuaTele.getUser(Timo)
 for Name_User in string.gmatch(UserInfo.first_name, "[^%s]+" ) do
 UserInfo.first_name = Name_User
 break
 end 
-NamesBot = (Redis:get(Timo.."Timo:Name:Bot") or "سيلفا")
+NamesBot = (Redis:get(Timo.."Timo:Name:Bot") or "صعيدي")
 Groups = (Redis:scard(Timo..'Timo:ChekBotAdd') or 0)
 Users = (Redis:scard(Timo..'Timo:Num:User:Pv') or 0)
 if photo.total_count > 0 then
@@ -5582,29 +5608,40 @@ end
 LuaTele.sendText(msg_chat_id,msg_id,'\n*⎈ ⦙  تم ترقيه - ('..y..') ادمنيه *',"md",true)  
 end
 
-if text == 'المالك' or text == 'المنشئ' then
+if text == 'المنشئ' or text == 'المالك' then
 if msg.can_be_deleted_for_all_users == false then
-return LuaTele.sendText(msg_chat_id,msg_id,"\n*⎈ ⦙  عذرا البوت ليس ادمن في المجموعه يرجى ترقيته وتفعيل الصلاحيات له *","md",true)  
+return LuaTele.sendText(msg_chat_id,msg_id,"\n*عذرآ البوت ليس ادمن في الجروب يرجى ترقيته وتفعيل الصلاحيات له *","md",true)  
 end
 local Info_Members = LuaTele.getSupergroupMembers(msg_chat_id, "Administrators", "*", 0, 200)
 local List_Members = Info_Members.members
 for k, v in pairs(List_Members) do
 if Info_Members.members[k].status.luatele == "chatMemberStatusCreator" then
 local ban = LuaTele.getUser(v.member_id.user_id)
+local qp = LuaTele.getUser(v.member_id.user_id)
 if ban.first_name == "" then
-LuaTele.sendText(msg_chat_id,msg_id,"*⎈ ⦙  المنشئ حسابه محذوف *","md",true)  
+LuaTele.sendText(msg_chat_id,msg_id,"* اوبس , المالك حسابه محذوف *","md",true)  
 return false
 end
-if ban.username then
-Creator = "*⎈ ⦙  المنشئ = @"..ban.username.."*\n"
+local photo = LuaTele.getUserProfilePhotos(v.member_id.user_id)
+if ban.first_name then
+Creat = " "..ban.first_name.." "
 else
-Creator = "⎈ ⦙  المنشئ = *["..ban.first_name.."](tg://user?id="..ban.id..")\n"
+Creat = " مالك الجروب \n"
 end
-return LuaTele.sendText(msg_chat_id,msg_id,Creator,"md",true)  
+local T = '* 𝑮𝑹𝑶𝑼𝑷 𝑶𝑾𝑵𝑬𝑹:- *['..ban.first_name..'](tg://user?id='..ban.id..')**'
+if photo.total_count > 0 then
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = Creat, url = "https://t.me/"..qp.username..""}
+},
+}
+local msgg = msg_id/2097152/0.5
+https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id=" .. msg_chat_id .. "&photo="..photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id.."&caption=".. URL.escape(T).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 end
 end
-
+end
 
 if text == 'كشف البوتات' then
 if not msg.Managers then
@@ -9185,21 +9222,18 @@ end
 end
 end
 if text == 'اسمي' then
-if Redis:get(Timo.."Status:photo"..msg.chat_id) then
+local ban = LuaTele.getUser(msg.sender.user_id)
 local photo = LuaTele.getUserProfilePhotos(msg.sender.user_id)
+local T = '..ban.first_name..'
 if photo.total_count > 0 then
-local T = 'اسمك '
-keyboard = {} 
-keyboard.inline_keyboard = {
+data = {} 
+data.inline_keyboard = {
 {
-{text = UserInfo.first_name, url = 't.me/SU_SELVA'}, 
+{text = ban.first_name, url = 't.me/SU_SELVA'}, 
 },
 }
 local msgg = msg_id/2097152/0.5
-https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id=" .. msg_chat_id .. "&photo="..photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id.."&caption=".. URL.escape(T).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-else
-return LuaTele.sendText(msg_chat_id,msg_id,'\n ['..ban.first_name..'](tg://user?id='..ban.id..') ',"md",true)  
-end
+https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id=" .. msg_chat_id .. "&photo="..photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id.."&photo=".. URL.escape(T).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(data))
 end
 end
 if text and text:match("^قول (.*)$")then
