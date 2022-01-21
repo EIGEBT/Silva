@@ -1117,29 +1117,6 @@ end
 print('This is message Pin')
 end 
 
-if text and text:match("^زخرفه (.*)$") then
-local TextZhrfa = text:match("^زخرفه (.*)$")
-zh = https.request('https://boyka-api.ml/frills.php?en='..URL.escape(TextZhrfa)..'')
-zx = JSON.decode(zh)
-t = "\n ◐ قائمه الزخرفه \n༺┉┉┉⊶﴾𓆩𝚂𝙾𝚄𝚁𝙲𝙴 𝚂𝙴𝙻𝚅𝙰𓆪﴿⊷┉┉┉༻\n"
-i = 0
-for k,v in pairs(zx.ok) do
-i = i + 1
-t = t..i.."- "..v.." \n"
-end
-LuaTele.sendText(msg_chat_id,msg_id,t,"md",true) 
-end 
-if Redis:get(Timo.."brgi"..msg.sender.user_id) == "sendbr" then
-gk = https.request('https://apiabs.ml/brg.php?brg='..URL.escape(text)..'')
-br = JSON.decode(gk)
-i = 0
-for k,v in pairs(br.ok) do
-i = i + 1
-t = v.."\n"
-end
-LuaTele.sendText(msg_chat_id,msg_id,t,"md",true) 
-Redis:del(Timo.."brgi"..msg.sender.user_id) 
-end
 
 if msg.content.luatele == "messageChatAddMembers" then -- اضافه اشخاص
 print('This is Add Membeers ')
@@ -9375,10 +9352,10 @@ local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '⎈ ⦙  الالعاب التسليه⎈ ⦙ ', data = msg.sender.user_id..'/helma1'}, {text = '⎈ ⦙  الاضافات⎈ ⦙ ', data = msg.sender.user_id..'/helma2'}, 
+{text = 'الالعاب التسليه ', data = msg.sender.user_id..'/helma1'}, {text = 'الاضافات ', data = msg.sender.user_id..'/helma2'}, 
 },
 {
-{text = '⎈ ⦙  الاضافات⎈ ⦙ ', data = msg.sender.user_id..'/helma3'}, 
+{text = 'الاضافات', data = msg.sender.user_id..'/helma3'}, 
 },
 {
 {text = '- 𝚂𝙾𝚄𝚁𝙲𝙴 𝚂𝙴𝙻𝚅𝙰 -', url = 't.me/SU_SELVA'}, 
@@ -9386,6 +9363,18 @@ data = {
 }
 }
 return LuaTele.sendText(msg_chat_id,msg_id,'⎈ ⦙  اليك قسم الالعاب من سورس سيلفا⎈ ⦙ ',"md",false, false, false, false, reply_markup)
+end
+if text and text:match("^زخرفه (.*)$") then
+local TextZhrfa = text:match("^زخرفه (.*)$")
+zh = https.request('https://boyka-api.ml/frills.php?en='..URL.escape(TextZhrfa)..'')
+zx = JSON.decode(zh)
+t = "\n ◐ قائمه الزخرفه \n༺┉┉┉⊶﴾𓆩𝚂𝙾𝚄𝚁𝙲𝙴 𝚂𝙴𝙻𝚅𝙰𓆪﴿⊷┉┉┉༻\n"
+i = 0
+for k,v in pairs(zx.ok) do
+i = i + 1
+t = t..i.."- "..v.." \n"
+end
+LuaTele.sendText(msg_chat_id,msg_id,t,"md",true) 
 end
 if text == 'هاي' or text == 'هيي' then
 if not Redis:get(Timo.."Timo:Sasa:Jeka"..msg_chat_id) then
