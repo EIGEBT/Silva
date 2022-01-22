@@ -3793,7 +3793,7 @@ end
 end
 local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
-data = {{{text = '⎈ ⦙  مسح الثانوين⎈ ⦙ ', data = msg.sender.user_id..'/DevelopersQ'},},}}
+data = {{{text = 'مسح الثانوين ', data = msg.sender.user_id..'/DevelopersQ'},},}}
 return LuaTele.sendText(msg_chat_id, msg_id, ListMembers, 'md', false, false, false, false, reply_markup)
 end
 if text == 'المطورين' then
@@ -3819,7 +3819,7 @@ end
 end
 local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
-data = {{{text = '⎈ ⦙  مسح المطورين⎈ ⦙ ', data = msg.sender.user_id..'/Developers'},},}}
+data = {{{text = ' مسح المطورين', data = msg.sender.user_id..'/Developers'},},}}
 return LuaTele.sendText(msg_chat_id, msg_id, ListMembers, 'md', false, false, false, false, reply_markup)
 end
 if text == 'المالكين' then
@@ -3845,7 +3845,7 @@ end
 end
 local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
-data = {{{text = '⎈ ⦙  مسح المالكين⎈ ⦙ ', data = msg.sender.user_id..'/TheBasicsQ'},},}}
+data = {{{text = ' مسح المالكين', data = msg.sender.user_id..'/TheBasicsQ'},},}}
 return LuaTele.sendText(msg_chat_id, msg_id, ListMembers, 'md', false, false, false, false, reply_markup)
 end
 if text == 'المنشئين الاساسيين' then
@@ -3871,7 +3871,7 @@ end
 end
 local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
-data = {{{text = '⎈ ⦙  مسح المنشئين الاساسيين⎈ ⦙ ', data = msg.sender.user_id..'/TheBasics'},},}}
+data = {{{text = '  مسح المنشئين الاساسيين ', data = msg.sender.user_id..'/TheBasics'},},}}
 return LuaTele.sendText(msg_chat_id, msg_id, ListMembers, 'md', false, false, false, false, reply_markup)
 end
 if text == 'المنشئين' then
@@ -3897,7 +3897,7 @@ end
 end
 local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
-data = {{{text = '⎈ ⦙  مسح المنشئين⎈ ⦙ ', data = msg.sender.user_id..'/Originators'},},}}
+data = {{{text = 'مسح المنشئين', data = msg.sender.user_id..'/Originators'},},}}
 return LuaTele.sendText(msg_chat_id, msg_id, ListMembers, 'md', false, false, false, false, reply_markup)
 end
 if text == 'المدراء' then
@@ -3923,7 +3923,7 @@ end
 end
 local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
-data = {{{text = '⎈ ⦙  مسح المدراء⎈ ⦙ ', data = msg.sender.user_id..'/Managers'},},}}
+data = {{{text = ' مسح المدراء ', data = msg.sender.user_id..'/Managers'},},}}
 return LuaTele.sendText(msg_chat_id, msg_id, ListMembers, 'md', false, false, false, false, reply_markup)
 end
 if text == 'الادمنيه' then
@@ -3949,7 +3949,7 @@ end
 end
 local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
-data = {{{text = '⎈ ⦙  مسح الادمنيه⎈ ⦙ ', data = msg.sender.user_id..'/Addictive'},},}}
+data = {{{text = ' مسح الادمنيه', data = msg.sender.user_id..'/Addictive'},},}}
 return LuaTele.sendText(msg_chat_id, msg_id, ListMembers, 'md', false, false, false, false, reply_markup)
 end
 if text == 'المميزين' then
@@ -3975,7 +3975,7 @@ end
 end
 local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
-data = {{{text = '⎈ ⦙  مسح المميزين⎈ ⦙ ', data = msg.sender.user_id..'/DelDistinguished'},},}}
+data = {{{text = 'مسح المميزين ', data = msg.sender.user_id..'/DelDistinguished'},},}}
 return LuaTele.sendText(msg_chat_id, msg_id, ListMembers, 'md', false, false, false, false, reply_markup)
 end
 if text == 'المحظورين عام' then
@@ -4001,7 +4001,7 @@ end
 end
 local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
-data = {{{text = '⎈ ⦙  مسح المحظورين عام⎈ ⦙ ', data = msg.sender.user_id..'/BanAll'},},}}
+data = {{{text = '  مسح المحظورين عام', data = msg.sender.user_id..'/BanAll'},},}}
 return LuaTele.sendText(msg_chat_id, msg_id, ListMembers, 'md', false, false, false, false, reply_markup)
 end
 if text == 'المكتومين عام' then
@@ -4027,7 +4027,7 @@ end
 end
 local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
-data = {{{text = '⎈ ⦙  مسح المكتومين عام⎈ ⦙ ', data = msg.sender.user_id..'/ktmAll'},},}}
+data = {{{text = ' مسح المكتومين عام', data = msg.sender.user_id..'/ktmAll'},},}}
 return LuaTele.sendText(msg_chat_id, msg_id, ListMembers, 'md', false, false, false, false, reply_markup)
 end
 if text == 'المحظورين' then
@@ -4053,7 +4053,7 @@ end
 end
 local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
-data = {{{text = '⎈ ⦙  مسح المحظورين⎈ ⦙ ', data = msg.sender.user_id..'/BanGroup'},},}}
+data = {{{text = 'مسح المحظورين', data = msg.sender.user_id..'/BanGroup'},},}}
 return LuaTele.sendText(msg_chat_id, msg_id, ListMembers, 'md', false, false, false, false, reply_markup)
 end
 if text == 'المكتومين' then
@@ -4079,7 +4079,7 @@ end
 end
 local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
-data = {{{text = '⎈ ⦙  مسح المكتومين⎈ ⦙ ', data = msg.sender.user_id..'/SilentGroupGroup'},},}}
+data = {{{text = ' مسح المكتومين', data = msg.sender.user_id..'/SilentGroupGroup'},},}}
 return LuaTele.sendText(msg_chat_id, msg_id, ListMembers, 'md', false, false, false, false, reply_markup)
 end
 if text and text:match("^تفعيل (.*)$") and msg.reply_to_message_id == 0 then
