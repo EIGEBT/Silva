@@ -9265,29 +9265,16 @@ local m = "https://t.me/mmsst13/"..Rrr..""
 local rep = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token.."/sendaudio?chat_id="..msg_chat_id.."&caption="..URL.escape(t).."&audio="..m.."&reply_to_message_id="..rep.."&parse_mode=Markdown")
 end
-if text == "استوري" then
-local t = "اهلا اليك استوري"
-Num = math.random(8,83)
-Mhm = math.random(108,143)
-Mhhm = math.random(166,179)
-Mmhm = math.random(198,216)
-Mhmm = math.random(257,626)
-local Texting = {Num,Mhm,Mhhm,Mmhm,Mhmm}
-local Rrr = Texting[math.random(#Texting)]
-local m = "https://t.me/Qapplu/"..ght..""
-local rep = msg.id/2097152/0.5
-https.request("https://api.telegram.org/bot"..Token.."/sendvideo?chat_id="..msg_chat_id.."&caption="..URL.escape(t).."&video="..m.."&reply_to_message_id="..rep.."&parse_mode=Markdown")
-end
 if text == 'السورس' or text == 'سورس' or text == 'يا سورس' or text == 'source' then
 video = "http://t.me/t_imoo/4"
 local T =[[
-╔━━━━━━━𓆩♡𓆪━━━━━━━╗ 
+╔━━-━━━━━𓆩♡𓆪━━━━━-━━╗ 
 ┇𝚆𝙴𝙻𝙲𝙾𝙼𝙴 𝚃𝙾 𝚂𝙾𝚄𝚁𝙲𝙴 𝚂𝙴𝙻𝚅𝙰
 ┇▱▰▱▰▱▰▱▰▱▰▱▰▱
 ┇𝚃𝙷𝙰 𝙱𝙴𝚂𝚃 𝚂𝙾𝚄𝚁𝙲𝙴 𝚃𝙴𝙻𝙴𝙶𝚁𝙰𝙼
 ┇▱▰▱▰▱▰▱▰▱▰▱▰▱
 ┇𝚆𝙴𝙻𝙲𝙾𝙼𝙴 𝚃𝙾 𝚂𝙾𝚄𝚁𝙲𝙴 𝚂𝙴𝙻𝚅𝙰
-╚━━━━━━━𓆩♡𓆪━━━━━━━╝ 
+╚━━-━━━━━𓆩♡𓆪━━━━━-━━╝ 
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
