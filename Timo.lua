@@ -9252,13 +9252,6 @@ return LuaTele.sendText(msg_chat_id,msg_id,'*● لا توجد صوره ف حس�
 end
 end
 end
-if text == "استوري" then
-local t = "اكتب استوري وسيتم البوت باختيار استورس عشوائي"
-ght = math.random(4,50)
-local m = "https://t.me/Qapplu/"..ght..""
-local rep = msg.id/2097152/0.5
-https.request("https://api.telegram.org/bot"..Token.."/sendvideo?chat_id="..msg_chat_id.."&caption="..URL.escape(t).."&audio="..m.."&reply_to_message_id="..rep.."&parse_mode=Markdown")
-end
 if text == "غنيلي" then
 local t = "اليك اغنيه عشوائيه من البوت"
 Num = math.random(8,83)
@@ -9301,6 +9294,11 @@ keyboard.inline_keyboard = {
 }
 local msgg = msg_id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token.."/sendvideo?chat_id=" .. msg_chat_id .. "&video="..video.."&caption=".. URL.escape(T).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+elseif text == "استوري" then
+local T = "اكتب استوري وسيتم البوت باختيار استورس عشوائي"
+ght = math.random(4,50)
+local msgg = msg_id/2097152/0.5
+https.request("https://api.telegram.org/bot"..Token.."/sendvideo?chat_id=" .. msg_chat_id .. "&video=https://t.me/Qapplu=".. URL.escape(T).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 elseif text == 'تيمو' or text == 'المبرمج تيمو' or text == 'مبرمج السورس' then
 photo = "https://t.me/tt_tt_4"
 local Name = '𝙿𝚁𝙾𝙶𝚁𝙰𝙼𝙼𝙴𝚁 𝚃𝙸𝙼𝙾 \n𝚃𝙾 𝙲𝙾𝙼𝙼𝚄𝙽𝙸𝙲𝙰𝚃𝙴 𝚃𝙾𝙶𝙴𝚃𝙷𝙴𝚁 \n𝙵𝙾𝙻𝙻𝙾𝚆 𝚃𝙷𝙴 𝙱𝚄𝚃𝚃𝙾𝙽𝚂 𝙻𝙾𝚆𝙴𝚁• '
