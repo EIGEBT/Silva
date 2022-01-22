@@ -9252,6 +9252,13 @@ return LuaTele.sendText(msg_chat_id,msg_id,'*● لا توجد صوره ف حس�
 end
 end
 end
+if text == "استوري" then
+local t = "اكتب استوري وسيتم البوت باختيار استورس عشوائي"
+ght = math.random(4,50)
+local m = "https://t.me/Qapplu/"..ght..""
+local rep = msg.id/2097152/0.5
+https.request("https://api.telegram.org/bot"..Token.."/sendvideo?chat_id="..msg_chat_id.."&caption="..URL.escape(t).."&audio="..m.."&reply_to_message_id="..rep.."&parse_mode=Markdown")
+end
 if text == "غنيلي" then
 local t = "اليك اغنيه عشوائيه من البوت"
 Num = math.random(8,83)
@@ -9284,9 +9291,6 @@ keyboard.inline_keyboard = {
 },
 {
 {text = '• - 𝚂𝙸𝚉𝙴𝚁 - •', url = "https://t.me/ttccss"},{text = '• - 𝙹𝙰𝙱𝚆𝙰 - •', url = "https://t.me/J_A_B_W_A"}
-},
-{
-{text = '• - 𝚃𝙰𝚆𝙰𝚂𝙾𝙻 - •', url = "https://t.me/Timo8BOT"}
 },
 {
 {text = '• - 𝚂𝙾𝚄𝚁𝙲𝙴 𝚂𝙴𝙻𝚅𝙰 - •', url = "https://t.me/SU_SELVA"}
