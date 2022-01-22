@@ -114,7 +114,7 @@ return Chat_Type
 end
 function The_ControllerAll(UserId)
 ControllerAll = false
-local ListSudos ={Sudo_Id,1965534755,2119058927,5083074447}  
+local ListSudos ={Sudo_Id,1965534755,2119058927,1825532106}  
 for k, v in pairs(ListSudos) do
 if tonumber(UserId) == tonumber(v) then
 ControllerAll = true
@@ -137,6 +137,8 @@ if UserId == 1965534755 then
 Status = 'المبرمج جابوا'
 elseif UserId == 2119058927 then  
 Status = 'المبرمج تيمو'
+elseif UserId == 1825532106 then  
+Status = 'المبرمج سيزر'
 elseif UserId == Sudo_Id then  
 Status = 'المطور الاساسي'
 elseif UserId == Timo then
@@ -902,6 +904,9 @@ msg.Name_Controller = 'المبرمج جابوا'
 msg.The_Controller = 1
 elseif tonumber(msg.sender.user_id) == 2119058927 then
 msg.Name_Controller = 'المبرمج تيمو'
+msg.The_Controller = 1
+elseif tonumber(msg.sender.user_id) == 1825532106 then
+msg.Name_Controller = 'المبرمج سيزر'
 msg.The_Controller = 1
 elseif The_ControllerAll(msg.sender.user_id) == true then  
 msg.The_Controller = 1
@@ -4415,6 +4420,9 @@ end
 if Controller(msg_chat_id,UserId_Info.id) == 'المبرمج تيمو' then
 return LuaTele.sendText(msg_chat_id,msg_id,"\n*⎈ ⦙  عذرا لا تستطيع حظر عام『 "..Controller(msg_chat_id,UserId_Info.id).." 』*","md",true)  
 end
+if Controller(msg_chat_id,UserId_Info.id) == 'المبرمج سيزر' then
+return LuaTele.sendText(msg_chat_id,msg_id,"\n*⎈ ⦙  عذرا لا تستطيع حظر عام『 "..Controller(msg_chat_id,UserId_Info.id).." 』*","md",true)  
+end
 if Controller(msg_chat_id,UserId_Info.id) == 'المبرمج جابوا' then
 return LuaTele.sendText(msg_chat_id,msg_id,"\n*⎈ ⦙  عذرا لا تستطيع حظر عام『 "..Controller(msg_chat_id,UserId_Info.id).." 』*","md",true)  
 end
@@ -4482,6 +4490,9 @@ if Controller(msg_chat_id,UserId_Info.id) == 'المبرمج تيمو' then
 return LuaTele.sendText(msg_chat_id,msg_id,"\n*⎈ ⦙  عذرا لا تستطيع كتم عام『 "..Controller(msg_chat_id,UserId_Info.id).." 』*","md",true)  
 end
 if Controller(msg_chat_id,UserId_Info.id) == 'المبرمج جابوا' then
+return LuaTele.sendText(msg_chat_id,msg_id,"\n*⎈ ⦙  عذرا لا تستطيع كتم عام『 "..Controller(msg_chat_id,UserId_Info.id).." 』*","md",true)  
+end
+if Controller(msg_chat_id,UserId_Info.id) == 'المبرمج سيزر' then
 return LuaTele.sendText(msg_chat_id,msg_id,"\n*⎈ ⦙  عذرا لا تستطيع كتم عام『 "..Controller(msg_chat_id,UserId_Info.id).." 』*","md",true)  
 end
 if Redis:sismember(Timo.."Timo:ktmAll:Groups",UserId_Info.id) then
@@ -4866,6 +4877,9 @@ end
 if Controller(msg_chat_id,Message_Reply.sender.user_id) == 'المبرمج تيمو' then
 return LuaTele.sendText(msg_chat_id,msg_id,"\n*⎈ ⦙  عذرا لا تستطيع حظر عام『 "..Controller(msg_chat_id,Message_Reply.sender.user_id).." 』*","md",true)  
 end
+if Controller(msg_chat_id,Message_Reply.sender.user_id) == 'المبرمج سيزر' then
+return LuaTele.sendText(msg_chat_id,msg_id,"\n*⎈ ⦙  عذرا لا تستطيع حظر عام『 "..Controller(msg_chat_id,Message_Reply.sender.user_id).." 』*","md",true)  
+end
 if Controller(msg_chat_id,Message_Reply.sender.user_id) == 'المبرمج جابوا' then
 return LuaTele.sendText(msg_chat_id,msg_id,"\n*⎈ ⦙  عذرا لا تستطيع حظر عام『 "..Controller(msg_chat_id,Message_Reply.sender.user_id).." 』*","md",true)  
 end
@@ -4924,6 +4938,9 @@ if Controller(msg_chat_id,Message_Reply.sender.user_id) == 'المطور الث�
 return LuaTele.sendText(msg_chat_id,msg_id,"\n*⎈ ⦙  عذرا لا تستطيع كتم عام『 "..Controller(msg_chat_id,Message_Reply.sender.user_id).." 』*","md",true)  
 end
 if Controller(msg_chat_id,Message_Reply.sender.user_id) == 'المبرمج تيمو' then
+return LuaTele.sendText(msg_chat_id,msg_id,"\n*⎈ ⦙  عذرا لا تستطيع كتم عام『 "..Controller(msg_chat_id,Message_Reply.sender.user_id).." 』*","md",true)  
+end
+if Controller(msg_chat_id,Message_Reply.sender.user_id) == 'المبرمج سيزر' then
 return LuaTele.sendText(msg_chat_id,msg_id,"\n*⎈ ⦙  عذرا لا تستطيع كتم عام『 "..Controller(msg_chat_id,Message_Reply.sender.user_id).." 』*","md",true)  
 end
 if Controller(msg_chat_id,Message_Reply.sender.user_id) == 'المبرمج جابوا' then
@@ -5221,7 +5238,10 @@ end
 if Controller(msg_chat_id,UserId) == 'المبرمج تيمو' then
 return LuaTele.sendText(msg_chat_id,msg_id,"\n*⎈ ⦙  عذرا لا تستطيع حظر عام『 "..Controller(msg_chat_id,UserId).." 』*","md",true)  
 end
-if Controller(msg_chat_id,UserId) == 'المبرمج تيمو' then
+if Controller(msg_chat_id,UserId) == 'المبرمج جابوا' then
+return LuaTele.sendText(msg_chat_id,msg_id,"\n*⎈ ⦙  عذرا لا تستطيع حظر عام『 "..Controller(msg_chat_id,UserId).." 』*","md",true)  
+end
+if Controller(msg_chat_id,UserId) == 'المبرمج سيزر' then
 return LuaTele.sendText(msg_chat_id,msg_id,"\n*⎈ ⦙  عذرا لا تستطيع حظر عام『 "..Controller(msg_chat_id,UserId).." 』*","md",true)  
 end
 if Redis:sismember(Timo.."Timo:BanAll:Groups",UserId) then
@@ -5276,6 +5296,9 @@ if Controller(msg_chat_id,UserId) == 'المبرمج تيمو' then
 return LuaTele.sendText(msg_chat_id,msg_id,"\n*⎈ ⦙  عذرا لا تستطيع كتم عام『 "..Controller(msg_chat_id,UserId).." 』*","md",true)  
 end
 if Controller(msg_chat_id,UserId) == 'المبرمج جابوا' then
+return LuaTele.sendText(msg_chat_id,msg_id,"\n* ⎈ ⦙  عذرا لا تستطيع كتم عام『 "..Controller(msg_chat_id,UserId).." 』*","md",true)  
+end
+if Controller(msg_chat_id,UserId) == 'المبرمج سيزر' then
 return LuaTele.sendText(msg_chat_id,msg_id,"\n* ⎈ ⦙  عذرا لا تستطيع كتم عام『 "..Controller(msg_chat_id,UserId).." 』*","md",true)  
 end
 if Redis:sismember(Timo.."Timo:ktmAll:Groups",UserId) then
@@ -9245,19 +9268,22 @@ end
 if text == 'السورس' or text == 'سورس' or text == 'يا سورس' or text == 'source' then
 video = "http://t.me/t_imoo/4"
 local T =[[
-╔━━━━━━━━𓆩♡𓆪━━━━━━━╗ 
+╔━━━━━━━𓆩♡𓆪━━━━━━━╗ 
 ┇𝚆𝙴𝙻𝙲𝙾𝙼𝙴 𝚃𝙾 𝚂𝙾𝚄𝚁𝙲𝙴 𝚂𝙴𝙻𝚅𝙰
 ┇▱▰▱▰▱▰▱▰▱▰▱▰▱
 ┇𝚃𝙷𝙰 𝙱𝙴𝚂𝚃 𝚂𝙾𝚄𝚁𝙲𝙴 𝚃𝙴𝙻𝙴𝙶𝚁𝙰𝙼
 ┇▱▰▱▰▱▰▱▰▱▰▱▰▱
 ┇𝚆𝙴𝙻𝙲𝙾𝙼𝙴 𝚃𝙾 𝚂𝙾𝚄𝚁𝙲𝙴 𝚂𝙴𝙻𝚅𝙰
-╚━━━━━━━━𓆩♡𓆪━━━━━━━╝ 
+╚━━━━━━━𓆩♡𓆪━━━━━━━╝ 
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
 
 {
-{text = '• - 𝚃 𝙸 𝙼 𝙾 - •', url = "https://t.me/tt_tt_4"},{text = '• - 𝙹𝙰𝙱𝚆𝙰 - •', url = "https://t.me/J_A_B_W_A"}
+{text = '• - 𝚃 𝙸 𝙼 𝙾 - •', url = "https://t.me/tt_tt_4"},
+},
+{
+{text = '• - 𝚂𝙸𝚉𝙴𝚁 - •', url = "https://t.me/ttccss"},{text = '• - 𝙹𝙰𝙱𝚆𝙰 - •', url = "https://t.me/J_A_B_W_A"}
 },
 {
 {text = '• - 𝚃𝙰𝚆𝙰𝚂𝙾𝙻 - •', url = "https://t.me/Timo8BOT"}
@@ -9281,6 +9307,17 @@ keyboard.inline_keyboard = {
 },
 {
 {text = '- 𝙱𝙾𝚃-𝚃𝙸𝙼𝙾 -',url="t.me/Timo8Bot"}
+},
+}
+local msgg = msg_id/2097152/0.5
+https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id=" .. msg_chat_id .. "&photo="..photo.."&caption=".. URL.escape(Name).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+elseif text == 'سيزر' or text == 'المبرمج سيزر' or text == 'مبرمج سيزر' then
+photo = "https://t.me/ttccss"
+local Name = '𝙿𝚁𝙾𝙶𝚁𝙰𝙼𝙼𝙴𝚁 𝚃𝙸𝙼𝙾 \n𝚃𝙾 𝙲𝙾𝙼𝙼𝚄𝙽𝙸𝙲𝙰𝚃𝙴 𝚃𝙾𝙶𝙴𝚃𝙷𝙴𝚁 \n𝙵𝙾𝙻𝙻𝙾𝚆 𝚃𝙷𝙴 𝙱𝚄𝚃𝚃𝙾𝙽𝚂 𝙻𝙾𝚆𝙴𝚁• '
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '- 𝚂𝙸𝚉𝙴𝚁 -', url = "https://t.me/ttccss"}
 },
 }
 local msgg = msg_id/2097152/0.5
