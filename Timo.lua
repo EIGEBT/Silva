@@ -2727,12 +2727,12 @@ local Get_Is_Id = Get_Is_Id:gsub('#photos',TotalPhoto)
 return LuaTele.sendText(msg_chat_id,msg_id,'['..Get_Is_Id..']',"md",true) 
 else
 return LuaTele.sendText(msg_chat_id,msg_id,
-'\n*• ɪᴅ = '..UserId..
-'\n• ᴜѕᴇ = '..UserInfousername..
-'\n• ѕᴛᴀ = '..RinkBot..
-'\n• ᴍѕɢ = '..TotalMsg..
-'\n• ᴛᴘᴅʏʟᴀᴛᴋ = '..TotalEdit..
-'\n• ᴛғᴀᴘʟᴋ = '..TotalMsgT..
+'\n*⎈ ⦙  ɪᴅ = '..UserId..
+'\n⎈ ⦙  ᴜѕᴇ = '..UserInfousername..
+'\n⎈ ⦙  ѕᴛᴀ = '..RinkBot..
+'\n⎈ ⦙  ᴍѕɢ = '..TotalMsg..
+'\n⎈ ⦙  ᴛᴘᴅʏʟᴀᴛᴋ = '..TotalEdit..
+'\n⎈ ⦙  ᴛғᴀᴘʟᴋ = '..TotalMsgT..
 '*',"md",true) 
 end
 end
@@ -2764,12 +2764,12 @@ local Get_Is_Id = Get_Is_Id:gsub('#game',NumberGames)
 return LuaTele.sendText(msg_chat_id,msg_id,Get_Is_Id,"md",true) 
 else
 return LuaTele.sendText(msg_chat_id,msg_id,
-'\n*• ɪᴅ = '..UserId..
-'\n• ᴜѕᴇ = '..UserInfousername..
-'\n• ѕᴛᴀ = '..RinkBot..
-'\n• ᴍѕɢ = '..TotalMsg..
-'\n• ᴛᴘᴅʏʟᴀᴛᴋ = '..TotalEdit..
-'\n• ᴛғᴀᴘʟᴋ = '..TotalMsgT..
+'\n*⎈ ⦙  ɪᴅ = '..UserId..
+'\n⎈ ⦙  ᴜѕᴇ = '..UserInfousername..
+'\n⎈ ⦙  ѕᴛᴀ = '..RinkBot..
+'\n⎈ ⦙  ᴍѕɢ = '..TotalMsg..
+'\n⎈ ⦙  ᴛᴘᴅʏʟᴀᴛᴋ = '..TotalEdit..
+'\n⎈ ⦙  ᴛғᴀᴘʟᴋ = '..TotalMsgT..
 '*',"md",true) 
 end
 end
