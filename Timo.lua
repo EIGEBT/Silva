@@ -171,23 +171,23 @@ end
 function Controller_Num(Num)
 Status = 0
 if tonumber(Num) == 1 then  
-Status = 'المطور الاساسي'
+Status = 'ٱݪمِــِطۅࢪ ٱݪٱسـَِٱسـَِي'
 elseif tonumber(Num) == 2 then  
-Status = 'المطور الثانوي'
+Status = 'ٱݪمِــِطۅࢪ ٱݪثٱنۅي'
 elseif tonumber(Num) == 3 then  
-Status = 'المطور'
+Status = 'ٱݪمِــِطۅࢪ ٱݪقمِــِيݪ'
 elseif tonumber(Num) == 44 then  
-Status = 'المالك'
+Status = 'صٱحب ٱݪخࢪٱبهًَ'
 elseif tonumber(Num) == 4 then  
-Status = 'المنشئ الاساسي'
+Status = 'ٱݪمِــِنشئ ٱݪٱسـَِٱسـَِي'
 elseif tonumber(Num) == 5 then  
-Status = 'المنشئ'
+Status = 'ٱݪمِــِنشئ'
 elseif tonumber(Num) == 6 then  
-Status = 'المدير'
+Status = 'ٱݪمِــِديࢪ'
 elseif tonumber(Num) == 7 then  
-Status = 'الادمن'
+Status = 'ٱݪٱدمِــِن ٱݪقمِــِيݪ'
 else
-Status = 'المميز'
+Status = 'ٱݪمِــِميز'
 end  
 return Status
 end 
@@ -2758,6 +2758,13 @@ local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {
 {{text =news,url = "https://t.me/"..ban.username..""}, },}}
 return LuaTele.sendText(msg_chat_id, msg_id, news, 'md', false, false, false, false, reply_markup)
 end
+if text == 'انا مين' then
+local ban = LuaTele.getUser(msg.sender.user_id)
+local news = '💙🌝 انت يا قلبي '..msg.Name_Controller
+local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {
+{{text =news,url = "https://t.me/"..ban.username..""}, },}}
+return LuaTele.sendText(msg_chat_id, msg_id, news, 'md', false, false, false, false, reply_markup)
+end
 if text == 'ايديي' then
 return LuaTele.sendText(msg_chat_id,msg_id,'\nايديك = '..msg.sender.user_id,"md",true)  
 end
@@ -4876,6 +4883,18 @@ LuaTele.setChatMemberStatus(msg.chat_id,UserId_Info.id,'restricted',{1,1,1,1,1,1
 return LuaTele.sendText(msg_chat_id,msg_id,Reply_Status(UserId_Info.id,"⎈ ⦙  تم الغاء تقييده من المجموعه").Reply,"md",true)  
 end
 
+if text and text:match("^زخرفه (.*)$") then
+local TextZhrfa = text:match("^زخرفه (.*)$")
+zh = https.request('https://apiabs.ml/zrf.php?abs='..URL.escape(TextZhrfa)..'')
+zx = JSON.decode(zh)
+t = "\n ⦁ قائمه الزخرفه \n༻┉┉┉⊶﴾𓆩𝚂𝙾𝚄𝚁𝙲𝙴 𝚂𝙴𝙻𝚅𝙰𓆪﴿⊷┉┉┉༺\n"
+i = 0
+for k,v in pairs(zx.ok) do
+i = i + 1
+t = t..i.."-  `"..v.."` \n"
+end
+LuaTele.sendText(msg_chat_id,msg_id,t,"md",true) 
+end 
 if text == ('حظر عام') and msg.reply_to_message_id ~= 0 then
 if not msg.DevelopersQ then
 return LuaTele.sendText(msg_chat_id,msg_id,'\n*⎈ ⦙  هاذا الامر يخص 『 '..Controller_Num(2)..' 』* ',"md",true)  
@@ -9429,18 +9448,6 @@ data = {
 }
 return LuaTele.sendText(msg_chat_id,msg_id,'⎈ ⦙  اليك قسم الالعاب من سورس سيلفا⎈ ⦙ ',"md",false, false, false, false, reply_markup)
 end
-if text and text:match("^زخرفه (.*)$") then
-local TextZhrfa = text:match("^زخرفه (.*)$")
-zh = https.request('https://apiabs.ml/zrf.php?abs='..URL.escape(TextZhrfa)..'')
-zx = JSON.decode(zh)
-t = "\n ⦁ قائمه الزخرفه \n༻┉┉┉⊶﴾𓆩𝚂𝙾𝚄𝚁𝙲𝙴 𝚂𝙴𝙻𝚅𝙰𓆪﴿⊷┉┉┉༺\n"
-i = 0
-for k,v in pairs(zx.ok) do
-i = i + 1
-t = t..i.."-  `"..v.."` \n"
-end
-LuaTele.sendText(msg_chat_id,msg_id,t,"md",true) 
-end 
 if text == 'هاي' or text == 'هيي' then
 if not Redis:get(Timo.."Timo:Sasa:Jeka"..msg_chat_id) then
 return LuaTele.sendText(msg_chat_id,msg_id,"*⎈ ⦙  ردود السورس معطلة*","md",true)  
