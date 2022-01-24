@@ -9361,7 +9361,7 @@ return false
 end
 local ban = LuaTele.getUser(msg.sender.user_id)
 local photo = LuaTele.getUserProfilePhotos(msg.sender.user_id)
-local nspp = {"1000","20","30","35","75","900","66","82","23","267","55","80","63","32","27","89","99","98","79","100","8","3","500","102",}
+local nspp = {"1000","829","102","99","700","900","300","82","400","267","55","80","63","32","27","89","99","98","79","100","8","3","500","102",}
 local rdbhoto = nspp[math.random(#nspp)]
 if photo.total_count > 0 then
 data = {} 
@@ -9866,7 +9866,7 @@ local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '- 𝚂𝙾𝚄𝚁𝙲𝙴 ??𝙴𝙻𝚅𝙰 -', url = 't.me/SU_SELVA'}, 
+{text = '- 𝚂𝙾𝚄𝚁??𝙴 ??𝙴𝙻𝚅𝙰 -', url = 't.me/SU_SELVA'}, 
 },
 }
 }
@@ -10316,7 +10316,6 @@ end
 if text == "بوت" or text == "البوت" or text == "bot" or text == "Bot" then
 local photo = LuaTele.getUserProfilePhotos(Timo)
 local ban = LuaTele.getUser(Timo)
-local bban = LuaTele.getUser(msg.sender.user_id)
 for Name_User in string.gmatch(ban.first_name, "[^%s]+" ) do
 ban.first_name = Name_User
 break
@@ -10335,16 +10334,12 @@ local BotName = {
 'اسمي '..NamesBot..' يا حياتي 🌚❤️',
 'اسمي '..NamesBot..' يوتكه 🙈💔',
 }
-local T = '..ban.first_name..'
 NamesBots = BotName[math.random(#BotName)]
 if photo.total_count > 0 then
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
 {text = NamesBots, url = 't.me/SU_SELVA'}, 
-},
-{
-{text = ban.first_name, url = 't.me/SU_SELVA'}, 
 },
 {
 {text = '𓆩اضف البوت لمجموعتك𓆪', url = 't.me/'..UserBot..'?startgroup=new'},
@@ -10357,7 +10352,6 @@ end
 if text == (Redis:get(Timo.."Timo:Name:Bot") or "سيلفا") then
 local photo = LuaTele.getUserProfilePhotos(Timo)
 local ban = LuaTele.getUser(Timo)
-local bban = LuaTele.getUser(msg.sender.user_id)
 for Name_User in string.gmatch(ban.first_name, "[^%s]+" ) do
 ban.first_name = Name_User
 break
@@ -10375,16 +10369,12 @@ local BotName = {
 'انا '..NamesBot..' احسن البوتات 🌝💙',
 'نعم 🍒🤍'
 }
-local T = '..ban.first_name..'
 NamesBots = BotName[math.random(#BotName)]
 if photo.total_count > 0 then
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
 {text = NamesBots, url = 't.me/SU_SELVA'}, 
-},
-{
-{text = ban.first_name, url = 't.me/SU_SELVA'}, 
 },
 {
 {text = '𓆩اضف البوت لمجموعتك𓆪', url = 't.me/'..UserBot..'?startgroup=new'},
