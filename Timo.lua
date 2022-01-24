@@ -11396,28 +11396,6 @@ LuaTele.sendText(msg_chat_id,msg_id, "⎈ ⦙  تم تحديث الملفات �
 dofile('Timo.lua')  
 end
 if text == '/start' then
-video = "http://t.me/t_imoo/4"
-local T =[[
-╔━━-━━━━━𓆩[♡](http://t.me/SU_SELVA)𓆪━━━━━-━━╗ 
-┇[𝚆𝙴𝙻𝙲𝙾𝙼𝙴 𝚃𝙾 𝚂??𝚄𝚁𝙲𝙴 𝚂𝙴𝙻𝚅𝙰](http://t.me/SU_SELVA)
-╚━━-━━━━━𓆩[♡](http://t.me/SU_SELVA)𓆪━━━━━-━━╝ 
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-
-{
-{text = '• - مبرمج السورس - •', url = "https://t.me/tt_tt_4"},
-},
-{
-{text = '• - قناه السورس - •', url = "https://t.me/SU_SELVA"}
-},
-{
-{text = '𓆩اضف البوت لمجموعتك𓆪', url = 't.me/'..UserBot..'?startgroup=new'},
-},
-}
-local msgg = msg_id/2097152/0.5
-https.request("https://api.telegram.org/bot"..Token.."/sendvideo?chat_id=" .. msg_chat_id .. "&video="..video.."&caption=".. URL.escape(T).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-if text == '/start' then
 Redis:sadd(Timo..'Timo:Num:User:Pv',msg.sender.user_id)  
 if not msg.ControllerBot then
 if not Redis:get(Timo.."Timo:Start:Bot") then
