@@ -5832,6 +5832,38 @@ end
 end
 LuaTele.sendText(msg_chat_id,msg_id,listall,"md",true)  
 end
+if text == "تاك للزوجات" or text == "الزوجات" then
+  local zwgat_list = Redis:smembers(Timo..msg_chat_id.."zwgat:")
+  if #zwgat_list == 0 then 
+    return LuaTele.sendText(msg_chat_id,msg_id,'⎈ ⦙ لايوجد زوجات',"md",true) 
+  end 
+  local zwga_list = "⎈ ⦙ عدد الزوجات : "..#zwgat_list.."\n⎈ ⦙ الزوجات :\n༺┉┉┉⊶﴾𓆩•𝚂𝙾𝚄𝚁𝙲𝙴 𝚂𝙴𝙻𝚅𝙰•𓆪﴿⊷┉┉┉༻\n"
+  for k, v in pairs(zwgat_list) do
+local UserInfo = LuaTele.getUser(v)
+if UserInfo and UserInfo.username and UserInfo.username ~= "" then
+zwga_list = zwga_list.."*"..k.." - *[@"..UserInfo.username.."](tg://user?id="..v..")\n"
+else
+zwga_list = zwga_list.."*"..k.." -* ["..v.."](tg://user?id="..v..")\n"
+  end
+  end
+  return LuaTele.sendText(msg_chat_id,msg_id,zwga_list,"md",true) 
+end
+if text == "تاك للمطلقات" or text == "المطلقات" then
+  local mutlqat_list = Redis:smembers(Timo..msg_chat_id.."mutlqat:")
+  if #mutlqat_list == 0 then 
+    return LuaTele.sendText(msg_chat_id,msg_id,'⎈ ⦙ لايوجد مطلقات',"md",true) 
+  end 
+  local mutlqa_list = "⎈ ⦙ عدد المطلقات : "..#mutlqat_list.."\n⎈ ⦙ المطلقات :\n༺┉┉┉⊶﴾𓆩•𝚂𝙾𝚄𝚁𝙲𝙴 𝚂𝙴𝙻𝚅𝙰•𓆪﴿⊷┉┉┉༻\n"
+for k, v in pairs(mutlqat_list) do
+local UserInfo = LuaTele.getUser(v)
+if UserInfo and UserInfo.username and UserInfo.username ~= "" then
+mutlqa_list = mutlqa_list.."*"..k.." - *[@"..UserInfo.username.."](tg://user?id="..v..")\n"
+else
+mutlqa_list = mutlqa_list.."*"..k.." -* ["..v.."](tg://user?id="..v..")\n"
+  end
+  end
+  return LuaTele.sendText(msg_chat_id,msg_id,mutlqa_list,"md",true) 
+end
 
 if text == "قفل الدردشه" then 
 if not msg.Addictive then
@@ -8008,7 +8040,7 @@ data = {
 {text = '- ارسال استفتاء : '..polls, data =msg.sender.user_id.. '/polls'}, 
 },
 {
-{text = '⎈ ⦙  اخفاء الامر⎈ ⦙ ', data =msg.sender.user_id..'/'.. '/delAmr'}
+{text = '  اخفاء الامر ', data =msg.sender.user_id..'/'.. '/delAmr'}
 },
 }
 }
@@ -9487,6 +9519,68 @@ keyboard.inline_keyboard = {
 }
 local msgg = msg_id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token.."/sendvideo?chat_id=" .. msg_chat_id .. "&video="..video.."&caption=".. URL.escape(Name).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+if text == "زواج" or text == "رفع زوجتي" or text == "رفع زوجي" and msg.reply_to_message_id ~= 0 then
+  local Message_Reply = LuaTele.getMessage(msg.chat_id, msg.reply_to_message_id)
+  local UserInfo = LuaTele.getUser(Message_Reply.sender.user_id)
+  if tonumber(Message_Reply.sender.user_id) == tonumber(msg.sender.user_id) then
+    return LuaTele.sendText(msg_chat_id,msg_id,"انت اهبل يبني عاوز تتجوز نفسك ؟ هتتكاثر ازاي طيب ؟!!","md",true)  
+  end
+  if tonumber(Message_Reply.sender.user_id) == tonumber(Timo) then
+    return LuaTele.sendText(msg_chat_id,msg_id,"ابعد عني يحيحان ملكقتش غيري","md",true)  
+  end
+  if Redis:sismember(Timo..msg_chat_id.."zwgat:",Message_Reply.sender.user_id) then
+    local rd_mtzwga = {
+      "اسف يصحبي متجوزه",
+      "متجوزه يبن عمي شفلك واحده تانيه",
+      "يبني متجوزه اجوزهاشلك ازاي انا",
+      "للاسف متجوزه بس  لو العمليه جايبه اخرها شوف واحده تانيه",
+      "يادي الكسفه طلعت متجوزه قبلك"
+    }
+    return LuaTele.sendText(msg_chat_id,msg_id,Reply_Status(Message_Reply.sender.user_id,rd_mtzwga[math.random(#rd_mtzwga)]).Reply,"md",true)  
+    else
+      local rd_zwag = {
+        "تم زواجك منه وبارك الله لكم وعليكم",
+        "لولولولويي تم الزواج عقبال العيال بقا",
+        "مبروك اتجوزتها عاوز اتغدا بقا في الفرح",
+        "تم زواجكم... ودا رقمي عشان لو العريس معرفش يسد 012345..",
+        "الزواج تم اتفضلو اعملو احلا واحد بقا هيهيهي"
+      }
+    if Redis:sismember(Timo..msg_chat_id.."mutlqat:",Message_Reply.sender.user_id) then 
+    Redis:srem(Timo..msg_chat_id.."mutlqat:",Message_Reply.sender.user_id)
+    end
+    Redis:sadd(Timo..msg_chat_id.."zwgat:",Message_Reply.sender.user_id) 
+    return LuaTele.sendText(msg_chat_id,msg_id,Reply_Status(Message_Reply.sender.user_id,rd_zwag[math.random(#rd_zwag)]).Reply,"md",true)  
+    end
+end
+if text == "طلاق" or text == "تنزيل زوجتي" or text == "تزيل زوجي" and msg.reply_to_message_id ~= 0 then
+  local Message_Reply = LuaTele.getMessage(msg.chat_id, msg.reply_to_message_id)
+  local UserInfo = LuaTele.getUser(Message_Reply.sender.user_id)
+  if tonumber(Message_Reply.sender.user_id) == tonumber(msg.sender.user_id) then
+    return LuaTele.sendText(msg_chat_id,msg_id,"احا هو انت كنت اتجوزت نفسك عشان تطلق","md",true)  
+  end
+  if tonumber(Message_Reply.sender.user_id) == tonumber(Timo) then
+    return LuaTele.sendText(msg_chat_id,msg_id,"هو احنا كنا اتجوزنا يروح خالتك عشان نطلق","md",true)  
+  end
+  if Redis:sismember(Timo..msg_chat_id.."zwgat:",Message_Reply.sender.user_id) then
+    Redis:srem(Timo..msg_chat_id.."zwgat:",Message_Reply.sender.user_id)
+    Redis:sadd(Timo..msg_chat_id.."mutlqat:",Message_Reply.sender.user_id) 
+    local rd_tmtlaq = {
+      "تم طلاقكم للاسف",
+      "تم الطلاق بلص ام عبير عاوزه تعرف اتطلقتو لي ؟",
+      "تم الطلاق عشان المعلم مبيعرفش",
+      "تم الطلاق عشان في سوسه دخلت وسطهم",
+      "تم الطلاق بلص دا رقمي عشان لو حبيتي نتكلم باحترام 01234..."
+    }
+    return LuaTele.sendText(msg_chat_id,msg_id,Reply_Status(Message_Reply.sender.user_id,rd_tmtlaq[math.random(#rd_tmtlaq)]).Reply,"md",true)  
+    else
+      local rd_tlaq = {
+        "مكنتش اتجوزت عشان تطلق اصلا",
+        "بايره محدش اتجوزها",
+        "محدش عبرها قبل كدا اسسن"
+      }
+    return LuaTele.sendText(msg_chat_id,msg_id,Reply_Status(Message_Reply.sender.user_id,rd_tlaq[math.random(#rd_tlaq)]).Reply,"md",true)  
+    end
+end
 elseif text == 'الاوامر' then
 if not msg.Addictive then
 return LuaTele.sendText(msg_chat_id,msg_id,'\n*⎈ ⦙  هاذا الامر يخص 『 '..Controller_Num(7)..' 』* ',"md",true)  
@@ -11162,7 +11256,7 @@ name = mktlf[math.random(#mktlf)]
 Redis:set(Timo.."Timo:Game:Difference"..msg.chat_id,name)
 name = string.gsub(name,"😸","😹😹😹😹😹😹😹😹😸😹😹😹😹")
 name = string.gsub(name,"☠","💀💀💀💀💀💀💀☠💀💀💀💀💀")
-name = string.gsub(name,"🐼","👻👻👻🐼👻👻👻👻👻👻👻")
+name = string.gsub(name,"🐼","👻👻👻🐼👻👻👻👻👻👻??")
 name = string.gsub(name,"🐇","🕊??🕊🕊🕊🐇🕊🕊🕊🕊")
 name = string.gsub(name,"🌑","🌚🌚🌚🌚🌚🌑🌚🌚🌚")
 name = string.gsub(name,"🌚","🌑🌑🌑🌑🌑🌚🌑🌑🌑")
