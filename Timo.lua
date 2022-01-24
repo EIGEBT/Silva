@@ -4156,6 +4156,68 @@ type = 'inline',
 data = {{{text = ' مسح المكتومين', data = msg.sender.user_id..'/SilentGroupGroup'},},}}
 return LuaTele.sendText(msg_chat_id, msg_id, ListMembers, 'md', false, false, false, false, reply_markup)
 end
+if text == "زواج" or text == "رفع زوجتي" or text == "رفع زوجي" and msg.reply_to_message_id ~= 0 then
+  local Message_Reply = LuaTele.getMessage(msg.chat_id, msg.reply_to_message_id)
+  local UserInfo = LuaTele.getUser(Message_Reply.sender.user_id)
+  if tonumber(Message_Reply.sender.user_id) == tonumber(msg.sender.user_id) then
+    return LuaTele.sendText(msg_chat_id,msg_id,"انت اهبل يبني عاوز تتجوز نفسك ؟ هتتكاثر ازاي طيب ؟!!","md",true)  
+  end
+  if tonumber(Message_Reply.sender.user_id) == tonumber(Timo) then
+    return LuaTele.sendText(msg_chat_id,msg_id,"ابعد عني يحيحان ملكقتش غيري","md",true)  
+  end
+  if Redis:sismember(Timo..msg_chat_id.."zwgat:",Message_Reply.sender.user_id) then
+    local rd_mtzwga = {
+      "اسف يصحبي متجوزه",
+      "متجوزه يبن عمي شفلك واحده تانيه",
+      "يبني متجوزه اجوزهاشلك ازاي انا",
+      "للاسف متجوزه بس  لو العمليه جايبه اخرها شوف واحده تانيه",
+      "يادي الكسفه طلعت متجوزه قبلك"
+    }
+    return LuaTele.sendText(msg_chat_id,msg_id,Reply_Status(Message_Reply.sender.user_id,rd_mtzwga[math.random(#rd_mtzwga)]).Reply,"md",true)  
+    else
+      local rd_zwag = {
+        "تم زواجك منه وبارك الله لكم وعليكم",
+        "لولولولويي تم الزواج عقبال العيال بقا",
+        "مبروك اتجوزتها عاوز اتغدا بقا في الفرح",
+        "تم زواجكم... ودا رقمي عشان لو العريس معرفش يسد 012345..",
+        "الزواج تم اتفضلو اعملو احلا واحد بقا هيهيهي"
+      }
+    if Redis:sismember(Timo..msg_chat_id.."mutlqat:",Message_Reply.sender.user_id) then 
+    Redis:srem(Timo..msg_chat_id.."mutlqat:",Message_Reply.sender.user_id)
+    end
+    Redis:sadd(Timo..msg_chat_id.."zwgat:",Message_Reply.sender.user_id) 
+    return LuaTele.sendText(msg_chat_id,msg_id,Reply_Status(Message_Reply.sender.user_id,rd_zwag[math.random(#rd_zwag)]).Reply,"md",true)  
+    end
+end
+if text == "طلاق" or text == "تنزيل زوجتي" or text == "تزيل زوجي" and msg.reply_to_message_id ~= 0 then
+  local Message_Reply = LuaTele.getMessage(msg.chat_id, msg.reply_to_message_id)
+  local UserInfo = LuaTele.getUser(Message_Reply.sender.user_id)
+  if tonumber(Message_Reply.sender.user_id) == tonumber(msg.sender.user_id) then
+    return LuaTele.sendText(msg_chat_id,msg_id,"احا هو انت كنت اتجوزت نفسك عشان تطلق","md",true)  
+  end
+  if tonumber(Message_Reply.sender.user_id) == tonumber(Timo) then
+    return LuaTele.sendText(msg_chat_id,msg_id,"هو احنا كنا اتجوزنا يروح خالتك عشان نطلق","md",true)  
+  end
+  if Redis:sismember(Timo..msg_chat_id.."zwgat:",Message_Reply.sender.user_id) then
+    Redis:srem(Timo..msg_chat_id.."zwgat:",Message_Reply.sender.user_id)
+    Redis:sadd(Timo..msg_chat_id.."mutlqat:",Message_Reply.sender.user_id) 
+    local rd_tmtlaq = {
+      "تم طلاقكم للاسف",
+      "تم الطلاق بلص ام عبير عاوزه تعرف اتطلقتو لي ؟",
+      "تم الطلاق عشان المعلم مبيعرفش",
+      "تم الطلاق عشان في سوسه دخلت وسطهم",
+      "تم الطلاق بلص دا رقمي عشان لو حبيتي نتكلم باحترام 01234..."
+    }
+    return LuaTele.sendText(msg_chat_id,msg_id,Reply_Status(Message_Reply.sender.user_id,rd_tmtlaq[math.random(#rd_tmtlaq)]).Reply,"md",true)  
+    else
+      local rd_tlaq = {
+        "مكنتش اتجوزت عشان تطلق اصلا",
+        "بايره محدش اتجوزها",
+        "محدش عبرها قبل كدا اسسن"
+      }
+    return LuaTele.sendText(msg_chat_id,msg_id,Reply_Status(Message_Reply.sender.user_id,rd_tlaq[math.random(#rd_tlaq)]).Reply,"md",true)  
+    end
+end
 if text and text:match("^تفعيل (.*)$") and msg.reply_to_message_id == 0 then
 local TextMsg = text:match("^تفعيل (.*)$")
 if not msg.Addictive then
@@ -4165,33 +4227,9 @@ if ChannelJoin(msg) == false then
 local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = 'اضغط للاشتراك', url = 't.me/SU_SELVA'}, },}}
 return LuaTele.sendText(msg.chat_id,msg.id,'*\n⎈ ⦙  عليك الاشتراك في قناة البوت لاستخذام الاوامر*',"md",false, false, false, false, reply_markup)
 end
-if text == "الرابط" then
-if not Redis:get(Timo.."Status:Link"..msg_chat_id) then
-return LuaTele.sendText(msg_chat_id,msg_id,"⎈ ⦙ تم تعطيل جلب الرابط من قبل الادمنيه","md",true)
-end 
-local Get_Chat = LuaTele.getChat(msg_chat_id)
-local GetLink = Redis:get(Timo.."Group:Link"..msg_chat_id) 
-if GetLink then
-local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {
-{{text =Get_Chat.title, url = GetLink}, },}}
-return LuaTele.sendText(msg_chat_id, msg_id, "⎈ ⦙ 𝙻𝙸𝙽𝙺 𝙶𝚁𝙾𝚄𝙿 : \n["..Get_Chat.title.. ']('..GetLink..')', 'md', true, false, false, false, reply_markup)
-else 
-local LinkGroup = LuaTele.generateChatInviteLink(msg_chat_id,'Hussain',tonumber(msg.date+86400),0,true)
-if LinkGroup.code == 3 then
-return LuaTele.sendText(msg_chat_id,msg_id,"⎈ ⦙ لا استطيع جلب الرابط بسبب ليس لدي صلاحيه دعوه مستخدمين من خلال الرابط ","md",true)
-end
-url = https.request('http://api.telegram.org/bot'..Token..'/getchat?chat_id='..msg_chat_id..'')
-json = JSON.decode(url)
-local txt = "⎈ ⦙ 𝙻𝙸𝙽𝙺 𝙶𝚁𝙾𝚄𝙿 : \n["..Get_Chat.title.. ']('..LinkGroup.invite_link..')'
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = Get_Chat.title, url=LinkGroup.invite_link},
-},
-}
-local rep = msg.id/2097152/0.5
-https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id="..msg.chat_id.."&reply_to_message_id="..rep.."&photo=t.me/"..json.result.username.."&caption="..URL.escape(txt).."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-end
+if TextMsg == 'الرابط' then
+Redis:set(Timo.."Timo:Status:Link"..msg_chat_id,true) 
+return LuaTele.sendText(msg_chat_id,msg_id,"* ⦁ تم تفعيل الرابط *","md",true)
 end
 if TextMsg == 'الترحيب' then
 Redis:set(Timo.."Timo:Status:Welcome"..msg_chat_id,true) 
@@ -7331,23 +7369,31 @@ Redis:del(Timo.."Timo:Group:Link"..msg_chat_id)
 return LuaTele.sendText(msg_chat_id,msg_id,"⎈ ⦙  تم مسح الرابط ","md",true)             
 end
 if text == "الرابط" then
-if not Redis:get(Timo.."Timo:Status:Link"..msg_chat_id) then
-return LuaTele.sendText(msg_chat_id,msg_id,"⎈ ⦙  تم تعطيل جلب الرابط من قبل الادمنيه","md",true)
+if not Redis:get(Timo.."Status:Link"..msg_chat_id) then
+return LuaTele.sendText(msg_chat_id,msg_id,"⎈ ⦙ تم تعطيل جلب الرابط من قبل الادمنيه","md",true)
 end 
 local Get_Chat = LuaTele.getChat(msg_chat_id)
-local GetLink = Redis:get(Timo.."Timo:Group:Link"..msg_chat_id) 
+local GetLink = Redis:get(Timo.."Group:Link"..msg_chat_id) 
 if GetLink then
 local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {
 {{text =Get_Chat.title, url = GetLink}, },}}
-return LuaTele.sendText(msg_chat_id, msg_id, "⎈ ⦙  𝙻𝙸𝙽𝙺 𝙶𝚁𝙾𝚄𝙿 : \n["..Get_Chat.title.. ']('..GetLink..')', 'md', true, false, false, false, reply_markup)
+return LuaTele.sendText(msg_chat_id, msg_id, "⎈ ⦙ 𝙻𝙸𝙽𝙺 𝙶𝚁𝙾𝚄𝙿 : \n["..Get_Chat.title.. ']('..GetLink..')', 'md', true, false, false, false, reply_markup)
 else 
 local LinkGroup = LuaTele.generateChatInviteLink(msg_chat_id,'Hussain',tonumber(msg.date+86400),0,true)
 if LinkGroup.code == 3 then
-return LuaTele.sendText(msg_chat_id,msg_id,"⎈ ⦙  لا استطيع جلب الرابط بسبب ليس لدي صلاحيه دعوه مستخدمين من خلال الرابط ","md",true)
+return LuaTele.sendText(msg_chat_id,msg_id,"⎈ ⦙ لا استطيع جلب الرابط بسبب ليس لدي صلاحيه دعوه مستخدمين من خلال الرابط ","md",true)
 end
-local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {
-{{text = Get_Chat.title, url = LinkGroup.invite_link},},}}
-return LuaTele.sendText(msg_chat_id, msg_id, "⎈ ⦙  𝙻𝙸𝙽𝙺 𝙶𝚁𝙾𝚄𝙿 : \n["..Get_Chat.title.. ']('..LinkGroup.invite_link..')', 'md', true, false, false, false, reply_markup)
+url = https.request('http://api.telegram.org/bot'..Token..'/getchat?chat_id='..msg_chat_id..'')
+json = JSON.decode(url)
+local txt = "⎈ ⦙ 𝙻𝙸𝙽𝙺 𝙶𝚁𝙾𝚄𝙿 : \n["..Get_Chat.title.. ']('..LinkGroup.invite_link..')'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = Get_Chat.title, url=LinkGroup.invite_link},
+},
+}
+local rep = msg.id/2097152/0.5
+https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id="..msg.chat_id.."&reply_to_message_id="..rep.."&photo=t.me/"..json.result.username.."&caption="..URL.escape(txt).."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 end
 if text == "اسم الجروب" or text == "اسم البار" then
@@ -9438,7 +9484,7 @@ keyboard.inline_keyboard = {
 }
 local msgg = msg_id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token.."/sendvideo?chat_id=" .. msg_chat_id .. "&video="..video.."&caption=".. URL.escape(T).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-elseif text == 'تيمو' or text == 'المبرمج تيمو' or text == 'مبرمج السورس' or text == '❴ مبرمج السورس ❵' then
+elseif text == 'تيمو' or text == 'المبرمج تيمو' or text == 'مبرمج السورس' then
 photo = "https://t.me/tt_tt_4"
 local Name = 'المبرمج تيمو للتواصل معاه اتبع الزر ال في الاسفل ⇓⇑ '
 keyboard = {} 
@@ -9497,7 +9543,7 @@ local Name = 'بوت تواصل سورس سيلفا '
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '- 𝙱𝙾𝚃-𝚃𝙰𝚆𝙰𝚂𝙾𝙰𝙻-',url="t.me/Timo8Bot"}
+{text = '- 𝙱𝙾𝚃-𝚃𝙰𝚆𝙰𝚂𝙾𝙰𝙻 -',url="t.me/Timo8Bot"}
 },
 {
 {text = '𓆩اضف البوت لمجموعتك𓆪', url = 't.me/'..UserBot..'?startgroup=new'},
@@ -9519,68 +9565,6 @@ keyboard.inline_keyboard = {
 }
 local msgg = msg_id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token.."/sendvideo?chat_id=" .. msg_chat_id .. "&video="..video.."&caption=".. URL.escape(Name).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-if text == "زواج" or text == "رفع زوجتي" or text == "رفع زوجي" and msg.reply_to_message_id ~= 0 then
-  local Message_Reply = LuaTele.getMessage(msg.chat_id, msg.reply_to_message_id)
-  local UserInfo = LuaTele.getUser(Message_Reply.sender.user_id)
-  if tonumber(Message_Reply.sender.user_id) == tonumber(msg.sender.user_id) then
-    return LuaTele.sendText(msg_chat_id,msg_id,"انت اهبل يبني عاوز تتجوز نفسك ؟ هتتكاثر ازاي طيب ؟!!","md",true)  
-  end
-  if tonumber(Message_Reply.sender.user_id) == tonumber(Timo) then
-    return LuaTele.sendText(msg_chat_id,msg_id,"ابعد عني يحيحان ملكقتش غيري","md",true)  
-  end
-  if Redis:sismember(Timo..msg_chat_id.."zwgat:",Message_Reply.sender.user_id) then
-    local rd_mtzwga = {
-      "اسف يصحبي متجوزه",
-      "متجوزه يبن عمي شفلك واحده تانيه",
-      "يبني متجوزه اجوزهاشلك ازاي انا",
-      "للاسف متجوزه بس  لو العمليه جايبه اخرها شوف واحده تانيه",
-      "يادي الكسفه طلعت متجوزه قبلك"
-    }
-    return LuaTele.sendText(msg_chat_id,msg_id,Reply_Status(Message_Reply.sender.user_id,rd_mtzwga[math.random(#rd_mtzwga)]).Reply,"md",true)  
-    else
-      local rd_zwag = {
-        "تم زواجك منه وبارك الله لكم وعليكم",
-        "لولولولويي تم الزواج عقبال العيال بقا",
-        "مبروك اتجوزتها عاوز اتغدا بقا في الفرح",
-        "تم زواجكم... ودا رقمي عشان لو العريس معرفش يسد 012345..",
-        "الزواج تم اتفضلو اعملو احلا واحد بقا هيهيهي"
-      }
-    if Redis:sismember(Timo..msg_chat_id.."mutlqat:",Message_Reply.sender.user_id) then 
-    Redis:srem(Timo..msg_chat_id.."mutlqat:",Message_Reply.sender.user_id)
-    end
-    Redis:sadd(Timo..msg_chat_id.."zwgat:",Message_Reply.sender.user_id) 
-    return LuaTele.sendText(msg_chat_id,msg_id,Reply_Status(Message_Reply.sender.user_id,rd_zwag[math.random(#rd_zwag)]).Reply,"md",true)  
-    end
-end
-if text == "طلاق" or text == "تنزيل زوجتي" or text == "تزيل زوجي" and msg.reply_to_message_id ~= 0 then
-  local Message_Reply = LuaTele.getMessage(msg.chat_id, msg.reply_to_message_id)
-  local UserInfo = LuaTele.getUser(Message_Reply.sender.user_id)
-  if tonumber(Message_Reply.sender.user_id) == tonumber(msg.sender.user_id) then
-    return LuaTele.sendText(msg_chat_id,msg_id,"احا هو انت كنت اتجوزت نفسك عشان تطلق","md",true)  
-  end
-  if tonumber(Message_Reply.sender.user_id) == tonumber(Timo) then
-    return LuaTele.sendText(msg_chat_id,msg_id,"هو احنا كنا اتجوزنا يروح خالتك عشان نطلق","md",true)  
-  end
-  if Redis:sismember(Timo..msg_chat_id.."zwgat:",Message_Reply.sender.user_id) then
-    Redis:srem(Timo..msg_chat_id.."zwgat:",Message_Reply.sender.user_id)
-    Redis:sadd(Timo..msg_chat_id.."mutlqat:",Message_Reply.sender.user_id) 
-    local rd_tmtlaq = {
-      "تم طلاقكم للاسف",
-      "تم الطلاق بلص ام عبير عاوزه تعرف اتطلقتو لي ؟",
-      "تم الطلاق عشان المعلم مبيعرفش",
-      "تم الطلاق عشان في سوسه دخلت وسطهم",
-      "تم الطلاق بلص دا رقمي عشان لو حبيتي نتكلم باحترام 01234..."
-    }
-    return LuaTele.sendText(msg_chat_id,msg_id,Reply_Status(Message_Reply.sender.user_id,rd_tmtlaq[math.random(#rd_tmtlaq)]).Reply,"md",true)  
-    else
-      local rd_tlaq = {
-        "مكنتش اتجوزت عشان تطلق اصلا",
-        "بايره محدش اتجوزها",
-        "محدش عبرها قبل كدا اسسن"
-      }
-    return LuaTele.sendText(msg_chat_id,msg_id,Reply_Status(Message_Reply.sender.user_id,rd_tlaq[math.random(#rd_tlaq)]).Reply,"md",true)  
-    end
-end
 elseif text == 'الاوامر' then
 if not msg.Addictive then
 return LuaTele.sendText(msg_chat_id,msg_id,'\n*⎈ ⦙  هاذا الامر يخص 『 '..Controller_Num(7)..' 』* ',"md",true)  
@@ -11459,9 +11443,6 @@ end
 else
 local reply_markup = LuaTele.replyMarkup{type = 'keyboard',resize = true,is_personal = true,
 data = {
-{
-{text = '❴ مبرمج السورس ❵',type = 'text'},
-},
 {
 {text = '❴ تفعيل التواصل ❵',type = 'text'},{text = '❴ تعطيل التواصل ❵', type = 'text'},
 },
