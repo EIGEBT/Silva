@@ -10316,6 +10316,7 @@ end
 if text == "بوت" or text == "البوت" or text == "bot" or text == "Bot" then
 local photo = LuaTele.getUserProfilePhotos(Timo)
 local ban = LuaTele.getUser(Timo)
+local bban = LuaTele.getUser(msg.sender.user_id)
 for Name_User in string.gmatch(ban.first_name, "[^%s]+" ) do
 ban.first_name = Name_User
 break
@@ -10356,6 +10357,7 @@ end
 if text == (Redis:get(Timo.."Timo:Name:Bot") or "سيلفا") then
 local photo = LuaTele.getUserProfilePhotos(Timo)
 local ban = LuaTele.getUser(Timo)
+local bban = LuaTele.getUser(msg.sender.user_id)
 for Name_User in string.gmatch(ban.first_name, "[^%s]+" ) do
 ban.first_name = Name_User
 break
