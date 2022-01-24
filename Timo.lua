@@ -2804,12 +2804,12 @@ local Get_Is_Id = Get_Is_Id:gsub('#game',NumberGames)
 return LuaTele.sendText(msg_chat_id,msg_id,Get_Is_Id,"md",true) 
 else
 return LuaTele.sendText(msg_chat_id,msg_id,
-'\n*• ɪᴅ = '..UserId..
-'\n• ᴜѕᴇ = @'..UserName..
-'\n• ѕᴛᴀ = '..RinkBot..
-'\n• ᴍѕɢ = '..TotalMsg..
-'\n• ᴛᴘᴅʏʟᴀᴛᴋ = '..TotalEdit..
-'\n• ᴛғᴀᴘʟᴋ = '..TotalMsgT..
+'\n*⎈ ⦙ ɪᴅ = '..UserId..
+'\n⎈ ⦙ ᴜѕᴇ = @'..UserName..
+'\n⎈ ⦙ ѕᴛᴀ = '..RinkBot..
+'\n⎈ ⦙ ᴍѕɢ = '..TotalMsg..
+'\n⎈ ⦙ ᴛᴘᴅʏʟᴀᴛᴋ = '..TotalEdit..
+'\n⎈ ⦙ ᴛғᴀᴘʟᴋ = '..TotalMsgT..
 '*',"md",true) 
 end
 end
@@ -10371,7 +10371,7 @@ keyboard.inline_keyboard = {
 {text = NamesBots, url = 't.me/SU_SELVA'}, 
 },
 {
-{text = '𓆩اضف البوت لمجموعتك𓆪', url = 't.me/'..UserBot..'?startgroup=new'},
+{text = '??اضف البوت لمجموعتك𓆪', url = 't.me/'..UserBot..'?startgroup=new'},
 },
 }
 msgg = msg.id/2097152/0.5
@@ -11399,7 +11399,7 @@ if text == '/start' then
 video = "http://t.me/t_imoo/4"
 local T =[[
 ╔━━-━━━━━𓆩[♡](http://t.me/SU_SELVA)𓆪━━━━━-━━╗ 
-┇[𝚆𝙴𝙻𝙲𝙾𝙼𝙴 𝚃𝙾 𝚂𝙾𝚄𝚁𝙲𝙴 𝚂𝙴𝙻𝚅𝙰](http://t.me/SU_SELVA)
+┇[𝚆𝙴𝙻𝙲𝙾𝙼𝙴 𝚃𝙾 𝚂??𝚄𝚁𝙲𝙴 𝚂𝙴𝙻𝚅𝙰](http://t.me/SU_SELVA)
 ╚━━-━━━━━𓆩[♡](http://t.me/SU_SELVA)𓆪━━━━━-━━╝ 
 ]]
 keyboard = {} 
