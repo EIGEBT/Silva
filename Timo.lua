@@ -10338,27 +10338,6 @@ for Name_User in string.gmatch(ban.first_name, "[^%s]+" ) do
 ban.first_name = Name_User
 break
 end 
-if text == "فيديوهات رومانسيه" or text == 'رومانسي' then
-local t = "مرحبا اليك فيديوهات رومانسيه 🌝💜"
-Rrr = math.random(4,50)
-local m = "https://t.me/videowhatsapp20/"..Rrr..""
-local rep = msg.id/2097152/0.5
-https.request("https://api.telegram.org/bot"..Token.."/sendaudio?chat_id="..msg_chat_id.."&caption="..URL.escape(t).."&audio="..m.."&reply_to_message_id="..rep.."&parse_mode=Markdown")
-end
-if text == "تويت بالصور" then
-local t = "مرحبا اليك تويت بالصور 🌝💜"
-Rrr = math.random(4,50)
-local m = "https://t.me/wffhvv/"..Rrr..""
-local rep = msg.id/2097152/0.5
-https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id="..msg_chat_id.."&caption="..URL.escape(t).."&photo="..m.."&reply_to_message_id="..rep.."&parse_mode=Markdown")
-end
-if text == "لو خيروك بالصور" then
-local t = "مرحبا اليك لو خيروك بالصور 🌝💜"
-Rrr = math.random(4,50)
-local m = "https://t.me/SourceSaidi/"..Rrr..""
-local rep = msg.id/2097152/0.5
-https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id="..msg_chat_id.."&caption="..URL.escape(t).."&photo="..m.."&reply_to_message_id="..rep.."&parse_mode=Markdown")
-end
 local NamesBot = (Redis:get(Timo.."Timo:Name:Bot") or "سيلفا")
 local BotName = {
 'انا '..NamesBot..' ملك البوتات 🌝💜',
@@ -11330,6 +11309,26 @@ name = string.gsub(name,"القرد","__بعين امه غزال")
 name = string.gsub(name,"يكحله","اجه___عماها")
 return LuaTele.sendText(msg_chat_id,msg_id," ⦁ اسرع واحد يكمل المثل ~ {"..name.."}","md",true)  
 end
+if text == "فيديوهات رومانسيه" or text == 'رومانسي' then
+local t = "مرحبا اليك فيديوهات رومانسيه 🌝💜"
+Rrr = math.random(4,50)
+local m = "https://t.me/v_selva/"..Rrr..""
+local rep = msg.id/2097152/0.5
+https.request("https://api.telegram.org/bot"..Token.."/sendaudio?chat_id="..msg_chat_id.."&caption="..URL.escape(t).."&audio="..m.."&reply_to_message_id="..rep.."&parse_mode=Markdown")
+end
+if text == "تويت بالصور" then
+local t = "مرحبا اليك تويت بالصور 🌝💜"
+Rrr = math.random(4,50)
+local m = "https://t.me/wffhvv/"..Rrr..""
+local rep = msg.id/2097152/0.5
+https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id="..msg_chat_id.."&caption="..URL.escape(t).."&photo="..m.."&reply_to_message_id="..rep.."&parse_mode=Markdown")
+end
+if text == "لو خيروك بالصور" then
+local t = "مرحبا اليك لو خيروك بالصور 🌝💜"
+Rrr = math.random(4,50)
+local m = "https://t.me/SourceSaidi/"..Rrr..""
+local rep = msg.id/2097152/0.5
+https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id="..msg_chat_id.."&caption="..URL.escape(t).."&photo="..m.."&reply_to_message_id="..rep.."&parse_mode=Markdown")
 end
 if text and text:match("^بيع مجوهراتي (%d+)$") then
 local NumGame = text:match("^بيع مجوهراتي (%d+)$") 
