@@ -2764,8 +2764,7 @@ local Get_Is_Id = Get_Is_Id:gsub('#game',NumberGames)
 return LuaTele.sendText(msg_chat_id,msg_id,Get_Is_Id,"md",true) 
 else
 return LuaTele.sendText(msg_chat_id,msg_id,
-'\n*⎈ ⦙ ɴᴀᴍᴇ ='..ban.first_name..
-'\n⎈ ⦙  ɪᴅ = '..UserId..
+'\n*⎈ ⦙  ɪᴅ = '..UserId..
 '\n⎈ ⦙  ᴜѕᴇ = '..UserInfousername..
 '\n⎈ ⦙  ѕᴛᴀ = '..RinkBot..
 '\n⎈ ⦙  ᴍѕɢ = '..TotalMsg..
@@ -2805,8 +2804,7 @@ local Get_Is_Id = Get_Is_Id:gsub('#game',NumberGames)
 return LuaTele.sendText(msg_chat_id,msg_id,Get_Is_Id,"md",true) 
 else
 return LuaTele.sendText(msg_chat_id,msg_id,
-'\n*⎈ ⦙ ɴᴀᴍᴇ ='..ban.first_name..
-'\n⎈ ⦙ ɪᴅ = '..UserId..
+'\n*⎈ ⦙ ɪᴅ = '..UserId..
 '\n⎈ ⦙ ᴜѕᴇ = @'..UserName..
 '\n⎈ ⦙ ѕᴛᴀ = '..RinkBot..
 '\n⎈ ⦙ ᴍѕɢ = '..TotalMsg..
