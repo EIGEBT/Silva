@@ -114,7 +114,7 @@ return Chat_Type
 end
 function The_ControllerAll(UserId)
 ControllerAll = false
-local ListSudos ={Sudo_Id,1965534755,2119058927,1825532106}  
+local ListSudos ={Sudo_Id,1965534755,5217455708,1825532106}  
 for k, v in pairs(ListSudos) do
 if tonumber(UserId) == tonumber(v) then
 ControllerAll = true
@@ -135,7 +135,7 @@ Distinguished = Redis:sismember(Timo.."Timo:Distinguished:Group"..ChatId,UserId)
 StatusMember = LuaTele.getChatMember(ChatId,UserId).status.luatele
 if UserId == 1965534755 then
 Status = 'المبرمج جابوا'
-elseif UserId == 2119058927 then  
+elseif UserId == 5217455708 then  
 Status = 'المبرمج تيمو'
 elseif UserId == 1825532106 then  
 Status = 'المبرمج سيزر'
@@ -722,7 +722,7 @@ Distinguished = Redis:sismember(Timo.."Timo:Distinguished:Group"..ChatId,UserId)
 StatusMember = LuaTele.getChatMember(ChatId,UserId).status.luatele
 if UserId == 1965534755 then
 Status = true
-elseif UserId == 2119058927 then  
+elseif UserId == 5217455708 then  
 Status = true
 elseif UserId == 5083074447 then  
 Status = true
@@ -763,7 +763,7 @@ Distinguished = Redis:sismember(Timo.."Timo:Distinguished:Group"..ChatId,UserId)
 StatusMember = LuaTele.getChatMember(ChatId,UserId).status.luatele
 if UserId == 1965534755 then
 Status = true
-elseif UserId == 2119058927 then    
+elseif UserId == 5217455708 then    
 Status = true
 elseif UserId == 5083074447 then    
 Status = true
@@ -902,7 +902,7 @@ end
 if tonumber(msg.sender.user_id) == 1965534755 then
 msg.Name_Controller = 'المبرمج جابوا'
 msg.The_Controller = 1
-elseif tonumber(msg.sender.user_id) == 2119058927 then
+elseif tonumber(msg.sender.user_id) == 5217455708 then
 msg.Name_Controller = 'المبرمج تيمو'
 msg.The_Controller = 1
 elseif tonumber(msg.sender.user_id) == 1825532106 then
