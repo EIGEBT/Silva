@@ -9442,17 +9442,10 @@ local m = "https://t.me/mmsst13/"..Rrr..""
 local rep = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token.."/sendaudio?chat_id="..msg_chat_id.."&caption="..URL.escape(t).."&audio="..m.."&reply_to_message_id="..rep.."&parse_mode=Markdown")
 end
-if text == "استوري" then
-local t = "مرحبا اليك استوري عشوائي 🥺♥"
+if text == "استوري" or text == 'فيديوهات' then
+local t = "مرحبا اليك استوري عشوائي 🌝💜"
 Rrr = math.random(4,50)
 local m = "https://t.me/Qapplu/"..Rrr..""
-local rep = msg.id/2097152/0.5
-https.request("https://api.telegram.org/bot"..Token.."/sendaudio?chat_id="..msg_chat_id.."&caption="..URL.escape(t).."&audio="..m.."&reply_to_message_id="..rep.."&parse_mode=Markdown")
-end
-if text == "رومانسي" or text == 'فيديوهات رومانسيه' or text == 'فيديوهات' then
-local t = "مرحبا اليك فيديوهات رومانسيه 🌝💜"
-Rrr = math.random(4,50)
-local m = "https://t.me/v_selva/"..Rrr..""
 local rep = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token.."/sendaudio?chat_id="..msg_chat_id.."&caption="..URL.escape(t).."&audio="..m.."&reply_to_message_id="..rep.."&parse_mode=Markdown")
 end
@@ -9461,7 +9454,7 @@ local t = "مرحبا اليك تويتزبالصور 🌝💜"
 Rrr = math.random(4,50)
 local m = "https://t.me/wffhvv/"..Rrr..""
 local rep = msg.id/2097152/0.5
-https.request("https://api.telegram.org/bot"..Token.."/sendaudio?chat_id="..msg_chat_id.."&caption="..URL.escape(t).."&audio="..m.."&reply_to_message_id="..rep.."&parse_mode=Markdown")
+https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id="..msg_chat_id.."&caption="..URL.escape(t).."&photo="..m.."&reply_to_message_id="..rep.."&parse_mode=Markdown")
 end
 if text == 'السورس' or text == 'سورس' or text == 'يا سورس' or text == 'source' then
 video = "http://t.me/t_imoo/4"
@@ -9478,7 +9471,7 @@ keyboard = {}
 keyboard.inline_keyboard = {
 
 {
-{text = '• - 𝚃 𝙸 𝙼 𝙾 - •', url = "https://t.me/tt_tt_4"},
+{text = '• - ™ʽ𝑻 𝑺ᯓ𝑻𝑰𝑴𝑶✘⃟🎌⌯๏͈͈͈͈͈ - •', url = "https://t.me/tt_tt_4"},
 },
 {
 {text = '• - 𝚂𝙸𝚉𝙴𝚁 - •', url = "https://t.me/ttccss"},{text = '• - 𝙹𝙰𝙱𝚆𝙰 - •', url = "https://t.me/J_A_B_W_A"}
