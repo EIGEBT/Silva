@@ -67,7 +67,16 @@ UserSudo = "]]..Redis:get(SshId.."Info:Redis:User")..[[",
 SudoId = ]]..Redis:get(SshId.."Info:Redis:User:ID")..[[
 }
 ]])
-Informationlua:close()
+Timo:close()
+local Run = io.open("Run", 'w')
+Run:write([[
+cd $(cd $(dirname $0); pwd)
+while(true) do
+screen -S Timo -X kill
+screen -S Timo ./Timo
+done
+]])
+Run:close()
 Redis:del(SshId.."Info:Redis:User:ID");Redis:del(SshId.."Info:Redis:User");Redis:del(SshId.."Info:Redis:Token:User");Redis:del(SshId.."Info:Redis:Token")
 os.execute('chmod +x Timo;chmod +x Run;./Run')
 end
@@ -79,15 +88,6 @@ UserBot = Information.UserBot
 Timo = Token:match("(%d+)")
 os.execute('sudo rm -fr .CallBack-Bot/'..Timo)
 LuaTele = luatele.set_config{api_id=2692371,api_hash='fe85fff033dfe0f328aeb02b4f784930',session_name=Timo,token=Token}
-function getbio(User)
-local var = "لايوجد"
-local url , res = https.request("https://api.telegram.org/bot"..Token.."/getchat?chat_id="..User);
-data = json:decode(url)
-if data.result.bio then
-var = data.result.bio
-end
-return var
-end
 function var(value)  
 print(serpent.block(value, {comment=false}))   
 end 
@@ -2218,7 +2218,7 @@ if not msg.ControllerBot then
 return LuaTele.sendText(msg_chat_id,msg_id,'\n* ᪣ هاذا الامر يخص 𓄼 '..Controller_Num(1)..' 𓄹* ',"md",true)  
 end
 --os.execute('rm -rf Timo.lua')
---download('https://raw.githubusercontent.com/JABWA-Timo/JEKA/master/Timo.lua','Timo.lua')
+--download('https://raw.githubusercontent.com/EIGEBT/Silva/master/Timo.lua','Timo.lua')
 return LuaTele.sendText(msg_chat_id,msg_id,'\n* ᪣ تم تحديث السورس * ',"md",true)  
 end
 if text == '𓄼 تعطيل الاذاعه 𓄹' or text == 'تعطيل الاذاعه' then
@@ -2859,22 +2859,11 @@ local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {
 return LuaTele.sendText(msg_chat_id, msg_id, news, 'md', false, false, false, false, reply_markup)
 end
 if text == 'انا مين' then
-if not Redis:get(Timo.."Timo:Status:IdPhoto"..msg_chat_id) then
-return false
-end
 local ban = LuaTele.getUser(msg.sender.user_id)
-local photo = LuaTele.getUserProfilePhotos(msg.sender.user_id)
-local news = '💜 انت يا قلبي = '..msg.Name_Controller
-if photo.total_count > 0 then
-data = {} 
-data.inline_keyboard = {
-{
-{text =news,url = "https://t.me/"..ban.username..""}, 
-},
-}
-local msgg = msg_id/2097152/0.5
-https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id=" .. msg_chat_id .. "&photo="..photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id.."&photo=".. URL.escape(news).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(data))
-end
+local news = '💙🌝 انت ياقلبي = '..msg.Name_Controller
+local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {
+{{text =news,url = "https://t.me/"..ban.username..""}, },}}
+return LuaTele.sendText(msg_chat_id, msg_id, news, 'md', false, false, false, false, reply_markup)
 end
 if text == 'التاريخ' then
 local user_info = LuaTele.getUser(msg.sender.user_id)
@@ -5707,6 +5696,9 @@ keyboard = {}
 keyboard.inline_keyboard = {
 {
 {text = Creat, url = "https://t.me/"..qp.username..""}
+},
+{
+{text = '𓄼•اضف البوت لمجموعتك•𓄹', url = 't.me/'..UserBot..'?startgroup=new'},
 },
 }
 local msgg = msg_id/2097152/0.5
@@ -9497,7 +9489,7 @@ end
 if text == "لو خيروك بالصور" then
 local t = "مرحبا اليك لو خيروك بالصور 🌝💜"
 Rrr = math.random(4,50)
-local m = "https://t.me/SourceTimo/"..Rrr..""
+local m = "https://t.me/SourceSaidi/"..Rrr..""
 local rep = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id="..msg_chat_id.."&caption="..URL.escape(t).."&photo="..m.."&reply_to_message_id="..rep.."&parse_mode=Markdown")
 end
@@ -9514,7 +9506,6 @@ local T =[[
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
-
 {
 {text = '𓄼•ᴛɪᴍᴏ•𓄹', url = "https://t.me/tt_tt_4"},
 },
@@ -9546,7 +9537,7 @@ local msgg = msg_id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id=" .. msg_chat_id .. "&photo="..photo.."&caption=".. URL.escape(Name).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 elseif text == 'بوت حذف' or text == 'بوت الحذف' or text == 'بووت حذف' then
 photo = "https://t.me/LC6BOT"
-local Name = 'بوت حذف حسابات'
+local Name = 'بـوت حـذف حـسـابـات'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
@@ -9560,7 +9551,7 @@ local msgg = msg_id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id=" .. msg_chat_id .. "&photo="..photo.."&caption=".. URL.escape(Name).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 elseif text == 'بوت تواصل' or text == 'بوت التواصل' or text == 'تواصل السورس' or text == 'التواصل' then
 video = "http://t.me/t_imoo/4"
-local Name = 'بوت تواصل سورس سيلفا '
+local Name = 'بـوت تـواصـل سـورس سـيـلـفـا يـا حـب'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
@@ -9574,7 +9565,7 @@ local msgg = msg_id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token.."/sendvideo?chat_id=" .. msg_chat_id .. "&video="..video.."&caption=".. URL.escape(Name).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 elseif text == 'قناه السورس' or text == 'قناه سورس' then
 video = "http://t.me/t_imoo/4"
-local Name = 'قناه سورس سيلفا ياحب'
+local Name = 'قـنـاه سـورس سـيـلـفـا يـا حـب'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
@@ -10486,12 +10477,12 @@ end
  CPUPer=`top -b -n1 | grep "Cpu(s)" | awk '{print $2 + $4}'`
  uptime=`uptime | awk -F'( |,|:)+' '{if ($7=="min") m=$6; else {if ($7~/^day/) {d=$6;h=$8;m=$9} else {h=$6;m=$7}}} {print d+0,"days,",h+0,"hours,",m+0,"minutes."}'`
  echo '᪣   { نظام التشغيل } ⊰•\n*= '"$linux_version"'*' 
- echo '*------------------------------\n*᪣  { الذاكره العشوائيه } ⊰•\n*= '"$memUsedPrc"'*'
- echo '*------------------------------\n*᪣  { وحـده الـتـخـزيـن } ⊰•\n*= '"$HardDisk"'*'
- echo '*------------------------------\n*᪣  { الـمــعــالــج } ⊰•\n*= '"`grep -c processor /proc/cpuinfo`""Core ~ {$CPUPer%} "'*'
- echo '*------------------------------\n*᪣  { موقـع الـسـيـرفـر } ⊰•\n*= '`curl http://th3boss.com/ip/location`'*'
- echo '*------------------------------\n*᪣  { الــدخــول } ⊰•\n*= '`whoami`'*'
- echo '*------------------------------\n*᪣  { مـده تـشغيـل الـسـيـرفـر } ⊰• \n*= '"$uptime"'*'
+ echo '*༺┉┉┉⊶﴾𓄼•ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ•𓄹﴿⊷┉┉┉༻\n*᪣  { الذاكره العشوائيه } ⊰•\n*= '"$memUsedPrc"'*'
+ echo '*༺┉┉┉⊶﴾𓄼•ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ•𓄹﴿⊷┉┉┉༻\n*᪣  { وحـده الـتـخـزيـن } ⊰•\n*= '"$HardDisk"'*'
+ echo '*༺┉┉┉⊶﴾𓄼•ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ•𓄹﴿⊷┉┉┉༻\n*᪣  { الـمــعــالــج } ⊰•\n*= '"`grep -c processor /proc/cpuinfo`""Core ~ {$CPUPer%} "'*'
+ echo '*༺┉┉┉⊶﴾𓄼•ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ•𓄹﴿⊷┉┉┉༻\n*᪣  { موقـع الـسـيـرفـر } ⊰•\n*= '`curl http://th3boss.com/ip/location`'*'
+ echo '*༺┉┉┉⊶﴾𓄼•ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ•𓄹﴿⊷┉┉┉༻\n*᪣  { الــدخــول } ⊰•\n*= '`whoami`'*'
+ echo '*༺┉┉┉⊶﴾𓄼•ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ•𓄹﴿⊷┉┉┉༻\n*᪣  { مـده تـشغيـل الـسـيـرفـر } ⊰• \n*= '"$uptime"'*'
  ]]):read('*all')
 LuaTele.sendText(msg_chat_id,msg_id,ioserver,"md",true)
 end
