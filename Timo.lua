@@ -2423,7 +2423,7 @@ NamesBot = (Redis:get(Timo.."Timo:Name:Bot") or "سيلفا")
 Groups = (Redis:scard(Timo..'Timo:ChekBotAdd') or 0)
 Users = (Redis:scard(Timo..'Timo:Num:User:Pv') or 0)
 if photo.total_count > 0 then
-local selva = 'اسم بوت = 𓄼 '..NamesBot..' 𓄹'
+local selva = 'اسم بوت = ( '..NamesBot..' )'
 local Grosupsw = 'الجروبات = 𓄼 '..Groups..' 𓄹'
 local Usperos = 'المشتركين = 𓄼 '..Users..' 𓄹'
 keyboard = {} 
@@ -2458,7 +2458,7 @@ NamesBot = (Redis:get(Timo.."Timo:Name:Bot") or "سيلفا")
 Groups = (Redis:scard(Timo..'Timo:ChekBotAdd') or 0)
 Users = (Redis:scard(Timo..'Timo:Num:User:Pv') or 0)
 if photo.total_count > 0 then
-local selva = 'اسم بوت = 𓄼 '..NamesBot..' 𓄹'
+local selva = 'اسم بوت = ( '..NamesBot..' )'
 local Grosupsw = 'الجروبات = 𓄼 '..Groups..' 𓄹'
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -2489,7 +2489,7 @@ NamesBot = (Redis:get(Timo.."Timo:Name:Bot") or "سيلفا")
 Groups = (Redis:scard(Timo..'Timo:ChekBotAdd') or 0)
 Users = (Redis:scard(Timo..'Timo:Num:User:Pv') or 0)
 if photo.total_count > 0 then
-local selva = 'اسم بوت = 𓄼 '..NamesBot..' 𓄹'
+local selva = 'اسم بوت = ( '..NamesBot..' )'
 local Usperos = 'المشتركين = 𓄼 '..Users..' 𓄹'
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -9516,7 +9516,7 @@ keyboard = {}
 keyboard.inline_keyboard = {
 
 {
-{text = '𓄼•™ʽ𝑻 𝑺ᯓ𝑻𝑰𝑴𝑶✘⃟🎌⌯๏͈͈͈͈͈•𓄹', url = "https://t.me/tt_tt_4"},
+{text = '𓄼•ᴛɪᴍᴏ•𓄹', url = "https://t.me/tt_tt_4"},
 },
 {
 {text = '𓄼•ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ•𓄹', url = "https://t.me/SU_SELVA"}
@@ -9533,7 +9533,7 @@ local Name = 'المبرمج تيمو للتواصل معاه اتبع الزر 
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '𓄼•™ʽ𝑻 𝑺ᯓ𝑻𝑰𝑴𝑶✘⃟🎌⌯๏͈͈͈͈͈•𓄹', url = "https://t.me/tt_tt_4"}
+{text = '𓄼•ᴛɪᴍᴏ•𓄹', url = "https://t.me/tt_tt_4"}
 },
 {
 {text = '𓄼•ɢʀᴏ𝗎ᴘ•𓄹', url = "https://t.me/br_selva"},{text = '𓄼•ᴄʜᴀɴɴᴇᴛ•𓄹', url = "https://t.me/SU_SELVA"}
@@ -9564,7 +9564,7 @@ local Name = 'بوت تواصل سورس سيلفا '
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '𓄼•𝙱𝙾𝚃-𝚃𝙰𝚆𝙰𝚂𝙾𝙰𝙻•𓄹',url="t.me/Timo8Bot"}
+{text = '𓄼•ʙᴏᴛ•𓄹',url="t.me/Timo8Bot"}
 },
 {
 {text = '𓄼•اضف البوت لمجموعتك•𓄹', url = 't.me/'..UserBot..'?startgroup=new'},
