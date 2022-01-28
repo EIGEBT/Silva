@@ -7390,30 +7390,22 @@ return LuaTele.sendText(msg_chat_id,msg_id," ᪣ تم مسح الرابط ","md"
 end
 if text == "الرابط" or text == "رابط" or text == "الينك" then
 if not Redis:get(Timo.."Timo:Status:Link"..msg_chat_id) then
-return LuaTele.sendText(msg_chat_id,msg_id,"*᪣ تم تعطيل جلب الرابط من قبل الادمنيه*","md",true)
+return LuaTele.sendText(msg_chat_id,msg_id," ⦁ تم تعطيل جلب الرابط من قبل الادمنيه","md",true)
 end 
 local Get_Chat = LuaTele.getChat(msg_chat_id)
-local GetLink = Redis:get(Timo.."Group:Link"..msg_chat_id) 
+local GetLink = Redis:get(Timo.."Timo:Group:Link"..msg_chat_id) 
 if GetLink then
 local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {
 {{text =Get_Chat.title, url = GetLink}, },}}
-return LuaTele.sendText(msg_chat_id, msg_id, "*᪣ Link Group : * \n["..Get_Chat.title.. ']('..GetLink..')', 'md', true, false, false, false, reply_markup)
+return LuaTele.sendText(msg_chat_id, msg_id, " ⦁ Link Group : \n["..Get_Chat.title.. ']('..GetLink..')', 'md', true, false, false, false, reply_markup)
 else 
 local LinkGroup = LuaTele.generateChatInviteLink(msg_chat_id,'Hussain',tonumber(msg.date+86400),0,true)
 if LinkGroup.code == 3 then
-return LuaTele.sendText(msg_chat_id,msg_id,"*᪣  لا استطيع جلب الرابط بسبب ليس لدي صلاحيه دعوه مستخدمين من خلال الرابط *","md",true)
+return LuaTele.sendText(msg_chat_id,msg_id," ⦁ لا استطيع جلب الرابط بسبب ليس لدي صلاحيه دعوه مستخدمين من خلال الرابط ","md",true)
 end
-url = https.request('http://api.telegram.org/bot'..Token..'/getchat?chat_id='..msg_chat_id..'')
-json = JSON.decode(url)
-local txt = "*᪣ Link Group : * \n["..Get_Chat.title.. ']('..LinkGroup.invite_link..')'
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = Get_Chat.title, url=LinkGroup.invite_link},
-},
-}
-local rep = msg.id/2097152/0.5
-https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id="..msg.chat_id.."&reply_to_message_id="..rep.."&photo=t.me/"..json.result.username.."&caption="..URL.escape(txt).."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {
+{{text = Get_Chat.title, url = LinkGroup.invite_link},},}}
+return LuaTele.sendText(msg_chat_id, msg_id, " ⦁ Link Group : \n["..Get_Chat.title.. ']('..LinkGroup.invite_link..')', 'md', true, false, false, false, reply_markup)
 end
 end
 if text == "اسم الجروب" or text == "اسم البار" then
