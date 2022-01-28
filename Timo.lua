@@ -9495,9 +9495,7 @@ local T =[[
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
-{
-{text = '𓄼• المطورين •𓄹', data = IdUser..'/timoo0'}, {text = '𓄼• القناوات •𓄹', data = IdUser..'/TheBasicsQ'}, 
-},
+
 {
 {text = '𓄼•ᴛɪᴍᴏ•𓄹', url = "https://t.me/tt_tt_4"},
 },
@@ -12891,21 +12889,6 @@ local TextHelp = [[*
 *]]
 LuaTele.editMessageText(ChatId,Msg_id,TextHelp, 'md', true, false, reply_markup)
 end
-elseif Text and Text:match('(%d+)/timoo0') then
-local UserId = Text:match('(%d+)/timoo0')
-if tonumber(IdUser) == tonumber(UserId) then
-local reply_markup = LuaTele.replyMarkup{
-type = 'inline',
-data = {
-{
-{text = '𓄼•ᴛɪᴍᴏ•𓄹', url = "https://t.me/tt_tt_4"}, {text = '𓄼•ᴛɪᴍᴏ•𓄹', url = "https://t.me/tt_tt_4"}, 
-},
-}
-}
-local TextHelp = [[*
-𓄼 مطورين سورس سيلفا⇧⇩ 𓄹
-*]]
-LuaTele.editMessageText(ChatId,Msg_id,TextHelp, 'md', true, false, reply_markup)
 end
 
 if Text and Text:match('(%d+)/lock_link') then
