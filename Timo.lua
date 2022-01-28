@@ -5586,16 +5586,16 @@ end
 
 if text == "اطردني" or text == "طلعني" or text == "خرجني" then 
 if not Redis:get(Timo.."Timo:Status:KickMe"..msg_chat_id) then
-return LuaTele.sendText(msg_chat_id,msg_id,"*⌔︙امر اطردني تم تعطيله من قبل المدراء *","md",true)  
+return LuaTele.sendText(msg_chat_id,msg_id,"*᪣امر اطردني تم تعطيله من قبل المدراء *","md",true)  
 end
 if msg.can_be_deleted_for_all_users == false then
-return LuaTele.sendText(msg_chat_id,msg_id,"\n*⌔︙عذرآ البوت ليس ادمن في المجموعه يرجى ترقيته وتفعيل الصلاحيات له *","md",true)  
+return LuaTele.sendText(msg_chat_id,msg_id,"\n*᪣عذرآ البوت ليس ادمن في المجموعه يرجى ترقيته وتفعيل الصلاحيات له *","md",true)  
 end
 if GetInfoBot(msg).BanUser == false then
-return LuaTele.sendText(msg_chat_id,msg_id,'\n*⌔︙البوت ليس لديه صلاحيه حظر المستخدمين* ',"md",true)  
+return LuaTele.sendText(msg_chat_id,msg_id,'\n*᪣البوت ليس لديه صلاحيه حظر المستخدمين* ',"md",true)  
 end
 if StatusCanOrNotCan(msg_chat_id,msg.sender.user_id) then
-return LuaTele.sendText(msg_chat_id,msg_id,"\n*⌔︙عذرآ لا تستطيع استخدام الامر على { "..Controller(msg_chat_id,msg.sender.user_id).." } *","md",true)  
+return LuaTele.sendText(msg_chat_id,msg_id,"\n*᪣عذرآ لا تستطيع استخدام الامر على { "..Controller(msg_chat_id,msg.sender.user_id).." } *","md",true)  
 end
 local StatusMember = LuaTele.getChatMember(msg_chat_id,msg.sender.user_id).status.luatele
 if (StatusMember == "chatMemberStatusCreator") then
@@ -5606,10 +5606,10 @@ else
 KickMe = false
 end
 if KickMe == true then
-return LuaTele.sendText(msg_chat_id,msg_id,"*⌔︙عذرا لا استطيع طرد ادمنيه ومنشئين المجموعه*","md",true)    
+return LuaTele.sendText(msg_chat_id,msg_id,"*᪣عذرا لا استطيع طرد ادمنيه ومنشئين المجموعه*","md",true)    
 end
-LuaTele.setChatMemberStatus(msg.chat_id,msg.sender.user_id,'restricted',{1,1,1,1,1,1,1,1,1})
-return LuaTele.sendText(msg_chat_id,msg_id,Reply_Status(UserId_Info.id,"⌔︙").Reply,"md",true)  
+LuaTele.setChatMemberStatus(msg.chat_id,msg.sender.user_id,'banned',0)
+return LuaTele.sendText(msg_chat_id,msg_id,Reply_Status(UserId_Info.id,"᪣").Reply,"md",true)  
 end
 if text == 'ادمنيه الكروب' then
 if not msg.Managers then
