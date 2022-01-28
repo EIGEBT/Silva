@@ -1765,7 +1765,7 @@ end
 if Redis:get(Timo.."Timo:Broadcasting:Groups:Pin" .. msg_chat_id .. ":" .. msg.sender.user_id) then 
 if text == "الغاء" or text == '𓄼 الغاء الامر 𓄹' then   
 Redis:del(Timo.."Timo:Broadcasting:Groups:Pin" .. msg_chat_id .. ":" .. msg.sender.user_id) 
-return LuaTele.sendText(msg_chat_id,msg_id, "\n☆︙تم الغاء الاذاعه للمجموعات","md",true)  
+return LuaTele.sendText(msg_chat_id,msg_id, "\n᪣تم الغاء الاذاعه للمجموعات","md",true)  
 end 
 local list = Redis:smembers(Timo.."Timo:ChekBotAdd") 
 if msg.content.video_note then
@@ -1821,7 +1821,7 @@ LuaTele.sendText(v,0,text,"md",true)
 Redis:set(Timo.."Timo:PinMsegees:"..v,text)
 end
 end
-LuaTele.sendText(msg_chat_id,msg_id,"☆︙تمت الاذاعه الى *- "..#list.." * مجموعه في البوت ","md",true)      
+LuaTele.sendText(msg_chat_id,msg_id,"᪣تمت الاذاعه الى *- "..#list.." * مجموعه في البوت ","md",true)      
 Redis:del(Timo.."Timo:Broadcasting:Groups:Pin" .. msg_chat_id .. ":" .. msg.sender.user_id) 
 return false
 end
@@ -2854,6 +2854,13 @@ end
 if text == 'رتبتي' then
 local ban = LuaTele.getUser(msg.sender.user_id)
 local news = '💙🌝 رتبتك في البوت = '..msg.Name_Controller
+local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {
+{{text =news,url = "https://t.me/"..ban.username..""}, },}}
+return LuaTele.sendText(msg_chat_id, msg_id, news, 'md', false, false, false, false, reply_markup)
+end
+if text == 'انا مين' then
+local ban = LuaTele.getUser(msg.sender.user_id)
+local news = '💙🌝 انت ياقلبي = '..msg.Name_Controller
 local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {
 {{text =news,url = "https://t.me/"..ban.username..""}, },}}
 return LuaTele.sendText(msg_chat_id, msg_id, news, 'md', false, false, false, false, reply_markup)
