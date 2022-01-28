@@ -9315,7 +9315,7 @@ local msgg = msg_id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id=" .. msg_chat_id .. "&photo="..photo.."&caption=".. URL.escape(Name).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 elseif text == 'تيمو' or text == 'المبرمج تيمو' or text == 'يا تيمو' then
 photo = "https://t.me/tt_tt_4"
-local Name = 'اهلا بك انا المبرمج تيمو\nممكن تتواصل معي , \من خلال  الزي في الاسفل 𝅘𝅥𝅯 '
+local Name = 'اهلا بك انا المبرمج تيمو'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
