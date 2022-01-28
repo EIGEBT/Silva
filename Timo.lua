@@ -9495,7 +9495,9 @@ local T =[[
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
-
+{
+{text = '𓄼• المطورين •𓄹', data = IdUser..'/timoo0'}, {text = '𓄼• القناوات •𓄹', data = IdUser..'/TheBasicsQ'}, 
+},
 {
 {text = '𓄼•ᴛɪᴍᴏ•𓄹', url = "https://t.me/tt_tt_4"},
 },
@@ -9508,7 +9510,7 @@ keyboard.inline_keyboard = {
 }
 local msgg = msg_id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token.."/sendvideo?chat_id=" .. msg_chat_id .. "&video="..video.."&caption=".. URL.escape(T).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-elseif text == 'تيمو' or text == 'المبرمج تيمو' or text == 'مبرمج السورس' then
+elseif text == 'تيمو' or text == 'المبرمج تيمو' or text == 'مبرمج السورس' or text == 'عايز سورس' then
 photo = "https://t.me/t_imoo/25"
 local Name = 'المبرمج تيمو للتواصل معاه اتبع الزر ال في الاسفل ⇓⇑ '
 keyboard = {} 
@@ -12889,6 +12891,21 @@ local TextHelp = [[*
 *]]
 LuaTele.editMessageText(ChatId,Msg_id,TextHelp, 'md', true, false, reply_markup)
 end
+elseif Text and Text:match('(%d+)/timoo0') then
+local UserId = Text:match('(%d+)/timoo0')
+if tonumber(IdUser) == tonumber(UserId) then
+local reply_markup = LuaTele.replyMarkup{
+type = 'inline',
+data = {
+{
+{text = '𓄼•ᴛɪᴍᴏ•𓄹', url = "https://t.me/tt_tt_4"}, {text = '𓄼•ᴛɪᴍᴏ•𓄹', url = "https://t.me/tt_tt_4"}, 
+},
+}
+}
+local TextHelp = [[*
+𓄼 مطورين سورس سيلفا⇧⇩ 𓄹
+*]]
+LuaTele.editMessageText(ChatId,Msg_id,TextHelp, 'md', true, false, reply_markup)
 end
 
 if Text and Text:match('(%d+)/lock_link') then
