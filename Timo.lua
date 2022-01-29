@@ -9508,6 +9508,8 @@ local rep = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id="..msg_chat_id.."&caption="..URL.escape(t).."&photo="..m.."&reply_to_message_id="..rep.."&parse_mode=Markdown")
 end
 if text == 'السورس' or text == 'سورس' or text == 'يا سورس' or text == 'source' then
+local user_info = LuaTele.getUser(msg.sender.user_id)
+local first_name = user_info.first_name
 video = "http://t.me/t_imoo/4"
 local T =[[
 ╔━━-━━━━━𓄼[᪣](http://t.me/SU_SELVA)𓄹━━━━━-━━╗ 
@@ -9529,7 +9531,7 @@ keyboard.inline_keyboard = {
 {text = '𓄼•ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ•𓄹', url = "https://t.me/SU_SELVA"}
 },
 {
-{text = '𓄼•اضف البوت لمجموعتك•𓄹', url = 't.me/'..UserBot..'?startgroup=new'},
+{text =first_name, url = "https://t.me/SU_SELVA"}
 },
 }
 local msgg = msg_id/2097152/0.5
@@ -11704,7 +11706,7 @@ data = {
 {text = '𓄼 الثانوين 𓄹',type = 'text'},{text = '𓄼 المطورين 𓄹',type = 'text'},{text = '𓄼 قائمه العام 𓄹', type = 'text'},
 },
 {
-{text = '𓄼 مسح الثانوين 𓄹',type = 'text'},{text = '𓄼 مسح المطورين 𓄹',type = 'text'},{text = '𓄼 مسح قائمه العام 𓄹', type = 'text'},
+{text = '𓄼 مسح الثانوين 𓄹',type = 'text'},{text = '𓄼 مسح المطورين 𓄹',type = 'text'},{text = '?? مسح قائمه العام 𓄹', type = 'text'},
 },
 {
 {text = '𓄼 تغيير اسم البوت 𓄹',type = 'text'},{text = '𓄼 حذف اسم البوت 𓄹', type = 'text'},
