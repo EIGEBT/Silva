@@ -5697,6 +5697,12 @@ keyboard.inline_keyboard = {
 {
 {text = Creat, url = "https://t.me/"..qp.username..""}
 },
+{
+{text = '𓄼•ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ•𓄹', url = "https://t.me/SU_SELVA"}
+},
+{
+{text = '𓄼•اضف البوت لمجموعتك•𓄹', url = 't.me/'..UserBot..'?startgroup=new'},
+},
 }
 local msgg = msg_id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id=" .. msg_chat_id .. "&photo="..photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id.."&caption=".. URL.escape(T).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
@@ -9397,6 +9403,9 @@ keyboard.inline_keyboard = {
 {text = ban.first_name, url = 't.me/SU_SELVA'}, 
 },
 {
+{text = '𓄼•ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ•𓄹', url = "https://t.me/SU_SELVA"}
+},
+{
 {text = '𓄼•اضف البوت لمجموعتك•𓄹', url = 't.me/'..UserBot..'?startgroup=new'},
 },
 }
@@ -9416,6 +9425,9 @@ data = {}
 data.inline_keyboard = {
 {
 {text = ban.first_name, url = 't.me/SU_SELVA'}, 
+},
+{
+{text = '𓄼•ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ•𓄹', url = "https://t.me/SU_SELVA"}
 },
 {
 {text = '𓄼•اضف البوت لمجموعتك•𓄹', url = 't.me/'..UserBot..'?startgroup=new'},
@@ -9704,6 +9716,7 @@ local rd_tlaq = {
 "لم يتم الجواز من قبل 😹",
 "بايره محدش اتجوزها 😅😂",
 "لم يتم التكاثر من المزه 😂",
+"تم الطلاق لانها طلعت مبتعرفش 😂",
 }
 return LuaTele.sendText(msg_chat_id,msg_id,Reply_Status(Message_Reply.sender.user_id,rd_tlaq[math.random(#rd_tlaq)]).Reply,"md",true)  
 end
@@ -12664,7 +12677,7 @@ local TextHelp = [[*
 𓄼• تنزيل مطور ثانوي •𓄹
 ⩹┉┉┉┉⊶❲𖥳 𝐒𝐀𝐈𝐃?? 𖥳❳⊷┉┉┉┉⩺
 𓄼• تفعيل الردود العامه •𓄹
-𓄼• تعطيل الردود العامه •𓄹
+??• تعطيل الردود العامه •𓄹
 𓄼• اضف رد متعدد •𓄹
 𓄼• مسح رد متعدد •𓄹
 𓄼• الردود المتعدد •𓄹
