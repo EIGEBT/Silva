@@ -9513,24 +9513,24 @@ local first_name = user_info.first_name
 video = "http://t.me/t_imoo/4"
 local T =[[
 ╔━━-━━━━━𓄼[᪣](http://t.me/SU_SELVA)𓄹━━━━━-━━╗ 
-┇ ▱▰▱▰▱▰▱▰▱▰▱▰▱
-┇[𓄼ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ𓄹](http://t.me/SU_SELVA)
 ┇▱▰▱▰▱▰▱▰▱▰▱▰▱
-┇[𓄼ᴛʜᴇ ʙᴇѕᴛ ѕᴏ𝗎ʀᴄᴇ ᴛᴇʟᴇɢʀᴀᴍ𓄹](http://t.me/SU_SELVA)
+┇𓄼[ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ](http://t.me/SU_SELVA)𓄹
 ┇▱▰▱▰▱▰▱▰▱▰▱▰▱
-┇[𓄼ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ𓄹](http://t.me/SU_SELVA)
+┇𓄼[ᴛʜᴇ ʙᴇѕᴛ ѕᴏ𝗎ʀᴄᴇ ᴛᴇʟᴇɢʀᴀᴍ](http://t.me/SU_SELVA)𓄹
+┇▱▰▱▰▱▰▱▰▱▰▱▰▱
+┇𓄼[ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ](http://t.me/SU_SELVA)𓄹
 ╚━━-━━━━━𓄼[᪣](http://t.me/SU_SELVA)𓄹━━━━━-━━╝ 
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
+{text =first_name, url = "https://t.me/SU_SELVA"}
+},
+{
 {text = '𓄼•ᴛɪᴍᴏ•𓄹', url = "https://t.me/tt_tt_4"},
 },
 {
 {text = '𓄼•ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ•𓄹', url = "https://t.me/SU_SELVA"}
-},
-{
-{text =first_name, url = "https://t.me/SU_SELVA"}
 },
 {
 {text = '𓄼•اضف البوت لمجموعتك•𓄹', url = 't.me/'..UserBot..'?startgroup=new'},
