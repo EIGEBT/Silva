@@ -10549,6 +10549,8 @@ end
 if text == "بوت" or text == "البوت" or text == "bot" or text == "Bot" then
 local photo = LuaTele.getUserProfilePhotos(Timo)
 local UserInfo = LuaTele.getUser(Timo)
+local user_info = LuaTele.getUser(msg.sender.user_id)
+local first_name = user_info.first_name
 for Name_User in string.gmatch(UserInfo.first_name, "[^%s]+" ) do
 UserInfo.first_name = Name_User
 break
@@ -10575,7 +10577,7 @@ keyboard.inline_keyboard = {
 {text = NamesBots, url = 't.me/CH_Timo'}, 
 },
 {
-{text = '𓄼•ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ•𓄹', url = "https://t.me/SU_SELVA"}
+{text =first_name, url = "https://t.me/SU_SELVA"}
 },
 {
 {text = '𓄼•اضف البوت لمجموعتك•𓄹', url = 't.me/'..UserBot..'?startgroup=new'},
@@ -10588,6 +10590,8 @@ end
 if text == (Redis:get(Timo.."Timo:Name:Bot") or "سيلفا") then
 local photo = LuaTele.getUserProfilePhotos(Timo)
 local UserInfo = LuaTele.getUser(Timo)
+local user_info = LuaTele.getUser(msg.sender.user_id)
+local first_name = user_info.first_name
 for Name_User in string.gmatch(UserInfo.first_name, "[^%s]+" ) do
 UserInfo.first_name = Name_User
 break
@@ -10617,7 +10621,7 @@ keyboard.inline_keyboard = {
 {text = NamesBots, url = 't.me/CH_Timo'}, 
 },
 {
-{text = '𓄼•ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ•𓄹', url = "https://t.me/SU_SELVA"}
+{text =first_name, url = "https://t.me/SU_SELVA"}
 },
 {
 {text = '𓄼•اضف البوت لمجموعتك•𓄹', url = 't.me/'..UserBot..'?startgroup=new'},
