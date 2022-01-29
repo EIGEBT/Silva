@@ -9375,13 +9375,19 @@ return false
 end
 local ban = LuaTele.getUser(msg.sender.user_id)
 local photo = LuaTele.getUserProfilePhotos(msg.sender.user_id)
-local nspp = {"1000","829","102","99","700","900","300","82","400","267","55","80","63","32","27","89","99","98","79","100","8","3","500","102",}
+local nspp = {"1000","829","102","738","700","900","300","600","400","267","383","643","232","839","890","3728","99","98","738","100","738","729","500","102",}
 local rdbhoto = nspp[math.random(#nspp)]
 if photo.total_count > 0 then
 data = {} 
 data.inline_keyboard = {
 {
 {text ='نسبه جمالك يا قمر '..rdbhoto..' 🌝💙',url = "https://t.me/"..ban.username..""}, 
+},
+{
+{text = '𓄼•ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ•𓄹', url = "https://t.me/SU_SELVA"}
+},
+{
+{text = '𓄼•اضف البوت لمجموعتك•𓄹', url = 't.me/'..UserBot..'?startgroup=new'},
 },
 }
 local msgg = msg_id/2097152/0.5
