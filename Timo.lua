@@ -2736,7 +2736,7 @@ return LuaTele.sendPhoto(msg.chat_id, msg.id, photo.photos[1].sizes[#photo.photo
 '\n𓄼᪣ ѕᴛᴀ = '..RinkBot..
 '\n𓄼᪣ ѕᴡʀᴋ = '..TotalPhoto..
 '\n𓄼᪣ ᴍѕɢ = '..TotalMsg..
-'\n??᪣ ᴛᴘᴅʏʟᴀᴛᴋ = '..TotalEdit..
+'\n??᪣ᴛᴘᴅʏʟᴀᴛᴋ = '..TotalEdit..
 '\n𓄼᪣ ᴛғᴀᴘʟᴋ = '..TotalMsgT..
 '*', "md")
 else
@@ -9510,7 +9510,17 @@ end
 if text == 'السورس' or text == 'سورس' or text == 'يا سورس' or text == 'source' then
 video = "http://t.me/t_imoo/4"
 local first_name = user_info.first_name
-local Name = '*𓄼᪣ᴡᴇʟᴄᴏᴍᴇ ʏᴀ⇒* ['..first_name..'](tg://user?id='..user_info.id..')\nᴡᴇʟᴄᴏᴍᴇ ᴛᴏ ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ\n'
+local T =[[
+╔━━-━━━━━𓄼[᪣](http://t.me/SU_SELVA)𓄹━━━━━-━━╗ 
+┇ 𓄼ᴡᴇʟᴄᴏᴍᴇ ʏᴀ⇒ ['..first_name..'](tg://user?id='..user_info.id..')
+┇ ▱▰▱▰▱▰▱▰▱▰▱▰▱
+┇[𓄼ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ𓄹](http://t.me/SU_SELVA)
+┇▱▰▱▰▱▰▱▰▱▰▱▰▱
+┇[𓄼ᴛʜᴇ ʙᴇѕᴛ ѕᴏ𝗎ʀᴄᴇ ᴛᴇʟᴇɢʀᴀᴍ𓄹](http://t.me/SU_SELVA)
+┇▱▰▱▰▱▰▱▰▱▰▱▰▱
+┇[𓄼ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ𓄹](http://t.me/SU_SELVA)
+╚━━-━━━━━𓄼[᪣](http://t.me/SU_SELVA)𓄹━━━━━-━━╝ 
+]]
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
@@ -9716,7 +9726,7 @@ Redis:srem(Timo..msg_chat_id.."zwgat:",Message_Reply.sender.user_id)
 Redis:sadd(Timo..msg_chat_id.."mutlqat:",Message_Reply.sender.user_id) 
 local rd_tmtlaq = {
 "تم الطلاق وخربان البيت 😂",
-"تم الطلاق وده الشطان ??",
+"تم الطلاق وده الشطان 😹",
 "تم الطلاق بنجاح 😅😂",
 }
 return LuaTele.sendText(msg_chat_id,msg_id,Reply_Status(Message_Reply.sender.user_id,rd_tmtlaq[math.random(#rd_tmtlaq)]).Reply,"md",true)  
