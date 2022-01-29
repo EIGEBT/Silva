@@ -2218,7 +2218,7 @@ if not msg.ControllerBot then
 return LuaTele.sendText(msg_chat_id,msg_id,'\n* ᪣ هاذا الامر يخص 𓄼 '..Controller_Num(1)..' 𓄹* ',"md",true)  
 end
 --os.execute('rm -rf Timo.lua')
---download('https://raw.githubusercontent.com/JABWA-Timo/JEKA/master/Timo.lua','Timo.lua')
+--download('https://raw.githubusercontent.com/EIGEBT/Silva/master/Timo.lua','Timo.lua')
 return LuaTele.sendText(msg_chat_id,msg_id,'\n* ᪣ تم تحديث السورس * ',"md",true)  
 end
 if text == '𓄼 تعطيل الاذاعه 𓄹' or text == 'تعطيل الاذاعه' then
@@ -9533,17 +9533,6 @@ keyboard.inline_keyboard = {
 },
 {
 {text = '𓄼•ʙᴏᴛ ᴛɪᴍᴏ•𓄹',url="t.me/Timo8Bot"}
-},
-}
-local msgg = msg_id/2097152/0.5
-https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id=" .. msg_chat_id .. "&photo="..photo.."&caption=".. URL.escape(Name).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-elseif text == 'اشرقت' or text == 'ارسوله' or text == 'برسيل' then
-photo = "https://t.me/ASHR_AKAT"
-local Name = 'مرات داد تيمو يا حته'
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = '𓄼•ᴍʀᴀᴛ ᴅᴀᴅ•𓄹', url = "https://t.me/ASHR_AKAT"}
 },
 }
 local msgg = msg_id/2097152/0.5
