@@ -2731,13 +2731,13 @@ else
 if photo.total_count > 0 then
 return LuaTele.sendPhoto(msg.chat_id, msg.id, photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id,
 '\n*  '..Description..
-'\n𓄼᪣ ɪᴅ = '..UserId..
-'\n𓄼᪣ ᴜѕᴇ = '..UserInfousername..
-'\n𓄼᪣ ѕᴛᴀ = '..RinkBot..
-'\n𓄼᪣ ѕᴡʀᴋ = '..TotalPhoto..
-'\n𓄼᪣ ᴍѕɢ = '..TotalMsg..
-'\n??᪣ᴛᴘᴅʏʟᴀᴛᴋ = '..TotalEdit..
-'\n𓄼᪣ ᴛғᴀᴘʟᴋ = '..TotalMsgT..
+'\n᪣ ɪᴅ = '..UserId..
+'\n᪣ ᴜѕᴇ = '..UserInfousername..
+'\n᪣ ѕᴛᴀ = '..RinkBot..
+'\n᪣ ѕᴡʀᴋ = '..TotalPhoto..
+'\n᪣ ᴍѕɢ = '..TotalMsg..
+'\n᪣ ᴛᴘᴅʏʟᴀᴛᴋ = '..TotalEdit..
+'\n᪣ ᴛғᴀᴘʟᴋ = '..TotalMsgT..
 '*', "md")
 else
 return LuaTele.sendText(msg_chat_id,msg_id,
@@ -9513,7 +9513,6 @@ local first_name = user_info.first_name
 video = "http://t.me/t_imoo/4"
 local T =[[
 ╔━━-━━━━━𓄼[᪣](http://t.me/SU_SELVA)𓄹━━━━━-━━╗ 
-┇▱▰▱▰▱▰▱▰▱▰▱▰▱
 ┇𓄼[ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ](http://t.me/SU_SELVA)𓄹
 ┇▱▰▱▰▱▰▱▰▱▰▱▰▱
 ┇𓄼[ᴛʜᴇ ʙᴇѕᴛ ѕᴏ𝗎ʀᴄᴇ ᴛᴇʟᴇɢʀᴀᴍ](http://t.me/SU_SELVA)𓄹
@@ -9558,12 +9557,8 @@ https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id=" .. ms
 elseif text == 'بوت حذف' or text == 'بوت الحذف' or text == 'بووت حذف' then
 photo = "https://t.me/LC6BOT"
 local Name = 'بوت حذف حسابات'
-local selva = 'اسم البوت = ❴ '..NamesBot..' ❵'
 keyboard = {} 
 keyboard.inline_keyboard = {
-{
-{text = selva, url = 't.me/SU_SELVA'}, 
-},
 {
 {text = '𓄼•ʙᴏᴛ•𓄹', url = "https://t.me/LC6BOT"}
 },
@@ -9926,7 +9921,7 @@ data = {
 }
 return LuaTele.sendText(msg_chat_id,msg_id,'* نزل عينك تحت كدا علشان هتخاد علي قفاك 😒❤️*',"md",false, false, false, false, reply_markup)
 end
-if text == '🙄' or text == '🙄🙄' then
+if text == '🙄' or text == '??🙄' then
 if not Redis:get(Timo.."Timo:Sasa:Jeka"..msg_chat_id) then
 return LuaTele.sendText(msg_chat_id,msg_id,"* *","md",true)  
 end
