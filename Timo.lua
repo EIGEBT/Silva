@@ -9509,7 +9509,6 @@ https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id="..msg_
 end
 if text == 'السورس' or text == 'سورس' or text == 'يا سورس' or text == 'source' then
 video = "http://t.me/t_imoo/4"
-local first_name = user_info.first_name
 local T =[[
 ╔━━-━━━━━𓄼[᪣](http://t.me/SU_SELVA)𓄹━━━━━-━━╗ 
 ┇ 𓄼ᴡᴇʟᴄᴏᴍᴇ ʏᴀ⇒ ['..first_name..'](tg://user?id='..user_info.id..')
