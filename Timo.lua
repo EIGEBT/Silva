@@ -2111,7 +2111,7 @@ if NewCmmd then
 text = (NewCmmd or text)
 end
 end
-if text == 'رفع النسخه العامه' and msg.reply_to_message_id ~= 0 or text == 'رفع النسخه العامه' and msg.reply_to_message_id ~= 0 then
+if text == 'رفع النسخه' and msg.reply_to_message_id ~= 0 or text == 'رفع النسخه' and msg.reply_to_message_id ~= 0 then
 if not msg.ControllerBot then 
 return LuaTele.sendText(msg_chat_id,msg_id,'\n* ᪣ هاذا الامر يخص 𓄼 '..Controller_Num(1)..' 𓄹* ',"md",true)  
 end
@@ -2302,7 +2302,7 @@ end
 Redis:set(Timo.."Timo:AddSudosNew"..msg_chat_id,true)
 return LuaTele.sendText(msg_chat_id,msg_id," ᪣ ارسل معرف المطور الاساسي مع @","md",true)
 end
-if text == '𓄼 جلب النسخه العامه 𓄹' or text == 'جلب النسخه العامه' then
+if text == '𓄼 جلب النسخه 𓄹' or text == 'جلب النسخه' then
 if not msg.ControllerBot then 
 return LuaTele.sendText(msg_chat_id,msg_id,'\n* ᪣ هاذا الامر يخص 𓄼 '..Controller_Num(1)..' 𓄹* ',"md",true)  
 end
@@ -2397,7 +2397,7 @@ Get_Json = Get_Json..'}}'
 local File = io.open('./'..UserBot..'.json', "w")
 File:write(Get_Json)
 File:close()
-return LuaTele.sendDocument(msg_chat_id,msg_id,'./'..UserBot..'.json', '* ᪣ تم جلب النسخه العامه\n ᪣ احصائيات𓄼 '..#Groups..' 𓄹المجموعات \n ᪣ احصائيات𓄼 '..#UsersBot..' 𓄹المشتركين *\n', 'md')
+return LuaTele.sendDocument(msg_chat_id,msg_id,'./'..UserBot..'.json', '* ᪣ تم جلب النسخه\n ᪣ احصائيات𓄼 '..#Groups..' 𓄹المجموعات \n ᪣ احصائيات𓄼 '..#UsersBot..' 𓄹المشتركين *\n', 'md')
 end
 if text and text:match("^تعين عدد الاعضاء (%d+)$") then
 if not msg.ControllerBot then 
@@ -2423,7 +2423,7 @@ NamesBot = (Redis:get(Timo.."Timo:Name:Bot") or "سيلفا")
 Groups = (Redis:scard(Timo..'Timo:ChekBotAdd') or 0)
 Users = (Redis:scard(Timo..'Timo:Num:User:Pv') or 0)
 if photo.total_count > 0 then
-local selva = 'اسم بوت = ( '..NamesBot..' )'
+local selva = 'اسم البوت = ❴ '..NamesBot..' ❵'
 local Grosupsw = 'الجروبات = 𓄼 '..Groups..' 𓄹'
 local Usperos = 'المشتركين = 𓄼 '..Users..' 𓄹'
 keyboard = {} 
@@ -2458,7 +2458,7 @@ NamesBot = (Redis:get(Timo.."Timo:Name:Bot") or "سيلفا")
 Groups = (Redis:scard(Timo..'Timo:ChekBotAdd') or 0)
 Users = (Redis:scard(Timo..'Timo:Num:User:Pv') or 0)
 if photo.total_count > 0 then
-local selva = 'اسم بوت = ( '..NamesBot..' )'
+local selva = 'اسم البوت = ❴ '..NamesBot..' ❵'
 local Grosupsw = 'الجروبات = 𓄼 '..Groups..' 𓄹'
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -2489,7 +2489,7 @@ NamesBot = (Redis:get(Timo.."Timo:Name:Bot") or "سيلفا")
 Groups = (Redis:scard(Timo..'Timo:ChekBotAdd') or 0)
 Users = (Redis:scard(Timo..'Timo:Num:User:Pv') or 0)
 if photo.total_count > 0 then
-local selva = 'اسم بوت = ( '..NamesBot..' )'
+local selva = 'اسم البوت = ❴ '..NamesBot..' ❵'
 local Usperos = 'المشتركين = 𓄼 '..Users..' 𓄹'
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -2736,7 +2736,7 @@ return LuaTele.sendPhoto(msg.chat_id, msg.id, photo.photos[1].sizes[#photo.photo
 '\n𓄼᪣ ѕᴛᴀ = '..RinkBot..
 '\n𓄼᪣ ѕᴡʀᴋ = '..TotalPhoto..
 '\n𓄼᪣ ᴍѕɢ = '..TotalMsg..
-'\n𓄼᪣ ᴛᴘᴅʏʟᴀᴛᴋ = '..TotalEdit..
+'\n??᪣ ᴛᴘᴅʏʟᴀᴛᴋ = '..TotalEdit..
 '\n𓄼᪣ ᴛғᴀᴘʟᴋ = '..TotalMsgT..
 '*', "md")
 else
@@ -9504,16 +9504,19 @@ if text == 'السورس' or text == 'سورس' or text == 'يا سورس' or te
 video = "http://t.me/t_imoo/4"
 local T =[[
 ╔━━-━━━━━𓄼[᪣](http://t.me/SU_SELVA)𓄹━━━━━-━━╗ 
-┇[𓄼ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ𓄹](http://t.me/SU_SELVA)
+┇𓄼[ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ](http://t.me/SU_SELVA)𓄹
 ┇▱▰▱▰▱▰▱▰▱▰▱▰▱
-┇[𓄼ᴛʜᴇ ʙᴇѕᴛ ѕᴏ𝗎ʀᴄᴇ ᴛᴇʟᴇɢʀᴀᴍ𓄹](http://t.me/SU_SELVA)
+┇𓄼[ᴛʜᴇ ʙᴇѕᴛ ѕᴏ𝗎ʀᴄᴇ ᴛᴇʟᴇɢʀᴀᴍ](http://t.me/SU_SELVA)𓄹
 ┇▱▰▱▰▱▰▱▰▱▰▱▰▱
-┇[𓄼ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ𓄹](http://t.me/SU_SELVA)
+┇𓄼[ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ](http://t.me/SU_SELVA)𓄹
 ╚━━-━━━━━𓄼[᪣](http://t.me/SU_SELVA)𓄹━━━━━-━━╝ 
 ]]
+local selva = 'اسم البوت = ❴ '..NamesBot..' ❵'
 keyboard = {} 
 keyboard.inline_keyboard = {
-
+{
+{text = selva, url = 't.me/SU_SELVA'}, 
+},
 {
 {text = '𓄼•ᴛɪᴍᴏ•𓄹', url = "https://t.me/tt_tt_4"},
 },
@@ -9546,8 +9549,12 @@ https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id=" .. ms
 elseif text == 'بوت حذف' or text == 'بوت الحذف' or text == 'بووت حذف' then
 photo = "https://t.me/LC6BOT"
 local Name = 'بوت حذف حسابات'
+local selva = 'اسم البوت = ❴ '..NamesBot..' ❵'
 keyboard = {} 
 keyboard.inline_keyboard = {
+{
+{text = selva, url = 't.me/SU_SELVA'}, 
+},
 {
 {text = '𓄼•ʙᴏᴛ•𓄹', url = "https://t.me/LC6BOT"}
 },
@@ -9560,8 +9567,12 @@ https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id=" .. ms
 elseif text == 'بوت تواصل' or text == 'بوت التواصل' or text == 'تواصل السورس' or text == 'التواصل' then
 video = "http://t.me/t_imoo/4"
 local Name = 'بوت تواصل سورس سيلفا '
+local selva = 'اسم البوت = ❴ '..NamesBot..' ❵'
 keyboard = {} 
 keyboard.inline_keyboard = {
+{
+{text = selva, url = 't.me/SU_SELVA'}, 
+},
 {
 {text = '𓄼•ʙᴏᴛ•𓄹',url="t.me/Timo8Bot"}
 },
@@ -9574,8 +9585,12 @@ https.request("https://api.telegram.org/bot"..Token.."/sendvideo?chat_id=" .. ms
 elseif text == 'قناه السورس' or text == 'قناه سورس' then
 video = "http://t.me/t_imoo/4"
 local Name = 'قناه سورس سيلفا ياحب'
+local selva = 'اسم البوت = ❴ '..NamesBot..' ❵'
 keyboard = {} 
 keyboard.inline_keyboard = {
+{
+{text = selva, url = 't.me/SU_SELVA'}, 
+},
 {
 {text = '𓄼•ᴄʜᴀɴɴᴇᴛ•𓄹',url="t.me/SU_SELVA"}
 },
@@ -11710,7 +11725,7 @@ data = {
 {text = '𓄼 تنظيف المجموعات 𓄹',type = 'text'},{text = '𓄼 تنظيف المشتركين 𓄹', type = 'text'},
 },
 {
-{text = '𓄼 جلب النسخه العامه 𓄹',type = 'text'},
+{text = '𓄼 جلب النسخه 𓄹',type = 'text'},
 },
 {
 {text = '𓄼 اضف رد عام 𓄹',type = 'text'},{text = '𓄼 حذف رد عام 𓄹', type = 'text'},
@@ -12697,8 +12712,8 @@ local TextHelp = [[*
 𓄼• مسح جميع الملفات •𓄹
 𓄼• المتجر •𓄹
 𓄼• الاحصائيات •𓄹
-𓄼• جلب النسخه العامه •𓄹
-𓄼• رفع النسخه العامه •𓄹
+𓄼• جلب النسخه •𓄹
+𓄼• رفع النسخه •𓄹
 𓄼• اذاعه •𓄹
 𓄼• اذاعه بالتثبيت •𓄹
 𓄼• اذاعه خاص •𓄹
