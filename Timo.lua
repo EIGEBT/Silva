@@ -9508,8 +9508,8 @@ local rep = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id="..msg_chat_id.."&caption="..URL.escape(t).."&photo="..m.."&reply_to_message_id="..rep.."&parse_mode=Markdown")
 end
 if text == 'السورس' or text == 'سورس' or text == 'يا سورس' or text == 'source' then
-local user_info = LuaTele.getUser(msg.sender.user_id)
 video = "http://t.me/t_imoo/4"
+local first_name = user_info.first_name
 local Name = '*𓄼᪣ᴡᴇʟᴄᴏᴍᴇ ʏᴀ⇒* ['..first_name..'](tg://user?id='..user_info.id..')\nᴡᴇʟᴄᴏᴍᴇ ᴛᴏ ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ\n'
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -9716,7 +9716,7 @@ Redis:srem(Timo..msg_chat_id.."zwgat:",Message_Reply.sender.user_id)
 Redis:sadd(Timo..msg_chat_id.."mutlqat:",Message_Reply.sender.user_id) 
 local rd_tmtlaq = {
 "تم الطلاق وخربان البيت 😂",
-"تم الطلاق وده الشطان 😹",
+"تم الطلاق وده الشطان ??",
 "تم الطلاق بنجاح 😅😂",
 }
 return LuaTele.sendText(msg_chat_id,msg_id,Reply_Status(Message_Reply.sender.user_id,rd_tmtlaq[math.random(#rd_tmtlaq)]).Reply,"md",true)  
