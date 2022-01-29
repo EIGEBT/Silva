@@ -9650,7 +9650,7 @@ data = {
 },
 }
 }
-return LuaTele.sendText(msg_chat_id,msg_id,'᪣ اليك قسم الالعاب من سورس صعيدي ᪣',"md",false, false, false, false, reply_markup)
+return LuaTele.sendText(msg_chat_id,msg_id,'᪣ اليك قسم الالعاب من سورس سيلفا ᪣',"md",false, false, false, false, reply_markup)
 end
 if text and text:match("^معني (.*)$") then
 local TextName = text:match("^معني (.*)$")
@@ -10547,7 +10547,7 @@ for Name_User in string.gmatch(UserInfo.first_name, "[^%s]+" ) do
 UserInfo.first_name = Name_User
 break
 end 
-local NamesBot = (Redis:get(Timo.."Timo:Name:Bot") or "صعيدي")
+local NamesBot = (Redis:get(Timo.."Timo:Name:Bot") or "سيلفا")
 local BotName = {
 'اسمي '..NamesBot..' يا قلبي 😍💜',
 'اسمي '..NamesBot..' يا روحي 🙈❤️',
@@ -10569,6 +10569,9 @@ keyboard.inline_keyboard = {
 {text = NamesBots, url = 't.me/CH_Timo'}, 
 },
 {
+{text = '𓄼•ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ•𓄹', url = "https://t.me/SU_SELVA"}
+},
+{
 {text = '𓄼•اضف البوت لمجموعتك•𓄹', url = 't.me/'..UserBot..'?startgroup=new'},
 },
 }
@@ -10576,14 +10579,14 @@ msgg = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id=" .. msg_chat_id .. "&photo="..photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id.."&photo=".. URL.escape(NamesBots).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 end
-if text == (Redis:get(Timo.."Timo:Name:Bot") or "صعيدي") then
+if text == (Redis:get(Timo.."Timo:Name:Bot") or "سيلفا") then
 local photo = LuaTele.getUserProfilePhotos(Timo)
 local UserInfo = LuaTele.getUser(Timo)
 for Name_User in string.gmatch(UserInfo.first_name, "[^%s]+" ) do
 UserInfo.first_name = Name_User
 break
 end 
-local NamesBot = (Redis:get(Timo.."Timo:Name:Bot") or "صعيدي")
+local NamesBot = (Redis:get(Timo.."Timo:Name:Bot") or "سيلفا")
 local BotName = {
 'نعم يروحي 🌝💙',
 'نعم يا قلب '..NamesBot..'',
@@ -10606,6 +10609,9 @@ keyboard = {}
 keyboard.inline_keyboard = {
 {
 {text = NamesBots, url = 't.me/CH_Timo'}, 
+},
+{
+{text = '𓄼•ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ•𓄹', url = "https://t.me/SU_SELVA"}
 },
 {
 {text = '𓄼•اضف البوت لمجموعتك•𓄹', url = 't.me/'..UserBot..'?startgroup=new'},
@@ -10717,7 +10723,7 @@ local texting = {"اخر افلام شاهدتها",
 "اخر اغنية سمعتها ?", 
 "تكلم عن نفسك", 
 "ليه انت مش سالك", 
-"ما هيا عيوب سورس صعيدي؟ ", 
+"ما هيا عيوب سورس سيلفا؟ ", 
 "اخر كتاب قرآته", 
 "روايتك المفضله ?", 
 "اخر اكله اكلتها", 
@@ -10733,13 +10739,13 @@ local texting = {"اخر افلام شاهدتها",
 " ما السيء في هذه الحياة ؟ ", 
 "أجمل شيء حصل معك خلال هذا الاسبوع ؟ ", 
 "سؤال ينرفزك ؟ ", 
-" هل يعجبك سورس صعيدي؟؟ ", 
+" هل يعجبك سورس سيلفا؟؟ ", 
 " اكثر ممثل تحبه ؟ ", 
 "قد تخيلت شي في بالك وصار ؟ ", 
 "شيء عندك اهم من الناس ؟ ", 
 "تفضّل النقاش الطويل او تحب الاختصار ؟ ", 
 "وش أخر شي ضيعته؟ ", 
-"اي رايك في سورس صعيدي؟ ", 
+"اي رايك في سورس سيلفا؟ ", 
 "كم مره حبيت؟ ", 
 " اكثر المتابعين عندك باي برنامج؟", 
 " آخر مره ضربت عشره كانت متى ؟", 
@@ -11635,7 +11641,7 @@ if text == '/start' then
 Redis:sadd(Timo..'Timo:Num:User:Pv',msg.sender.user_id)  
 if not msg.ControllerBot then
 if not Redis:get(Timo.."Timo:Start:Bot") then
-local CmdStart = '*\n ᪣ أهلآ بك في بوت '..(Redis:get(Timo.."Timo:Name:Bot") or "صعيدي")..
+local CmdStart = '*\n ᪣ أهلآ بك في بوت '..(Redis:get(Timo.."Timo:Name:Bot") or "سيلفا")..
 '\n ᪣ اختصاص البوت حماية المجموعات'..
 '\n ᪣ لتفعيل البوت عليك اتباع مايلي ...'..
 '\n ᪣ اضف البوت الى مجموعتك'..
