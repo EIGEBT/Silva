@@ -9508,8 +9508,6 @@ local rep = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id="..msg_chat_id.."&caption="..URL.escape(t).."&photo="..m.."&reply_to_message_id="..rep.."&parse_mode=Markdown")
 end
 if text == 'السورس' or text == 'سورس' or text == 'يا سورس' or text == 'source' then
-local user_info = LuaTele.getUser(msg.sender.user_id)
-local first_name = UserInfo.first_name
 video = "http://t.me/t_imoo/4"
 local Name = '*𓄼᪣ᴡᴇʟᴄᴏᴍᴇ ʏᴀ⇒* ['..UserInfo.first_name..'](tg://user?id='..msg.sender.user_id..')\n ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ\n'
 keyboard = {} 
@@ -12655,7 +12653,7 @@ local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '𓄼• اوامر المطور •𓄹', data = IdUser..'/helpo1'}, {text = '𓄼• اوامر المطور الثانوي •𓄹', data = IdUser..'/helpo2'}, 
+{text = '𓄼• اوامر المطور •𓄹', data = IdUser..'/helpo1'}, {text = '𓄼• اوامر المطور الثانوي •??', data = IdUser..'/helpo2'}, 
 },
 {
 {text = '𓄼• اوامر المطور الاساسي •𓄹', data = IdUser..'/helpo3'}, 
