@@ -2741,12 +2741,12 @@ return LuaTele.sendPhoto(msg.chat_id, msg.id, photo.photos[1].sizes[#photo.photo
 '*', "md")
 else
 return LuaTele.sendText(msg_chat_id,msg_id,
-'\n𓄼• ɪᴅ = '..UserId..
-'\n𓄼• ᴜѕᴇ = '..UserInfousername..
-'\n𓄼• ѕᴛᴀ = '..RinkBot..
-'\n𓄼• ᴍѕɢ = '..TotalMsg..
-'\n𓄼• ᴛᴘᴅʏʟᴀᴛᴋ = '..TotalEdit..
-'\n𓄼• ᴛғᴀᴘʟᴋ = '..TotalMsgT..
+'\n𓄼᪣ ɪᴅ = '..UserId..
+'\n𓄼᪣ᴜѕᴇ = '..UserInfousername..
+'\n𓄼᪣ ѕᴛᴀ = '..RinkBot..
+'\n𓄼᪣ ᴍѕɢ = '..TotalMsg..
+'\n𓄼᪣ ᴛᴘᴅʏʟᴀᴛᴋ = '..TotalEdit..
+'\n𓄼᪣ ᴛғᴀᴘʟᴋ = '..TotalMsgT..
 '*',"md",true) 
 end
 end
@@ -9518,6 +9518,7 @@ local T =[[
 ┇𓄼[ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ](http://t.me/SU_SELVA)𓄹
 ╚━━-━━━━━𓄼[᪣](http://t.me/SU_SELVA)𓄹━━━━━-━━╝ 
 ]]
+local user = LuaTele.getUser(msg.sender.user_id)
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
