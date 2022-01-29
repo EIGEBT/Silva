@@ -9521,6 +9521,9 @@ local T =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
+{text =user_info.first_name,url = "https://t.me/"..user_info.username..""}
+},
+{
 {text = '𓄼•ᴛɪᴍᴏ•𓄹', url = "https://t.me/tt_tt_4"},
 },
 {
