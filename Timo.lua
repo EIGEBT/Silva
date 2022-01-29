@@ -11893,14 +11893,14 @@ return LuaTele.sendText(msg_chat_id,msg_id," ᪣ ارسل الان الكلمه 
 end
 if text == '𓄼 حذف رد عام 𓄹' then 
 if not msg.ControllerBot then 
-return LuaTele.sendText(msg_chat_id,msg_id,'\n* ᪣ هاذا الامر يخص 𓄼 '..Controller_Num(1)..' 𓄹* ',"md",true)  
+return LuaTele.sendText(msg_chat_id,msg_id,'\n*᪣هاذا الامر يخص { '..Controller_Num(1)..' }* ',"md",true)  
 end
 if ChannelJoin(msg) == false then
-local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = 'اضغط للاشتراك', url = 't.me/SU_SELVA'}, },}}
-return LuaTele.sendText(msg.chat_id,msg.id,'*\n ᪣ عليك الاشتراك في قناة البوت لاستخذام الاوامر*',"md",false, false, false, false, reply_markup)
+local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = 'اضغط للاشتراك', url = 't.me/'..Redis:get(Timo..'SU_SELVA:Channel:Join')}, },}}
+return LuaTele.sendText(msg.chat_id,msg.id,'*\n᪣عليك الاشتراك في قناة البوت لاستخذام الاوامر*',"md",false, false, false, false, reply_markup)
 end
 Redis:set(Timo.."Timo:Set:On"..msg.sender.user_id..":"..msg_chat_id,true)
-return LuaTele.sendText(msg_chat_id,msg_id," ᪣ ارسل الان الكلمه لحذفها من الردود العامه","md",true)  
+return LuaTele.sendText(msg_chat_id,msg_id,"᪣ارسل الان الكلمه لحذفها من ردود المطور","md",true)  
 end
 if text=='𓄼 اذاعه خاص 𓄹' then 
 if not msg.ControllerBot then 
