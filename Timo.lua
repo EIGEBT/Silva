@@ -9509,14 +9509,11 @@ https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id="..msg_
 end
 if text == 'السورس' or text == 'سورس' or text == 'يا سورس' or text == 'source' then
 local user_info = LuaTele.getUser(msg.sender.user_id)
-local first_name = user_info.first_name
+local first_name = UserInfo.first_name
 video = "http://t.me/t_imoo/4"
-local Name = '*𓄼᪣ᴡᴇʟᴄᴏᴍᴇ ʏᴀ⇒* ['..first_name..'](tg://user?id='..user_info.id..')\n ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ\n'
+local Name = '*𓄼᪣ᴡᴇʟᴄᴏᴍᴇ ʏᴀ⇒* ['..UserInfo.first_name..'](tg://user?id='..msg.sender.user_id..')\n ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ\n'
 keyboard = {} 
 keyboard.inline_keyboard = {
-{
-{text =first_name, url = "https://t.me/SU_SELVA"}
-},
 {
 {text = '𓄼•ᴛɪᴍᴏ•𓄹', url = "https://t.me/tt_tt_4"},
 },
@@ -9524,7 +9521,7 @@ keyboard.inline_keyboard = {
 {text = '𓄼•ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ•𓄹', url = "https://t.me/SU_SELVA"}
 },
 {
-{text = '𓄼•اضف البوت لمجموعتك•𓄹', url = 't.me/'..UserBot..'?startgroup=new'},
+{text =first_name, url = "https://t.me/SU_SELVA"}
 },
 }
 local msgg = msg_id/2097152/0.5
