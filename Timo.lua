@@ -9479,12 +9479,13 @@ local m = "https://t.me/mmsst13/"..Rrr..""
 local rep = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token.."/sendaudio?chat_id="..msg_chat_id.."&caption="..URL.escape(t).."&audio="..m.."&reply_to_message_id="..rep.."&parse_mode=Markdown")
 end
-if text == "استوري" or text == 'فيديوهات' then
-local t = "مرحبا اليك استوري عشوائي 🌝💜"
+if text == "استوري" then
 Rrr = math.random(4,50)
+local first_name = user_info.first_name
 local m = "https://t.me/Qapplu/"..Rrr..""
+local Name = '*𓄼⦁ اليك استوري يا ->* ['..first_name..'](tg://user?id='..user_info.id..')\n'
 local rep = msg.id/2097152/0.5
-https.request("https://api.telegram.org/bot"..Token.."/sendaudio?chat_id="..msg_chat_id.."&caption="..URL.escape(t).."&audio="..m.."&reply_to_message_id="..rep.."&parse_mode=Markdown")
+https.request("https://api.telegram.org/bot"..Token.."/sendaudio?chat_id="..msg_chat_id.."&caption="..URL.escape(Name).."&audio="..m.."&reply_to_message_id="..rep.."&parse_mode=Markdown")
 end
 if text == "فيديوهات رومانسيه" or text == 'رومانسي' then
 local t = "مرحبا اليك فيديوهات رومانسيه 🌝💜"
@@ -9518,11 +9519,10 @@ local T =[[
 ┇𓄼[ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ](http://t.me/SU_SELVA)𓄹
 ╚━━-━━━━━𓄼[᪣](http://t.me/SU_SELVA)𓄹━━━━━-━━╝ 
 ]]
-local user = LuaTele.getUser(msg.sender.user_id)
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text =user_info.first_name,url = "https://t.me/"..user_info.username..""}
+{text =first_name, url = "https://t.me/SU_SELVA"}
 },
 {
 {text = '𓄼•ᴛɪᴍᴏ•𓄹', url = "https://t.me/tt_tt_4"},
