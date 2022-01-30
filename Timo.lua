@@ -9845,11 +9845,13 @@ if text == 'سلام عليكم' or text == 'السلام عليكم' then
 if not Redis:get(Timo.."Timo:Sasa:Jeka"..msg_chat_id) then
 return LuaTele.sendText(msg_chat_id,msg_id,"* ᪣ ردود السورس معطلة*","md",true)  
 end
+local user_info = LuaTele.getUser(msg.sender.user_id)
+local first_name = user_info.first_name
 local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '𓄼•ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ•𓄹', url = 't.me/SU_SELVA'}, 
+{text =first_name, url = "https://t.me/SU_SELVA"}
 },
 }
 }
@@ -9859,11 +9861,13 @@ if text == 'سلام' or text == 'مع سلامه' then
 if not Redis:get(Timo.."Timo:Sasa:Jeka"..msg_chat_id) then
 return LuaTele.sendText(msg_chat_id,msg_id,"* *","md",true)  
 end
+local user_info = LuaTele.getUser(msg.sender.user_id)
+local first_name = user_info.first_name
 local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '𓄼•ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ•𓄹', url = 't.me/SU_SELVA'}, 
+{text =first_name, url = "https://t.me/SU_SELVA"}
 },
 }
 }
@@ -9873,11 +9877,13 @@ if text == 'برايفت' or text == 'تع برايفت' then
 if not Redis:get(Timo.."Timo:Sasa:Jeka"..msg_chat_id) then
 return LuaTele.sendText(msg_chat_id,msg_id,"* *","md",true)  
 end
+local user_info = LuaTele.getUser(msg.sender.user_id)
+local first_name = user_info.first_name
 local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '𓄼•ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ•𓄹', url = 't.me/SU_SELVA'}, 
+{text =first_name, url = "https://t.me/SU_SELVA"}
 },
 }
 }
@@ -9887,11 +9893,13 @@ if text == 'النبي' or text == 'صلي علي النبي' then
 if not Redis:get(Timo.."Timo:Sasa:Jeka"..msg_chat_id) then
 return LuaTele.sendText(msg_chat_id,msg_id,"* *","md",true)  
 end
+local user_info = LuaTele.getUser(msg.sender.user_id)
+local first_name = user_info.first_name
 local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '𓄼•ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ•𓄹', url = 't.me/SU_SELVA'}, 
+{text =first_name, url = "https://t.me/SU_SELVA"}
 },
 }
 }
@@ -9901,11 +9909,13 @@ if text == 'نعم' or text == 'يا نعم' then
 if not Redis:get(Timo.."Timo:Sasa:Jeka"..msg_chat_id) then
 return LuaTele.sendText(msg_chat_id,msg_id,"* *","md",true)  
 end
+local user_info = LuaTele.getUser(msg.sender.user_id)
+local first_name = user_info.first_name
 local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '𓄼•ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ•𓄹', url = 't.me/SU_SELVA'}, 
+{text =first_name, url = "https://t.me/SU_SELVA"}
 },
 }
 }
@@ -9915,11 +9925,13 @@ if text == '🙄' or text == '🙄🙄' then
 if not Redis:get(Timo.."Timo:Sasa:Jeka"..msg_chat_id) then
 return LuaTele.sendText(msg_chat_id,msg_id,"* *","md",true)  
 end
+local user_info = LuaTele.getUser(msg.sender.user_id)
+local first_name = user_info.first_name
 local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '𓄼•ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ•𓄹', url = 't.me/SU_SELVA'}, 
+{text =first_name, url = "https://t.me/SU_SELVA"}
 },
 }
 }
@@ -9929,11 +9941,13 @@ if text == '🙄' or text == '??🙄' then
 if not Redis:get(Timo.."Timo:Sasa:Jeka"..msg_chat_id) then
 return LuaTele.sendText(msg_chat_id,msg_id,"* *","md",true)  
 end
+local user_info = LuaTele.getUser(msg.sender.user_id)
+local first_name = user_info.first_name
 local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '𓄼•ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ•𓄹', url = 't.me/SU_SELVA'}, 
+{text =first_name, url = "https://t.me/SU_SELVA"}
 },
 }
 }
@@ -9943,11 +9957,13 @@ if text == '😂' or text == '😂😂' then
 if not Redis:get(Timo.."Timo:Sasa:Jeka"..msg_chat_id) then
 return LuaTele.sendText(msg_chat_id,msg_id,"* *","md",true)  
 end
+local user_info = LuaTele.getUser(msg.sender.user_id)
+local first_name = user_info.first_name
 local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '𓄼•ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ•𓄹', url = 't.me/SU_SELVA'}, 
+{text =first_name, url = "https://t.me/SU_SELVA"}
 },
 }
 }
@@ -9957,11 +9973,13 @@ if text == '😹' or text == '😹' then
 if not Redis:get(Timo.."Timo:Sasa:Jeka"..msg_chat_id) then
 return LuaTele.sendText(msg_chat_id,msg_id,"* *","md",true)  
 end
+local user_info = LuaTele.getUser(msg.sender.user_id)
+local first_name = user_info.first_name
 local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '𓄼•ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ•𓄹', url = 't.me/SU_SELVA'}, 
+{text =first_name, url = "https://t.me/SU_SELVA"}
 },
 }
 }
@@ -9971,11 +9989,13 @@ if text == '🤔' or text == '🤔🤔' then
 if not Redis:get(Timo.."Timo:Sasa:Jeka"..msg_chat_id) then
 return LuaTele.sendText(msg_chat_id,msg_id,"* *","md",true)  
 end
+local user_info = LuaTele.getUser(msg.sender.user_id)
+local first_name = user_info.first_name
 local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '𓄼•ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ•𓄹', url = 't.me/SU_SELVA'}, 
+{text =first_name, url = "https://t.me/SU_SELVA"}
 },
 }
 }
@@ -9985,11 +10005,13 @@ if text == '🌚' or text == '🌝' then
 if not Redis:get(Timo.."Timo:Sasa:Jeka"..msg_chat_id) then
 return LuaTele.sendText(msg_chat_id,msg_id,"* *","md",true)  
 end
+local user_info = LuaTele.getUser(msg.sender.user_id)
+local first_name = user_info.first_name
 local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '𓄼•ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ•𓄹', url = 't.me/SU_SELVA'}, 
+{text =first_name, url = "https://t.me/SU_SELVA"}
 },
 }
 }
@@ -9999,11 +10021,13 @@ if text == '💋' or text == '💋💋' then
 if not Redis:get(Timo.."Timo:Sasa:Jeka"..msg_chat_id) then
 return LuaTele.sendText(msg_chat_id,msg_id,"* *","md",true)  
 end
+local user_info = LuaTele.getUser(msg.sender.user_id)
+local first_name = user_info.first_name
 local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '𓄼•ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ•𓄹', url = 't.me/SU_SELVA'}, 
+{text =first_name, url = "https://t.me/SU_SELVA"}
 },
 }
 }
@@ -10013,11 +10037,13 @@ if text == '😭' or text == '😭😭' then
 if not Redis:get(Timo.."Timo:Sasa:Jeka"..msg_chat_id) then
 return LuaTele.sendText(msg_chat_id,msg_id,"* *","md",true)  
 end
+local user_info = LuaTele.getUser(msg.sender.user_id)
+local first_name = user_info.first_name
 local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '𓄼•ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ•𓄹', url = 't.me/SU_SELVA'}, 
+{text =first_name, url = "https://t.me/SU_SELVA"}
 },
 }
 }
@@ -10027,11 +10053,13 @@ if text == '🥺' or text == '🥺🥺' then
 if not Redis:get(Timo.."Timo:Sasa:Jeka"..msg_chat_id) then
 return LuaTele.sendText(msg_chat_id,msg_id,"* *","md",true)  
 end
+local user_info = LuaTele.getUser(msg.sender.user_id)
+local first_name = user_info.first_name
 local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '𓄼•ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ•𓄹', url = 't.me/SU_SELVA'}, 
+{text =first_name, url = "https://t.me/SU_SELVA"}
 },
 }
 }
@@ -10041,11 +10069,13 @@ if text == '😒' or text == '😒😒' then
 if not Redis:get(Timo.."Timo:Sasa:Jeka"..msg_chat_id) then
 return LuaTele.sendText(msg_chat_id,msg_id,"* *","md",true)  
 end
+local user_info = LuaTele.getUser(msg.sender.user_id)
+local first_name = user_info.first_name
 local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '𓄼•ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ•𓄹', url = 't.me/SU_SELVA'}, 
+{text =first_name, url = "https://t.me/SU_SELVA"}
 },
 }
 }
@@ -10055,11 +10085,13 @@ if text == 'بحبك' or text == 'حبق' then
 if not Redis:get(Timo.."Timo:Sasa:Jeka"..msg_chat_id) then
 return LuaTele.sendText(msg_chat_id,msg_id,"* *","md",true)  
 end
+local user_info = LuaTele.getUser(msg.sender.user_id)
+local first_name = user_info.first_name
 local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '𓄼•ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ•𓄹', url = 't.me/SU_SELVA'}, 
+{text =first_name, url = "https://t.me/SU_SELVA"}
 },
 }
 }
@@ -10069,11 +10101,13 @@ if text == 'مح' or text == 'هات مح' then
 if not Redis:get(Timo.."Timo:Sasa:Jeka"..msg_chat_id) then
 return LuaTele.sendText(msg_chat_id,msg_id,"* *","md",true)  
 end
+local user_info = LuaTele.getUser(msg.sender.user_id)
+local first_name = user_info.first_name
 local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '𓄼•ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ•𓄹', url = 't.me/SU_SELVA'}, 
+{text =first_name, url = "https://t.me/SU_SELVA"}
 },
 }
 }
@@ -10083,11 +10117,13 @@ if text == 'هلا' or text == 'هلا وغلا' then
 if not Redis:get(Timo.."Timo:Sasa:Jeka"..msg_chat_id) then
 return LuaTele.sendText(msg_chat_id,msg_id,"* *","md",true)  
 end
+local user_info = LuaTele.getUser(msg.sender.user_id)
+local first_name = user_info.first_name
 local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '𓄼•ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ•𓄹', url = 't.me/SU_SELVA'}, 
+{text =first_name, url = "https://t.me/SU_SELVA"}
 },
 }
 }
@@ -10097,11 +10133,13 @@ if text == 'هشش' or text == 'هششخرص' then
 if not Redis:get(Timo.."Timo:Sasa:Jeka"..msg_chat_id) then
 return LuaTele.sendText(msg_chat_id,msg_id,"* *","md",true)  
 end
+local user_info = LuaTele.getUser(msg.sender.user_id)
+local first_name = user_info.first_name
 local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '𓄼•ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ•𓄹', url = 't.me/SU_SELVA'}, 
+{text =first_name, url = "https://t.me/SU_SELVA"}
 },
 }
 }
@@ -10111,11 +10149,13 @@ if text == 'الحمد الله' or text == 'بخير الحمد الله' then
 if not Redis:get(Timo.."Timo:Sasa:Jeka"..msg_chat_id) then
 return LuaTele.sendText(msg_chat_id,msg_id,"* *","md",true)  
 end
+local user_info = LuaTele.getUser(msg.sender.user_id)
+local first_name = user_info.first_name
 local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '𓄼•ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ•𓄹', url = 't.me/SU_SELVA'}, 
+{text =first_name, url = "https://t.me/SU_SELVA"}
 },
 }
 }
@@ -10125,11 +10165,13 @@ if text == 'بف' or text == 'بص بف' then
 if not Redis:get(Timo.."Timo:Sasa:Jeka"..msg_chat_id) then
 return LuaTele.sendText(msg_chat_id,msg_id,"* *","md",true)  
 end
+local user_info = LuaTele.getUser(msg.sender.user_id)
+local first_name = user_info.first_name
 local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '𓄼•ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ•𓄹', url = 't.me/SU_SELVA'}, 
+{text =first_name, url = "https://t.me/SU_SELVA"}
 },
 }
 }
@@ -10139,11 +10181,13 @@ if text == 'خاص' or text == 'بص خاص' then
 if not Redis:get(Timo.."Timo:Sasa:Jeka"..msg_chat_id) then
 return LuaTele.sendText(msg_chat_id,msg_id,"* *","md",true)  
 end
+local user_info = LuaTele.getUser(msg.sender.user_id)
+local first_name = user_info.first_name
 local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '𓄼•ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ•𓄹', url = 't.me/SU_SELVA'}, 
+{text =first_name, url = "https://t.me/SU_SELVA"}
 },
 }
 }
@@ -10153,11 +10197,13 @@ if text == 'صباح الخير' or text == 'مساء الخير' then
 if not Redis:get(Timo.."Timo:Sasa:Jeka"..msg_chat_id) then
 return LuaTele.sendText(msg_chat_id,msg_id,"* *","md",true)  
 end
+local user_info = LuaTele.getUser(msg.sender.user_id)
+local first_name = user_info.first_name
 local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '𓄼•ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ•𓄹', url = 't.me/SU_SELVA'}, 
+{text =first_name, url = "https://t.me/SU_SELVA"}
 },
 }
 }
@@ -10167,11 +10213,13 @@ if text == 'صباح النور' or text == 'باح الخير' then
 if not Redis:get(Timo.."Timo:Sasa:Jeka"..msg_chat_id) then
 return LuaTele.sendText(msg_chat_id,msg_id,"* *","md",true)  
 end
+local user_info = LuaTele.getUser(msg.sender.user_id)
+local first_name = user_info.first_name
 local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '𓄼•ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ•𓄹', url = 't.me/SU_SELVA'}, 
+{text =first_name, url = "https://t.me/SU_SELVA"}
 },
 }
 }
@@ -10181,11 +10229,13 @@ if text == 'حصل' or text == 'حثل' then
 if not Redis:get(Timo.."Timo:Sasa:Jeka"..msg_chat_id) then
 return LuaTele.sendText(msg_chat_id,msg_id,"* *","md",true)  
 end
+local user_info = LuaTele.getUser(msg.sender.user_id)
+local first_name = user_info.first_name
 local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '𓄼•ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ•𓄹', url = 't.me/SU_SELVA'}, 
+{text =first_name, url = "https://t.me/SU_SELVA"}
 },
 }
 }
@@ -10195,11 +10245,13 @@ if text == 'اه' or text == 'اها' then
 if not Redis:get(Timo.."Timo:Sasa:Jeka"..msg_chat_id) then
 return LuaTele.sendText(msg_chat_id,msg_id,"* *","md",true)  
 end
+local user_info = LuaTele.getUser(msg.sender.user_id)
+local first_name = user_info.first_name
 local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '𓄼•ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ•𓄹', url = 't.me/SU_SELVA'}, 
+{text =first_name, url = "https://t.me/SU_SELVA"}
 },
 }
 }
@@ -10209,11 +10261,13 @@ if text == 'كسم' or text == 'كسمك' then
 if not Redis:get(Timo.."Timo:Sasa:Jeka"..msg_chat_id) then
 return LuaTele.sendText(msg_chat_id,msg_id,"* *","md",true)  
 end
+local user_info = LuaTele.getUser(msg.sender.user_id)
+local first_name = user_info.first_name
 local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '𓄼•ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ•𓄹', url = 't.me/SU_SELVA'}, 
+{text =first_name, url = "https://t.me/SU_SELVA"}
 },
 }
 }
@@ -10223,11 +10277,13 @@ if text == 'بوتي' or text == 'يا بوتي' then
 if not Redis:get(Timo.."Timo:Sasa:Jeka"..msg_chat_id) then
 return LuaTele.sendText(msg_chat_id,msg_id,"* *","md",true)  
 end
+local user_info = LuaTele.getUser(msg.sender.user_id)
+local first_name = user_info.first_name
 local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '𓄼•ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ•𓄹', url = 't.me/SU_SELVA'}, 
+{text =first_name, url = "https://t.me/SU_SELVA"}
 },
 }
 }
@@ -10237,11 +10293,13 @@ if text == 'متيجي' or text == 'تع' then
 if not Redis:get(Timo.."Timo:Sasa:Jeka"..msg_chat_id) then
 return LuaTele.sendText(msg_chat_id,msg_id,"* *","md",true)  
 end
+local user_info = LuaTele.getUser(msg.sender.user_id)
+local first_name = user_info.first_name
 local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '𓄼•ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ•𓄹', url = 't.me/SU_SELVA'}, 
+{text =first_name, url = "https://t.me/SU_SELVA"}
 },
 }
 }
@@ -10251,11 +10309,13 @@ if text == 'هيح' or text == 'لسه صاحي' then
 if not Redis:get(Timo.."Timo:Sasa:Jeka"..msg_chat_id) then
 return LuaTele.sendText(msg_chat_id,msg_id,"* *","md",true)  
 end
+local user_info = LuaTele.getUser(msg.sender.user_id)
+local first_name = user_info.first_name
 local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '𓄼•ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ•𓄹', url = 't.me/SU_SELVA'}, 
+{text =first_name, url = "https://t.me/SU_SELVA"}
 },
 }
 }
@@ -10265,11 +10325,13 @@ if text == 'منور' or text == 'نورت' then
 if not Redis:get(Timo.."Timo:Sasa:Jeka"..msg_chat_id) then
 return LuaTele.sendText(msg_chat_id,msg_id,"* *","md",true)  
 end
+local user_info = LuaTele.getUser(msg.sender.user_id)
+local first_name = user_info.first_name
 local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '𓄼•ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ•𓄹', url = 't.me/SU_SELVA'}, 
+{text =first_name, url = "https://t.me/SU_SELVA"}
 },
 }
 }
@@ -10279,11 +10341,13 @@ if text == 'باي' or text == 'انا ماشي' then
 if not Redis:get(Timo.."Timo:Sasa:Jeka"..msg_chat_id) then
 return LuaTele.sendText(msg_chat_id,msg_id,"* *","md",true)  
 end
+local user_info = LuaTele.getUser(msg.sender.user_id)
+local first_name = user_info.first_name
 local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '𓄼•ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ•𓄹', url = 't.me/SU_SELVA'}, 
+{text =first_name, url = "https://t.me/SU_SELVA"}
 },
 }
 }
@@ -10293,11 +10357,13 @@ if text == 'ويت' or text == 'ويت يحب' then
 if not Redis:get(Timo.."Timo:Sasa:Jeka"..msg_chat_id) then
 return LuaTele.sendText(msg_chat_id,msg_id,"* *","md",true)  
 end
+local user_info = LuaTele.getUser(msg.sender.user_id)
+local first_name = user_info.first_name
 local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '𓄼•ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ•𓄹', url = 't.me/SU_SELVA'}, 
+{text =first_name, url = "https://t.me/SU_SELVA"}
 },
 }
 }
@@ -10307,11 +10373,13 @@ if text == 'خخخ' or text == 'خخخخخ' then
 if not Redis:get(Timo.."Timo:Sasa:Jeka"..msg_chat_id) then
 return LuaTele.sendText(msg_chat_id,msg_id,"* *","md",true)  
 end
+local user_info = LuaTele.getUser(msg.sender.user_id)
+local first_name = user_info.first_name
 local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '𓄼•ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ•𓄹', url = 't.me/SU_SELVA'}, 
+{text =first_name, url = "https://t.me/SU_SELVA"}
 },
 }
 }
@@ -10321,11 +10389,13 @@ if text == 'شكرا' or text == 'مرسي' then
 if not Redis:get(Timo.."Timo:Sasa:Jeka"..msg_chat_id) then
 return LuaTele.sendText(msg_chat_id,msg_id,"* *","md",true)  
 end
+local user_info = LuaTele.getUser(msg.sender.user_id)
+local first_name = user_info.first_name
 local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '𓄼•ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ•𓄹', url = 't.me/SU_SELVA'}, 
+{text =first_name, url = "https://t.me/SU_SELVA"}
 },
 }
 }
@@ -10335,11 +10405,13 @@ if text == 'حلوه' or text == 'حلو' then
 if not Redis:get(Timo.."Timo:Sasa:Jeka"..msg_chat_id) then
 return LuaTele.sendText(msg_chat_id,msg_id,"* *","md",true)  
 end
+local user_info = LuaTele.getUser(msg.sender.user_id)
+local first_name = user_info.first_name
 local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '𓄼•ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ•𓄹', url = 't.me/SU_SELVA'}, 
+{text =first_name, url = "https://t.me/SU_SELVA"}
 },
 }
 }
@@ -10349,11 +10421,13 @@ if text == 'بموت' or text == 'هموت' then
 if not Redis:get(Timo.."Timo:Sasa:Jeka"..msg_chat_id) then
 return LuaTele.sendText(msg_chat_id,msg_id,"* *","md",true)  
 end
+local user_info = LuaTele.getUser(msg.sender.user_id)
+local first_name = user_info.first_name
 local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '𓄼•ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ•𓄹', url = 't.me/SU_SELVA'}, 
+{text =first_name, url = "https://t.me/SU_SELVA"}
 },
 }
 }
@@ -10363,11 +10437,13 @@ if text == 'اي' or text == 'ايه' then
 if not Redis:get(Timo.."Timo:Sasa:Jeka"..msg_chat_id) then
 return LuaTele.sendText(msg_chat_id,msg_id,"* *","md",true)  
 end
+local user_info = LuaTele.getUser(msg.sender.user_id)
+local first_name = user_info.first_name
 local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '𓄼•ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ•𓄹', url = 't.me/SU_SELVA'}, 
+{text =first_name, url = "https://t.me/SU_SELVA"}
 },
 }
 }
@@ -10377,11 +10453,13 @@ if text == 'طيب' or text == 'تيب' then
 if not Redis:get(Timo.."Timo:Sasa:Jeka"..msg_chat_id) then
 return LuaTele.sendText(msg_chat_id,msg_id,"* *","md",true)  
 end
+local user_info = LuaTele.getUser(msg.sender.user_id)
+local first_name = user_info.first_name
 local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '𓄼•ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ•𓄹', url = 't.me/SU_SELVA'}, 
+{text =first_name, url = "https://t.me/SU_SELVA"}
 },
 }
 }
@@ -10391,11 +10469,13 @@ if text == 'حاضر' or text == 'حتر' then
 if not Redis:get(Timo.."Timo:Sasa:Jeka"..msg_chat_id) then
 return LuaTele.sendText(msg_chat_id,msg_id,"* *","md",true)  
 end
+local user_info = LuaTele.getUser(msg.sender.user_id)
+local first_name = user_info.first_name
 local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '𓄼•ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ•𓄹', url = 't.me/SU_SELVA'}, 
+{text =first_name, url = "https://t.me/SU_SELVA"}
 },
 }
 }
@@ -10405,11 +10485,13 @@ if text == 'جيت' or text == 'انا جيت' then
 if not Redis:get(Timo.."Timo:Sasa:Jeka"..msg_chat_id) then
 return LuaTele.sendText(msg_chat_id,msg_id,"* *","md",true)  
 end
+local user_info = LuaTele.getUser(msg.sender.user_id)
+local first_name = user_info.first_name
 local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '𓄼•ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ•𓄹', url = 't.me/SU_SELVA'}, 
+{text =first_name, url = "https://t.me/SU_SELVA"}
 },
 }
 }
@@ -10419,11 +10501,13 @@ if text == 'بخ' or text == 'عو' then
 if not Redis:get(Timo.."Timo:Sasa:Jeka"..msg_chat_id) then
 return LuaTele.sendText(msg_chat_id,msg_id,"* *","md",true)  
 end
+local user_info = LuaTele.getUser(msg.sender.user_id)
+local first_name = user_info.first_name
 local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '𓄼•ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ•𓄹', url = 't.me/SU_SELVA'}, 
+{text =first_name, url = "https://t.me/SU_SELVA"}
 },
 }
 }
@@ -10433,11 +10517,13 @@ if text == 'حبيبي' or text == 'حبيبتي' then
 if not Redis:get(Timo.."Timo:Sasa:Jeka"..msg_chat_id) then
 return LuaTele.sendText(msg_chat_id,msg_id,"* *","md",true)  
 end
+local user_info = LuaTele.getUser(msg.sender.user_id)
+local first_name = user_info.first_name
 local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '𓄼•ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ•𓄹', url = 't.me/SU_SELVA'}, 
+{text =first_name, url = "https://t.me/SU_SELVA"}
 },
 }
 }
@@ -10447,11 +10533,13 @@ if text == 'تمام' or text == 'تمم' then
 if not Redis:get(Timo.."Timo:Sasa:Jeka"..msg_chat_id) then
 return LuaTele.sendText(msg_chat_id,msg_id,"* *","md",true)  
 end
+local user_info = LuaTele.getUser(msg.sender.user_id)
+local first_name = user_info.first_name
 local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '𓄼•ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ•𓄹', url = 't.me/SU_SELVA'}, 
+{text =first_name, url = "https://t.me/SU_SELVA"}
 },
 }
 }
@@ -10461,11 +10549,13 @@ if text == 'خلاص' or text == 'خلص' then
 if not Redis:get(Timo.."Timo:Sasa:Jeka"..msg_chat_id) then
 return LuaTele.sendText(msg_chat_id,msg_id,"* *","md",true)  
 end
+local user_info = LuaTele.getUser(msg.sender.user_id)
+local first_name = user_info.first_name
 local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '𓄼•ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ•𓄹', url = 't.me/SU_SELVA'}, 
+{text =first_name, url = "https://t.me/SU_SELVA"}
 },
 }
 }
@@ -10475,11 +10565,13 @@ if text == 'سي في' or text == 'سيفي' then
 if not Redis:get(Timo.."Timo:Sasa:Jeka"..msg_chat_id) then
 return LuaTele.sendText(msg_chat_id,msg_id,"* *","md",true)  
 end
+local user_info = LuaTele.getUser(msg.sender.user_id)
+local first_name = user_info.first_name
 local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '𓄼•ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ•𓄹', url = 't.me/SU_SELVA'}, 
+{text =first_name, url = "https://t.me/SU_SELVA"}
 },
 }
 }
