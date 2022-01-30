@@ -9829,11 +9829,13 @@ if text == 'هاي' or text == 'هيي' then
 if not Redis:get(Timo.."Timo:Sasa:Jeka"..msg_chat_id) then
 return LuaTele.sendText(msg_chat_id,msg_id,"* ᪣ ردود السورس معطلة*","md",true)  
 end
+local user_info = LuaTele.getUser(msg.sender.user_id)
+local first_name = user_info.first_name
 local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '𓄼•ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ•𓄹', url = 't.me/SU_SELVA'}, 
+{text =first_name, url = "https://t.me/SU_SELVA"}
 },
 }
 }
