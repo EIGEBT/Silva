@@ -9557,12 +9557,12 @@ keyboard.inline_keyboard = {
 local msgg = msg_id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id=" .. msg_chat_id .. "&photo="..photo.."&caption=".. URL.escape(Name).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 elseif text == 'بوت حذف' or text == 'بوت الحذف' or text == 'بووت حذف' then
-photo = "https://t.me/LC6BOT"
+photo = "https://t.me/hazf_timo_bot"
 local Name = 'بوت حذف حسابات'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '𓄼•ʙᴏᴛ•𓄹', url = "https://t.me/LC6BOT"}
+{text = '𓄼•ʙᴏᴛ•𓄹', url = "https://t.me/hazf_timo_bot"}
 },
 {
 {text = '𓄼•اضف البوت لمجموعتك•𓄹', url = 't.me/'..UserBot..'?startgroup=new'},
