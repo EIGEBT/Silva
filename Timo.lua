@@ -1120,16 +1120,17 @@ end
 
 if msg.content.luatele == "messageChatAddMembers" then -- اضافه اشخاص
 print('This is Add Membeers ')
-Redis:incr(Timo.."Num:Add:Memp"..msg_chat_id..":"..msg.sender.user_id) 
-local AddMembrs = Redis:get(Timo.."Lock:AddMempar"..msg_chat_id) 
-local Lock_Bots = Redis:get(Timo.."Lock:Bot:kick"..msg_chat_id)
+Redis:incr(Timo.."Timo:Num:Add:Memp"..msg_chat_id..":"..msg.sender.user_id) 
+local AddMembrs = Redis:get(Timo.."Timo:Lock:AddMempar"..msg_chat_id) 
+local Lock_Bots = Redis:get(Timo.."Timo:Lock:Bot:kick"..msg_chat_id)
 for k,v in pairs(msg.content.member_user_ids) do
 local Info_User = LuaTele.getUser(v) 
-print(v)
-if v == tonumber(Timo) then
-local N = (Redis:get(Timo.."Timo:Name:Bot") or "سيلفا")
-photo = LuaTele.getUserProfilePhotos(Timo)
-return LuaTele.sendPhoto(msg.chat_id, 0, photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id,'* ╗ مـرحـبــا انا بــوت '..N..'\n╣ اخـتصـاصـي  ادارة الجـروبــات\n╣ مـن السـب والشـتيمـه والابــاحـه\n╣ لتفعيل البــوت اتبــاع الخـطـوات\n╣❶ ارفع البــوت مـشـرف في مـجـمـوعه\n╣ وارسـل تفعيل في مـجـمـوعه\n╣❷ لو ارت تفعيل ردود السـورس\n╣ اكتب تفعيل ردود السـورس\n╝ مـطـور الـبــوت『 @'..UserSudo..' 』\n*', "md")
+if Info_User.type.luatele == "userTypeBot" then
+if Lock_Bots == "del" and not msg.ControllerBot then
+LuaTele.setChatMemberStatus(msg.chat_id,v,'banned',0)
+elseif Lock_Bots == "kick" and not msg.ControllerBot then
+LuaTele.setChatMemberStatus(msg.chat_id,msg.sender.user_id,'banned',0)
+LuaTele.setChatMemberStatus(msg.chat_id,v,'banned',0)
 end
 elseif Info_User.type.luatele == "userTypeRegular" then
 Redis:incr(Timo.."Timo:Num:Add:Memp"..msg.chat_id..":"..msg.sender.user_id) 
