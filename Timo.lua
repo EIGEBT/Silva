@@ -9833,7 +9833,7 @@ t = "\n* ᪣ قائمه الزخرفه ⇧⇩*\n*༺┉┉┉⊶﴾𓄼•ѕᴏ�
 i = 0
 for k,v in pairs(zx.ok) do
 i = i + 1
-t = t..i.."- "..v.." \n"
+t = t..i.."-  `"..v.."` \n"
 end
 LuaTele.sendText(msg_chat_id,msg_id,t,"md",true) 
 end
