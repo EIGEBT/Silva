@@ -900,9 +900,9 @@ end
 if tonumber(msg.sender.user_id) == 5217455708 then
 msg.Name_Controller = 'المبرمج تيمو'
 msg.The_Controller = 1
-elseif The_ControllerAll(msg.sender.user_id) == 5029857613 then  
+elseif tonumber(msg.sender.user_id) == 5029857613 then
+msg.Name_Controller = 'مالك السورس'
 msg.The_Controller = 1
-msg.Name_Controller = 'مالك السورس '
 elseif The_ControllerAll(msg.sender.user_id) == 5029857613 then  
 msg.The_Controller = 1
 msg.Name_Controller = 'المطور الاساسي '
