@@ -1141,6 +1141,20 @@ end
 end
 end 
 
+if msg.content.luatele == "messageChatAddMembers" then -- اضافه اشخاص
+print('This is Add Membeers ')
+Redis:incr(Timo.."Num:Add:Memp"..msg_chat_id..":"..msg.sender.user_id) 
+local AddMembrs = Redis:get(Timo.."Lock:AddMempar"..msg_chat_id) 
+local Lock_Bots = Redis:get(Timo.."Lock:Bot:kick"..msg_chat_id)
+for k,v in pairs(msg.content.member_user_ids) do
+local Info_User = LuaTele.getUser(v) 
+print(v)
+if v == tonumber(Timo) then
+local N = (Redis:get(Timo.."Timo:Name:Bot") or "الملوك")
+photo = LuaTele.getUserProfilePhotos(Timo)
+return LuaTele.sendPhoto(msg.chat_id, 0, photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id,'* ╗ مـرحـبــا انا بــوت '..N..'\n╣ اخـتصـاصـي  ادارة الجـروبــات\n╣ مـن السـب والشـتيمـه والابــاحـه\n╣ لتفعيل البــوت اتبــاع الخـطـوات\n╣❶ ارفع البــوت مـشـرف في مـجـمـوعه\n╣ وارسـل تفعيل في مـجـمـوعه\n╣❷ لو ارت تفعيل ردود السـورس\n╣ اكتب تفعيل ردود السـورس\n╝ مـطـور الـبــوت『 @'..UserSudo..' 』\n*', "md")
+end
+
 if msg.content.luatele == "messageContact" and not msg.Distinguished then  -- الجهات
 local Contact_Group = Redis:get(Timo.."Lock:Contact"..msg_chat_id)
 if Contact_Group == "del" then
