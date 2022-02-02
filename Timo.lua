@@ -5780,6 +5780,46 @@ if y == true then
 LuaTele.sendText(msg_chat_id,msg_id,restricted,"md",true)  
 end
 end
+if msg.content.photo then
+if msg.content.caption.text and msg.content.caption.text:match("^all (.*)$") then
+local ttag = msg.content.caption.text:match("^all (.*)$") 
+if msg.content.photo.sizes[1].photo.remote.id then
+idPhoto = msg.content.photo.sizes[1].photo.remote.id
+elseif msg.content.photo.sizes[2].photo.remote.id then
+idPhoto = msg.content.photo.sizes[2].photo.remote.id
+elseif msg.content.photo.sizes[3].photo.remote.id then
+idPhoto = msg.content.photo.sizes[3].photo.remote.id
+end
+local Info_Members = LuaTele.searchChatMembers(msg_chat_id, "*", 200)
+x = 0 
+tags = 0 
+local list = Info_Members.members
+for k, v in pairs(list) do 
+local data = LuaTele.getUser(v.member_id.user_id)
+if x == 5 or x == tags or k == 0 then 
+tags = x + 5 
+if ttag then
+t = "#all "..ttag.."" 
+else
+t = "#all "
+end
+end 
+x = x + 1 
+tagname = data.first_name
+tagname = tagname:gsub("]","") 
+tagname = tagname:gsub("[[]","") 
+t = t..", ["..tagname.."](tg://user?id="..v.member_id.user_id..")" 
+if x == 5 or x == tags or k == 0 then 
+if ttag then
+Text = t:gsub('#all '..ttag..',','#all '..ttag..'\n') 
+else 
+Text = t:gsub('#all,','#all\n')
+end
+LuaTele.sendPhoto(msg.chat_id, 0, idPhoto,Text,"md")
+end 
+end 
+end
+end
 if text == "@all" or text == "تاك للكل" or text == "all" then
 if not msg.Addictive then
 return LuaTele.sendText(msg_chat_id,msg_id,'\n*᪣هذا الامر يخص { '..Controller_Num(7)..' }* ',"md",true)  
@@ -9458,28 +9498,14 @@ if Redis:get(Timo.."Status:kool"..msg.chat_id) then
 return LuaTele.sendText(msg_chat_id,msg_id,m,"md",true) 
 end
 end
-if text == 'صورتي' or text == 'صوري' then
-if not Redis:get(Timo.."Status:gamle"..msg_chat_id) then
-return false
-end
-local ban = LuaTele.getUser(msg.sender.user_id)
+if text == "صورتي" then
+if Redis:get(Timo.."Status:photo"..msg.chat_id) then
 local photo = LuaTele.getUserProfilePhotos(msg.sender.user_id)
-local rdbhoto = nspp[math.random(#nspp)]
 if photo.total_count > 0 then
-data = {} 
-data.inline_keyboard = {
-{
-{text ='عدد صورك '..photo.total_count..' صوره',url = "https://t.me/"..ban.username..""}, 
-},
-{
-{text = '𓄼•ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ•𓄹', url = "https://t.me/SU_SELVA"}
-},
-{
-{text = '𓄼•اضف البوت لمجموعتك•𓄹', url = 't.me/'..UserBot..'?startgroup=new'},
-},
-}
-local msgg = msg_id/2097152/0.5
-https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id=" .. msg_chat_id .. "&photo="..photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id.."&photo=".. URL.escape(rdbhoto).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(data))
+return LuaTele.sendPhoto(msg.chat_id, msg.id, photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id,"*عدد صورك هو "..photo.total_count.." صوره*", "md")
+else
+return LuaTele.sendText(msg_chat_id,msg_id,'*᪣ لا توجد صوره ف حسابك*',"md",true) 
+end
 end
 end
 if text == "غنيلي" then
