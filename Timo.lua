@@ -9431,13 +9431,6 @@ return LuaTele.sendText(msg_chat_id,msg_id,'\n* ◉ مطور البوت : {*['..
 end
 end
 end
-if text == 'لقبي' then
-local user_info = LuaTele.getUser(msg.sender.user_id)
-local first_n = os.date("GeId.result.custom_title")  
-local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {
-{{text =user_info.first_name,url = "https://t.me/"..user_info.username..""}, },}}
-return LuaTele.sendText(msg_chat_id, msg_id, 'الساعه = '..first_n, 'md', false, false, false, false, reply_markup)
-end
 if text == 'اسمي' then
 local ban = LuaTele.getUser(msg.sender.user_id)
 local photo = LuaTele.getUserProfilePhotos(msg.sender.user_id)
@@ -9465,13 +9458,28 @@ if Redis:get(Timo.."Status:kool"..msg.chat_id) then
 return LuaTele.sendText(msg_chat_id,msg_id,m,"md",true) 
 end
 end
-if text == "صورتي" then
-if Redis:get(Timo.."Status:photo"..msg.chat_id) then
+if text == 'صورتي' or text == 'صوري' then
+if not Redis:get(Timo.."Status:gamle"..msg_chat_id) then
+return false
+end
+local ban = LuaTele.getUser(msg.sender.user_id)
 local photo = LuaTele.getUserProfilePhotos(msg.sender.user_id)
+local rdbhoto = nspp[math.random(#nspp)]
 if photo.total_count > 0 then
-return LuaTele.sendPhoto(msg.chat_id, msg.id, photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id,"*عدد صورك هو "..photo.total_count.." صوره*", "md")
-else
-return LuaTele.sendText(msg_chat_id,msg_id,'*● لا توجد صوره ف حسابك*',"md",true) 
+data = {} 
+data.inline_keyboard = {
+{
+{text ='عدد صورك '..photo.total_count..' صوره',url = "https://t.me/"..ban.username..""}, 
+},
+{
+{text = '𓄼•ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ•𓄹', url = "https://t.me/SU_SELVA"}
+},
+{
+{text = '𓄼•اضف البوت لمجموعتك•𓄹', url = 't.me/'..UserBot..'?startgroup=new'},
+},
+}
+local msgg = msg_id/2097152/0.5
+https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id=" .. msg_chat_id .. "&photo="..photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id.."&photo=".. URL.escape(rdbhoto).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(data))
 end
 end
 end
@@ -11822,7 +11830,7 @@ data = {
 {text = '𓄼 الثانوين 𓄹',type = 'text'},{text = '𓄼 المطورين 𓄹',type = 'text'},{text = '𓄼 قائمه العام 𓄹', type = 'text'},
 },
 {
-{text = '𓄼 مسح الثانوين 𓄹',type = 'text'},{text = '𓄼 مسح المطورين 𓄹',type = 'text'},{text = '?? مسح قائمه العام 𓄹', type = 'text'},
+{text = '𓄼 مسح الثانوين 𓄹',type = 'text'},{text = '𓄼 مسح المطورين 𓄹',type = 'text'},{text = '𓄼 مسح قائمه العام 𓄹', type = 'text'},
 },
 {
 {text = '𓄼 تغيير اسم البوت 𓄹',type = 'text'},{text = '𓄼 حذف اسم البوت 𓄹', type = 'text'},
