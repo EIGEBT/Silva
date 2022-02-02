@@ -903,7 +903,7 @@ msg.The_Controller = 1
 elseif tonumber(msg.sender.user_id) == 5029857613 then
 msg.Name_Controller = 'مالك السورس'
 msg.The_Controller = 1
-elseif The_ControllerAll(msg.sender.user_id) == 5029857613 then  
+elseif The_ControllerAll(msg.sender.user_id) == true then  
 msg.The_Controller = 1
 msg.Name_Controller = 'المطور الاساسي '
 elseif Redis:sismember(Timo.."Timo:DevelopersQ:Groups",msg.sender.user_id) == true then
@@ -9900,7 +9900,7 @@ if text and text:match("^زخرفه (.*)$") then
 local TextZhrfa = text:match("^زخرفه (.*)$")
 zh = https.request('https://apiabs.ml/zrf.php?abs='..URL.escape(TextZhrfa)..'')
 zx = JSON.decode(zh)
-t = "\n* ᪣ قائمه الزخرفه ⇧⇩*\n*༺┉┉┉⊶﴾𓄼•ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ•𓄹﴿⊷┉┉┉༻*\n* أضغط علي الاسم لا يتم النسخ ⦁ *\n"
+t = "\n* ᪣ قائمه الزخرفه ⇧⇩*\n*༺┉┉┉⊶﴾𓄼•ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ•??﴿⊷┉┉┉༻*\n* أضغط علي الاسم لا يتم النسخ ⦁ *\n"
 i = 0
 for k,v in pairs(zx.ok) do
 i = i + 1
