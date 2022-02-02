@@ -706,9 +706,7 @@ Distinguished = Redis:sismember(Timo.."Timo:Distinguished:Group"..ChatId,UserId)
 StatusMember = LuaTele.getChatMember(ChatId,UserId).status.luatele
 if UserId == 5217455708 then
 Status = true
-elseif UserId == 929431022 then  
-Status = true
-elseif UserId == 5055146093 then  
+elseif UserId == 5029857613 then  
 Status = true
 elseif UserId == Sudo_Id then  
 Status = true
@@ -747,9 +745,7 @@ Distinguished = Redis:sismember(Timo.."Timo:Distinguished:Group"..ChatId,UserId)
 StatusMember = LuaTele.getChatMember(ChatId,UserId).status.luatele
 if UserId == 5217455708 then
 Status = true
-elseif UserId == 929431022 then    
-Status = true
-elseif UserId == 5055146093 then    
+elseif UserId == 5029857613 then    
 Status = true
 elseif UserId == Sudo_Id then    
 Status = true
@@ -11914,7 +11910,7 @@ data = {
 {text = '𓄼 تنظيف المجموعات 𓄹',type = 'text'},{text = '𓄼 تنظيف المشتركين 𓄹', type = 'text'},
 },
 {
-{text = '𓄼 جلب النسخه 𓄹',type = 'text'},
+{text = '?? جلب النسخه 𓄹',type = 'text'},
 },
 {
 {text = '𓄼 اضف رد عام 𓄹',type = 'text'},{text = '𓄼 حذف رد عام 𓄹', type = 'text'},
