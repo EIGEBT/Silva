@@ -906,7 +906,7 @@ msg.Name_Controller = 'المبرمج تيمو'
 msg.The_Controller = 1
 elseif The_ControllerAll(msg.sender.user_id) == 5029857613 then  
 msg.The_Controller = 1
-msg.Name_Controller = 'مالك السورس'
+msg.Name_Controller = 'مالك السورس '
 elseif The_ControllerAll(msg.sender.user_id) == 5029857613 true then  
 msg.The_Controller = 1
 msg.Name_Controller = 'المطور الاساسي '
