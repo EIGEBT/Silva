@@ -1136,24 +1136,13 @@ elseif Info_User.type.luatele == "userTypeRegular" then
 Redis:incr(Timo.."Timo:Num:Add:Memp"..msg.chat_id..":"..msg.sender.user_id) 
 if AddMembrs == "kick" and not msg.ControllerBot then
 LuaTele.setChatMemberStatus(msg.chat_id,v,'banned',0)
+photo = LuaTele.getUserProfilePhotos(Timo)
+return LuaTele.sendPhoto(msg.chat_id, 0, photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id,'* ╗ مـرحـبــا انا بــوت '..N..'\n╣ اخـتصـاصـي  ادارة الجـروبــات\n╣ مـن السـب والشـتيمـه والابــاحـه\n╣ لتفعيل البــوت اتبــاع الخـطـوات\n╣❶ ارفع البــوت مـشـرف في مـجـمـوعه\n╣ وارسـل تفعيل في مـجـمـوعه\n╣❷ لو ارت تفعيل ردود السـورس\n╣ اكتب تفعيل ردود السـورس\n╝ مـطـور الـبــوت『 @'..UserSudo..' 』\n*', "md")
 end
 end
 end
 end 
 
-if msg.content.luatele == "messageChatAddMembers" then -- اضافه اشخاص
-print('This is Add Membeers ')
-Redis:incr(Timo.."Num:Add:Memp"..msg_chat_id..":"..msg.sender.user_id) 
-local AddMembrs = Redis:get(Timo.."Lock:AddMempar"..msg_chat_id) 
-local Lock_Bots = Redis:get(Timo.."Lock:Bot:kick"..msg_chat_id)
-for k,v in pairs(msg.content.member_user_ids) do
-local Info_User = LuaTele.getUser(v) 
-print(v)
-if v == tonumber(Timo) then
-local N = (Redis:get(Timo.."Timo:Name:Bot") or "الملوك")
-photo = LuaTele.getUserProfilePhotos(Timo)
-return LuaTele.sendPhoto(msg.chat_id, 0, photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id,'* ╗ مـرحـبــا انا بــوت '..N..'\n╣ اخـتصـاصـي  ادارة الجـروبــات\n╣ مـن السـب والشـتيمـه والابــاحـه\n╣ لتفعيل البــوت اتبــاع الخـطـوات\n╣❶ ارفع البــوت مـشـرف في مـجـمـوعه\n╣ وارسـل تفعيل في مـجـمـوعه\n╣❷ لو ارت تفعيل ردود السـورس\n╣ اكتب تفعيل ردود السـورس\n╝ مـطـور الـبــوت『 @'..UserSudo..' 』\n*', "md")
-end
 
 if msg.content.luatele == "messageContact" and not msg.Distinguished then  -- الجهات
 local Contact_Group = Redis:get(Timo.."Lock:Contact"..msg_chat_id)
@@ -2188,7 +2177,7 @@ end
 end
 if text == 'رفع نسخه تشاكي' and msg.reply_to_message_id ~= 0 then
 if not msg.ControllerBot then 
-return LuaTele.sendText(msg_chat_id,msg_id,'\n* ᪣ هاذا الامر يخص 𓄼 '..Controller_Num(1)..' 𓄹* ',"md",true)  
+return LuaTele.sendText(msg_chat_id,msg_id,'\n* ᪣ هاذا الامر يخص ?? '..Controller_Num(1)..' 𓄹* ',"md",true)  
 end
 local Message_Reply = LuaTele.getMessage(msg.chat_id, msg.reply_to_message_id)
 if Message_Reply.content.document then
