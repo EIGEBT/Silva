@@ -2800,7 +2800,14 @@ UserInfousername = '@'..UserInfo.username..''
 else
 UserInfousername = 'لا يوجد'
 end
+local Name = UserInfo.first_name
 local UserId = Message_Reply.sender.user_id
+local reply_markup = LuaTele.replyMarkup{
+type = 'inline',
+data = {
+{{text = Name , url = 'tg://user?id='..UserId }},
+}
+}
 local RinkBot = Controller(msg_chat_id,UserId)
 local TotalMsg = Redis:get(Timo..'Timo:Num:Message:User'..msg_chat_id..':'..UserId) or 0
 local TotalEdit = Redis:get(Timo..'Timo:Num:Message:Edit'..msg_chat_id..UserId) or 0
@@ -2809,6 +2816,7 @@ local NumAdd = Redis:get(Timo.."Timo:Num:Add:Memp"..msg.chat_id..":"..UserId) or
 local NumberGames = Redis:get(Timo.."Timo:Num:Add:Games"..msg.chat_id..UserId) or 0
 if Get_Is_Id then
 local Get_Is_Id = Get_Is_Id:gsub('#AddMem',NumAdd) 
+local Get_Is_Id = Get_Is_Id:gsub('#username',(ban.username or 'لا يوجد')) 
 local Get_Is_Id = Get_Is_Id:gsub('#id',UserId) 
 local Get_Is_Id = Get_Is_Id:gsub('#username',UserInfousername) 
 local Get_Is_Id = Get_Is_Id:gsub('#msgs',TotalMsg) 
@@ -2819,26 +2827,27 @@ local Get_Is_Id = Get_Is_Id:gsub('#game',NumberGames)
 return LuaTele.sendText(msg_chat_id,msg_id,Get_Is_Id,"md",true) 
 else
 return LuaTele.sendText(msg_chat_id,msg_id,
-'\n*𓄼᪣ ɪᴅ = '..UserId..
-'\n𓄼᪣ ᴜѕᴇ = '..UserInfousername..
-'\n𓄼᪣ ѕᴛᴀ = '..RinkBot..
-'\n𓄼᪣ ᴍѕɢ = '..TotalMsg..
-'\n𓄼᪣ ᴛᴘᴅʏʟᴀᴛᴋ = '..TotalEdit..
-'\n𓄼᪣ ᴛғᴀᴘʟᴋ = '..TotalMsgT..
-'*',"md",true) 
+'\n*𓄼• ᴜѕᴇ -› '..UserInfousername..
+'\n𓄼• ɪᴅ -› '..UserId..
+'\n𓄼• ѕᴛᴀ -› '..RinkBot..
+'\n𓄼• ᴍѕɢ -› '..TotalMsg..
+'\n𓄼• ᴛᴘᴅʏʟᴀᴛᴋ -› '..TotalEdit..
+'\n𓄼• ᴛғᴀᴘʟᴋ -› '..TotalMsgT..
+'\n𓄼• ʙɪᴏ -› '..getbio(UserId)..
+'*',"md",false, false, false, false, reply_markup) 
 end
 end
 if text and text:match('^ايدي @(%S+)$') or text and text:match('^كشف @(%S+)$') then
 local UserName = text:match('^ايدي @(%S+)$') or text:match('^كشف @(%S+)$')
 local UserId_Info = LuaTele.searchPublicChat(UserName)
 if not UserId_Info.id then
-return LuaTele.sendText(msg_chat_id,msg_id,"\n᪣︙عذرا لا يوجد حساب بهاذا المعرف ","md",true)  
+return LuaTele.sendText(msg_chat_id,msg_id,"\n*⦁ عذرا لا يوجد حساب بهاذا المعرف *","md",true)  
 end
 if UserId_Info.type.is_channel == true then
-return LuaTele.sendText(msg_chat_id,msg_id,"\n᪣︙عذرا لا تستطيع استخدام معرف قناة او كروب ","md",true)  
+return LuaTele.sendText(msg_chat_id,msg_id,"\n*⦁ عذرا لا تستطيع استخدام معرف قناة او كروب *","md",true)  
 end
 if UserName and UserName:match('(%S+)[Bb][Oo][Tt]') then
-return LuaTele.sendText(msg_chat_id,msg_id,"\n᪣︙عذرا لا تستطيع استخدام معرف البوت ","md",true)  
+return LuaTele.sendText(msg_chat_id,msg_id,"\n*⦁ عذرا لا تستطيع استخدام معرف البوت *","md",true)  
 end
 local UserId = UserId_Info.id
 local RinkBot = Controller(msg_chat_id,UserId_Info.id)
@@ -2859,12 +2868,13 @@ local Get_Is_Id = Get_Is_Id:gsub('#game',NumberGames)
 return LuaTele.sendText(msg_chat_id,msg_id,Get_Is_Id,"md",true) 
 else
 return LuaTele.sendText(msg_chat_id,msg_id,
-'\n*𓄼᪣ ɪᴅ = '..UserId..
-'\n𓄼᪣ ᴜѕᴇ = @'..UserName..
-'\n𓄼᪣ ѕᴛᴀ = '..RinkBot..
-'\n𓄼᪣ ᴍѕɢ = '..TotalMsg..
-'\n𓄼᪣ ᴛᴘᴅʏʟᴀᴛᴋ = '..TotalEdit..
-'\n𓄼᪣ ᴛғᴀᴘʟᴋ = '..TotalMsgT..
+'\n*𓄼• ᴜѕᴇ -› @'..UserName..
+'\n𓄼• ɪᴅ -› '..UserId..
+'\n𓄼• ѕᴛᴀ -› '..RinkBot..
+'\n𓄼• ᴍѕɢ -› '..TotalMsg..
+'\n𓄼• ᴛᴘᴅʏʟᴀᴛᴋ -› '..TotalEdit..
+'\n𓄼• ᴛғᴀᴘʟᴋ -› '..TotalMsgT..
+'\n𓄼• ʙɪᴏ -› '..getbio(UserId)..
 '*',"md",true) 
 end
 end
