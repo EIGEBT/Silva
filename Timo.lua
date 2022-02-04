@@ -2726,6 +2726,14 @@ UserInfousername = '@'..UserInfo.username..''
 else
 UserInfousername = 'لا يوجد'
 end
+local Name = UserInfo.first_name
+local UserId = Message_Reply.sender.user_id
+local reply_markup = LuaTele.replyMarkup{
+type = 'inline',
+data = {
+{{text = Name , url = 'tg://user?id='..UserId }},
+}
+} 
 Get_Is_Id = Redis:get(Timo.."Timo:Set:Id:Groups") or Redis:get(Timo.."Timo:Set:Id:Group"..msg_chat_id)
 if Redis:get(Timo.."Timo:Status:IdPhoto"..msg_chat_id) then
 if Get_Is_Id then
@@ -2748,13 +2756,14 @@ else
 if photo.total_count > 0 then
 return LuaTele.sendPhoto(msg.chat_id, msg.id, photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id,
 '\n*  '..Description..
-'\n᪣ ɪᴅ = '..UserId..
-'\n᪣ ᴜѕᴇ = '..UserInfousername..
-'\n᪣ ѕᴛᴀ = '..RinkBot..
-'\n᪣ ѕᴡʀᴋ = '..TotalPhoto..
-'\n᪣ ᴍѕɢ = '..TotalMsg..
-'\n᪣ ᴛᴘᴅʏʟᴀᴛᴋ = '..TotalEdit..
-'\n᪣ ᴛғᴀᴘʟᴋ = '..TotalMsgT..
+'\n𓄼᪣ ɪᴅ = '..UserId..
+'\n𓄼᪣ ᴜѕᴇ = '..UserInfousername..
+'\n𓄼᪣ ѕᴛᴀ = '..RinkBot..
+'\n𓄼᪣ ѕᴡʀᴋ = '..TotalPhoto..
+'\n𓄼᪣ ᴍѕɢ = '..TotalMsg..
+'\n𓄼᪣ ᴛᴘᴅʏʟᴀᴛᴋ = '..TotalEdit..
+'\n𓄼᪣ ᴛғᴀᴘʟᴋ = '..TotalMsgT..
+'\n𓄼᪣ʙɪᴏ -› '..getbio(UserId)..
 '*', "md")
 else
 return LuaTele.sendText(msg_chat_id,msg_id,
@@ -2764,6 +2773,7 @@ return LuaTele.sendText(msg_chat_id,msg_id,
 '\n𓄼᪣ ᴍѕɢ = '..TotalMsg..
 '\n𓄼᪣ ᴛᴘᴅʏʟᴀᴛᴋ = '..TotalEdit..
 '\n𓄼᪣ ᴛғᴀᴘʟᴋ = '..TotalMsgT..
+'\n𓄼᪣ʙɪᴏ -› '..getbio(UserId)..
 '*',"md",true) 
 end
 end
@@ -2788,6 +2798,7 @@ return LuaTele.sendText(msg_chat_id,msg_id,
 '\n𓄼᪣ ᴍѕɢ = '..TotalMsg..
 '\n𓄼᪣ ᴛᴘᴅʏʟᴀᴛᴋ = '..TotalEdit..
 '\n𓄼᪣ ᴛғᴀᴘʟᴋ = '..TotalMsgT..
+'\n𓄼᪣ʙɪᴏ -› '..getbio(UserId)..
 '*',"md",true) 
 end
 end
@@ -2827,13 +2838,13 @@ local Get_Is_Id = Get_Is_Id:gsub('#game',NumberGames)
 return LuaTele.sendText(msg_chat_id,msg_id,Get_Is_Id,"md",true) 
 else
 return LuaTele.sendText(msg_chat_id,msg_id,
-'\n*𓄼• ᴜѕᴇ -› '..UserInfousername..
-'\n𓄼• ɪᴅ -› '..UserId..
-'\n𓄼• ѕᴛᴀ -› '..RinkBot..
-'\n𓄼• ᴍѕɢ -› '..TotalMsg..
-'\n𓄼• ᴛᴘᴅʏʟᴀᴛᴋ -› '..TotalEdit..
-'\n𓄼• ᴛғᴀᴘʟᴋ -› '..TotalMsgT..
-'\n𓄼• ʙɪᴏ -› '..getbio(UserId)..
+'\n*𓄼᪣ ᴜѕᴇ -› '..UserInfousername..
+'\n𓄼᪣ ɪᴅ -› '..UserId..
+'\n𓄼᪣ ѕᴛᴀ -› '..RinkBot..
+'\n𓄼᪣ ᴍѕɢ -› '..TotalMsg..
+'\n𓄼᪣ ᴛᴘᴅʏʟᴀᴛᴋ -› '..TotalEdit..
+'\n𓄼᪣ ᴛғᴀᴘʟᴋ -› '..TotalMsgT..
+'\n𓄼᪣ʙɪᴏ -› '..getbio(UserId)..
 '*',"md",false, false, false, false, reply_markup) 
 end
 end
