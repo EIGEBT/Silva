@@ -9526,7 +9526,7 @@ end
 if text == 'يوزوي' then
 local ban = LuaTele.getUser(msg.sender.user_id)
 local photo = LuaTele.getUserProfilePhotos(msg.sender.user_id)
-local T = @'..UserName..'
+local T = '..UserName..'
 if photo.total_count > 0 then
 data = {} 
 data.inline_keyboard = {
