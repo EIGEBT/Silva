@@ -9586,9 +9586,14 @@ end
 if text == "تويت بالصور" then
 local t = "مرحبا اليك تويت بالصور 🌝💜"
 Rrr = math.random(4,50)
-local m = "https://t.me/wffhvv/"..Rrr..""
+keyboard = {}  
+keyboard.inline_keyboard = { 
+{
+{text = '𓄼•ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ•𓄹', url = "https://t.me/SU_SELVA"}
+},
+}
 local rep = msg.id/2097152/0.5
-https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id="..msg_chat_id.."&caption="..URL.escape(t).."&photo="..m.."&reply_to_message_id="..rep.."&parse_mode=Markdown")
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/wffhvv/'..ght..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
 end
 if text == "لو خيروك بالصور" then
 local t = "مرحبا اليك لو خيروك بالصور 🌝💜"
@@ -9741,7 +9746,7 @@ data = {
 {text = '𓄼•اوامر الاعضاء•𓄹', data = msg.sender.user_id..'/help3'}, {text = '𓄼•اوامر المسح•𓄹', data = msg.sender.user_id..'/help4'}, 
 },
 {
-{text = '𓄼•اوامر التفعيل والتعطيل•𓄹', data = msg.sender.user_id..'/listallAddorrem'}, {text = '𓄼•اوامر الفتح والقفل•𓄹', data = msg.sender.user_id..'/NoNextSeting'}, 
+{text = '𓄼•التفعيل والتعطيل•𓄹', data = msg.sender.user_id..'/listallAddorrem'}, {text = '𓄼•الفتح والقفل•𓄹', data = msg.sender.user_id..'/NoNextSeting'}, 
 },
 {
 {text = '𓄼•ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ•𓄹', url = 't.me/SU_SELVA'}, 
