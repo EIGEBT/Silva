@@ -2727,7 +2727,6 @@ else
 UserInfousername = 'لا يوجد'
 end
 local Name = UserInfo.first_name
-local UserId = Message_Reply.sender.user_id
 local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
 data = {
