@@ -2793,6 +2793,8 @@ end
 end
 end
 if text == 'ايدي' or text == 'كشف'  and msg.reply_to_message_id ~= 0 then
+local user_info = LuaTele.getUser(msg.sender.user_id)
+local first_name = user_info.first_name
 local Message_Reply = LuaTele.getMessage(msg.chat_id, msg.reply_to_message_id)
 local UserInfo = LuaTele.getUser(Message_Reply.sender.user_id)
 if UserInfo.username then
@@ -2825,10 +2827,18 @@ return LuaTele.sendText(msg_chat_id,msg_id,
 '\n𓄼᪣ ᴍѕɢ = '..TotalMsg..
 '\n𓄼᪣ ᴛᴘᴅʏʟᴀᴛᴋ = '..TotalEdit..
 '\n𓄼᪣ ᴛғᴀᴘʟᴋ = '..TotalMsgT..
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text =first_name, url = "https://t.me/SU_SELVA"}
+},
+}
 '*',"md",true) 
 end
 end
 if text and text:match('^ايدي @(%S+)$') or text and text:match('^كشف @(%S+)$') then
+local user_info = LuaTele.getUser(msg.sender.user_id)
+local first_name = user_info.first_name
 local UserName = text:match('^ايدي @(%S+)$') or text:match('^كشف @(%S+)$')
 local UserId_Info = LuaTele.searchPublicChat(UserName)
 if not UserId_Info.id then
@@ -2865,6 +2875,12 @@ return LuaTele.sendText(msg_chat_id,msg_id,
 '\n𓄼᪣ ᴍѕɢ = '..TotalMsg..
 '\n𓄼᪣ ᴛᴘᴅʏʟᴀᴛᴋ = '..TotalEdit..
 '\n𓄼᪣ ᴛғᴀᴘʟᴋ = '..TotalMsgT..
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text =first_name, url = "https://t.me/SU_SELVA"}
+},
+}
 '*',"md",true) 
 end
 end
@@ -9597,10 +9613,10 @@ local T =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '𓄼•ᴛɪᴍᴏ•𓄹', url = "https://t.me/tt_tt_4"}
+{text =first_name, url = "https://t.me/SU_SELVA"}
 },
 {
-{text =first_name, url = "https://t.me/SU_SELVA"}
+{text = '𓄼•ᴛɪᴍᴏ•𓄹', url = "https://t.me/tt_tt_4"}
 },
 {
 {text = '𓄼•ᴇʟᴢᴀᴍʟᴋᴀᴡʏ•𓄹', url = "https://t.me/Snp_Zmlkawe"}
@@ -9938,7 +9954,7 @@ if text and text:match("^زخرفه (.*)$") then
 local TextZhrfa = text:match("^زخرفه (.*)$")
 zh = https.request('https://apiabs.ml/zrf.php?abs='..URL.escape(TextZhrfa)..'')
 zx = JSON.decode(zh)
-t = "\n* ᪣ قائمه الزخرفه ⇓⇑*\n*༺┉┉┉⊶﴾𓄼•ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ•??﴿⊷┉┉┉༻*\n* أضغط علي الاسم لا يتم النسخ ᪣ *\n"
+t = "\n* ᪣ قائمه الزخرفه ⇓⇑*\n*༺┉┉┉⊶﴾•ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ•﴿⊷┉┉┉༻*\n* أضغط علي الاسم لا يتم النسخ ᪣ *\n"
 i = 0
 for k,v in pairs(zx.ok) do
 i = i + 1
