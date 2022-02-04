@@ -2425,11 +2425,16 @@ NamesBot = (Redis:get(Timo.."Timo:Name:Bot") or "سيلفا")
 Groups = (Redis:scard(Timo..'Timo:ChekBotAdd') or 0)
 Users = (Redis:scard(Timo..'Timo:Num:User:Pv') or 0)
 if photo.total_count > 0 then
+local user_info = LuaTele.getUser(msg.sender.user_id)
+local first_name = user_info.first_name
 local selva = 'اسم البوت = ❴ '..NamesBot..' ❵'
 local Grosupsw = 'الجروبات = 𓄼 '..Groups..' 𓄹'
 local Usperos = 'المشتركين = 𓄼 '..Users..' 𓄹'
 keyboard = {} 
 keyboard.inline_keyboard = {
+{
+{text =first_name, url = "https://t.me/SU_SELVA"}
+},
 {
 {text = selva, url = 't.me/SU_SELVA'}, 
 },
@@ -2460,10 +2465,15 @@ NamesBot = (Redis:get(Timo.."Timo:Name:Bot") or "سيلفا")
 Groups = (Redis:scard(Timo..'Timo:ChekBotAdd') or 0)
 Users = (Redis:scard(Timo..'Timo:Num:User:Pv') or 0)
 if photo.total_count > 0 then
+local user_info = LuaTele.getUser(msg.sender.user_id)
+local first_name = user_info.first_name
 local selva = 'اسم البوت = ❴ '..NamesBot..' ❵'
 local Grosupsw = 'الجروبات = 𓄼 '..Groups..' 𓄹'
 keyboard = {} 
 keyboard.inline_keyboard = {
+{
+{text =first_name, url = "https://t.me/SU_SELVA"}
+},
 {
 {text = selva, url = 't.me/SU_SELVA'}, 
 },
@@ -2491,10 +2501,15 @@ NamesBot = (Redis:get(Timo.."Timo:Name:Bot") or "سيلفا")
 Groups = (Redis:scard(Timo..'Timo:ChekBotAdd') or 0)
 Users = (Redis:scard(Timo..'Timo:Num:User:Pv') or 0)
 if photo.total_count > 0 then
+local user_info = LuaTele.getUser(msg.sender.user_id)
+local first_name = user_info.first_name
 local selva = 'اسم البوت = ❴ '..NamesBot..' ❵'
 local Usperos = 'المشتركين = 𓄼 '..Users..' 𓄹'
 keyboard = {} 
 keyboard.inline_keyboard = {
+{
+{text =first_name, url = "https://t.me/SU_SELVA"}
+},
 {
 {text = selva, url = 't.me/SU_SELVA'}, 
 },
@@ -9582,10 +9597,13 @@ local T =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
+{text = '𓄼•ᴛɪᴍᴏ•𓄹', url = "https://t.me/tt_tt_4"}
+},
+{
 {text =first_name, url = "https://t.me/SU_SELVA"}
 },
 {
-{text = '𓄼•ᴛɪᴍᴏ•𓄹', url = "https://t.me/tt_tt_4"},{text = '𓄼•ᴇʟᴢᴀᴍʟᴋᴀᴡʏ•𓄹', url = "https://t.me/Snp_Zmlkawe"}
+{text = '𓄼•ᴇʟᴢᴀᴍʟᴋᴀᴡʏ•𓄹', url = "https://t.me/Snp_Zmlkawe"}
 },
 {
 {text = '𓄼•ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ•𓄹', url = "https://t.me/SU_SELVA"}
@@ -9628,10 +9646,15 @@ keyboard.inline_keyboard = {
 local msgg = msg_id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id=" .. msg_chat_id .. "&photo="..photo.."&caption=".. URL.escape(Name).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 elseif text == 'بوت حذف' or text == 'بوت الحذف' or text == 'بووت حذف' then
+local user_info = LuaTele.getUser(msg.sender.user_id)
+local first_name = user_info.first_name
 photo = "https://t.me/sorcy/2"
 local Name = 'بوت حذف حسابات'
 keyboard = {} 
 keyboard.inline_keyboard = {
+{
+{text =first_name, url = "https://t.me/SU_SELVA"}
+},
 {
 {text = '𓄼•ʙᴏᴛ•𓄹', url = "https://t.me/hazf_timo_bot"}
 },
@@ -9642,10 +9665,15 @@ keyboard.inline_keyboard = {
 local msgg = msg_id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id=" .. msg_chat_id .. "&photo="..photo.."&caption=".. URL.escape(Name).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 elseif text == 'بوت تواصل' or text == 'بوت التواصل' or text == 'تواصل السورس' or text == 'التواصل' then
+local user_info = LuaTele.getUser(msg.sender.user_id)
+local first_name = user_info.first_name
 video = "http://t.me/t_imoo/4"
 local Name = 'بوت تواصل سورس سيلفا '
 keyboard = {} 
 keyboard.inline_keyboard = {
+{
+{text =first_name, url = "https://t.me/SU_SELVA"}
+},
 {
 {text = '𓄼•ʙᴏᴛ•𓄹',url="t.me/Timo8Bot"}
 },
@@ -9656,10 +9684,15 @@ keyboard.inline_keyboard = {
 local msgg = msg_id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token.."/sendvideo?chat_id=" .. msg_chat_id .. "&video="..video.."&caption=".. URL.escape(Name).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 elseif text == 'قناه السورس' or text == 'قناه سورس' then
+local user_info = LuaTele.getUser(msg.sender.user_id)
+local first_name = user_info.first_name
 video = "http://t.me/t_imoo/4"
 local Name = 'قناه سورس سيلفا ياحب'
 keyboard = {} 
 keyboard.inline_keyboard = {
+{
+{text =first_name, url = "https://t.me/SU_SELVA"}
+},
 {
 {text = '𓄼•ᴄʜᴀɴɴᴇᴛ•𓄹',url="t.me/SU_SELVA"}
 },
@@ -9670,6 +9703,8 @@ keyboard.inline_keyboard = {
 local msgg = msg_id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token.."/sendvideo?chat_id=" .. msg_chat_id .. "&video="..video.."&caption=".. URL.escape(Name).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 elseif text == 'الاوامر' then
+local user_info = LuaTele.getUser(msg.sender.user_id)
+local first_name = user_info.first_name
 if not msg.Addictive then
 return LuaTele.sendText(msg_chat_id,msg_id,'\n* ᪣ هاذا الامر يخص 𓄼 '..Controller_Num(7)..' 𓄹* ',"md",true)  
 end
@@ -9680,6 +9715,9 @@ end
 local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
 data = {
+{
+{text =first_name, url = "https://t.me/SU_SELVA"}
+},
 {
 {text = '𓄼•❶•𓄹', data = msg.sender.user_id..'/help1'}, {text = '𓄼•❷•𓄹', data = msg.sender.user_id..'/help2'}, 
 },
