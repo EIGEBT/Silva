@@ -6113,6 +6113,22 @@ end
 LuaTele.sendText(msg_chat_id,msg_id,Reply_Status(msg.sender.user_id," ᪣ تم قفـل جميع الاوامر").Lock,"md",true)  
 return false
 end 
+if text == "تفعيل الحمايه" then 
+if not msg.Developers then
+return LuaTele.sendText(msg_chat_id,msg_id,'\n* ᪣ هاذا الامر يخص 𓄼 '..Controller_Num(7)..' 𓄹* ',"md",true)  
+end
+if ChannelJoin(msg) == false then
+local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = 'اضغط للاشتراك', url = 't.me/SU_SELVA'}, },}}
+return LuaTele.sendText(msg.chat_id,msg.id,'*\n ᪣ عليك الاشتراك في قناة البوت لاستخذام الاوامر*',"md",false, false, false, false, reply_markup)
+end  
+Redis:set(Timo.."Timo:Lock:tagservrbot"..msg_chat_id,true)   
+list ={"Lock:Bot:kick","Lock:User:Name","Lock:hashtak","Lock:Cmd","Lock:Link","Lock:forward","Lock:Keyboard","Lock:geam","Lock:Photo","Lock:Animation","Lock:Video","Lock:Audio","Lock:vico","Lock:Sticker","Lock:Document","Lock:Unsupported","Lock:Markdaun","Lock:Contact","Lock:Spam"}
+for i,lock in pairs(list) do 
+Redis:set(Timo..'Timo:'..lock..msg_chat_id,"del")    
+end
+LuaTele.sendText(msg_chat_id,msg_id,Reply_Status(msg.sender.user_id," ᪣ تم تفعيل الحمايه").Lock,"md",true)  
+return false
+end 
 
 
 --------------------------------------------------------------------------------------------------------------
@@ -9719,13 +9735,13 @@ data = {
 {text =first_name, url = "https://t.me/SU_SELVA"}
 },
 {
-{text = '𓄼•❶•𓄹', data = msg.sender.user_id..'/help1'}, {text = '𓄼•❷•𓄹', data = msg.sender.user_id..'/help2'}, 
+{text = '𓄼•اوامر المطورين•𓄹', data = msg.sender.user_id..'/help1'}, {text = '𓄼•اوامر التسليه•𓄹', data = msg.sender.user_id..'/help2'}, 
 },
 {
-{text = '𓄼•❸•𓄹', data = msg.sender.user_id..'/help3'}, {text = '𓄼•❹•𓄹', data = msg.sender.user_id..'/help4'}, 
+{text = '𓄼•اوامر الاعضاء•𓄹', data = msg.sender.user_id..'/help3'}, {text = '𓄼•اوامر المسح•𓄹', data = msg.sender.user_id..'/help4'}, 
 },
 {
-{text = '𓄼•❺•𓄹', data = msg.sender.user_id..'/listallAddorrem'}, {text = '𓄼•❻•𓄹', data = msg.sender.user_id..'/NoNextSeting'}, 
+{text = '𓄼•اوامر التفعيل والتعطيل•𓄹', data = msg.sender.user_id..'/listallAddorrem'}, {text = '𓄼•اوامر الفتح والقفل•𓄹', data = msg.sender.user_id..'/NoNextSeting'}, 
 },
 {
 {text = '𓄼•ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ•𓄹', url = 't.me/SU_SELVA'}, 
@@ -9733,12 +9749,12 @@ data = {
 }
 }
 return LuaTele.sendText(msg_chat_id,msg_id, [[*
-╗•❶• ‹ اوامر المطورين ›
-╣•❷• ‹ اوامر التسليه ›
-╣•❸• ‹ اوامر الاعضاء ›
-╣•❹• ‹ اوامر المسح ›
-╣•❺• ‹ اوامر التفعيل والتعطيل ›
-╝•❻• ‹ اوامر الفتح والقفل ›
+༺┉┉┉⊶﴾𓄼•ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ•𓄹﴿⊷┉┉┉༻
+╗•اهـلا بـك عـزيـزي•
+╣•الـيـك الاوامـر فـي الاسـفل•
+╣•يـمـكـنـك الـتـحـكـم فـي الـجـروب•
+╝•بـواسـطـه مـنـشـئ الـجـروب•
+༺┉┉┉⊶﴾𓄼•ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ•𓄹﴿⊷┉┉┉༻
 *]],"md",false, false, false, false, reply_markup)
 elseif text == 'الالعاب' or text == 'الالعاب التسليه' or text == 'الاضافات' or text == 'الالعاب الالكترونيه' then
 if not msg.Addictive then
@@ -12097,7 +12113,7 @@ end
 Redis:set(Timo..'Timo:GetTexting:DevTimo'..msg_chat_id..':'..msg.sender.user_id,true)
 return LuaTele.sendText(msg_chat_id,msg_id,' ᪣ ارسل لي الكليشه الان')
 end
-if text == '𓄼 حذف كليشه المطور 𓄹' then
+if text == '𓄼 حذف كليشه المطور ??' then
 if not msg.ControllerBot then 
 return LuaTele.sendText(msg_chat_id,msg_id,'\n* ᪣ هاذا الامر يخص 𓄼 '..Controller_Num(1)..' 𓄹* ',"md",true)  
 end
