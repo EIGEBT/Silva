@@ -9900,7 +9900,7 @@ if text and text:match("^زخرفه (.*)$") then
 local TextZhrfa = text:match("^زخرفه (.*)$")
 zh = https.request('https://apiabs.ml/zrf.php?abs='..URL.escape(TextZhrfa)..'')
 zx = JSON.decode(zh)
-t = "\n* ᪣ قائمه الزخرفه ⇧⇩*\n*༺┉┉┉⊶﴾𓄼•ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ•??﴿⊷┉┉┉༻*\n* أضغط علي الاسم لا يتم النسخ ⦁ *\n"
+t = "\n* ᪣ قائمه الزخرفه ⇓⇑*\n*༺┉┉┉⊶﴾𓄼•ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ•??﴿⊷┉┉┉༻*\n* أضغط علي الاسم لا يتم النسخ ᪣ *\n"
 i = 0
 for k,v in pairs(zx.ok) do
 i = i + 1
