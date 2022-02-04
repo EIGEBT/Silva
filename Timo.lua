@@ -2706,8 +2706,6 @@ end
 end
 if chat_type(msg.chat_id) == "GroupBot" and Redis:sismember(Timo.."Timo:ChekBotAdd",msg_chat_id) then
 if text == "ايدي" and msg.reply_to_message_id == 0 then
-local Message_Reply = LuaTele.getMessage(msg.chat_id, msg.reply_to_message_id)
-local UserInfo = LuaTele.getUser(Message_Reply.sender.user_id)
 if not Redis:get(Timo.."Timo:Status:Id"..msg_chat_id) then
 return false
 end
@@ -2920,6 +2918,9 @@ return LuaTele.sendText(msg_chat_id, msg_id, 'الساعه = '..first_n, 'md', f
 end
 if text == 'ايديي' then
 return LuaTele.sendText(msg_chat_id,msg_id,'\nايديك = '..msg.sender.user_id,"md",true)  
+end
+if text == 'رقمي' then
+return LuaTele.sendText(msg_chat_id,msg_id,'\nايديك = '【*"..(result.phone_number_).."*】'
 end
 if text == 'معلوماتي' or text == 'موقعي' then
 local ban = LuaTele.getUser(msg.sender.user_id)
@@ -4288,7 +4289,7 @@ return LuaTele.sendText(msg_chat_id,msg_id,"* ᪣ تم تفعيل الايدي �
 end
 if TextMsg == 'الردود المضافه' then
 if not msg.Managers then
-return LuaTele.sendText(msg_chat_id,msg_id,'\n* ᪣ هاذا الامر يخص 𓄼 '..Controller_Num(6)..' 𓄹* ',"md",true)  
+return LuaTele.sendText(msg_chat_id,msg_id,'\n* ᪣ هاذا الامر يخص 𓄼 '..Controller_Num(6)..' ??* ',"md",true)  
 end
 if ChannelJoin(msg) == false then
 local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = 'اضغط للاشتراك', url = 't.me/SU_SELVA'}, },}}
