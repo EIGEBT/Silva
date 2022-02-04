@@ -9571,7 +9571,7 @@ https.request("https://api.telegram.org/bot"..Token.."/sendaudio?chat_id="..msg_
 end
 if text == "استوري" or text == 'فيديوهات' then
 local t = "مرحبا اليك استوري عشوائي 🌝💜"
-Rrr = math.random(8,83)
+Rrr = math.random(4,50)
 local m = "https://t.me/Qapplu/"..Rrr..""
 local rep = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token.."/sendaudio?chat_id="..msg_chat_id.."&caption="..URL.escape(t).."&audio="..m.."&reply_to_message_id="..rep.."&parse_mode=Markdown")
@@ -9585,15 +9585,15 @@ https.request("https://api.telegram.org/bot"..Token.."/sendaudio?chat_id="..msg_
 end
 if text == "تويت بالصور" then
 local t = "مرحبا اليك تويت بالصور 🌝💜"
-Rrr = math.random(8,83)
-local m = "https://t.me/wffhvv/"..Rrr..""
+Rrr = math.random(4,50)
+local m = "https://t.me/twit_selva/"..Rrr..""
 local rep = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id="..msg_chat_id.."&caption="..URL.escape(t).."&photo="..m.."&reply_to_message_id="..rep.."&parse_mode=Markdown")
 end
 if text == "لو خيروك بالصور" then
 local t = "مرحبا اليك لو خيروك بالصور 🌝💜"
-Rrr = math.random(8,83)
-local m = "https://t.me/SourceTimo/"..Rrr..""
+Rrr = math.random(4,50)
+local m = "https://t.me/lo_khyarok/"..Rrr..""
 local rep = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id="..msg_chat_id.."&caption="..URL.escape(t).."&photo="..m.."&reply_to_message_id="..rep.."&parse_mode=Markdown")
 end
