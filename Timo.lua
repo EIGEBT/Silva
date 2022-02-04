@@ -5822,7 +5822,7 @@ idPhoto = msg.content.photo.sizes[2].photo.remote.id
 elseif msg.content.photo.sizes[3].photo.remote.id then
 idPhoto = msg.content.photo.sizes[3].photo.remote.id
 end
-local Info_Members = LuaTele.searchChatMembers(msg_chat_id, "*", 500)
+local Info_Members = LuaTele.searchChatMembers(msg_chat_id, "*", 200)
 x = 0 
 tags = 0 
 local list = Info_Members.members
@@ -5856,7 +5856,7 @@ if text == "@all" or text == "تاك للكل" or text == "all" then
 if not msg.Addictive then
 return LuaTele.sendText(msg_chat_id,msg_id,'\n*᪣هذا الامر يخص { '..Controller_Num(7)..' }* ',"md",true)  
 end
-local Info_Members = LuaTele.searchChatMembers(msg_chat_id, "*", 500)
+local Info_Members = LuaTele.searchChatMembers(msg_chat_id, "*", 200)
 x = 0
 tags = 0
 local list = Info_Members.members
