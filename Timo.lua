@@ -5852,6 +5852,46 @@ end
 end 
 end
 end
+if msg.content.video then
+if msg.content.caption.text and msg.content.caption.text:match("^all (.*)$") then
+local ttag = msg.content.caption.text:match("^all (.*)$") 
+if msg.content.video.sizes[1].video.remote.id then
+idvideo = msg.content.video.sizes[1].video.remote.id
+elseif msg.content.video.sizes[2].video.remote.id then
+idvideo = msg.content.video.sizes[2].video.remote.id
+elseif msg.content.video.sizes[3].video.remote.id then
+idvideo = msg.content.video.sizes[3].video.remote.id
+end
+local Info_Members = LuaTele.searchChatMembers(msg_chat_id, "*", 200)
+x = 0 
+tags = 0 
+local list = Info_Members.members
+for k, v in pairs(list) do 
+local data = LuaTele.getUser(v.member_id.user_id)
+if x == 5 or x == tags or k == 0 then 
+tags = x + 5 
+if ttag then
+t = "#all "..ttag.."" 
+else
+t = "#all "
+end
+end 
+x = x + 1 
+tagname = data.first_name
+tagname = tagname:gsub("]","") 
+tagname = tagname:gsub("[[]","") 
+t = t..", ["..tagname.."](tg://user?id="..v.member_id.user_id..")" 
+if x == 5 or x == tags or k == 0 then 
+if ttag then
+Text = t:gsub('#all '..ttag..',','#all '..ttag..'\n') 
+else 
+Text = t:gsub('#all,','#all\n')
+end
+LuaTele.sendvideo(msg.chat_id, 0, idvideo,Text,"md")
+end 
+end 
+end
+end
 if text == "@all" or text == "تاك للكل" or text == "all" then
 if not msg.Addictive then
 return LuaTele.sendText(msg_chat_id,msg_id,'\n*᪣هذا الامر يخص { '..Controller_Num(7)..' }* ',"md",true)  
