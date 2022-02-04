@@ -2706,6 +2706,8 @@ end
 end
 if chat_type(msg.chat_id) == "GroupBot" and Redis:sismember(Timo.."Timo:ChekBotAdd",msg_chat_id) then
 if text == "ايدي" and msg.reply_to_message_id == 0 then
+local Message_Reply = LuaTele.getMessage(msg.chat_id, msg.reply_to_message_id)
+local UserInfo = LuaTele.getUser(Message_Reply.sender.user_id)
 if not Redis:get(Timo.."Timo:Status:Id"..msg_chat_id) then
 return false
 end
@@ -2732,27 +2734,20 @@ type = 'inline',
 data = {
 {{text = Name , url = 'tg://user?id='..UserId }},
 }
-} 
+}
 Get_Is_Id = Redis:get(Timo.."Timo:Set:Id:Groups") or Redis:get(Timo.."Timo:Set:Id:Group"..msg_chat_id)
 if Redis:get(Timo.."Timo:Status:IdPhoto"..msg_chat_id) then
 if Get_Is_Id then
-local RinkBot = Controller(msg_chat_id,UserId)
-local TotalMsg = Redis:get(Timo..'Timo:Num:Message:User'..msg_chat_id..':'..UserId) or 0
-local TotalEdit = Redis:get(Timo..'Timo:Num:Message:Edit'..msg_chat_id..UserId) or 0
-local TotalMsgT = Total_message(TotalMsg) 
-local NumAdd = Redis:get(Timo.."Timo:Num:Add:Memp"..msg.chat_id..":"..UserId) or 0
-local NumberGames = Redis:get(Timo.."Timo:Num:Add:Games"..msg.chat_id..UserId) or 0
-if Get_Is_Id then
 local Get_Is_Id = Get_Is_Id:gsub('#AddMem',NumAdd) 
-local Get_Is_Id = Get_Is_Id:gsub('#username',(ban.username or 'لا يوجد')) 
-local Get_Is_Id = Get_Is_Id:gsub('#id',UserId) 
+local Get_Is_Id = Get_Is_Id:gsub('#id',msg.sender.user_id) 
 local Get_Is_Id = Get_Is_Id:gsub('#username',UserInfousername) 
 local Get_Is_Id = Get_Is_Id:gsub('#msgs',TotalMsg) 
 local Get_Is_Id = Get_Is_Id:gsub('#edit',TotalEdit) 
 local Get_Is_Id = Get_Is_Id:gsub('#stast',RinkBot) 
 local Get_Is_Id = Get_Is_Id:gsub('#auto',TotalMsgT)  
+local Get_Is_Id = Get_Is_Id:gsub('#Description',Description) 
 local Get_Is_Id = Get_Is_Id:gsub('#game',NumberGames) 
-return LuaTele.sendText(msg_chat_id,msg_id,Get_Is_Id,"md",true) 
+local Get_Is_Id = Get_Is_Id:gsub('#photos',TotalPhoto) 
 if photo.total_count > 0 then
 return LuaTele.sendPhoto(msg.chat_id, msg.id, photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id,Get_Is_Id)
 else
@@ -2769,17 +2764,17 @@ return LuaTele.sendPhoto(msg.chat_id, msg.id, photo.photos[1].sizes[#photo.photo
 '\n𓄼᪣ ᴍѕɢ = '..TotalMsg..
 '\n𓄼᪣ ᴛᴘᴅʏʟᴀᴛᴋ = '..TotalEdit..
 '\n𓄼᪣ ᴛғᴀᴘʟᴋ = '..TotalMsgT..
-'\n𓄼᪣ʙɪᴏ -› '..getbio(UserId)..
+'\n𓄼᪣ ʙɪᴏ = '..getbio(UserId)..
 '*', "md")
 else
 return LuaTele.sendText(msg_chat_id,msg_id,
-'\n𓄼᪣ ɪᴅ = '..UserId..
-'\n𓄼᪣ᴜѕᴇ = '..UserInfousername..
-'\n𓄼᪣ ѕᴛᴀ = '..RinkBot..
-'\n𓄼᪣ ᴍѕɢ = '..TotalMsg..
-'\n𓄼᪣ ᴛᴘᴅʏʟᴀᴛᴋ = '..TotalEdit..
-'\n𓄼᪣ ᴛғᴀᴘʟᴋ = '..TotalMsgT..
-'\n𓄼᪣ʙɪᴏ -› '..getbio(UserId)..
+'\n𓄼• ɪᴅ = '..UserId..
+'\n𓄼• ᴜѕᴇ = '..UserInfousername..
+'\n𓄼• ѕᴛᴀ = '..RinkBot..
+'\n𓄼• ᴍѕɢ = '..TotalMsg..
+'\n𓄼• ᴛᴘᴅʏʟᴀᴛᴋ = '..TotalEdit..
+'\n𓄼• ᴛғᴀᴘʟᴋ = '..TotalMsgT..
+'\n𓄼᪣ ʙɪᴏ = '..getbio(UserId)..
 '*',"md",true) 
 end
 end
@@ -2804,7 +2799,7 @@ return LuaTele.sendText(msg_chat_id,msg_id,
 '\n𓄼᪣ ᴍѕɢ = '..TotalMsg..
 '\n𓄼᪣ ᴛᴘᴅʏʟᴀᴛᴋ = '..TotalEdit..
 '\n𓄼᪣ ᴛғᴀᴘʟᴋ = '..TotalMsgT..
-'\n𓄼᪣ʙɪᴏ -› '..getbio(UserId)..
+'\n𓄼᪣ ʙɪᴏ = '..getbio(UserId)..
 '*',"md",true) 
 end
 end
@@ -2844,13 +2839,13 @@ local Get_Is_Id = Get_Is_Id:gsub('#game',NumberGames)
 return LuaTele.sendText(msg_chat_id,msg_id,Get_Is_Id,"md",true) 
 else
 return LuaTele.sendText(msg_chat_id,msg_id,
-'\n*𓄼᪣ ᴜѕᴇ -› '..UserInfousername..
-'\n𓄼᪣ ɪᴅ -› '..UserId..
-'\n𓄼᪣ ѕᴛᴀ -› '..RinkBot..
-'\n𓄼᪣ ᴍѕɢ -› '..TotalMsg..
-'\n𓄼᪣ ᴛᴘᴅʏʟᴀᴛᴋ -› '..TotalEdit..
-'\n𓄼᪣ ᴛғᴀᴘʟᴋ -› '..TotalMsgT..
-'\n𓄼᪣ʙɪᴏ -› '..getbio(UserId)..
+'\n*𓄼᪣ ᴜѕᴇ = '..UserInfousername..
+'\n𓄼᪣ ɪᴅ = '..UserId..
+'\n𓄼᪣ ѕᴛᴀ = '..RinkBot..
+'\n𓄼᪣ ᴍѕɢ = '..TotalMsg..
+'\n𓄼᪣ ᴛᴘᴅʏʟᴀᴛᴋ = '..TotalEdit..
+'\n𓄼᪣ ᴛғᴀᴘʟᴋ = '..TotalMsgT..
+'\n𓄼᪣ʙɪᴏ = '..getbio(UserId)..
 '*',"md",false, false, false, false, reply_markup) 
 end
 end
@@ -2885,13 +2880,13 @@ local Get_Is_Id = Get_Is_Id:gsub('#game',NumberGames)
 return LuaTele.sendText(msg_chat_id,msg_id,Get_Is_Id,"md",true) 
 else
 return LuaTele.sendText(msg_chat_id,msg_id,
-'\n*𓄼• ᴜѕᴇ -› @'..UserName..
-'\n𓄼• ɪᴅ -› '..UserId..
-'\n𓄼• ѕᴛᴀ -› '..RinkBot..
-'\n𓄼• ᴍѕɢ -› '..TotalMsg..
-'\n𓄼• ᴛᴘᴅʏʟᴀᴛᴋ -› '..TotalEdit..
-'\n𓄼• ᴛғᴀᴘʟᴋ -› '..TotalMsgT..
-'\n𓄼• ʙɪᴏ -› '..getbio(UserId)..
+'\n*𓄼• ᴜѕᴇ = @'..UserName..
+'\n𓄼• ɪᴅ = '..UserId..
+'\n𓄼• ѕᴛᴀ = '..RinkBot..
+'\n𓄼• ᴍѕɢ = '..TotalMsg..
+'\n𓄼• ᴛᴘᴅʏʟᴀᴛᴋ = '..TotalEdit..
+'\n𓄼• ᴛғᴀᴘʟᴋ = '..TotalMsgT..
+'\n𓄼• ʙɪᴏ = '..getbio(UserId)..
 '*',"md",true) 
 end
 end
