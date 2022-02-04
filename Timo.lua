@@ -9571,7 +9571,7 @@ https.request("https://api.telegram.org/bot"..Token.."/sendaudio?chat_id="..msg_
 end
 if text == "استوري" or text == 'فيديوهات' then
 local t = "مرحبا اليك استوري عشوائي 🌝💜"
-Rrr = math.random(4,50)
+Rrr = math.random(8,83)
 local m = "https://t.me/Qapplu/"..Rrr..""
 local rep = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token.."/sendaudio?chat_id="..msg_chat_id.."&caption="..URL.escape(t).."&audio="..m.."&reply_to_message_id="..rep.."&parse_mode=Markdown")
@@ -9579,25 +9579,20 @@ end
 if text == "فيديوهات رومانسيه" or text == 'رومانسي' then
 local t = "مرحبا اليك فيديوهات رومانسيه 🌝💜"
 Rrr = math.random(4,50)
-local m = "https://t.me/videowhatsapp20/"..Rrr..""
+local m = "https://t.me/romansy_selva/"..Rrr..""
 local rep = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token.."/sendaudio?chat_id="..msg_chat_id.."&caption="..URL.escape(t).."&audio="..m.."&reply_to_message_id="..rep.."&parse_mode=Markdown")
 end
 if text == "تويت بالصور" then
 local t = "مرحبا اليك تويت بالصور 🌝💜"
-Rrr = math.random(4,50)
-keyboard = {}  
-keyboard.inline_keyboard = { 
-{
-{text = '𓄼•ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ•𓄹', url = "https://t.me/SU_SELVA"}
-},
-}
+Rrr = math.random(8,83)
+local m = "https://t.me/wffhvv/"..Rrr..""
 local rep = msg.id/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/wffhvv/'..ght..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id="..msg_chat_id.."&caption="..URL.escape(t).."&photo="..m.."&reply_to_message_id="..rep.."&parse_mode=Markdown")
 end
 if text == "لو خيروك بالصور" then
 local t = "مرحبا اليك لو خيروك بالصور 🌝💜"
-Rrr = math.random(4,50)
+Rrr = math.random(8,83)
 local m = "https://t.me/SourceTimo/"..Rrr..""
 local rep = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id="..msg_chat_id.."&caption="..URL.escape(t).."&photo="..m.."&reply_to_message_id="..rep.."&parse_mode=Markdown")
