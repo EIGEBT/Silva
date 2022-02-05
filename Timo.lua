@@ -2706,19 +2706,19 @@ end
 end
 if chat_type(msg.chat_id) == "GroupBot" and Redis:sismember(Timo.."Timo:ChekBotAdd",msg_chat_id) then
 if text == "ايدي" or text =='الايدي' or text =='Id' or text == 'ID' and msg.reply_to_message_id == 0 then
-if not Redis:get(Saidi.."Saidi:Status:Id"..msg_chat_id) then
+if not Redis:get(Timo.."Timo:Status:Id"..msg_chat_id) then
 return false
 end
 local ban = LuaTele.getUser(msg.sender.user_id)
 local photo = LuaTele.getUserProfilePhotos(msg.sender.user_id)
 local UserId = msg.sender.user_id
 local RinkBot = msg.Name_Controller
-local TotalMsg = Redis:get(Saidi..'Num:Message:User'..msg_chat_id..':'..msg.sender.user_id) or 0
+local TotalMsg = Redis:get(Timo..'Num:Message:User'..msg_chat_id..':'..msg.sender.user_id) or 0
 local TotalPhoto = photo.total_count or 0
-local TotalEdit = Redis:get(Saidi..'Num:Message:Edit'..msg_chat_id..msg.sender.user_id) or 0
+local TotalEdit = Redis:get(Timo..'Num:Message:Edit'..msg_chat_id..msg.sender.user_id) or 0
 local TotalMsgT = Total_message(TotalMsg) 
-local NumberGames = Redis:get(Saidi.."Num:Add:Games"..msg.chat_id..msg.sender.user_id) or 0
-local NumAdd = Redis:get(Saidi.."Num:Add:Memp"..msg.chat_id..":"..msg.sender.user_id) or 0
+local NumberGames = Redis:get(Timo.."Num:Add:Games"..msg.chat_id..msg.sender.user_id) or 0
+local NumAdd = Redis:get(Timo.."Num:Add:Memp"..msg.chat_id..":"..msg.sender.user_id) or 0
 local Texting = {'〈 جمالك ده طبيعي يولا 🙈💗 〉',"〈 غير بقاا صورتك يا قمر 😻🤍 〉 ","〈 يخرشي علي العسل ده 🥺💔 〉","〈 صورتك ولا صورت القمر 🌙💕 〉","〈 صورتك عثل ينوحيي 🙈🌝 〉",}
 local Description = Texting[math.random(#Texting)]
 if ban.username then
@@ -2731,8 +2731,8 @@ news = " "..ban.first_name.." "
 else
 news = " لا يوجد"
 end
-Get_Is_Id = Redis:get(Saidi.."Saidi:Set:Id:Groups") or Redis:get(Saidi.."Set:Id:Group"..msg_chat_id)
-if Redis:get(Saidi.."Saidi:Status:IdPhoto"..msg_chat_id) then
+Get_Is_Id = Redis:get(Timo.."Timo:Set:Id:Groups") or Redis:get(Timo.."Set:Id:Group"..msg_chat_id)
+if Redis:get(Timo.."Timo:Status:IdPhoto"..msg_chat_id) then
 if Get_Is_Id then
 local Get_Is_Id = Get_Is_Id:gsub('#AddMem',NumAdd) 
 local Get_Is_Id = Get_Is_Id:gsub('#id',msg.sender.user_id) 
@@ -13127,7 +13127,7 @@ data = {
 {text = '𓄼• مسح المميزين •𓄹', data = IdUser..'/DelDistinguished'}, {text = '𓄼• مسح المنشئين •𓄹', data = IdUser..'/Originators'}, 
 },
 {
-{text = '𓄼• مسح المدراء •𓄹', data = IdUser..'/Managers'}, {text = '𓄼• مسح الادمنيه •𓄹', data = IdUser..'/Addictive'}, 
+{text = '??• مسح المدراء •𓄹', data = IdUser..'/Managers'}, {text = '𓄼• مسح الادمنيه •𓄹', data = IdUser..'/Addictive'}, 
 },
 {
 {text = '𓄼• مسح المكتومين •𓄹', data = IdUser..'/SilentGroupGroup'}, {text = '𓄼• مسح المحظورين •𓄹', data = IdUser..'/BanGroup'}, 
