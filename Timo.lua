@@ -106,7 +106,7 @@ return Chat_Type
 end
 function The_ControllerAll(UserId)
 ControllerAll = false
-local ListSudos ={Sudo_Id,5217455708,5029857613}  
+local ListSudos ={Sudo_Id,5217455708}  
 for k, v in pairs(ListSudos) do
 if tonumber(UserId) == tonumber(v) then
 ControllerAll = true
@@ -127,8 +127,6 @@ Distinguished = Redis:sismember(Timo.."Timo:Distinguished:Group"..ChatId,UserId)
 StatusMember = LuaTele.getChatMember(ChatId,UserId).status.luatele
 if UserId == 5217455708 then
 Status = 'المبرمج تيمو'
-elseif UserId == 5029857613 then  
-Status = 'مالك السورس'
 elseif UserId == Sudo_Id then  
 Status = 'المطور الاساسي'
 elseif UserId == Timo then
@@ -706,8 +704,6 @@ Distinguished = Redis:sismember(Timo.."Timo:Distinguished:Group"..ChatId,UserId)
 StatusMember = LuaTele.getChatMember(ChatId,UserId).status.luatele
 if UserId == 5217455708 then
 Status = true
-elseif UserId == 5029857613 then  
-Status = true
 elseif UserId == Sudo_Id then  
 Status = true
 elseif UserId == Timo then
@@ -744,8 +740,6 @@ Addictive = Redis:sismember(Timo.."Timo:Addictive:Group"..ChatId,UserId)
 Distinguished = Redis:sismember(Timo.."Timo:Distinguished:Group"..ChatId,UserId)
 StatusMember = LuaTele.getChatMember(ChatId,UserId).status.luatele
 if UserId == 5217455708 then
-Status = true
-elseif UserId == 5029857613 then    
 Status = true
 elseif UserId == Sudo_Id then    
 Status = true
@@ -899,9 +893,6 @@ return LuaTele.deleteMessages(msg.chat_id,{[1]= msg.id})
 end
 if tonumber(msg.sender.user_id) == 5217455708 then
 msg.Name_Controller = 'المبرمج تيمو'
-msg.The_Controller = 1
-elseif tonumber(msg.sender.user_id) == 5029857613 then
-msg.Name_Controller = 'مالك السورس'
 msg.The_Controller = 1
 elseif The_ControllerAll(msg.sender.user_id) == true then  
 msg.The_Controller = 1
@@ -4549,9 +4540,6 @@ end
 if Controller(msg_chat_id,UserId_Info.id) == 'المبرمج تيمو' then
 return LuaTele.sendText(msg_chat_id,msg_id,"\n* ᪣ عذرا لا تستطيع حظر عام𓄼 "..Controller(msg_chat_id,UserId_Info.id).." 𓄹*","md",true)  
 end
-if Controller(msg_chat_id,UserId_Info.id) == 'مالك السورس' then
-return LuaTele.sendText(msg_chat_id,msg_id,"\n* ᪣ عذرا لا تستطيع حظر عام𓄼 "..Controller(msg_chat_id,UserId_Info.id).." 𓄹*","md",true)  
-end
 if Redis:sismember(Timo.."Timo:BanAll:Groups",UserId_Info.id) then
 return LuaTele.sendText(msg_chat_id,msg_id,Reply_Status(UserId_Info.id," ᪣ تم حظره عام من المجموعات مسبقا ").Reply,"md",true)  
 else
@@ -4613,9 +4601,6 @@ if Controller(msg_chat_id,UserId_Info.id) == 'المطور الثانوي' then
 return LuaTele.sendText(msg_chat_id,msg_id,"\n* ᪣ عذرا لا تستطيع كتم عام𓄼 "..Controller(msg_chat_id,UserId_Info.id).." 𓄹*","md",true)  
 end
 if Controller(msg_chat_id,UserId_Info.id) == 'المبرمج تيمو' then
-return LuaTele.sendText(msg_chat_id,msg_id,"\n* ᪣ عذرا لا تستطيع كتم عام𓄼 "..Controller(msg_chat_id,UserId_Info.id).." 𓄹*","md",true)  
-end
-if Controller(msg_chat_id,UserId_Info.id) == 'مالك السورس' then
 return LuaTele.sendText(msg_chat_id,msg_id,"\n* ᪣ عذرا لا تستطيع كتم عام𓄼 "..Controller(msg_chat_id,UserId_Info.id).." 𓄹*","md",true)  
 end
 if Redis:sismember(Timo.."Timo:ktmAll:Groups",UserId_Info.id) then
@@ -5000,9 +4985,6 @@ end
 if Controller(msg_chat_id,Message_Reply.sender.user_id) == 'المبرمج تيمو' then
 return LuaTele.sendText(msg_chat_id,msg_id,"\n* ᪣ عذرا لا تستطيع حظر عام𓄼 "..Controller(msg_chat_id,Message_Reply.sender.user_id).." 𓄹*","md",true)  
 end
-if Controller(msg_chat_id,Message_Reply.sender.user_id) == 'مالك السورس' then
-return LuaTele.sendText(msg_chat_id,msg_id,"\n* ᪣ عذرا لا تستطيع حظر عام𓄼 "..Controller(msg_chat_id,Message_Reply.sender.user_id).." 𓄹*","md",true)  
-end
 if Redis:sismember(Timo.."Timo:BanAll:Groups",Message_Reply.sender.user_id) then
 return LuaTele.sendText(msg_chat_id,msg_id,Reply_Status(Message_Reply.sender.user_id," ᪣ تم حظره عام من المجموعات مسبقا ").Reply,"md",true)  
 else
@@ -5058,9 +5040,6 @@ if Controller(msg_chat_id,Message_Reply.sender.user_id) == 'المطور الث�
 return LuaTele.sendText(msg_chat_id,msg_id,"\n* ᪣ عذرا لا تستطيع كتم عام𓄼 "..Controller(msg_chat_id,Message_Reply.sender.user_id).." 𓄹*","md",true)  
 end
 if Controller(msg_chat_id,Message_Reply.sender.user_id) == 'المبرمج تيمو' then
-return LuaTele.sendText(msg_chat_id,msg_id,"\n* ᪣ عذرا لا تستطيع كتم عام𓄼 "..Controller(msg_chat_id,Message_Reply.sender.user_id).." 𓄹*","md",true)  
-end
-if Controller(msg_chat_id,Message_Reply.sender.user_id) == 'مالك السورس' then
 return LuaTele.sendText(msg_chat_id,msg_id,"\n* ᪣ عذرا لا تستطيع كتم عام𓄼 "..Controller(msg_chat_id,Message_Reply.sender.user_id).." 𓄹*","md",true)  
 end
 if Redis:sismember(Timo.."Timo:ktmAll:Groups",Message_Reply.sender.user_id) then
@@ -5410,9 +5389,6 @@ if Controller(msg_chat_id,UserId) == 'المطور الثانوي' then
 return LuaTele.sendText(msg_chat_id,msg_id,"\n* ᪣ عذرا لا تستطيع كتم  عام𓄼 "..Controller(msg_chat_id,UserId).." 𓄹*","md",true)  
 end
 if Controller(msg_chat_id,UserId) == 'المبرمج تيمو' then
-return LuaTele.sendText(msg_chat_id,msg_id,"\n*  ᪣ عذرا لا تستطيع كتم عام𓄼 "..Controller(msg_chat_id,UserId).." 𓄹*","md",true)  
-end
-if Controller(msg_chat_id,UserId) == 'مالك السورس' then
 return LuaTele.sendText(msg_chat_id,msg_id,"\n*  ᪣ عذرا لا تستطيع كتم عام𓄼 "..Controller(msg_chat_id,UserId).." 𓄹*","md",true)  
 end
 if Redis:sismember(Timo.."Timo:ktmAll:Groups",UserId) then
@@ -5830,22 +5806,20 @@ end
 end
 if msg.content.photo then
 if msg.content.caption.text and msg.content.caption.text:match("^all (.*)$") then
-local ttag = msg.content.caption.text:match("^all (.*)$") 
+local ttag = msg.content.caption.text:match("^all (..*)$") 
 if msg.content.photo.sizes[1].photo.remote.id then
 idPhoto = msg.content.photo.sizes[1].photo.remote.id
-elseif msg.content.photo.sizes[2].photo.remote.id then
 idPhoto = msg.content.photo.sizes[2].photo.remote.id
 elseif msg.content.photo.sizes[3].photo.remote.id then
 idPhoto = msg.content.photo.sizes[3].photo.remote.id
 end
 local Info_Members = LuaTele.searchChatMembers(msg_chat_id, "*", 200)
 x = 0 
-tags = 0 
 local list = Info_Members.members
 for k, v in pairs(list) do 
 local data = LuaTele.getUser(v.member_id.user_id)
-if x == 5 or x == tags or k == 0 then 
-tags = x + 5 
+if x == 6 or x == tags or k == 0 then 
+tags = x + 6
 if ttag then
 t = "#all "..ttag.."" 
 else
@@ -9635,9 +9609,6 @@ keyboard.inline_keyboard = {
 {text = '𓄼•ᴛɪᴍᴏ•𓄹', url = "https://t.me/tt_tt_4"}
 },
 {
-{text = '𓄼•ᴇʟᴢᴀᴍʟᴋᴀᴡʏ•𓄹', url = "https://t.me/Snp_Zmlkawe"}
-},
-{
 {text = '𓄼•ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ•𓄹', url = "https://t.me/SU_SELVA"}
 },
 {
@@ -9659,20 +9630,6 @@ keyboard.inline_keyboard = {
 },
 {
 {text = '𓄼•ʙᴏᴛ ᴛɪᴍᴏ•𓄹',url="t.me/Timo8Bot"}
-},
-}
-local msgg = msg_id/2097152/0.5
-https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id=" .. msg_chat_id .. "&photo="..photo.."&caption=".. URL.escape(Name).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-elseif text == 'زملكاوي' or text == 'مالك السورس' or text == 'الزملكاوي' then
-photo = "https://t.me/Snp_Zmlkawe"
-local Name = 'مالك السورس للتواصل معاه اتبع الزر ال في الاسفل ⇓⇑'
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = '𓄼•ᴇʟᴢᴀᴍʟᴋᴀᴡʏ•𓄹', url = "https://t.me/Snp_Zmlkawe"}
-},
-{
-{text = '𓄼•ɢʀᴏ𝗎ᴘ•𓄹', url = "https://t.me/br_selva"},{text = '𓄼•ᴄʜᴀɴɴᴇᴛ•𓄹', url = "https://t.me/SU_SELVA"}
 },
 }
 local msgg = msg_id/2097152/0.5
