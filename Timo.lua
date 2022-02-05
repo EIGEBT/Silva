@@ -2705,44 +2705,42 @@ return LuaTele.sendText(msg_chat_id,msg_id,'\n* ᪣ اسم المجموعه =�
 end
 end
 if chat_type(msg.chat_id) == "GroupBot" and Redis:sismember(Timo.."Timo:ChekBotAdd",msg_chat_id) then
-if text == "ايدي" and msg.reply_to_message_id == 0 then
-if not Redis:get(Timo.."Timo:Status:Id"..msg_chat_id) then
+if text == "ايدي" or text =='الايدي' or text =='Id' or text == 'ID' and msg.reply_to_message_id == 0 then
+if not Redis:get(Saidi.."Saidi:Status:Id"..msg_chat_id) then
 return false
 end
-local UserInfo = LuaTele.getUser(msg.sender.user_id)
+local ban = LuaTele.getUser(msg.sender.user_id)
 local photo = LuaTele.getUserProfilePhotos(msg.sender.user_id)
 local UserId = msg.sender.user_id
 local RinkBot = msg.Name_Controller
-local TotalMsg = Redis:get(Timo..'Timo:Num:Message:User'..msg_chat_id..':'..msg.sender.user_id) or 0
+local TotalMsg = Redis:get(Saidi..'Num:Message:User'..msg_chat_id..':'..msg.sender.user_id) or 0
 local TotalPhoto = photo.total_count or 0
-local TotalEdit = Redis:get(Timo..'Timo:Num:Message:Edit'..msg_chat_id..msg.sender.user_id) or 0
+local TotalEdit = Redis:get(Saidi..'Num:Message:Edit'..msg_chat_id..msg.sender.user_id) or 0
 local TotalMsgT = Total_message(TotalMsg) 
-local NumberGames = Redis:get(Timo.."Timo:Num:Add:Games"..msg.chat_id..msg.sender.user_id) or 0
-local NumAdd = Redis:get(Timo.."Timo:Num:Add:Memp"..msg.chat_id..":"..msg.sender.user_id) or 0
+local NumberGames = Redis:get(Saidi.."Num:Add:Games"..msg.chat_id..msg.sender.user_id) or 0
+local NumAdd = Redis:get(Saidi.."Num:Add:Memp"..msg.chat_id..":"..msg.sender.user_id) or 0
 local Texting = {'〈 جمالك ده طبيعي يولا 🙈💗 〉',"〈 غير بقاا صورتك يا قمر 😻🤍 〉 ","〈 يخرشي علي العسل ده 🥺💔 〉","〈 صورتك ولا صورت القمر 🌙💕 〉","〈 صورتك عثل ينوحيي 🙈🌝 〉",}
 local Description = Texting[math.random(#Texting)]
-if UserInfo.username then
-UserInfousername = '@'..UserInfo.username..''
+if ban.username then
+banusername = '@'..ban.username..''
 else
-UserInfousername = 'لا يوجد'
+banusername = 'لا يوجد'
 end
-local Name = UserInfo.first_name
-local reply_markup = LuaTele.replyMarkup{
-type = 'inline',
-data = {
-{{text = Name , url = 'tg://user?id='..UserId }},
-}
-}
-Get_Is_Id = Redis:get(Timo.."Timo:Set:Id:Groups") or Redis:get(Timo.."Timo:Set:Id:Group"..msg_chat_id)
-if Redis:get(Timo.."Timo:Status:IdPhoto"..msg_chat_id) then
+if ban.first_name then
+news = " "..ban.first_name.." "
+else
+news = " لا يوجد"
+end
+Get_Is_Id = Redis:get(Saidi.."Saidi:Set:Id:Groups") or Redis:get(Saidi.."Set:Id:Group"..msg_chat_id)
+if Redis:get(Saidi.."Saidi:Status:IdPhoto"..msg_chat_id) then
 if Get_Is_Id then
 local Get_Is_Id = Get_Is_Id:gsub('#AddMem',NumAdd) 
 local Get_Is_Id = Get_Is_Id:gsub('#id',msg.sender.user_id) 
-local Get_Is_Id = Get_Is_Id:gsub('#username',UserInfousername) 
+local Get_Is_Id = Get_Is_Id:gsub('#username',banusername) 
 local Get_Is_Id = Get_Is_Id:gsub('#msgs',TotalMsg) 
 local Get_Is_Id = Get_Is_Id:gsub('#edit',TotalEdit) 
 local Get_Is_Id = Get_Is_Id:gsub('#stast',RinkBot) 
-local Get_Is_Id = Get_Is_Id:gsub('#auto',TotalMsgT)  
+local Get_Is_Id = Get_Is_Id:gsub('#auto',TotalMsgT) 
 local Get_Is_Id = Get_Is_Id:gsub('#Description',Description) 
 local Get_Is_Id = Get_Is_Id:gsub('#game',NumberGames) 
 local Get_Is_Id = Get_Is_Id:gsub('#photos',TotalPhoto) 
@@ -2753,52 +2751,50 @@ return LuaTele.sendText(msg_chat_id,msg_id,Get_Is_Id,"md",true)
 end
 else
 if photo.total_count > 0 then
-return LuaTele.sendPhoto(msg.chat_id, msg.id, photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id,
-'\n*  '..Description..
-'\n𓄼᪣ ɪᴅ = '..UserId..
-'\n𓄼᪣ ᴜѕᴇ = '..UserInfousername..
-'\n𓄼᪣ ѕᴛᴀ = '..RinkBot..
-'\n𓄼᪣ ѕᴡʀᴋ = '..TotalPhoto..
-'\n𓄼᪣ ᴍѕɢ = '..TotalMsg..
-'\n𓄼᪣ ᴛᴘᴅʏʟᴀᴛᴋ = '..TotalEdit..
-'\n𓄼᪣ ᴛғᴀᴘʟᴋ = '..TotalMsgT..
-'\n𓄼᪣ ʙɪᴏ = '..getbio(UserId)..
-'*', "md")
+local ban_ns ='\n* '..Description..'\n𓄼᪣ᴜѕᴇ = '..banusername..'\n𓄼᪣ѕᴛᴀ =  '..RinkBot..'\n𓄼᪣ ɪᴅ = '..UserId..'\n𓄼᪣ᴍѕɢ =  '..TotalMsg..'\n𓄼᪣ ᴛᴘᴅʏʟᴀᴛᴋ =  '..TotalEdit..'\n𓄼᪣ᴛғᴀᴘʟᴋ =  '..TotalMsgT..'\n𓄼᪣ʙɪᴏ = '..getbio(UserId)..'*'
+data = {} 
+data.inline_keyboard = {
+{
+{text =news,url = "https://t.me/"..ban.username..""}, 
+},
+}
+msgg = msg.id/2097152/0.5
+https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id=" .. msg_chat_id .. "&photo="..photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id.."&caption=".. URL.escape(ban_ns).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(data))
 else
-return LuaTele.sendText(msg_chat_id,msg_id,
-'\n𓄼• ɪᴅ = '..UserId..
-'\n𓄼• ᴜѕᴇ = '..UserInfousername..
-'\n𓄼• ѕᴛᴀ = '..RinkBot..
-'\n𓄼• ᴍѕɢ = '..TotalMsg..
-'\n𓄼• ᴛᴘᴅʏʟᴀᴛᴋ = '..TotalEdit..
-'\n𓄼• ᴛғᴀᴘʟᴋ = '..TotalMsgT..
-'\n𓄼᪣ ʙɪᴏ = '..getbio(UserId)..
-'*',"md",true) 
+local ban_ns ='\n*𓄼᪣ ᴜѕᴇ = '..banusername..'\n𓄼᪣ ѕᴛᴀ =  '..RinkBot..'\n𓄼᪣ ɪᴅ = '..UserId..'\n𓄼᪣ ᴍѕɢ =  '..TotalMsg..'\n𓄼᪣ ᴛᴘᴅʏʟᴀᴛᴋ =  '..TotalEdit..'\n𓄼᪣ ᴛғᴀᴘʟᴋ =  '..TotalMsgT..'\n𓄼᪣ ʙɪᴏ = '..getbio(UserId)..'*'
+data = {} 
+data.inline_keyboard = {
+{
+{text =news,url = "https://t.me/"..ban.username..""}, 
+},
+}
+msgg = msg.id/2097152/0.5
+https.request("https://api.telegram.org/bot"..Token.."/sendMessage?chat_id=" .. msg_chat_id .. "&text=".. URL.escape(ban_ns).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(data))
 end
 end
 else
 if Get_Is_Id then
 local Get_Is_Id = Get_Is_Id:gsub('#AddMem',NumAdd) 
 local Get_Is_Id = Get_Is_Id:gsub('#id',msg.sender.user_id) 
-local Get_Is_Id = Get_Is_Id:gsub('#username',UserInfousername) 
+local Get_Is_Id = Get_Is_Id:gsub('#username',banusername) 
 local Get_Is_Id = Get_Is_Id:gsub('#msgs',TotalMsg) 
-local Get_Is_Id = Get_Is_Id:gsub('#edit',TotalEdit) 
+local Get_Is_Id = Get_Is_Id:gsub('#edit',TotalEdit)
 local Get_Is_Id = Get_Is_Id:gsub('#stast',RinkBot) 
-local Get_Is_Id = Get_Is_Id:gsub('#auto',TotalMsgT) 
-local Get_Is_Id = Get_Is_Id:gsub('#Description',Description) 
+local Get_Is_Id = Get_Is_Id:gsub('#auto',TotalMsgT)
+local Get_Is_Id = Get_Is_Id:gsub('#Description',Description)
 local Get_Is_Id = Get_Is_Id:gsub('#game',NumberGames) 
 local Get_Is_Id = Get_Is_Id:gsub('#photos',TotalPhoto) 
 return LuaTele.sendText(msg_chat_id,msg_id,'['..Get_Is_Id..']',"md",true) 
 else
-return LuaTele.sendText(msg_chat_id,msg_id,
-'\n*𓄼᪣ ɪᴅ = '..UserId..
-'\n𓄼᪣ ᴜѕᴇ = '..UserInfousername..
-'\n𓄼᪣ ѕᴛᴀ = '..RinkBot..
-'\n𓄼᪣ ᴍѕɢ = '..TotalMsg..
-'\n𓄼᪣ ᴛᴘᴅʏʟᴀᴛᴋ = '..TotalEdit..
-'\n𓄼᪣ ᴛғᴀᴘʟᴋ = '..TotalMsgT..
-'\n𓄼᪣ ʙɪᴏ = '..getbio(UserId)..
-'*',"md",true) 
+local ban_ns ='\n*𓄼᪣ ᴜѕᴇ = '..banusername..'\n𓄼᪣ ѕᴛᴀ =  '..RinkBot..'\n𓄼᪣ ɪᴅ = '..UserId..'\n𓄼᪣ᴍѕɢ =  '..TotalMsg..'\n𓄼᪣ ᴛᴘᴅʏʟᴀᴛᴋ =  '..TotalEdit..'\n𓄼᪣ ᴛғᴀᴘʟᴋ =  '..TotalMsgT..'\n𓄼᪣ ʙɪᴏ = '..getbio(UserId)..'*'
+data = {} 
+data.inline_keyboard = {
+{
+{text =news,url = "https://t.me/"..ban.username..""}, 
+},
+}
+msgg = msg.id/2097152/0.5
+https.request("https://api.telegram.org/bot"..Token.."/sendMessage?chat_id=" .. msg_chat_id .. "&text=".. URL.escape(ban_ns).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(data))
 end
 end
 end
