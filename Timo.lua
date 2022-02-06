@@ -5806,20 +5806,22 @@ end
 end
 if msg.content.photo then
 if msg.content.caption.text and msg.content.caption.text:match("^all (.*)$") then
-local ttag = msg.content.caption.text:match("^all (..*)$") 
+local ttag = msg.content.caption.text:match("^all (.*)$") 
 if msg.content.photo.sizes[1].photo.remote.id then
 idPhoto = msg.content.photo.sizes[1].photo.remote.id
+elseif msg.content.photo.sizes[2].photo.remote.id then
 idPhoto = msg.content.photo.sizes[2].photo.remote.id
 elseif msg.content.photo.sizes[3].photo.remote.id then
 idPhoto = msg.content.photo.sizes[3].photo.remote.id
 end
 local Info_Members = LuaTele.searchChatMembers(msg_chat_id, "*", 200)
 x = 0 
+tags = 0 
 local list = Info_Members.members
 for k, v in pairs(list) do 
 local data = LuaTele.getUser(v.member_id.user_id)
-if x == 6 or x == tags or k == 0 then 
-tags = x + 6
+if x == 5 or x == tags or k == 0 then 
+tags = x + 5 
 if ttag then
 t = "#all "..ttag.."" 
 else
