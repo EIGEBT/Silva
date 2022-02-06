@@ -11638,6 +11638,7 @@ data = {
 }
 }
 return LuaTele.sendText(msg_chat_id,msg_id,Redis:get(Timo.."Timo:Start:Bot"),"md",false, false, false, false, reply_markup)
+end
 else
 data = {
 {
