@@ -5615,29 +5615,32 @@ return LuaTele.sendText(msg_chat_id,msg_id," ᪣ تم تنزيلك من الاد
 end
 end
 
-if text == "اطردني" or text == "طلعني" or text == "طردني" then 
+if text == "اطردني" or text == "طلعني" or text == "خرجني" then 
 if not Redis:get(Timo.."Timo:Status:KickMe"..msg_chat_id) then
-return LuaTele.sendText(msg_chat_id,msg_id,"* ⦁ امر اطردني تم تعطيله من قبل المدراء *","md",true)  
+return LuaTele.sendText(msg_chat_id,msg_id,"*᪣امر اطردني تم تعطيله من قبل المدراء *","md",true)  
 end
-if StatusCanOrNotCan(msg_chat_id,Message_Reply.sender.user_id) then
-return LuaTele.sendText(msg_chat_id,msg_id,"\n* ᪣ عذرا لا تستطيع طرد『 "..Controller(msg_chat_id,Message_Reply.sender.user_id).." 』*","md",true)  
+if msg.can_be_deleted_for_all_users == false then
+return LuaTele.sendText(msg_chat_id,msg_id,"\n*᪣عذرآ البوت ليس ادمن في المجموعه يرجى ترقيته وتفعيل الصلاحيات له *","md",true)  
 end
-if not msg.ControllerBot and not Redis:set(Timo.."Timo:LeftBot") then
-return LuaTele.sendText(msg_chat_id,msg_id,'\n* ᪣ امر المغادره معطل من قبل الاساسي *',"md",true)  
+if GetInfoBot(msg).BanUser == false then
+return LuaTele.sendText(msg_chat_id,msg_id,'\n*᪣البوت ليس لديه صلاحيه حظر المستخدمين* ',"md",true)  
 end
-if ChannelJoin(msg) == false then
-local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = ''..Redis:get(Timo..'Timo:Channel:Join:Name')..'', url = 't.me/'..Redis:get(Timo..'Timo:Channel:Join')}, },}}
-return LuaTele.sendText(msg.chat_id,msg.id,'\n• يجب عليك الاشتراك في القناه',"md",false, false, false, false, reply_markup)
+if StatusCanOrNotCan(msg_chat_id,msg.sender.user_id) then
+return LuaTele.sendText(msg_chat_id,msg_id,"\n*᪣عذرآ لا تستطيع استخدام الامر على { "..Controller(msg_chat_id,msg.sender.user_id).." } *","md",true)  
 end
-local reply_markup = LuaTele.replyMarkup{
-type = 'inline',
-data = {
-{
-{text = 'تأكيد الامر', data = '/Exit'..msg_chat_id}, {text = 'الغاء الامر', data = msg.sender.user_id..'/survival'}, 
-},
-}
-}
-return LuaTele.sendText(msg_chat_id,msg_id,'*⦁ يرجاء تأكيد الأمر عزيزي*',"md",false, false, false, false, reply_markup)
+local StatusMember = LuaTele.getChatMember(msg_chat_id,msg.sender.user_id).status.luatele
+if (StatusMember == "chatMemberStatusCreator") then
+KickMe = true
+elseif (StatusMember == "chatMemberStatusAdministrator") then
+KickMe = true
+else
+KickMe = false
+end
+if KickMe == true then
+return LuaTele.sendText(msg_chat_id,msg_id,"*᪣عذرا لا استطيع طرد ادمنيه ومنشئين المجموعه*","md",true)    
+end
+LuaTele.setChatMemberStatus(msg.chat_id,msg.sender.user_id,'banned',0)
+return LuaTele.sendText(msg_chat_id,msg_id,Reply_Status(UserId_Info.id,"᪣").Reply,"md",true)  
 end
 if text == 'ادمنيه الجروب' then
 if not msg.Managers then
@@ -11957,7 +11960,7 @@ data = {
 {text = '𓄼 تنظيف المجموعات 𓄹',type = 'text'},{text = '𓄼 تنظيف المشتركين 𓄹', type = 'text'},
 },
 {
-{text = '?? جلب النسخه 𓄹',type = 'text'},
+{text = '𓄼 جلب النسخه 𓄹',type = 'text'},
 },
 {
 {text = '𓄼 اضف رد عام 𓄹',type = 'text'},{text = '𓄼 حذف رد عام 𓄹', type = 'text'},
