@@ -11638,6 +11638,22 @@ data = {
 }
 }
 return LuaTele.sendText(msg_chat_id,msg_id,Redis:get(Timo.."Timo:Start:Bot"),"md",false, false, false, false, reply_markup)
+else
+data = {
+{
+{text = 'مبرمج السورس',type = 'text'}
+},
+{
+{text = 'تويت',type = 'text'},{text = 'لو خيروك', type = 'text'},
+},
+{
+{text = 'قناه السورس',type = 'text'},
+},
+{
+{text = 'صورتي',type = 'text'},{text = 'جمالي', type = 'text'},
+},
+}
+return LuaTele.sendText(msg_chat_id,msg_id,Redis:get(Timo.."Timo:Start:Bot"),"md",false, false, false, false, reply_markup)
 end
 else
 local reply_markup = LuaTele.replyMarkup{type = 'keyboard',resize = true,is_personal = true,
@@ -11708,26 +11724,6 @@ data = {
 }
 }
 return LuaTele.sendText(msg_chat_id,msg_id,'* ᪣ اهلا بك عزيزي المطور الاساسي *', 'md', false, false, false, false, reply_markup)
-end
-end
-if text == '/start' then
-Redis:sadd(Timo..'Timo:Num:User:Pv',msg.sender.user_id)  
-if not msg.ControllerBot then
-data = {
-{
-{text = 'مبرمج السورس',type = 'text'}
-},
-{
-{text = 'تويت',type = 'text'},{text = 'لو خيروك', type = 'text'},
-},
-{
-{text = 'قناه السورس',type = 'text'},
-},
-{
-{text = 'صورتي',type = 'text'},{text = 'جمالي', type = 'text'},
-},
-}
-return LuaTele.sendText(msg_chat_id,msg_id,Redis:get(Timo.."Timo:Start:Bot"),"md",false, false, false, false, reply_markup)
 end
 end
 if text == '𓄼 تنظيف المشتركين 𓄹' then
