@@ -975,7 +975,7 @@ Welcome = Welcome:gsub('{gbio}',bio.user_name)
 Welcome = Welcome:gsub('{NameCh}',Get_Chat.title) 
 return LuaTele.sendText(msg_chat_id,msg_id,Welcome,"md")  
 else
-return LuaTele.sendText(msg_chat_id,msg_id,' ᪣ اطلق دخول ['..ban.first_name..'](tg://user?id='..msg.sender.user_id..')\n ᪣ نورت الكروب {'..Get_Chat.title..'}',"md")  
+return LuaTele.sendText(msg_chat_id,msg_id,' ᪣ اطلق دخول ['..ban.first_name..'](tg://user?id='..msg.sender.user_id..')\n ᪣ نورت الجروب {'..Get_Chat.title..'}',"md")  
 end
 end
 end
@@ -2126,7 +2126,7 @@ local FilesJson = JSON.decode(Get_Info)
 if tonumber(Timo) ~= tonumber(FilesJson.BotId) then
 return LuaTele.sendText(msg_chat_id,msg_id,' ᪣ عذرا هاذا الملف غير مطابق مع البوت يرجى جلب النسخه الحقيقيه')
 end -- end botid
-LuaTele.sendText(msg_chat_id,msg_id,' ᪣ جاري استرجاع المشتركين والكروبات ...')
+LuaTele.sendText(msg_chat_id,msg_id,' ᪣ جاري استرجاع المشتركين والجروبات ...')
 Y = 0
 for k,v in pairs(FilesJson.UsersBot) do
 Y = Y + 1
@@ -5615,34 +5615,31 @@ return LuaTele.sendText(msg_chat_id,msg_id," ᪣ تم تنزيلك من الاد
 end
 end
 
-if text == "اطردني" or text == "طلعني" or text == "خرجني" then 
+if text == "اطردني" or text == "طلعني" or text == "طردني" then 
 if not Redis:get(Timo.."Timo:Status:KickMe"..msg_chat_id) then
-return LuaTele.sendText(msg_chat_id,msg_id,"*᪣امر اطردني تم تعطيله من قبل المدراء *","md",true)  
+return LuaTele.sendText(msg_chat_id,msg_id,"* ⦁ امر اطردني تم تعطيله من قبل المدراء *","md",true)  
 end
-if msg.can_be_deleted_for_all_users == false then
-return LuaTele.sendText(msg_chat_id,msg_id,"\n*᪣عذرآ البوت ليس ادمن في المجموعه يرجى ترقيته وتفعيل الصلاحيات له *","md",true)  
+if StatusCanOrNotCan(msg_chat_id,Message_Reply.sender.user_id) then
+return LuaTele.sendText(msg_chat_id,msg_id,"\n* ᪣ عذرا لا تستطيع طرد『 "..Controller(msg_chat_id,Message_Reply.sender.user_id).." 』*","md",true)  
 end
-if GetInfoBot(msg).BanUser == false then
-return LuaTele.sendText(msg_chat_id,msg_id,'\n*᪣البوت ليس لديه صلاحيه حظر المستخدمين* ',"md",true)  
+if not msg.ControllerBot and not Redis:set(Timo.."Timo:LeftBot") then
+return LuaTele.sendText(msg_chat_id,msg_id,'\n* ᪣ امر المغادره معطل من قبل الاساسي *',"md",true)  
 end
-if StatusCanOrNotCan(msg_chat_id,msg.sender.user_id) then
-return LuaTele.sendText(msg_chat_id,msg_id,"\n*᪣عذرآ لا تستطيع استخدام الامر على { "..Controller(msg_chat_id,msg.sender.user_id).." } *","md",true)  
+if ChannelJoin(msg) == false then
+local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = ''..Redis:get(Timo..'Timo:Channel:Join:Name')..'', url = 't.me/'..Redis:get(Timo..'Timo:Channel:Join')}, },}}
+return LuaTele.sendText(msg.chat_id,msg.id,'\n• يجب عليك الاشتراك في القناه',"md",false, false, false, false, reply_markup)
 end
-local StatusMember = LuaTele.getChatMember(msg_chat_id,msg.sender.user_id).status.luatele
-if (StatusMember == "chatMemberStatusCreator") then
-KickMe = true
-elseif (StatusMember == "chatMemberStatusAdministrator") then
-KickMe = true
-else
-KickMe = false
+local reply_markup = LuaTele.replyMarkup{
+type = 'inline',
+data = {
+{
+{text = 'تأكيد الامر', data = '/Exit'..msg_chat_id}, {text = 'الغاء الامر', data = msg.sender.user_id..'/survival'}, 
+},
+}
+}
+return LuaTele.sendText(msg_chat_id,msg_id,'*⦁ يرجاء تأكيد الأمر عزيزي*',"md",false, false, false, false, reply_markup)
 end
-if KickMe == true then
-return LuaTele.sendText(msg_chat_id,msg_id,"*᪣عذرا لا استطيع طرد ادمنيه ومنشئين المجموعه*","md",true)    
-end
-LuaTele.setChatMemberStatus(msg.chat_id,msg.sender.user_id,'banned',0)
-return LuaTele.sendText(msg_chat_id,msg_id,Reply_Status(UserId_Info.id,"᪣").Reply,"md",true)  
-end
-if text == 'ادمنيه الكروب' then
+if text == 'ادمنيه الجروب' then
 if not msg.Managers then
 return LuaTele.sendText(msg_chat_id,msg_id,'\n* ᪣ هاذا الامر يخص 𓄼 '..Controller_Num(6)..' 𓄹* ',"md",true)  
 end
@@ -9691,6 +9688,29 @@ keyboard.inline_keyboard = {
 }
 local msgg = msg_id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token.."/sendvideo?chat_id=" .. msg_chat_id .. "&video="..video.."&caption=".. URL.escape(Name).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+elseif text == 'سيلفا' or text == 'تيم سيلفا' or text == 'تيم' or text == 'التيم' then
+photo = "https://t.me/sorcy/6"
+local Name = 'تيم سيلفا ياحب اعظم تيم في التلي تنورنا في اي وقت'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '𓄼•ᴏᴡɴᴇʀ ᴛᴇᴀᴍ¹•𓄹', url = "https://t.me/tt_tt_4"}
+},
+{
+{text = '𓄼•ᴏᴡɴᴇʀ ᴛᴇᴀᴍ²•𓄹', url = "https://t.me/Arkoun_12"},{text = '𓄼•ᴏᴡɴᴇʀ ᴛᴇᴀᴍ³•𓄹', url = "https://t.me/EL_ME_RE_KH_Y9"}
+},
+{
+{text = '𓄼•ᴏᴡɴᴇʀ ᴛᴇᴀᴍ⁴•𓄹', url = "https://t.me/Snp_Zmlkawe"}
+},
+{
+{text = '𓄼•ɢʀᴏ𝗎ᴘ•𓄹', url = "https://t.me/br_selva"},{text = '𓄼•ᴄʜᴀɴɴᴇᴛ•𓄹', url = "https://t.me/SU_SELVA"}
+},
+{
+{text = '𓄼•ʙᴏᴛ ᴛᴇᴀᴍ•𓄹', url = "https://t.me/Timo8BOT"}
+},
+}
+local msgg = msg_id/2097152/0.5
+https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id=" .. msg_chat_id .. "&photo="..photo.."&caption=".. URL.escape(Name).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 elseif text == 'الاوامر' then
 local user_info = LuaTele.getUser(msg.sender.user_id)
 local first_name = user_info.first_name
