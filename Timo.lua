@@ -11713,7 +11713,6 @@ end
 if text == '/start' then
 Redis:sadd(Timo..'Timo:Num:User:Pv',msg.sender.user_id)  
 if not msg.ControllerBot then
-if not Redis:get(Timo.."Timo:Start:Bot") the
 data = {
 {
 {text = 'مبرمج السورس',type = 'text'}
