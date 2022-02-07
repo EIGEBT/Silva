@@ -11924,9 +11924,6 @@ else
 local reply_markup = LuaTele.replyMarkup{type = 'keyboard',resize = true,is_personal = true,
 data = {
 {
-{text = '𓄼•مبرمج السورس•𓄹', url = "https://t.me/tt_tt_4"}
-},
-{
 {text = '𓄼 تفعيل التواصل 𓄹',type = 'text'},{text = '𓄼 تعطيل التواصل 𓄹', type = 'text'},
 },
 {
