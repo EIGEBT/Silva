@@ -11879,7 +11879,6 @@ end
 if text == '/start' then
 Redis:sadd(Timo..'Timo:Num:User:Pv',msg.sender.user_id)  
 if not msg.ControllerBot then
-video = "http://t.me/t_imoo/4"
 if not Redis:get(Timo.."Timo:Start:Bot") then
 local CmdStart = '*\n ᪣ أهلآ بك في بوت '..(Redis:get(Timo.."Timo:Name:Bot") or "سيلفا")..
 '\n ᪣ اختصاص البوت حماية المجموعات'..
@@ -11904,7 +11903,6 @@ data = {
 }
 return LuaTele.sendText(msg_chat_id,msg_id,CmdStart,"md",false, false, false, false, reply_markup)
 local msgg = msg_id/2097152/0.5
-https.request("https://api.telegram.org/bot"..Token.."/sendvideo?chat_id=" .. msg_chat_id .. "&video="..video.."&caption=".. URL.escape(T).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 else
 local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
@@ -11925,6 +11923,9 @@ end
 else
 local reply_markup = LuaTele.replyMarkup{type = 'keyboard',resize = true,is_personal = true,
 data = {
+{
+{text = '𓄼•مبرمج السورس•𓄹', url = "https://t.me/tt_tt_4"}
+},
 {
 {text = '𓄼 تفعيل التواصل 𓄹',type = 'text'},{text = '𓄼 تعطيل التواصل 𓄹', type = 'text'},
 },
@@ -12093,7 +12094,7 @@ return LuaTele.sendText(msg_chat_id,msg_id," ᪣ ارسل لي الاسم الا
 end
 if text == '𓄼 حذف اسم البوت 𓄹' then 
 if not msg.ControllerBot then 
-return LuaTele.sendText(msg_chat_id,msg_id,'\n* ᪣ هاذا الامر يخص ?? '..Controller_Num(1)..' 𓄹* ',"md",true)  
+return LuaTele.sendText(msg_chat_id,msg_id,'\n* ᪣ هاذا الامر يخص 𓄼 '..Controller_Num(1)..' 𓄹* ',"md",true)  
 end
 if ChannelJoin(msg) == false then
 local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = 'اضغط للاشتراك', url = 't.me/SU_SELVA'}, },}}
@@ -12807,7 +12808,7 @@ local TextHelp = [[*
 𓄼• المقيدين •𓄹
 𓄼• المطرودين •𓄹
 𓄼• المحذوفين •𓄹
-𓄼• اضف رد •𓄹
+𓄼• اضف رد •??
 𓄼• مسح رد •𓄹
 𓄼• مسح الردود المضافه •𓄹
 𓄼• الردود المضافه •𓄹
