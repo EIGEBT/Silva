@@ -11929,6 +11929,9 @@ data = {
 {text = '𓄼تويت 𓄹',type = 'text'},{text = '𓄼 تعطيل البوت الخدمي 𓄹', type = 'text'},
 },
 }
+return LuaTele.sendText(msg_chat_id,msg_id,'* ᪣ *', 'md', false, false, false, false, reply_markup)
+end
+end
 local reply_markup = LuaTele.replyMarkup{type = 'keyboard',resize = true,is_personal = true,
 data = {
 {
