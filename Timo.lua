@@ -9491,7 +9491,7 @@ else
 local photo = LuaTele.getUserProfilePhotos(Sudo_Id)
 if photo.total_count > 0 then
 local ban = LuaTele.getUser(Sudo_Id)
-local T = '*🤍- 𝙳𝙴𝚅-𝙱𝙾𝚃 - = *['..ban.first_name..'](tg://user?id='..ban.id..')*\n*'
+local T = '*🤍- 𝙳𝙴𝚅-𝙱𝙾𝚃 - = *['..ban.first_name..'](tg://user?id='..ban.id..')*\nʙɪᴏ ⇒ '..getbio(UserId)..' \n*'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
@@ -9804,19 +9804,6 @@ if text and text:match("^قول (.*)$")then
 local m = text:match("^قول (.*)$")
 if Redis:get(Timo.."Status:kool"..msg.chat_id) then
 return LuaTele.sendText(msg_chat_id,msg_id,m,"md",true) 
-end
-end
-if text == 'سلفني' then
-ksmk = "\n"لقد جات اللي المكان الصح عزيزي\n لخدمة سلفني بعبوص ارسل 1"\n"
-Redis:del(Timo.."1"..msg.sender.user_id) 
-end
-if Redis:get(Timo.."1"..msg.sender.user_id)" then
-local texting = {"لو عوز تتناك رسلني @tt_tt_4 ",
-"اي فائده النيك تحصل علي فلو",
-"خدمه احسن من خدمة سلفني",
-"مع نيكني الافضل",
-LuaTele.sendText(msg_chat_id,msg_id,ksmk,"md",true) 
-Redis:del(Timo.."1"..msg.sender.user_id) 
 end
 end
 if text == "زواج" or text == "رفع زوجتي" or text == "رفع زوجي" and msg.reply_to_message_id ~= 0 then
@@ -11747,7 +11734,7 @@ name = string.gsub(name,"🙍‍♂️","🙎‍♂️🙎‍♂️🙎‍♂️
 name = string.gsub(name,"🧖‍♂️","🧖‍♀️🧖‍♀️♀️🧖‍♀️??‍♀️🧖‍♂️🧖‍♀️🧖‍♀️🧖‍♀️🧖‍♀️")
 name = string.gsub(name,"👬","👭👭👭👭👭👬👭👭👭")
 name = string.gsub(name,"??‍👨‍👧","👨‍👨‍👦👨‍👨‍👦👨‍👨‍👦👨‍👨‍👦👨‍👨‍👧👨‍👨‍👦??‍👨‍👦")
-name = string.gsub(name,"🕒","🕒🕒🕒🕒🕒🕒🕓🕒🕒🕒")
+name = string.gsub(name,"🕒","🕒🕒🕒🕒🕒??🕓🕒🕒🕒")
 name = string.gsub(name,"🕤","🕥🕥🕥🕥🕥🕤🕥🕥🕥")
 name = string.gsub(name,"⌛️","⏳⏳⏳⏳⏳⏳⌛️⏳⏳")
 name = string.gsub(name,"??","📆📆📆📆📆📆📅📆📆")
@@ -12818,7 +12805,7 @@ local TextHelp = [[*
 𓄼• الردود المضافه •𓄹
 𓄼• بوت غادر •𓄹
 ༺┉┉┉⊶﴾𓄼•ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ•𓄹﴿⊷┉┉┉༻
-𓄼• الحمايه •𓄹
+𓄼• الحمايه •??
 𓄼• اعدادات الحمايه •𓄹
 𓄼• الاعدادات •𓄹
 𓄼• المجموعه •𓄹
