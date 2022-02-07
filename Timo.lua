@@ -11880,7 +11880,7 @@ if text == '/start' then
 Redis:sadd(Timo..'Timo:Num:User:Pv',msg.sender.user_id)  
 if not msg.ControllerBot then
 if not Redis:get(Timo.."Timo:Start:Bot") then
-local CmdStart = '*\n ᪣ أهلآ بك في بوت '..(Redis:get(Timo.."Timo:Name:Bot") or "سيلفا")..
+local CmdStart = '*\n ᪣ أهلآ بك في بوت '..(Redis:get(Timo.."Timo:Name:Bot") or "صعيدي")..
 '\n ᪣ اختصاص البوت حماية المجموعات'..
 '\n ᪣ لتفعيل البوت عليك اتباع مايلي ...'..
 '\n ᪣ اضف البوت الى مجموعتك'..
@@ -11902,7 +11902,6 @@ data = {
 }
 }
 return LuaTele.sendText(msg_chat_id,msg_id,CmdStart,"md",false, false, false, false, reply_markup)
-local msgg = msg_id/2097152/0.5
 else
 local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
@@ -11919,6 +11918,7 @@ data = {
 }
 }
 return LuaTele.sendText(msg_chat_id,msg_id,Redis:get(Timo.."Timo:Start:Bot"),"md",false, false, false, false, reply_markup)
+end
 end
 else
 local reply_markup = LuaTele.replyMarkup{type = 'keyboard',resize = true,is_personal = true,
@@ -11975,7 +11975,7 @@ data = {
 {text = '𓄼 تنظيف المجموعات 𓄹',type = 'text'},{text = '𓄼 تنظيف المشتركين 𓄹', type = 'text'},
 },
 {
-{text = '𓄼 جلب النسخه 𓄹',type = 'text'},
+{text = '𓄼 جلب النسخه العامه 𓄹',type = 'text'},
 },
 {
 {text = '𓄼 اضف رد عام 𓄹',type = 'text'},{text = '𓄼 حذف رد عام 𓄹', type = 'text'},
