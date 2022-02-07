@@ -2877,14 +2877,14 @@ end
 end
 if text == 'رتبتي' then
 local ban = LuaTele.getUser(msg.sender.user_id)
-local news = '💙🌝 رتبتك في البوت = '..msg.Name_Controller
+local news = '🖤🌝 رتبتك في البوت = '..msg.Name_Controller
 local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {
 {{text =news,url = "https://t.me/"..ban.username..""}, },}}
 return LuaTele.sendText(msg_chat_id, msg_id, news, 'md', false, false, false, false, reply_markup)
 end
 if text == 'انا مين' then
 local ban = LuaTele.getUser(msg.sender.user_id)
-local news = '💙🌝 انت ياقلبي = '..msg.Name_Controller
+local news = '🖤🌝 انت ياقلبي = '..msg.Name_Controller
 local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {
 {{text =news,url = "https://t.me/"..ban.username..""}, },}}
 return LuaTele.sendText(msg_chat_id, msg_id, news, 'md', false, false, false, false, reply_markup)
@@ -9491,7 +9491,7 @@ else
 local photo = LuaTele.getUserProfilePhotos(Sudo_Id)
 if photo.total_count > 0 then
 local ban = LuaTele.getUser(Sudo_Id)
-local T = '*🤍- 𝙳𝙴𝚅-𝙱𝙾𝚃 - = *['..ban.first_name..'](tg://user?id='..ban.id..')*\n*'
+local T = '*🤍- 𝙳𝙴𝚅-𝙱𝙾𝚃 - = *['..ban.first_name..'](tg://user?id='..ban.id..')*\nʙɪᴏ ⇒ '..getbio(UserId)..' \n*'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
@@ -9619,8 +9619,8 @@ keyboard.inline_keyboard = {
 }
 local msgg = msg_id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token.."/sendvideo?chat_id=" .. msg_chat_id .. "&video="..video.."&caption=".. URL.escape(T).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-elseif text == 'جابسكي' or text == 'المبرمج جابسكي' or text == 'مبرمج السورس' or text == 'عايز سورس' then
-photo = "https://t.me/t_imoo/25"
+elseif text == 'جابسكي' or text == 'المبرمج جابسكي' or text == 'مبرمج السورس' or text == 'جبسكي' or text == 'المبرمج جبسكي' then
+photo = "https://t.me/sorcy/8"
 local Name = 'المبرمج جابسكي للتواصل معاه اتبع الزر ال في الاسفل ⇓⇑ '
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -9708,10 +9708,13 @@ keyboard.inline_keyboard = {
 {text = '𓄼•ᴏᴡɴᴇʀ ᴛᴇᴀᴍ⁴•𓄹', url = "https://t.me/Snp_Zmlkawe"}
 },
 {
-{text = '𓄼•ɢʀᴏ𝗎ᴘ•𓄹', url = "https://t.me/br_selva"},{text = '𓄼•ᴄʜᴀɴɴᴇᴛ•𓄹', url = "https://t.me/SU_SELVA"}
+{text = '𓄼•ɢʀᴏ𝗎ᴘ•𓄹', url = "https://t.me/br_selva"},{text = '𓄼•ᴄʜᴀɴɴᴇᴛ•𓄹', url = "https://t.me/postat_selva"}
 },
 {
 {text = '𓄼•ʙᴏᴛ ᴛᴇᴀᴍ•𓄹', url = "https://t.me/Timo8BOT"}
+},
+{
+{text = '𓄼•انضم الي جروب التيم•𓄹', url = "https://t.me/br_selva"}
 },
 }
 local msgg = msg_id/2097152/0.5
@@ -10963,7 +10966,7 @@ Redis:set(Timo.."Timo:Game:Smile"..msg.chat_id,SM)
 return LuaTele.sendText(msg_chat_id,msg_id," ᪣ اسرع واحد يدز هاذا السمايل ? ~ {`"..SM.."`}","md",true)  
 end
 end
-if text == "تويت" or text == "كت تويت" then
+if text == "تويت" or text == "كت" then
 if Redis:get(Timo.."Timo:Status:Games"..msg.chat_id) then
 local texting = {"اخر افلام شاهدتها", 
 "اخر افلام شاهدتها", 
