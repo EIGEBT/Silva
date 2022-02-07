@@ -9491,7 +9491,7 @@ else
 local photo = LuaTele.getUserProfilePhotos(Sudo_Id)
 if photo.total_count > 0 then
 local ban = LuaTele.getUser(Sudo_Id)
-local T = '*🤍- 𝙳𝙴𝚅-𝙱𝙾𝚃 - = *['..ban.first_name..'](tg://user?id='..ban.id..')*\nʙɪᴏ ⇒ '..getbio(UserId)..' \n*'
+local T = '*🤍- 𝙳𝙴𝚅-𝙱𝙾𝚃 - = *['..ban.first_name..'](tg://user?id='..ban.id..')*\n*'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
@@ -9595,6 +9595,7 @@ local first_name = user_info.first_name
 video = "http://t.me/t_imoo/4"
 local T =[[
 ╔━━-━━━━━𓄼[᪣](http://t.me/SU_SELVA)𓄹━━━━━-━━╗ 
+┇ ['..ban.first_name..'](tg://user?id='..ban.id..')
 ┇𓄼[ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ ѕᴏ𝗎ʀᴄᴇ ѕᴇʟᴠᴀ](http://t.me/SU_SELVA)𓄹
 ┇▱▰▱▰▱▰▱▰▱▰▱▰▱
 ┇𓄼[ᴛʜᴇ ʙᴇѕᴛ ѕᴏ𝗎ʀᴄᴇ ᴛᴇʟᴇɢʀᴀᴍ](http://t.me/SU_SELVA)𓄹
