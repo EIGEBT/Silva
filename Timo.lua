@@ -11877,12 +11877,6 @@ LuaTele.sendText(msg_chat_id,msg_id, "* ᪣ تم تحديث الملفات *","m
 dofile('Timo.lua')  
 end
 if text == '/start' then
-local photo = LuaTele.getUserProfilePhotos(Timo)
-local UserInfo = LuaTele.getUser(Timo)
-local user_info = LuaTele.getUser(msg.sender.user_id)
-local first_name = user_info.first_name
-for Name_User in string.gmatch(UserInfo.first_name, "[^%s]+" ) do
-UserInfo.first_name = Name_User
 Redis:sadd(Timo..'Timo:Num:User:Pv',msg.sender.user_id)  
 if not msg.ControllerBot then
 if not Redis:get(Timo.."Timo:Start:Bot") then
@@ -11893,7 +11887,6 @@ local CmdStart = '*\n ᪣ أهلآ بك في بوت '..(Redis:get(Timo.."Timo:Na
 '\n ᪣ ارفعه ادمن {مشرف}'..
 '\n ᪣ ارسل كلمة { تفعيل } ليتم تفعيل المجموعه'..
 '\n ᪣ مطور البوت ⇦ 𓄼• @'..UserSudo..' •𓄹*'
-if photo.total_count > 0 then
 local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
 data = {
@@ -11925,8 +11918,16 @@ data = {
 }
 }
 return LuaTele.sendText(msg_chat_id,msg_id,Redis:get(Timo.."Timo:Start:Bot"),"md",false, false, false, false, reply_markup)
-end
 else
+local reply_markup = LuaTele.replyMarkup{type = 'keyboard',resize = true,is_personal = true,
+data = {
+{
+{text = '𓄼 جابسكي 𓄹',type = 'text'},{text = '𓄼سورس 𓄹', type = 'text'},
+},
+{
+{text = '𓄼تويت 𓄹',type = 'text'},{text = '𓄼 تعطيل البوت الخدمي 𓄹', type = 'text'},
+},
+}
 local reply_markup = LuaTele.replyMarkup{type = 'keyboard',resize = true,is_personal = true,
 data = {
 {
