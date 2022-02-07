@@ -11877,6 +11877,12 @@ LuaTele.sendText(msg_chat_id,msg_id, "* ᪣ تم تحديث الملفات *","m
 dofile('Timo.lua')  
 end
 if text == '/start' then
+local photo = LuaTele.getUserProfilePhotos(Timo)
+local UserInfo = LuaTele.getUser(Timo)
+local user_info = LuaTele.getUser(msg.sender.user_id)
+local first_name = user_info.first_name
+for Name_User in string.gmatch(UserInfo.first_name, "[^%s]+" ) do
+UserInfo.first_name = Name_User
 Redis:sadd(Timo..'Timo:Num:User:Pv',msg.sender.user_id)  
 if not msg.ControllerBot then
 if not Redis:get(Timo.."Timo:Start:Bot") then
@@ -11887,6 +11893,7 @@ local CmdStart = '*\n ᪣ أهلآ بك في بوت '..(Redis:get(Timo.."Timo:Na
 '\n ᪣ ارفعه ادمن {مشرف}'..
 '\n ᪣ ارسل كلمة { تفعيل } ليتم تفعيل المجموعه'..
 '\n ᪣ مطور البوت ⇦ 𓄼• @'..UserSudo..' •𓄹*'
+if photo.total_count > 0 then
 local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
 data = {
@@ -13020,7 +13027,7 @@ local TextHelp = [[*
 𓄼 رفع + تنزيل = حمار 𓄹
 𓄼 تاك للحمير 𓄹
 ▱▰▱▰▱▰▱▰▱▰▱▰▱▰
-𓄼 رفع + تنزيل = مزه ??
+𓄼 رفع + تنزيل = مزه 𓄹
 𓄼 تاك للمزز 𓄹
 ▱▰▱▰▱▰▱▰▱▰▱▰▱▰
 𓄼 رفع + تنزيل = وتكه 𓄹
