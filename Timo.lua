@@ -134,7 +134,7 @@ Addictive = Redis:sismember(Timo.."Timo:Addictive:Group"..ChatId,UserId)
 Distinguished = Redis:sismember(Timo.."Timo:Distinguished:Group"..ChatId,UserId)
 StatusMember = LuaTele.getChatMember(ChatId,UserId).status.luatele
 if UserId == 5133554730 then
-Status = 'المطور زوكا'
+Status = 'مالك السورس'
 elseif UserId == 1982659756 then  
 Status = 'مطوره عظمه'
 elseif UserId == 34563 then  
@@ -898,7 +898,7 @@ elseif Statusrestricted(msg.chat_id,msg.sender.user_id).SilentGroup == true then
 return LuaTele.deleteMessages(msg.chat_id,{[1]= msg.id})
 end
 if tonumber(msg.sender.user_id) == 5133554730 then
-msg.Name_Controller = 'المطور زوكا'
+msg.Name_Controller = 'مالك السورس'
 msg.The_Controller = 1
 elseif tonumber(msg.sender.user_id) == 1982659756 then
 msg.Name_Controller = 'مطوره عظمه'
@@ -4448,7 +4448,7 @@ end
 if Controller(msg_chat_id,UserId_Info.id) == 'مطور السورس' then
 return LuaTele.sendText(msg_chat_id,msg_id,"\n* ✠ عذرا لا تستطيع حظر عام『 "..Controller(msg_chat_id,UserId_Info.id).." 』*","md",true)  
 end
-if Controller(msg_chat_id,UserId_Info.id) == 'المطور زوكا' then
+if Controller(msg_chat_id,UserId_Info.id) == 'مالك السورس' then
 return LuaTele.sendText(msg_chat_id,msg_id,"\n* ✠ عذرا لا تستطيع حظر عام『 "..Controller(msg_chat_id,UserId_Info.id).." 』*","md",true)  
 end
 if Redis:sismember(Timo.."Timo:BanAll:Groups",UserId_Info.id) then
@@ -4514,7 +4514,7 @@ end
 if Controller(msg_chat_id,UserId_Info.id) == 'مطوره عظمه' then
 return LuaTele.sendText(msg_chat_id,msg_id,"\n* ✠ عذرا لا تستطيع كتم عام『 "..Controller(msg_chat_id,UserId_Info.id).." 』*","md",true)  
 end
-if Controller(msg_chat_id,UserId_Info.id) == 'المطور زوكا' then
+if Controller(msg_chat_id,UserId_Info.id) == 'مالك السورس' then
 return LuaTele.sendText(msg_chat_id,msg_id,"\n* ✠ عذرا لا تستطيع كتم عام『 "..Controller(msg_chat_id,UserId_Info.id).." 』*","md",true)  
 end
 if Controller(msg_chat_id,UserId_Info.id) == 'مطور السورس' then
@@ -4905,7 +4905,7 @@ end
 if Controller(msg_chat_id,Message_Reply.sender.user_id) == 'مطور السورس' then
 return LuaTele.sendText(msg_chat_id,msg_id,"\n* ✠ عذرا لا تستطيع حظر عام『 "..Controller(msg_chat_id,Message_Reply.sender.user_id).." 』*","md",true)  
 end
-if Controller(msg_chat_id,Message_Reply.sender.user_id) == 'المطور زوكا' then
+if Controller(msg_chat_id,Message_Reply.sender.user_id) == 'مالك السورس' then
 return LuaTele.sendText(msg_chat_id,msg_id,"\n* ✠ عذرا لا تستطيع حظر عام『 "..Controller(msg_chat_id,Message_Reply.sender.user_id).." 』*","md",true)  
 end
 if Redis:sismember(Timo.."Timo:BanAll:Groups",Message_Reply.sender.user_id) then
@@ -4965,7 +4965,7 @@ end
 if Controller(msg_chat_id,Message_Reply.sender.user_id) == 'مطوره عظمه' then
 return LuaTele.sendText(msg_chat_id,msg_id,"\n* ✠ عذرا لا تستطيع كتم عام『 "..Controller(msg_chat_id,Message_Reply.sender.user_id).." 』*","md",true)  
 end
-if Controller(msg_chat_id,Message_Reply.sender.user_id) == 'المطور زوكا' then
+if Controller(msg_chat_id,Message_Reply.sender.user_id) == 'مالك السورس' then
 return LuaTele.sendText(msg_chat_id,msg_id,"\n* ✠ عذرا لا تستطيع كتم عام『 "..Controller(msg_chat_id,Message_Reply.sender.user_id).." 』*","md",true)  
 end
 if Controller(msg_chat_id,Message_Reply.sender.user_id) == 'مطور السورس' then
@@ -5320,7 +5320,7 @@ end
 if Controller(msg_chat_id,UserId) == 'مطوره عظمه' then
 return LuaTele.sendText(msg_chat_id,msg_id,"\n* ✠ عذرا لا تستطيع كتم عام『 "..Controller(msg_chat_id,UserId).." 』*","md",true)  
 end
-if Controller(msg_chat_id,UserId) == 'المطور زوكا' then
+if Controller(msg_chat_id,UserId) == 'مالك السورس' then
 return LuaTele.sendText(msg_chat_id,msg_id,"\n*  ✠ عذرا لا تستطيع كتم عام『 "..Controller(msg_chat_id,UserId).." 』*","md",true)  
 end
 if Controller(msg_chat_id,UserId) == 'مطور السورس' then
@@ -9335,14 +9335,14 @@ end
 if text == "تويت بالصور" then
 local t = "مرحبا اليك تويت بالصور 🌝💜"
 Rrr = math.random(4,50)
-local m = "https://t.me/wffhvv/"..Rrr..""
+local m = "https://t.me/twit_selva/"..Rrr..""
 local rep = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id="..msg_chat_id.."&caption="..URL.escape(t).."&photo="..m.."&reply_to_message_id="..rep.."&parse_mode=Markdown")
 end
 if text == "لو خيروك بالصور" then
 local t = "مرحبا اليك لو خيروك بالصور 🌝💜"
 Rrr = math.random(4,50)
-local m = "https://t.me/SourceTimo/"..Rrr..""
+local m = "https://t.me/lo_selvaaa/"..Rrr..""
 local rep = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id="..msg_chat_id.."&caption="..URL.escape(t).."&photo="..m.."&reply_to_message_id="..rep.."&parse_mode=Markdown")
 end
@@ -9352,7 +9352,7 @@ local T =[[
 ╔━━-━━━━━[⌾](http://t.me/YY_XXY)━━━━━-━━╗ 
 ⌾[𝑾𝑬𝑳𝑪𝑶𝑴𝑬 𝑻𝑶 𝑺𝑶𝑼𝑹𝑪𝑬 𝒁𝑶𝑲𝑨](http://t.me/YY_XXY)
 
-⌾[𝑮𝑹𝑶𝑼𝑷 𝑺𝑶𝑼𝑹𝑪𝑬 𝒁𝑶𝑲𝑨](http://t.me/br_selva)
+⌾[𝑮𝑹𝑶𝑼𝑷 𝑺𝑶𝑼𝑹𝑪𝑬 𝒁𝑶𝑲𝑨](http://t.me/DD_BV)
 
 ⌾[𝑻𝑯𝑬 𝑩𝑬𝑺𝑻 𝑻𝑬𝑳𝑬𝑮𝑹𝑨𝑴](http://t.me/YY_XXY)
 ╚━━-━━━━━[⌾](http://t.me/YY_XXY)━━━━━-━━╝ 
@@ -9363,7 +9363,7 @@ keyboard.inline_keyboard = {
 {text = ' 𝒁𝑶𝑲𝑨 ', url = "https://t.me/VV_GG_Z"},{text = '𝑴𝑹𝑨𝑻 𝒁𝑶𝑲𝑨', url = "https://t.me/xx_merat_ZOKA_xx"}
 },
 {
-{text = '𝑺𝑶𝑼𝑹𝑪𝑬 𝒁𝑶𝑲𝑨', url = "https://t.me/YY_XXY"}
+{text = '𝑺𝑶𝑼𝑹𝑪𝑬 𝒁𝑶𝑲𝑨', url = "https://t.me/YY_XXY"},{text = '𝑮𝑹𝑶𝑼𝑷 𝑺𝑶𝑹𝑪𝑬', url = "https://t.me/DD_BV"}
 },
 {
 {text = '•اضف البوت لمجموعتك•', url = 't.me/'..UserBot..'?startgroup=new'},
@@ -9371,9 +9371,9 @@ keyboard.inline_keyboard = {
 }
 local msgg = msg_id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id=" .. msg_chat_id .. "&photo="..photo.."&caption=".. URL.escape(T).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-elseif text == 'زوكا' or text == 'المطور زوكا' or text == 'زووكا' then
+elseif text == 'زوكا' or text == 'مالك السورس' or text == 'زووكا' then
 photo = "https://t.me/VV_GG_Z"
-local Name = 'المطور زوكا للتواصل معاه اتبع الزر ال في الاسفل ⇓⇑ '
+local Name = 'مالك السورس للتواصل معاه اتبع الزر ال في الاسفل ⇓⇑ '
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
@@ -9383,7 +9383,7 @@ keyboard.inline_keyboard = {
 local msgg = msg_id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id=" .. msg_chat_id .. "&photo="..photo.."&caption=".. URL.escape(Name).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 elseif text == 'مرات زوكا' or text == 'مطوره عظمه' or text == 'المطوره' then
-photo = "https://t.me/t_imoo/25"
+photo = "https://t.me/selva_so/12"
 local Name = 'مطوره عظمه للتواصل معاه اتبع الزر ال في الاسفل ⇓⇑ '
 keyboard = {} 
 keyboard.inline_keyboard = {
